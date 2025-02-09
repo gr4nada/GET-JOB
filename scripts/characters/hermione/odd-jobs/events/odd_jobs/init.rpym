@@ -3,10 +3,6 @@ init offset = 5
 # Mod Event Flags
 default states.her.ev.library_job.intro_complete = False
 
-#################
-## Library Outfit ##
-#################
-
 default her_top_latex_dress_library = DollCloth("hermione", ("upper body", "one-piece suits"), "top", "latex_dress_1", ["#8B5A2BFF", "#A0522DFF"], blacklist=["bra"], level=1)
 default her_accessory_vintage_library_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "vintage_glasses", ["#ffffff32", "#242424ff", "#747474ff"], unlocked=True)
 default her_neckwear_library1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "maid_choker_2", ["#ecf3f4ff"], level=4)
