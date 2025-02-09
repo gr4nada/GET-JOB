@@ -1,0 +1,127 @@
+# Commenting out the initialization offset
+init offset = 5
+
+# Mod Event Flags
+default states.ast.ev.dishwasher_job.intro_complete = False
+
+#################
+## dishwasher Outfit ##
+#################
+
+default ast_top_dishash = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffffdd", "#ccccccee", "#bbbbbbee"])
+default ast_top_dishash_wet = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+default ast_bottom_dishash = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#ffffffff", "#ffffffff"])
+default ast_gloves_dishwash = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", ["#ffd700ff"])
+
+default ast_outfit_dishwash = DollOutfit([ast_top_dishash,ast_bottom_dishash,ast_top_dishash_wet], price=80, name="Dishwash Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+
+# Mod Event
+default ast_ev_dishwasher_job_return = Event(
+    id="ast_ev_dishwasher_job_return", 
+    label="ast_dishwasher_job_return", 
+    priority=5, 
+    req=(not game.daytime)  
+)
+
+default ast_eventqueue_jobs_dishwasher = EventQueue("ast_eventqueue_jobs_dishwasher")
+
+default ast_ev_dishwasher_job_hub = Event(
+    id="ast_ev_dishwasher_job_hub",
+    label="ast_dishwasher_job",
+    req="states.ast.tier > 0", 
+    autoenqueue=True,
+    autodequeue=False,
+    queue="ast_eventqueue_jobs_dishwasher",
+    subevents=["ast_ev_dishwasher_job_return"]
+)
+
+if "astoria_jobs" not in globals():
+    define astoria_jobs = [
+        ("ast_eventqueue_jobs_dishwasher", "Work as a dishwasher!"),
+
+]    
+else:
+    $ astoria_jobs.append(("ast_eventqueue_jobs_dishwasher", "Work as a librarian!"))
+
+
+label astoria_favor_menu_over:
+    menu:
+        # "-Level Up-" (icon="interface/icons/small/levelup.webp") if ast_level_up is not None:
+        #         call luna_level_up(tier=ast_level_up)
+        #         jump luna_favor_menu
+
+        "-Personal Favours-" (icon="interface/icons/small/heart_red.webp", style="disabled"):
+            # call tutorial("hearts")
+
+            label .personal:
+
+            call not_available
+
+            # $ result = show_events_menu(astoria_favors)
+
+            # if result in ("disabled", "noncompliant"):
+            #     "You haven't unlocked this favour opportunity yet."
+            #     jump .personal
+            # elif result == "exit":
+            #     jump astoria_favor_menu
+            # else:
+            #     $ result.start()
+
+            jump astoria_favor_menu
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled"):
+            label .requests:
+
+            call not_available
+
+            # $ result = show_events_menu(hermione_requests)
+
+            # if result in ("disabled", "noncompliant"):
+            #     "You haven't unlocked this request opportunity yet."
+            #     jump .requests
+            # elif result == "exit":
+            #     jump .skip_points_check
+            # else:
+            #     $ result.start()
+
+            jump astoria_favor_menu
+
+        "-Spell Training-" (icon="interface/icons/small/spell.webp"):
+            call tutorial("hearts")
+
+            label .spells:
+
+            $ result = show_events_menu(astoria_spells)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this spell training opportunity yet."
+                jump .spells
+            elif result == "exit":
+                jump astoria_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp") if game.daytime:
+            label .odd_jobs:
+
+            $ result = show_events_menu(astoria_jobs, report_progress=False)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this job opportunity yet."
+                jump .odd_jobs
+
+            elif result == "exit":
+                jump .skip_points_check
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp", style="disabled") if not game.daytime:
+            nar "Public requests are available during the day only."
+            jump .skip_points_check
+        
+
+        "-Never mind-":
+            jump astoria_requests
+
+init python:
+    config.label_overrides["astoria_favor_menu"] = "astoria_favor_menu_over"
