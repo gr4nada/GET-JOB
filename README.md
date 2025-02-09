@@ -1,2 +1,2 @@
 # GET-JOB
-A WTS - Witch Trainer MOD
+A WTS - Witch Trainer Silver - MOD

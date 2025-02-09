@@ -1,0 +1,46 @@
+init offset = 5
+
+# Mod Event Flags
+default states.her.ev.library_job.intro_complete = False
+
+#################
+## Library Outfit ##
+#################
+
+default her_top_latex_dress_library = DollCloth("hermione", ("upper body", "one-piece suits"), "top", "latex_dress_1", ["#8B5A2BFF", "#A0522DFF"], blacklist=["bra"], level=1)
+default her_accessory_vintage_library_glasses = DollCloth("hermione", ("head", "glasses"), "glasses", "vintage_glasses", ["#ffffff32", "#242424ff", "#747474ff"], unlocked=True)
+default her_neckwear_library1 = DollCloth("hermione", ("head", "neckwear"), "neckwear", "maid_choker_2", ["#ecf3f4ff"], level=4)
+
+default her_outfit_library = DollOutfit([her_accessory_vintage_library_glasses, her_top_latex_dress_library], addons=[her_neckwear_library1], price=450, name="French Library Costume", desc="A fashion Library Outfit for a classy Witch.")
+
+# Mod Event
+default her_ev_library_job_return = Event(
+    id="her_ev_library_job_return", 
+    label="her_library_job_return", 
+    priority=5, 
+    req=(not game.daytime)  
+)
+
+default her_eventqueue_jobs_library = EventQueue("her_eventqueue_jobs_library")
+
+default her_ev_library_job_hub = Event(
+    id="her_ev_library_job_hub",
+    label="her_library_job",
+    req="states.her.tier > 0", 
+    autoenqueue=True,
+    autodequeue=False,
+    queue="her_eventqueue_jobs_library",
+    subevents=["her_ev_library_job_return"]
+)
+
+if "hermione_jobs" not in globals():
+    define hermione_jobs = [
+        ("her_eventqueue_jobs_library", "Work as a librarian!"),
+        ("her_eventqueue_jobs_maid", "Work as a maid!"),
+        ("her_eventqueue_jobs_promoter", "Work as a promoter!"),
+        ("her_eventqueue_panty_thief", "Ditch the panties!"),
+]    
+else:
+    $ hermione_jobs.append(("her_eventqueue_jobs_library", "Work as a librarian!"))
+
+

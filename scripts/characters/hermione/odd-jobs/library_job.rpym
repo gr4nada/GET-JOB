@@ -1,0 +1,254 @@
+# Library Job  
+label her_library_job:  
+
+    if not states.her.ev.library_job.intro_complete:  
+        $ states.her.ev.library_job.intro_complete = True  
+        her "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)  
+        gen "This castle needs more organization, especially in the library." ("base", xpos="far_left", ypos="head")  
+        her "[name_genie_hermione]?" ("open", "squint", "base", "mid", xpos="right", ypos="base")  
+        gen "Someone needs to catalog and organize the books... Don't you think?" ("base", xpos="far_left", ypos="head")  
+        if states.her.level < 4:  
+            her "Finally, someone recognizes the importance of the library!" ("base", "closed", "base", "mid")  
+            her "Of course, I'll help!" ("base", "base", "base", "mid")  
+            gen "Great! Then here's the librarian outfit for you." ("base", xpos="far_left", ypos="head")  
+            her "..." ("angry", "narrow", "base", "down")  
+            her @ cheeks blush "Why a librarian’s outfit?! And this is completely inappropriate!" ("angry", "narrow", "base", "down")
+            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
+            her "[name_genie_hermione], this isn't what I expected..." ("disgust", "squint", "base", "mid")  
+            gen "You'll be rewarded with points, of course..." ("base", xpos="far_left", ypos="head")  
+            her "*Hmm*..." ("upset", "narrow", "base", "R")  
+            gen "And technically, you'll be working for me, so I'll hold onto your points until you can receive them." ("base", xpos="far_left", ypos="head")  
+            her "Right... I suppose that makes sense..." ("open", "squint", "base", "R")  
+            gen "So, do you accept?" ("base", xpos="far_left", ypos="head")  
+            her "I guess I could..." ("normal", "squint", "base", "R")  
+            gen "Perfect!" ("base", xpos="far_left", ypos="head")  
+            gen "Come back here in the evening to tell me how it went." ("base", xpos="far_left", ypos="head")  
+            if not is_in_lead(gryffindor):  
+                her "Alright..." ("open", "base", "base", "mid")  
+                her "Let me just put this on..." ("angry", "squint", "base", "mid")  
+            else: # Gryffindor is in the lead  
+                her "Now? But we’re winning!" ("open", "squint", "base", "mid")  
+                gen "So what? Organization is always important." ("base", xpos="far_left", ypos="head")  
+                her "But I don't need any more points at the moment..." ("grin", "base", "base", "mid")  
+                gen "Right..." ("base", xpos="far_left", ypos="head")  
+
+                hide hermione_main  
+                with d3  
+
+                call tutorial("points")  
+
+                $ _event.cancel()  
+                jump hermione_favor_menu.odd_jobs  
+                
+        elif states.her.level < 13:
+            her "You called for me, [name_genie_hermione]?" ("angry", "base", "base", "mid")
+            gen "Yes, I have something for you to wear..." ("base", xpos="far_left", ypos="head")
+            her @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
+            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
+            gen "You'll be compensated with points, naturally." ("base", xpos="far_left", ypos="head")
+            her "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "base", "mid")
+            gen "Good. However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
+            her "Must I?" ("clench", "base", "base", "mid")
+            gen "Do you think I can just let students profit from these tasks?" ("base", xpos="far_left", ypos="head")
+            her "*Ehm*..." ("angry", "base", "base", "mid")
+            gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head")
+            her "Very well..." ("open", "base", "base", "mid")
+            gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
+
+            if not is_in_lead(gryffindor):
+                her "Alright..." ("open", "squint", "base", "R")
+                her "Let me just get changed..." ("angry", "squint", "base", "mid")
+            else: # Gryffindor is in the lead
+                her "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")
+                gen "Of course, why else would I bring it up?" ("base", xpos="far_left", ypos="head")
+                her "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")
+                gen "And?" ("base", xpos="far_left", ypos="head")
+                her "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")
+                gen "Right..." ("base", xpos="far_left", ypos="head")
+                hide hermione_main
+                with d3
+
+                call tutorial("points")
+
+                $ _event.cancel()
+                jump hermione_favor_menu.odd_jobs
+
+        elif states.her.level >= 13:
+            her "I'm not sure what you--" ("angry", "base", "base", "mid")
+            gen "I want you to wear this." ("base", xpos="far_left", ypos="head")
+            her @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
+            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
+            gen "You'll earn points for your efforts." ("base", xpos="far_left", ypos="head")
+            her @ cheeks blush "*Hmm*... Well, I suppose organizing and maintaining the library could use an extra hand." ("open", "closed", "base", "mid")
+            gen "That’s the spirit!" ("base", xpos="far_left", ypos="head")
+            gen "Just be sure to report back in the evening with any earnings." ("base", xpos="far_left", ypos="head")
+            her @ cheeks blush "Return with what?" ("open", "base", "base", "mid")
+            gen "Your earnings." ("base", xpos="far_left", ypos="head")
+            gen "This must remain off the record, so I’ll keep them for now." ("base", xpos="far_left", ypos="head")
+            her @ cheeks blush "Oh... Right..." ("open", "closed", "base", "mid")
+
+            if states.her.level >= 16:
+                her @ cheeks blush "Let me just get changed..." ("angry", "base", "base", "mid")
+            elif states.her.level < 16:
+                if not is_in_lead(gryffindor):
+                    her @ cheeks blush "Let me just get changed..." ("angry", "base", "base", "mid")
+                else: # Gryffindor in the lead
+                    her "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")
+                    gen "Of course, why else would I bring it up?" ("base", xpos="far_left", ypos="head")
+                    her "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")
+                    gen "And?" ("base", xpos="far_left", ypos="head")
+                    her "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")
+                    gen "Right..." ("base", xpos="far_left", ypos="head")
+                    hide hermione_main
+                    with d3
+
+                    call tutorial("points")
+
+                    $ _event.cancel()
+                    jump hermione_favor_menu.odd_jobs
+            elif states.her.level < 22:
+                her "Of course, [name_genie_hermione]..." ("base", "squint", "base", "mid", xpos="right", ypos="base")
+            else: # 22+
+                her "As you wish, [name_genie_hermione]." ("base", "base", "base", "mid", xpos="right", ypos="base")
+
+
+    show screen blkfade
+    with d5
+    # Setup
+    $ her_outfit_library.used = True
+    play sound "sounds/cloth_sound.ogg"
+    $ her_outfit_last.save()
+    $ hermione.equip(her_outfit_library)
+    hide screen blkfade
+    with d5
+
+    pause 2.5
+    hide hermione_main
+    with d3
+
+    gen "Off you go then..." ("base", xpos="far_left", ypos="head")
+
+    call her_walk(action="leave")
+
+    $ states.her.busy = True
+    $ current_job = "library"
+
+    jump main_room_menu
+
+label her_library_job_return:
+
+    python:
+        progress_factor = math.log(states.her.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
+        payment = int(progress_factor * random_gold)
+    
+    $ hermione.equip(her_outfit_library)
+
+    call her_walk(action="enter", xpos="mid", ypos="base")
+
+    gen "[name_hermione_genie]... How was your day working in the library?" ("base", xpos="far_left", ypos="head")
+    her "*Well*, it was as uneventful as it gets..." ("soft", "base", "base", "mid", xpos="right", ypos="base", trans=dissolve)
+
+    menu:
+        "\"What exactly did you do today?\"":
+            if states.her.level < 13:
+                random:
+                    block:
+                        her "It was as normal a day of organizing books and assisting students as it could be." ("open", "base", "base", "mid")
+                        her "Although, considering that I'm supposed to be in class during the day, I guess it's not that normal." ("soft", "base", "base", "R")
+                        gen "Don't worry, [name_hermione_genie], you'll get your points." ("base", xpos="far_left", ypos="head")
+                        gen "Just think of how happy your friends will be when they win the house cup this year." ("base", xpos="far_left", ypos="head")
+                        her "I suppose..." ("open", "base", "base", "R")
+                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        her "It was fine, I suppose..." ("soft", "base", "base", "R")
+                        gen "Nothing else to tell me? What were you tasked to do today?" ("base", xpos="far_left", ypos="head")
+                        her "*Ehm*..." ("open", "narrow", "base", "down")
+                        her "Well, I was asked to reorganize the Potions section..." ("angry", "closed", "base", "mid")
+                        gen "Right..." ("base", xpos="far_left", ypos="head")
+                        her "They really should've warned me beforehand... How was I supposed to know Snape left ingredients scattered all over the place?" ("clench", "narrow", "base", "down")
+                        gen "Ten points to Gryffindor!" ("base", xpos="far_left", ypos="head")
+                        her "..." ("angry", "base", "base", "mid")
+                    block:
+                        her "Professor McGonagall had me review and catalog old books all day..." ("open", "narrow", "base", "mid")
+                        gen "Doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
+                        her "She insisted I check every single one for illegal notes or tampered pages..." ("disgust", "narrow", "base", "mid")
+                        her "When I asked why, she simply said it was important to keep the archive in order..." ("angry", "narrow", "base", "mid")
+                        her "As if there was a real system there to begin with... I bet she just wanted to keep certain spells hidden." ("open", "closed", "annoyed", "mid")
+                        her "..." ("upset", "narrow", "base", "mid")
+                        her "Can I have my points now?" ("angry", "narrow", "base", "mid")
+                        gen "Of course... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+            elif states.her.level < 22:
+                random:
+                    block:
+                        her "It was pretty uneventful." ("open", "base", "base", "R")
+                        her "I suppose I should feel more annoyed by the other students staring at me, but it doesn’t bother me that much." ("open", "base", "base", "R")
+                        gen "Good to hear." ("base", xpos="far_left", ypos="head")
+                        her "I am helping the school, after all..." ("base", "closed", "base", "mid")
+                        gen "That you are... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        her "I had to dust all the library shelves today." ("open", "closed", "base", "mid")
+                        gen "That doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
+                        her "Well, I got yelled at by Madam Pince for no reason." ("upset", "squint", "base", "mid")
+                        her "She kept saying that other students needed to study and that I was distracting them." ("clench", "narrow", "base", "mid")
+                        her "Yet she didn’t tell me to stop cleaning..." ("annoyed", "narrow", "base", "mid")
+                        gen "Sounds like a job well done to me... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        her "..." ("angry", "squint", "base", "mid")
+                    block:
+                        her "Pretty uneventful." ("open", "base", "base", "R")
+                        her "I spent most of my time in the restricted section, so there weren’t many people around." ("soft", "base", "base", "mid")
+                        her @ cheeks blush "Although, one of the portraits kept whispering at me..." ("open", "squint", "base", "R")
+                        gen "Was it an interesting portrait?" ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "..." ("normal", "squint", "base", "mid")
+                        her @ cheeks blush "As interesting as a haunted portrait can be, I suppose..." ("normal", "squint", "base", "mid")
+                        gen "Nicely done... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+            else: #22+
+                random:
+                    block:
+                        her @ cheeks blush "It was fine... I helped manage the library records today..." ("open", "closed", "base", "mid")
+                        her @ cheeks blush "Madam Pince seemed to find it amusing to have me constantly climbing the ladder to reach books." ("angry", "narrow", "base", "R")
+                        gen "Well, I suppose that comes with the job." ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "That's what she said..." ("angry", "narrow", "base", "down")
+                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        her "Good, although I didn’t really get much work done today." ("open", "narrow", "base", "R")
+                        gen "Oh...{w=0.4} Why's that?" ("base", xpos="far_left", ypos="head")
+                        her "Well...{w=0.4} I was asked to assist the house elves in restoring old books, but every time I started doing something, one of them would do it for me." ("angry", "squint", "base", "mid")
+                        her "Constantly apologizing for not having done it yet and bowing to me..." ("open", "narrow", "base", "mid")
+                        gen "(Uh-oh...)" ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "It was kind of cute, to be honest." ("base", "squint", "base", "R")
+                        gen "Well then, I assume you still got paid?" ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "Oh...{w=0.4} Yes, [name_genie_hermione]..." ("angry", "base", "base", "mid")
+                        gen "Great! Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        gen "Tell me what you've been doing." ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "I've been organizing Professor Tonks' archives..." ("open", "base", "base", "mid")
+                        her @ cheeks blush "The things she keeps in there..." ("angry", "narrow", "base", "down")
+                        her @ cheeks blush "I really hope no students get detention with her." ("open", "closed", "base", "mid")
+                        gen "Found anything interesting?" ("base", xpos="far_left", ypos="head")
+                        her @ cheeks blush "*Hmm*... Not sure if she'd like it if I told you..." ("angry", "narrow", "base", "R")
+                        gen "(As if I couldn't already guess...)" ("base", xpos="far_left", ypos="head")
+                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+
+        "-Dismiss her-":
+            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+            gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+    
+    gen "Good job, Hermione. You earned your points." ("base", xpos="far_left", ypos="head")
+    her "Thank you, [name_genie_hermione]." ("open", "base", "base", "mid")
+    her "Here's the payment." ("open", "base", "base", "mid")
+    nar "You receive {number=payment} gold coins."
+
+    $ gryffindor+= 10
+    $ game.gold += payment
+
+    call her_walk(action="leave")
+
+    $ hermione.equip(her_outfit_last)
+
+    $ states.her.busy = True
+    $ current_job = None
+
+    jump main_room_menu
+
+#Send Hermione to work, promoting the card game.
+
