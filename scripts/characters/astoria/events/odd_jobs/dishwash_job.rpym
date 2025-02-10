@@ -1,45 +1,22 @@
-# Library Job  
+# Dishwash Job  
 label ast_dishwasher_job:  
 
     if not states.ast.ev.dishwasher_job.intro_complete:  
         $ states.ast.ev.dishwasher_job.intro_complete = True  
 
         ast "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
-        gen "I have anotast job opportunity for you, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
+        gen "I have another job opportunity for you, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
         ast "What kind of job this time?"("clench", "base", "base", "mid")
         gen "Tom, the owner of the Leaky Cauldron, needs an extra hand washing dishes." ("base", xpos="far_left", ypos="head")
         ast "You want me to scrub dishes in a hot, steamy kitchen?" ("angry", "base", "angry", "mid")
-        gen "That’s exactly it! A good, honest job. And of course, you'll be rewarded with house points." ("base", xpos="far_left", ypos="head")
+        gen "That’s exactly it! A good, honest job. And of course, you'll be rewarded with sentence reduction." ("base", xpos="far_left", ypos="head")
 
-        if states.ast.level < 4:
-            ast "I suppose it could be worse..." ("base", "closed", "base", "mid")
-            ast "Alright, I’ll do it!" ("base", "base", "base", "mid")
-            gen "Great! Here’s your uniform." ("base", xpos="far_left", ypos="head")
-            ast "..." ("angry", "narrow", "base", "down")
-            ast "You have got to be kidding me!" ("clench", "squint", "base", "down")
-            gen "What’s the problem?" ("base", xpos="far_left", ypos="head")
-            ast "This apron is so short it barely covers anything!" ("disgust", "squint", "base", "mid")
-            ast "And why does this top have such a deep neckline?! This isn't necessary for washing dishes!" ("angry", "base", "angry", "mid")
-            gen "Standard uniform. Rules are rules, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
-            ast "And this fabric... It's white! If it gets wet, it'll be *completely* see-through!" ("angry", "narrow", "worried", "mid")
-            gen "I suppose you’ll just have to be extra careful, then." ("base", xpos="far_left", ypos="head")
-            ast "*Sigh*... Fine, let's get this over with." ("angry", "closed", "angry", "mid")
-            gen "Good attitude! Now, get to work and come back when you're done." ("base", xpos="far_left", ypos="head")
-
-            hide astoria_main
-            with d3
-
-            call tutorial("points")
-
-            $ _event.cancel()
-            jump astoria_favor_menu.odd_jobs
-                
-        elif states.ast.level < 13:
-            ast "You called for me, [name_genie_astoria]?" ("angry", "base", "base", "mid")
+        if states.ast.level < 13:
+            ast "..." ("angry", "base", "base", "mid")
             gen "Yes, I have something for you to wear..." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
+            ast @ cheeks blush "A dishwash’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
             gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
-            gen "You'll be compensated with points, naturally." ("base", xpos="far_left", ypos="head")
+            gen "You'll be compensated with sentence reduction, naturally." ("base", xpos="far_left", ypos="head")
             ast "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "base", "mid")
             gen "Good. However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
             ast "Must I?" ("clench", "base", "base", "mid")
@@ -48,70 +25,42 @@ label ast_dishwasher_job:
             gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head")
             ast "Very well..." ("open", "base", "base", "mid")
             gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
+            hide astoria_main
+            with d3
 
-            if not is_in_lead(gryffindor):
-                ast "Alright..." ("open", "squint", "base", "R")
-                ast "Let me just get changed..." ("angry", "squint", "base", "mid")
-            else: # Gryffindor is in the lead
-                ast "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")
-                gen "Of course, why else would I bring it up?" ("base", xpos="far_left", ypos="head")
-                ast "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")
-                gen "And?" ("base", xpos="far_left", ypos="head")
-                ast "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")
-                gen "Right..." ("base", xpos="far_left", ypos="head")
-                hide astoria_main
-                with d3
+            call tutorial("points")
 
-                call tutorial("points")
-
-                $ _event.cancel()
-                jump astoria_favor_menu.odd_jobs
-
+            $ _event.cancel()
+            jump astoria_favor_menu.odd_jobs
+                
         elif states.ast.level >= 13:
-            ast "I'm not sure what you--" ("angry", "base", "base", "mid")
-            gen "I want you to wear this." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
-            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
-            gen "You'll earn points for your efforts." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "*Hmm*... Well, I suppose organizing and maintaining the library could use an extra hand." ("open", "closed", "base", "mid")
-            gen "That’s the spirit!" ("base", xpos="far_left", ypos="head")
-            gen "Just be sure to report back in the evening with any earnings." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "Return with what?" ("open", "base", "base", "mid")
-            gen "Your earnings." ("base", xpos="far_left", ypos="head")
-            gen "This must remain off the record, so I’ll keep them for now." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "Oh... Right..." ("open", "closed", "base", "mid")
-
-            if states.ast.level >= 16:
-                ast @ cheeks blush "Let me just get changed..." ("angry", "base", "base", "mid")
-            elif states.ast.level < 16:
-                if not is_in_lead(gryffindor):
-                    ast @ cheeks blush "Let me just get changed..." ("angry", "base", "base", "mid")
-                else: # Gryffindor in the lead
-                    ast "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")
-                    gen "Of course, why else would I bring it up?" ("base", xpos="far_left", ypos="head")
-                    ast "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")
-                    gen "And?" ("base", xpos="far_left", ypos="head")
-                    ast "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")
-                    gen "Right..." ("base", xpos="far_left", ypos="head")
-                    hide astoria_main
-                    with d3
-
-                    call tutorial("points")
-
-                    $ _event.cancel()
-                    jump astoria_favor_menu.odd_jobs
-            elif states.ast.level < 22:
-                ast "Of course, [name_genie_astoria]..." ("base", "squint", "base", "mid", xpos="right", ypos="base")
-            else: # 22+
-                ast "As you wish, [name_genie_astoria]." ("base", "base", "base", "mid", xpos="right", ypos="base")
-
+            ast "I suppose it could be worse..." ("base", "closed", "base", "mid")
+            ast "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            gen "Great! Here’s your uniform." ("base", xpos="far_left", ypos="head")
+            ast @ cheeks blush"..." ("angry", "base", "base", "mid")
+            ast "You have got to be kidding me!" ("angry", "closed", "angry", "mid")
+            gen "What’s the problem?" ("base", xpos="far_left", ypos="head")
+            ast @ cheeks blush"This apron is so short it barely covers anything!" ("angry", "base", "angry", "mid")
+            ast @ cheeks blush"And why does this top have such a deep neckline?! This isn't necessary for washing dishes!" ("angry", "base", "angry", "mid")
+            gen "Standard uniform. Rules are rules, [name_genie_astoria]." ("base", xpos="far_left", ypos="head")
+            ast @ cheeks blush"And this fabric... It's white! If it gets wet, it'll be *completely* see-through!" ("angry", "narrow", "worried", "mid")
+            gen "I suppose you’ll just have to be extra careful, then." ("base", xpos="far_left", ypos="head")
+            ast "*Sigh*... Fine, let's get this over with." ("angry", "closed", "angry", "mid")
+            gen "However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
+            ast "..." ("angry", "base", "base", "mid")
+            gen "Good attitude! Now, get to work and come back when you're done." ("base", xpos="far_left", ypos="head")
+            
+        elif states.ast.level < 22:
+            ast "Of course, [name_genie_astoria]..." ("base", "squint", "base", "mid", xpos="right", ypos="base")
+        else: # 22+
+            ast "As you wish, [name_genie_astoria]." ("base", "base", "base", "mid", xpos="right", ypos="base")
 
     show screen blkfade
     with d5
     # Setup
-    $ her_outfit_library.used = True
+    $ ast_outfit_dishwash.used = True
     play sound "sounds/cloth_sound.ogg"
-    $ her_outfit_last.save()
+    $ ast_outfit_last.save()
     $ astoria.equip(ast_outfit_dishwash)
     hide screen blkfade
     with d5
@@ -122,10 +71,10 @@ label ast_dishwasher_job:
 
     gen "Off you go then..." ("base", xpos="far_left", ypos="head")
 
-    call her_walk(action="leave")
+    call ast_walk(action="leave")
 
     $ states.ast.busy = True
-    $ current_job = "library"
+    $ current_job = "Dishwash"
 
     jump main_room_menu
 
@@ -135,114 +84,170 @@ label ast_dishwasher_job_return:
         progress_factor = math.log(states.ast.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
     
-    $ astoria.equip(ast_outfit_dishwash)
+    $ astoria.equip(ast_outfit_dishwash_wet)
 
-    call her_walk(action="enter", xpos="mid", ypos="base")
+    call ast_walk(action="enter", xpos="mid", ypos="base")
 
-    gen "[name_astoria_genie]... How was your day working in the library?" ("base", xpos="far_left", ypos="head")
-    ast "*Well*, it was as uneventful as it gets..." ("soft", "base", "base", "mid", xpos="right", ypos="base", trans=dissolve)
+    gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
+    ast "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
 
     menu:
         "\"What exactly did you do today?\"":
             if states.ast.level < 13:
                 random:
                     block:
-                        ast "It was as normal a day of organizing books and assisting students as it could be." ("open", "base", "base", "mid")
-                        ast "Although, considering that I'm supposed to be in class during the day, I guess it's not that normal." ("soft", "base", "base", "R")
-                        gen "Don't worry, [name_astoria_genie], you'll get your points." ("base", xpos="far_left", ypos="head")
-                        gen "Just think of how happy your friends will be when they win the house cup this year." ("base", xpos="far_left", ypos="head")
-                        ast "I suppose..." ("open", "base", "base", "R")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "base", "angry", "mid")
+                        gen "That’s to be expected. It’s a kitchen." ("base", xpos="far_left", ypos="head")
+                        ast "And this uniform is *awful*! The apron barely covers anything, and the top kept sliding down!" ("angry", "base", "angry", "mid")
+                        gen "You seem to have managed just fine." ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush "Oh, sure, because I spent half my time *holding up my shirt*!" ("angry", "base", "angry", "mid")
+                        ast "Can I have my sentence reduction now and *never* do this again?" ("angry", "closed", "angry", "mid")
+                        gen "Great! Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
                     block:
-                        ast "It was fine, I suppose..." ("soft", "base", "base", "R")
-                        gen "Nothing else to tell me? What were you tasked to do today?" ("base", xpos="far_left", ypos="head")
-                        ast "*Ehm*..." ("open", "narrow", "base", "down")
-                        ast "Well, I was asked to reorganize the Potions section..." ("angry", "closed", "base", "mid")
-                        gen "Right..." ("base", xpos="far_left", ypos="head")
-                        ast "They really should've warned me beforehand... How was I supposed to know Snape left ingredients scattered all over the place?" ("clench", "narrow", "base", "down")
-                        gen "Ten points to Gryffindor!" ("base", xpos="far_left", ypos="head")
-                        ast "..." ("angry", "base", "base", "mid")
+                        ast "The uniform is *completely* impractical!" ("clench", "narrow", "base", "mid")
+                        gen "What happened?" ("base", xpos="far_left", ypos="head")
+                        ast "Every time I washed a dish, water splashed all over me!" ("angry", "base", "angry", "mid")
+                        ast "And do you know what happens when a *white* uniform gets wet?" ("angry", "base", "angry", "mid")
+                        gen "Hmm... I imagine it becomes more breathable?" ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("clench", "base", "angry", "mid")
+                        gen "Oh dear." ("base", xpos="far_left", ypos="head")
+                        ast "I had to stand by the stove just to dry off as quickly as possible!" ("angry", "base", "angry", "mid")
+                        gen "Well, at least you stayed warm." ("base", xpos="far_left", ypos="head")
+                        ast "You're impossible! Just give me my sentence reduction!" ("angry", "base", "angry", "mid")
+                        gen "Alright, alright." ("base", xpos="far_left", ypos="head")
                     block:
-                        ast "Professor McGonagall had me review and catalog old books all day..." ("open", "narrow", "base", "mid")
-                        gen "Doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
-                        ast "She insisted I check every single one for illegal notes or tampered pages..." ("disgust", "narrow", "base", "mid")
-                        ast "When I asked why, she simply said it was important to keep the archive in order..." ("angry", "narrow", "base", "mid")
-                        ast "As if there was a real system there to begin with... I bet she just wanted to keep certain spells hidden." ("open", "closed", "annoyed", "mid")
-                        ast "..." ("upset", "narrow", "base", "mid")
-                        ast "Can I have my points now?" ("angry", "narrow", "base", "mid")
-                        gen "Of course... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "Do you know how *little* coverage these sleeves offer?!" ("clench", "narrow", "base", "mid")
+                        gen "I assume... not much?" ("base", xpos="far_left", ypos="head")
+                        ast "Exactly! Every time I reached for a high shelf, the sleeves rolled up and my arms got splattered with hot water!" ("angry", "base", "angry", "mid")
+                        ast "And then, I had to clean my arms, which meant *more* water, which meant getting *even wetter*!" ("base", "base", "angry", "mid")
+                        gen "Sounds like quite the cycle." ("base", xpos="far_left", ypos="head")
+                        ast "Oh, and let’s not forget that the heat made my hair stick to my face the entire time!" ("angry", "base", "angry", "mid")
+                        gen "A hard day's work builds character, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush"I’d rather build character *without* this ridiculous uniform." ("angry", "base", "angry", "mid")
+                        gen "Unfortunately, rules are rules." ("base", xpos="far_left", ypos="head")
+                        ast "*Ugh!* Just give me my sentence reduction!" ("clench", "narrow", "base", "R")
+                        gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
             elif states.ast.level < 22:
                 random:
                     block:
-                        ast "It was pretty uneventful." ("open", "base", "base", "R")
-                        ast "I suppose I should feel more annoyed by the otast students staring at me, but it doesn’t botast me that much." ("open", "base", "base", "R")
-                        gen "Good to hear." ("base", xpos="far_left", ypos="head")
-                        ast "I am helping the school, after all..." ("base", "closed", "base", "mid")
-                        gen "That you are... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "This has to be some kind of *punishment!*" ("angry", "base", "angry", "mid")
+                        gen "It is, actually." ("base", xpos="far_left", ypos="head")
+                        ast "The kitchen is a furnace! The heat, the steam—it's unbearable!" ("base", "base", "angry", "mid")
+                        gen "Sounds like an authentic culinary experience." ("base", xpos="far_left", ypos="head")
+                        ast "I was drenched in sweat within minutes! My uniform stuck to me like a second skin!" ("angry", "base", "angry", "mid")
+                        ast "And as if that wasn’t enough, one of the house-elves handed me a bucket of water to clean the floor..." ("clench", "narrow", "base", "mid")
+                        gen "A thoughtful gesture." ("base", xpos="far_left", ypos="head")
+                        ast "Until I slipped on the wet tiles and dumped the entire bucket *on myself!*" ("base", "base", "angry", "mid")
+                        gen "Oh... that explains why you look like you just walked through a storm." ("base", xpos="far_left", ypos="head")
+                        ast "Not *just* a storm! A *boiling* storm! The water mixed with the heat and the steam—there was nowhere to escape!" ("angry", "base", "angry", "mid")
+                        gen "You should have taken the opportunity to cool off." ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush "Oh, yes, brilliant idea! Let me just enjoy standing in a *see-through* shirt in the middle of the kitchen!" ("base", "base", "angry", "mid")
+                        gen "I take it the elves were... surprised?" ("base", xpos="far_left", ypos="head")
+                        ast "They nearly dropped the entire dinner service!" ("angry", "base", "angry", "mid")
+                        ast "And now I'm standing here, in your office, *dripping* onto the floor while you waste my time! Sentence reduction! Now!" ("clench", "narrow", "base", "R")
+                        gen "Done. And might I suggest a towel?" ("base", xpos="far_left", ypos="head")
+
                     block:
-                        ast "I had to dust all the library shelves today." ("open", "closed", "base", "mid")
-                        gen "That doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
-                        ast "Well, I got yelled at by Madam Pince for no reason." ("upset", "squint", "base", "mid")
-                        ast "She kept saying that otast students needed to study and that I was distracting them." ("clench", "narrow", "base", "mid")
-                        ast "Yet she didn’t tell me to stop cleaning..." ("annoyed", "narrow", "base", "mid")
-                        gen "Sounds like a job well done to me... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                        ast "..." ("angry", "squint", "base", "mid")
+                        ast "I swear, that kitchen is cursed!" ("base", "base", "angry", "mid")
+                        gen "What happened this time?" ("base", xpos="far_left", ypos="head")
+                        ast "I was scrubbing the counters when the house-elves decided to *help* by throwing a bucket of water onto the surface..." ("angry", "base", "angry", "mid")
+                        ast "Which, of course, *splashed all over me!*" ("base", "base", "angry", "mid")
+                        gen "Well, at least the counters got cleaned." ("base", xpos="far_left", ypos="head")
+                        ast "And so did my *entire uniform!*" ("clench", "narrow", "base", "mid")
+                        ast "I had to spend the rest of my shift *dripping* and trying to avoid my reflection on the metal pots!" ("angry", "base", "angry", "mid")
+                        gen "That bad, huh?" ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush"Oh, worse! Because then the *steam* got to me, and suddenly I wasn’t just wet—I was *sticking* to everything!" ("base", "base", "angry", "mid")
+                        gen "A unique experience, I'm sure." ("base", xpos="far_left", ypos="head")
+                        ast "And now I’m here, standing in a puddle in your office! So just give me my sentence reduction before I drown!" ("angry", "base", "angry", "mid")
+                        gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head")
+
                     block:
-                        ast "Pretty uneventful." ("open", "base", "base", "R")
-                        ast "I spent most of my time in the restricted section, so there weren’t many people around." ("soft", "base", "base", "mid")
-                        ast @ cheeks blush "Although, one of the portraits kept whispering at me..." ("open", "squint", "base", "R")
-                        gen "Was it an interesting portrait?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "..." ("normal", "squint", "base", "mid")
-                        ast @ cheeks blush "As interesting as a haunted portrait can be, I suppose..." ("normal", "squint", "base", "mid")
-                        gen "Nicely done... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush "The humidity in there is *ridiculous!*" ("base", "base", "angry", "mid")
+                        gen "It’s a kitchen. Steam is part of the experience." ("base", xpos="far_left", ypos="head")
+                        ast "I felt like I was trapped inside a *teapot!* Every time someone opened a pot, it was like a wall of mist!" ("angry", "base", "angry", "mid")
+                        ast "And this *useless* uniform absorbed every drop of sweat until it was practically painted onto my skin!" ("base", "base", "angry", "mid")
+                        gen "A custom-fit look?" ("base", xpos="far_left", ypos="head")
+                        ast "A *humiliation!*" ("angry", "base", "angry", "mid")
+                        ast "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "base", "mid")
+                        gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush"A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*" ("base", "base", "angry", "mid")
+                        gen "That must have been refreshing." ("base", xpos="far_left", ypos="head")
+                        ast "It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*" ("angry", "base", "angry", "mid")
+                        gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head")
+                        ast "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*" ("base", "base", "angry", "mid")
+                        gen "And now you’re standing here, still dripping, in my office." ("base", xpos="far_left", ypos="head")
+                        ast "Yes! *Freezing*, *furious*, and *completely fed up!* Just update my sentence reduction before I start hexing people!" ("angry", "base", "angry", "mid")
+                        gen "Consider it done. And maybe consider bringing an umbrella next time?" ("base", xpos="far_left", ypos="head")
             else: #22+
                 random:
                     block:
-                        ast @ cheeks blush "It was fine... I helped manage the library records today..." ("open", "closed", "base", "mid")
-                        ast @ cheeks blush "Madam Pince seemed to find it amusing to have me constantly climbing the ladder to reach books." ("angry", "narrow", "base", "R")
-                        gen "Well, I suppose that comes with the job." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "That's what she said..." ("angry", "narrow", "base", "down")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "This is getting ridiculous!" ("angry", "base", "angry", "mid")
+                        gen "Another *incident*?" ("base", xpos="far_left", ypos="head")
+                        ast "I was carrying a tray of dishes when a house-elf tripped and sent a full *cauldron* of warm water flying at me!" ("base", "base", "angry", "mid")
+                        gen "Oh. That explains why you look like you just stepped out of a bath." ("base", xpos="far_left", ypos="head")
+                        ast "Yes! A *public* bath where *everyone* got a front-row seat!" ("clench", "narrow", "base", "mid")
+                        ast "The second it happened, all the steam in the room *clung* to me, and my shirt turned into a *see-through disaster!*" ("base", "base", "angry", "mid")
+                        gen "Well, the house-elves must have been very... impressed with your work ethic." ("base", xpos="far_left", ypos="head")
+                        ast "They were staring like I had grown a second head!" ("angry", "base", "angry", "mid")
+                        ast "And of course, I had *nowhere* to hide! Just standing there, drenched, while the whole kitchen gasped!" ("base", "base", "angry", "mid")
+                        gen "Quite the dramatic scene." ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush "Oh, it was *mortifying!* And now I’m standing in your office, dripping onto your floor, reliving the whole thing!" ("angry", "base", "angry", "mid")
+                        gen "At least you're keeping my floor clean." ("base", xpos="far_left", ypos="head")
+                        ast "Sentence reduction! Now!" ("clench", "narrow", "base", "R")
+                        gen "Done. And might I recommend a waterproof uniform next time?" ("base", xpos="far_left", ypos="head")
+
                     block:
-                        ast "Good, although I didn’t really get much work done today." ("open", "narrow", "base", "R")
-                        gen "Oh...{w=0.4} Why's that?" ("base", xpos="far_left", ypos="head")
-                        ast "Well...{w=0.4} I was asked to assist the house elves in restoring old books, but every time I started doing something, one of them would do it for me." ("angry", "squint", "base", "mid")
-                        ast "Constantly apologizing for not having done it yet and bowing to me..." ("open", "narrow", "base", "mid")
-                        gen "(Uh-oh...)" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "It was kind of cute, to be honest." ("base", "squint", "base", "R")
-                        gen "Well then, I assume you still got paid?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "Oh...{w=0.4} Yes, [name_genie_astoria]..." ("angry", "base", "base", "mid")
-                        gen "Great! Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "If I ever step into that kitchen again, it’ll be too soon!" ("base", "base", "angry", "mid")
+                        gen "Let me guess—something involving water?" ("base", xpos="far_left", ypos="head")
+                        ast "Steam! *Everywhere!* I could barely see, and then—*bam!* A full pot of water right over my head!" ("angry", "base", "angry", "mid")
+                        gen "An unfortunate accident." ("base", xpos="far_left", ypos="head")
+                        ast "Oh, sure! *Totally* an accident! Because it *just happened* to land on me and *only* me!" ("base", "base", "angry", "mid")
+                        gen "Are you suggesting sabotage?" ("base", xpos="far_left", ypos="head")
+                        ast "I’m suggesting I looked like a *soaked towel* while the elves panicked around me!" ("angry", "base", "angry", "mid")
+                        ast @ cheeks blush "And don’t even get me started on the heat! The moment the water hit me, the steam *exploded* around me like a fog spell!" ("base", "base", "angry", "mid")
+                        gen "A dramatic effect." ("base", xpos="far_left", ypos="head")
+                        ast "It left me standing there, *soaked*, *sticky*, and completely *exposed!*" ("angry", "narrow", "base", "mid")
+                        gen "That does sound rather unfortunate." ("base", xpos="far_left", ypos="head")
+                        ast "Oh, *don’t you dare* act casual about this! Just update my sentence reduction before I hex someone!" ("angry", "base", "angry", "mid")
+                        gen "Already done. Try not to drown on your way out." ("base", xpos="far_left", ypos="head")
+
                     block:
-                        gen "Tell me what you've been doing." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "I've been organizing Professor Tonks' archives..." ("open", "base", "base", "mid")
-                        ast @ cheeks blush "The things she keeps in there..." ("angry", "narrow", "base", "down")
-                        ast @ cheeks blush "I really hope no students get detention with her." ("open", "closed", "base", "mid")
-                        gen "Found anything interesting?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "*Hmm*... Not sure if she'd like it if I told you..." ("angry", "narrow", "base", "R")
-                        gen "(As if I couldn't already guess...)" ("base", xpos="far_left", ypos="head")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                        ast "This has been the *worst* shift yet!" ("base", "base", "angry", "mid")
+                        gen "Go on, tell me all about it." ("base", xpos="far_left", ypos="head")
+                        ast "First, I was assigned to wash the dishes. Simple, right?" ("angry", "closed", "angry", "mid")
+                        ast "But then, the steam from the sink made me sweat *buckets*—my shirt was practically glued to me!" ("base", "base", "angry", "mid")
+                        gen "Sounds unpleasant." ("base", xpos="far_left", ypos="head")
+                        ast "Oh, that was just the *beginning!* Because *then*, an entire tray of glasses toppled over!" ("angry", "base", "angry", "mid")
+                        ast "I tried to catch them, slipped on the wet floor, and landed *right* into a tub of dishwater!" ("base", "base", "angry", "mid")
+                        gen "A truly unfortunate series of events." ("base", xpos="far_left", ypos="head")
+                        ast "Unfortunate?! I had *dish soap* dripping down my arms! And the hot air from the stoves made my uniform cling to me like—like—!" ("angry", "base", "angry", "mid")
+                        gen "Like a second skin?" ("base", xpos="far_left", ypos="head")
+                        ast @ cheeks blush"*Exactly!* And, of course, the entire kitchen saw it happen!" ("base", "base", "angry", "mid")
+                        ast "I barely had time to grab a towel before running out! And now I’m here, still *soaked*, *miserable*, and *furious!*" ("angry", "base", "angry", "mid")
+                        gen "Well, you certainly make kitchen work sound exciting." ("base", xpos="far_left", ypos="head")
+                        ast "Just—just give me my sentence reduction so I can *forget* this ever happened!" ("angry", "base", "angry", "mid")
+                        gen "Already updated. Maybe next time, wear a poncho?" ("base", xpos="far_left", ypos="head")
+
 
         "-Dismiss her-":
             gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
-            gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+            gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
     
-    gen "Good job, Hermione. You earned your points." ("base", xpos="far_left", ypos="head")
-    ast "Thank you, [name_genie_astoria]." ("open", "base", "base", "mid")
+    gen "Good job, Astoria." ("base", xpos="far_left", ypos="head")
+    ast "Thank you, [name_genie_astoria]." ("base", "base", "base", "mid")
     ast "Here's the payment." ("open", "base", "base", "mid")
     nar "You receive {number=payment} gold coins."
 
-    $ gryffindor+= 10
     $ game.gold += payment
 
-    call her_walk(action="leave")
+    call ast_walk(action="leave")
 
-    $ astoriaermione.equip(ast_outfit_last)
+    $ astoria.equip(ast_outfit_last)
 
     $ states.ast.busy = True
     $ current_job = None
 
     jump main_room_menu
 
-#Send Hermione to work, promoting the card game.
+#Send Astoria to work.
 
