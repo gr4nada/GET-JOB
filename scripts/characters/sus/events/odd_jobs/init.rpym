@@ -1,0 +1,173 @@
+# Commenting out the initialization offset
+init offset = 5
+
+# Mod Event Flags
+default states.sus.ev.train_attendant_job.intro_complete = False
+
+##################################
+## Train attendant  Outfit ##
+##################################
+
+# sus_outfit_trainee
+
+# Mod Event
+default sus_train_attendant_job_return: = Event(
+    id="sus_ev_train_attendant_job_return", 
+    label="sus_train_attendant_job_return", 
+    priority=5, 
+    req=(not game.daytime)  
+)
+
+default sus_eventqueue_jobs_train_attendant = EventQueue("sus_eventqueue_jobs_train_attendant")
+
+default sus_ev_train_attendant_hub = Event(
+    id="sus_ev_train_attendant_hub",
+    label="sus_train_attendant_job",
+    # Letter receive
+    req="states.sus.tier > 0", 
+    autoenqueue=True,
+    autodequeue=False,
+    queue="sus_eventqueue_jobs_train_attendant",
+    subevents=["label sus_train_attendant_job_return:"]
+    )
+
+if "sus_jobs" not in globals():
+    define sus_jobs = [
+        ("sus_eventqueue_jobs_train_attendant", "Work as a Expresso Hoghwarts attendant!"),
+
+]    
+else:
+    $ sus_jobs.append(("sus_eventqueue_jobs_train_attendant", "Work as a quidditchstates.sus.ev.train_attendant_job.intro_complete Assistant Coach!"))
+
+
+# sus Favor Menu
+label summon_susan_over:
+
+    $ states.active_girl = "susan"
+
+    $ states.sus.busy = True
+
+    call update_susan
+
+    $ renpy.checkpoint(hard=True)
+
+    play music "music/teddy-bear-waltz-by-kevin-macleod.ogg" fadein 1 if_changed
+    play sound "sounds/door.ogg"
+
+    call sus_chibi("stand","mid","base")
+    with d3
+
+    sus "You wanted to see me, [name_genie_susan]?" ("base", "base", "base", "mid", xpos="base", ypos="base")
+
+    label susan_requests:
+
+    sus "" (xpos="base", ypos="base")
+
+    menu:
+
+        # Talk
+        "-Talk-" (icon="interface/icons/small/talk.webp"):
+            if states.sus.mood > 0:
+                sus "I'm sorry, [name_genie_susan], but I don't want to talk right now." ("soft", "happy", "base", "downR")
+                jump susan_requests
+
+            call susan_chitchat
+            jump susan_talk
+
+        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if False:
+            $ TBA_message()
+            jump sus_favor_menu
+
+        # Wardrobe
+        "-Wardrobe-" (icon="interface/icons/small/wardrobe.webp") if states.sus.wardrobe_unlocked:
+            hide susan_main with d1
+            call wardrobe
+            jump susan_requests
+
+        "-Wardrobe-" (style="disabled") if not states.sus.wardrobe_unlocked:
+            nar "You haven't unlocked this feature yet."
+            jump susan_requests
+
+        "-Give Item-" (icon="interface/icons/small/gift.webp"):
+            $ TBA_message()
+            jump susan_requests
+
+            # hide susan_main with d1
+            # call gift_menu
+            # jump susan_requests
+
+
+        # Dismiss
+        "-Dismiss her-":
+            if game.daytime:
+                sus "I will go back to classes then, [name_genie_susan]." ("base", "base", "shocked", "mid")
+            else:
+                sus "*Ehm*... Good night then, [name_genie_susan]." ("base", "base", "base", "mid")
+
+            play sound "sounds/door.ogg"
+
+            jump end_susan_event
+
+
+label sus_favor_menu:
+    menu:
+        "-Personal Favours-" (icon="interface/icons/small/heart_red.webp"):
+            label .favors:
+
+            call tutorial("hearts")
+
+            $ result = show_events_menu(sus_favors)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this favour opportunity yet."
+                jump .favors
+            elif result == "exit":
+                jump sus_favor_menu
+            else:
+                $ result.start()
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not game.daytime or not states.sus.requests_unlocked:
+            if not states.sus.requests_unlocked:
+                nar "Progress further to unlock public requests."
+            elif not game.daytime:
+                nar "Public requests are available during the day only."
+            jump sus_favor_menu
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if game.daytime and states.sus.requests_unlocked:
+            label .requests:
+
+            call tutorial("hearts")
+
+            $ result = show_events_menu(sus_requests)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this request opportunity yet."
+                jump .requests
+            elif result == "exit":
+                jump sus_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp") if game.daytime:
+            label .odd_jobs:
+
+            $ result = show_events_menu(sus_jobs, report_progress=False)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this job opportunity yet."
+                jump .odd_jobs
+
+            elif result == "exit":
+                jump sus_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp", style="disabled") if not game.daytime:
+            nar "Public requests are available during the day only."
+            jump sus_favor_menu
+        
+        "-Never mind-":
+            jump sus_requests
+
+init python:
+    config.label_overrides["summon_susans"] = "summon_susan_over"
