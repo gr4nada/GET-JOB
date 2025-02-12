@@ -1,0 +1,105 @@
+# Commenting out the initialization offset
+init offset = 5
+
+# Mod Event Flags
+default states.cho.ev.quidditch_assistant_job.intro_complete = False
+
+##################################
+## quidditch assistant   Outfit ##
+##################################
+
+# cho_outfit_trainee
+
+# Mod Event
+default cho_ev_quidditch_assistant_job_return = Event(
+    id="cho_ev_quidditch_assistant_job_return", 
+    label="cho_quidditch_assistant_job_return", 
+    priority=5, 
+    req=(not game.daytime)  
+)
+
+default cho_eventqueue_jobs_quidditch_assistant = EventQueue("cho_eventqueue_jobs_quidditch_assistant")
+
+default cho_ev_quidditch_assistantjob_hub = Event(
+    id="cho_ev_quidditch_assistantjob_hub",
+    label="cho_quidditch_assistant_job",
+    # Letter receive
+    req="states.cho.tier > 0", 
+    autoenqueue=True,
+    autodequeue=False,
+    queue="cho_eventqueue_jobs_quidditch_assistant",
+    subevents=["cho_ev_quidditch_assistant_job_return"]
+)
+
+if "cho_jobs" not in globals():
+    define cho_jobs = [
+        ("cho_eventqueue_jobs_quidditch_assistant", "Work as a quidditch Assistant Coach!"),
+
+]    
+else:
+    $ cho_jobs.append(("cho_eventqueue_jobs_quidditch_assistant", "Work as a quidditchstates.cho.ev.quidditch_assistant_job.intro_complete Assistant Coach!"))
+
+
+# Cho Favor Menu
+label cho_favor_menu_over:
+    menu:
+        "-Personal Favours-" (icon="interface/icons/small/heart_red.webp"):
+            label .favors:
+
+            call tutorial("hearts")
+
+            $ result = show_events_menu(cho_favors)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this favour opportunity yet."
+                jump .favors
+            elif result == "exit":
+                jump cho_favor_menu
+            else:
+                $ result.start()
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled") if not game.daytime or not states.cho.requests_unlocked:
+            if not states.cho.requests_unlocked:
+                nar "Progress further to unlock public requests."
+            elif not game.daytime:
+                nar "Public requests are available during the day only."
+            jump cho_favor_menu
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp") if game.daytime and states.cho.requests_unlocked:
+            label .requests:
+
+            call tutorial("hearts")
+
+            $ result = show_events_menu(cho_requests)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this request opportunity yet."
+                jump .requests
+            elif result == "exit":
+                jump cho_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp") if game.daytime:
+            label .odd_jobs:
+
+            $ result = show_events_menu(cho_jobs, report_progress=False)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this job opportunity yet."
+                jump .odd_jobs
+
+            elif result == "exit":
+                jump cho_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp", style="disabled") if not game.daytime:
+            nar "Public requests are available during the day only."
+            jump cho_favor_menu
+        
+        "-Never mind-":
+            jump cho_requests
+
+init python:
+    config.label_overrides["cho_favor_menu"] = "cho_favor_menu_over"

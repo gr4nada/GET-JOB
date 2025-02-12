@@ -1,0 +1,238 @@
+label cho_quidditch_assistant_job:
+
+    if not states.cho.ev.quidditch_assistant_job.intro_complete:
+        $ states.cho.ev.quidditch_assistant_job.intro_complete = True
+
+        cho "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
+        gen "I have a job opportunity for you, Ms. Chang." ("base", xpos="far_left", ypos="head")
+        cho "What kind of job?"("clench", "base", "base", "mid")
+        gen "The professional Quidditch team, the Tutshill Tornados, is training at Hogwarts this season." ("base", xpos="far_left", ypos="head")
+        gen "They need an assistant to help with training." ("base", xpos="far_left", ypos="head")
+        
+        cho "Wait... Are you serious?!" ("surprised", "base", "base", "mid")
+        gen "Yes. Their stadium has been overrun by a swarm of Ashwinders, and they need a place to train while they resolve the issue." ("base", xpos="far_left", ypos="head")
+        cho "This is amazing! I've always dreamed of working with a professional team!" ("happy", "base", "base", "mid")
+        
+        if states.cho.level < 13:
+            cho "But what exactly would I have to do?" ("base", "base", "base", "mid")
+            gen "Nothing too complicated. You’ll help with warm-ups, organize equipment, polish the brooms, and assist during practice." ("base", xpos="far_left", ypos="head")
+            cho "Hmm... If this helps my Quidditch career, I'm in!" ("happy", "closed", "base", "mid")
+            gen "Great. Just remember that any financial compensation must be returned to me." ("base", xpos="far_left", ypos="head")
+            cho "Seriously?" ("clench", "base", "base", "mid")
+            gen "Rules are rules." ("base", xpos="far_left", ypos="head")
+            cho "Alright... At least I'll gain experience." ("open", "base", "base", "mid")
+            
+        elif states.cho.level >= 13:
+            cho "This could be a huge opportunity!" ("happy", "base", "base", "mid")
+            gen "Exactly! Here’s your assistant coach uniform." ("base", xpos="far_left", ypos="head")
+            cho "Uniform?" ("base", "base", "base", "mid")
+            gen "Yes, something professional to match the team." ("base", xpos="far_left", ypos="head")
+            cho "If it's necessary for the job, fine." ("base", "base", "base", "mid")
+            gen "Great attitude. Now go and let me know how it goes." ("base", xpos="far_left", ypos="head")
+            
+    show screen blkfade
+    with d5
+    # Setup
+    $ cho_outfit_trainee.used = True
+    play sound "sounds/cloth_sound.ogg"
+    $ cho_outfit_last.save()
+    $ cho.equip(cho_outfit_trainee)
+    hide screen blkfade
+    with d5
+
+    pause 2.5
+    hide cho_main
+    with d3
+
+    gen "Off you go then..." ("base", xpos="far_left", ypos="head")
+
+    call cho_walk(action="leave")
+
+    $ states.cho.busy = True
+    $ current_job = "Assistant"
+
+    jump main_room_menu
+
+label cho_quidditch_assistant_job_return:
+
+    python:
+        progress_factor = math.log(states.cho.tier + states.ton.tier + states.lun.tier + game.day)
+        payment = int(progress_factor * random_gold)
+    
+    $ cho.equip(cho_outfit_trainee_wet)
+
+    call cho_walk(action="enter", xpos="mid", ypos="base")
+
+    gen "Ms. Chang... How was your first day as an assistant coach?" ("base", xpos="far_left", ypos="head")
+    cho "Well... It was *definitely* an experience..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+
+    menu:
+        "What happened?":
+            if states.ast.level < 13:
+                random:
+                    block:
+                        cho "Everything was going fine until practice ended, and I had to gather the equipment..." ("base", "base", "base", "mid")
+                        cho "It had rained earlier, so the field was full of puddles..." ("clench", "narrow", "base", "mid")
+                        cho "I was carrying the Quaffles, some spare brooms, and the training cones when—*slip*!" ("angry", "base", "angry", "mid")
+                        cho "I completely lost my footing and fell *face-first* into a massive puddle!" ("angry", "closed", "angry", "mid")
+                        gen "Oh dear... That must have been embarrassing." ("base", xpos="far_left", ypos="head")
+                        cho "Oh, you have *no idea*! The entire team saw it happen!" ("angry", "base", "angry", "mid")
+                        cho "And to make matters worse... My uniform got *soaked*!" ("angry", "narrow", "worried", "mid")
+                        gen "Hmm... I imagine that wasn't ideal." ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "It became completely *see-through*! And it clung to me like a second skin!" ("clench", "base", "angry", "mid")
+                        cho "I was standing there, drenched, *fully exposed*, holding all that equipment... I couldn't even cover myself!" ("angry", "base", "angry", "mid")
+                        gen "Well, at least the team saw how dedicated you are!" ("base", xpos="far_left", ypos="head")
+                        cho "*That's* your takeaway from this?!" ("angry", "base", "angry", "mid")
+                        gen "Every job has its challenges. Consider it a lesson in resilience!" ("base", xpos="far_left", ypos="head")
+                        cho "Ugh..." ("angry", "base", "angry", "mid")
+                        gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
+                    block:
+                        cho "Everything was going fine at first... The brooms were lined up, and I had just started polishing them." ("base", "base", "base", "mid")
+                        cho "But then, one of them suddenly *took off* while I was still holding it!" ("angry", "narrow", "angry", "mid")
+                        cho "Before I could react, I was being *dragged* across the storage room, knocking over everything in my path!" ("clench", "base", "angry", "mid")
+                        gen "Oh dear... That must have been quite the experience." ("base", xpos="far_left", ypos="head")
+                        cho "That's *one* way to put it! I was hanging on for dear life while it *bucked like a wild hippogriff*! " ("angry", "base", "angry", "mid")
+                        cho "And do you know what happens when you hold onto a broom too tightly while it's spinning out of control?" ("angry", "narrow", "worried", "mid")
+                        gen "Hmm... I imagine it gets difficult to stay composed?" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "My *shirt* got caught on the handle, and it *yanked it halfway up* while I was still flying!" ("clench", "base", "angry", "mid")
+                        cho "By the time I finally crashed into the supply shelves, my *skirt had flipped up*, my *shirt was a mess*, and everything in the room was covered in polishing oil!" ("angry", "base", "angry", "mid")
+                        gen "Well, at least the brooms are *very* polished now!" ("base", xpos="far_left", ypos="head")
+                        cho "*THAT'S* what you're focusing on?!" ("angry", "base", "angry", "mid")
+                        gen "Every job has its challenges. Consider it a lesson in broom control!" ("base", xpos="far_left", ypos="head")
+                        cho "*Ugh!*" ("angry", "base", "angry", "mid")
+                        gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
+                    block:
+                        cho "I can’t believe I fell asleep on the coach’s bench... Just wanted a little nap..." ("tired", "base", "mid")
+                        gen "You’ve been working hard, no one blames you for a little rest." ("base", xpos="far_left", ypos="head")
+                        cho "Yawn... It was just so peaceful for once, I could barely keep my eyes open..." ("sleepy", "base", "mid")
+                        cho "Suddenly, the sound of laughter fills the air..."("angry", "base", "mid")
+                        cho "Wait... What’s going on?" ("confused", "base", "mid")
+                        cho "Before she can react, one of the team members dumps an entire bucket of ice-cold water from the freezer over her head, completely soaking her."("angry", "base", "mid")
+                        cho "What—?! Hey! What are you doing?!" ("angry", "base", "mid")
+                        gen "Just a little team bonding, you know? You looked so peaceful asleep, we thought you could use a wake-up call!" ("base", xpos="far_left", ypos="head")
+                        cho "Wake up call?! This is not what I had in mind!" ("angry", "base", "mid")
+                        cho @ cheeks blush "My shirt... It’s soaked! The water’s freezing! And this... this is humiliating!" ("angry", "narrow", "base", "mid")
+                        gen "Ah, don’t worry, you’ll dry off soon. You’re a good sport, right?" ("base", xpos="far_left", ypos="head")
+                        cho "Good sport? I’m freezing and drenched, and you think I’m a good sport?!" ("angry", "base", "mid")
+                        gen "You know, this is a real team effort. You did fall asleep on the job!" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "Well, now I definitely won’t be napping on the bench again!" ("angry", "base", "mid")
+                        gen "I’ll make sure to let the team know. Your compensation is updated!" ("base", xpos="far_left", ypos="head")
+            elif states.ast.level < 22:
+                random:
+                    block:
+                        cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("surprised", "base", "base", "mid")
+                        gen "That’s... unexpected." ("base", xpos="far_left", ypos="head")
+                        cho "I grabbed it with one hand to stop it, but instead, it *dragged me along*!" ("clench", "base", "base", "mid")
+                        gen "A low-altitude flight?" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "Right over the whole team! And, well... my skirt did *not* cooperate with gravity..." ("angry", "base", "angry", "mid")
+                        gen "I assume the team got a good look at—"
+                        cho "Don't *even* finish that sentence!" ("clench", "base", "angry", "mid")
+                        cho "And just when I thought it couldn't get worse, it started raining *again*!" ("angry", "base", "angry", "mid")
+                        gen "You're soaked!" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "*Yes*, and now my uniform is sticking to me like glue! I swear, this job is cursed!" ("angry", "base", "angry", "mid")
+                        gen "Well, at least you're getting real Quidditch experience?" ("base", xpos="far_left", ypos="head")
+                        cho "I'd rather gain experience *without* getting airborne against my will!" ("angry", "base", "angry", "mid")
+                        gen "Alright, alright." ("base", xpos="far_left", ypos="head")
+                        cho "Good! Now if you'll excuse me, I need to *dry off* before I catch a cold!" ("angry", "base", "angry", "mid")
+                    block:
+                        cho "I was so exhausted after practice, I fell asleep in the locker room..." ("base", "closed", "base", "mid")
+                        cho "I didn’t even hear the team sneak in..." ("soft", "base", "base", "mid")
+                        cho "Next thing I know, I feel something *cold* dripping down my neck!" ("angry", "base", "angry", "mid")
+                        cho "I shot up, *eyes wide*, and before I could even process what was happening..." ("angry", "narrow", "angry", "mid")
+                        cho "The entire team is standing there, laughing, as a *bucket of freezing water* empties onto me!" ("angry", "base", "angry", "mid")
+                        gen "Oh no, they really did that?" ("base", xpos="far_left", ypos="head")
+                        cho "Yes! They *dumped* it all over me, straight from the beverage freezer!" ("angry", "base", "angry", "mid")
+                        cho "My entire body was drenched in ice-cold water!" ("angry", "narrow", "angry", "mid")
+                        cho @ cheeks blush "And I’m there, in my Quidditch gear, trying to keep myself from *shivering* and *covering* up!" ("angry", "base", "angry", "mid")
+                        gen "That sounds brutal... Was it bad?" ("base", xpos="far_left", ypos="head")
+                        cho "Bad doesn’t even begin to cover it!" ("angry", "base", "angry", "mid")
+                        cho "The water was freezing, and it got *everywhere*!" ("angry", "narrow", "angry", "mid")
+                        cho @ cheeks blush "I was soaked through, and my clothes were sticking to me in all the *wrong* places!" ("angry", "base", "angry", "mid")
+                        gen "Did the team at least apologize?" ("base", xpos="far_left", ypos="head")
+                        cho "*Apologize*? No!" ("angry", "clench", "angry", "mid")
+                        cho "They were too busy rolling on the floor, laughing at me, completely *enjoying* the show!" ("angry", "base", "angry", "mid")
+                        cho "And I was left there, drenched and *exposed* to the entire locker room!" ("angry", "narrow", "embarrassed", "mid")
+                        gen "They really went all out with this prank..." ("base", xpos="far_left", ypos="head")
+                        cho "Oh, they did. And *I* got the cold, wet end of the deal!" ("angry", "clench", "angry", "mid")
+                        cho "*Ugh*... I’ll get them back for this. *Just wait until next practice!*" ("angry", "base", "angry", "mid")
+                        gen "Well, at least you survived... and your compensation has been updated." ("base", xpos="far_left", ypos="head")
+            else: #22+
+                random:
+                    block:
+                        cho "I was tasked with organizing the Quidditch gear for the big match, but everything went wrong from the start." ("base", "base", "base", "mid")
+                        cho "First, the broomsticks kept *flying off* the racks and hovering around the room!" ("angry", "narrow", "base", "mid")
+                        cho "I had barely grabbed one when—*whoosh*! It zoomed away and knocked me into the equipment chest!" ("angry", "base", "angry", "mid")
+                        gen "Sounds like the brooms had a mind of their own." ("base", xpos="far_left", ypos="head")
+                        cho "*Mind of their own*? It was like they were *laughing* at me!" ("angry", "clench", "angry", "mid")
+                        cho "I tried grabbing another one, but the bludger came out of *nowhere* and hit the drinks freezer!" ("angry", "narrow", "base", "mid")
+                        cho "The freezer door flew open and *water* sprayed everywhere!" ("angry", "base", "angry", "mid")
+                        cho "And *of course*, I was standing right in front of it when it happened!" ("angry", "narrow", "angry", "mid")
+                        gen "So, you got soaked?" ("base", xpos="far_left", ypos="head")
+                        cho "Soaked? I was *drenched*!" ("angry", "clench", "angry", "mid")
+                        cho "The water hit me first, and then *splattered* all over the entire team!" ("angry", "base", "angry", "mid")
+                        cho "*And* do you know what that did to my skirt?" ("angry", "narrow", "embarrassed", "mid")
+                        cho @ cheeks blush "It went flying up, exposing *everything* while I tried to keep my balance!" ("angry", "base", "angry", "mid")
+                        gen "That must've been quite the sight..." ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush"Oh, it *was*!" ("angry", "clench", "angry", "mid")
+                        cho "I was standing there, completely soaked, with my skirt fluttering around, trying to cover myself and keep the gear from falling!" ("angry", "base", "embarrassed", "mid")
+                        cho @ cheeks blush"The whole team saw me *struggling* in front of the water explosion!" ("angry", "base", "angry", "mid")
+                        gen "I guess you made quite an impression." ("base", xpos="far_left", ypos="head")
+                        cho "An impression I could’ve *done without*!" ("angry", "base", "angry", "mid")
+                        gen "At least the Quidditch gear's ready for the match!" ("base", xpos="far_left", ypos="head")
+                        cho "Yeah, but I’m still drying off!" ("angry", "clench", "angry", "mid")
+                        gen "Every job has its challenges." ("base", xpos="far_left", ypos="head")
+                        cho "*Ugh!* " ("angry", "base", "angry", "mid")
+                        gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
+                    block:
+                        cho "I was helping set up for practice when I noticed something was off..." ("base", "base", "base", "mid")
+                        cho "The brooms... They felt *different*, like they were waiting for something." ("angry", "narrow", "base", "mid")
+                        cho "But I couldn’t put my finger on it. I thought maybe it was just me..." ("narrow", "base", "embarrassed", "mid")
+                        gen "Different in what way?" ("base", xpos="far_left", ypos="head")
+                        cho "Well, they kept wiggling in my hands, like they were eager to fly off!" ("angry", "narrow", "base", "mid")
+                        cho "And when I finally managed to mount one, it *zoomed* out from under me!" ("angry", "base", "angry", "mid")
+                        cho "I thought I was going to crash into the stands!" ("angry", "narrow", "angry", "mid")
+                        gen "Sounds dangerous. Were you okay?" ("base", xpos="far_left", ypos="head")
+                        cho "Yeah, but it didn’t stop there!" ("angry", "base", "angry", "mid")
+                        cho "I tried to gather up the spare brooms... but every time I picked one up, it slipped out of my hands and started flying by itself!" ("angry", "base", "angry", "mid")
+                        cho "*And then*, the Quaffles started bouncing around, like they were in on the joke!" ("angry", "narrow", "embarrassed", "mid")
+                        cho "I was running around like a lunatic, trying to catch everything!" ("angry", "base", "angry", "mid")
+                        gen "That sounds... strange. Are you sure you weren’t imagining it?" ("base", xpos="far_left", ypos="head")
+                        cho "*Oh, I’m sure*!" ("angry", "clench", "angry", "mid")
+                        cho "I’m trying to corral a broom, and suddenly... the team starts laughing!" ("angry", "base", "angry", "mid")
+                        cho "I realized *too late* they had enchanted the brooms to mess with me!" ("angry", "narrow", "embarrassed", "mid")
+                        gen "You’re kidding! The team did that?" ("base", xpos="far_left", ypos="head")
+                        cho "Yes! They were all in on it!" ("angry", "base", "angry", "mid")
+                        cho "I was *chasing* brooms, *dodging* Quaffles, and getting bumped around by the equipment like some sort of circus act!" ("angry", "narrow", "embarrassed", "mid")
+                        cho "And just when I thought I had it under control—*boom*!" ("angry", "base", "angry", "mid")
+                        cho @ cheeks blush "*The brooms went crazy*, and my skirt went flying up in the wind, exposing *everything*!" ("angry", "narrow", "embarrassed", "mid")
+                        gen "I bet that was... awkward." ("base", xpos="far_left", ypos="head")
+                        cho "You have *no idea*! The entire team was watching me *flailing* around, laughing so hard they could barely breathe!" ("angry", "base", "angry", "mid")
+                        cho @ cheeks blush "And there I was, *totally exposed*, trying to keep my balance and *pretend* like it was all part of the plan!" ("angry", "narrow", "embarrassed", "mid")
+                        gen "Well, at least it sounds like you were the center of attention!" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "Not the kind of attention I wanted!" ("angry", "base", "angry", "mid")
+                        cho "*Ugh*... I’m never trusting those brooms again." ("angry", "clench", "angry", "close")
+                        gen "It was a good lesson in resilience, right?" ("base", xpos="far_left", ypos="head")
+                        cho @ cheeks blush "A *terrible* lesson in embarrassment!" ("angry", "base", "angry", "mid")
+                        gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
+        "-Dismiss her-":
+            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+            gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
+    
+    gen "Good job, Ms Chang." ("base", xpos="far_left", ypos="head")
+    cho "Thank you, [name_genie_astoria]." ("base", "base", "base", "mid")
+    cho "Here's the payment." ("open", "base", "base", "mid")
+    nar "You receive {number=payment} gold coins."
+
+    $ game.gold += payment
+
+    call cho_walk(action="leave")
+
+    $ cho.equip(cho_outfit_last)
+
+    $ states.cho.busy = True
+    $ current_job = None
+
+    jump main_room_menu
+
+#Send Astoria to work.
+
