@@ -9,9 +9,15 @@ default states.sus.ev.train_attendant_job.intro_complete = False
 ##################################
 
 # sus_outfit_trainee
+default sus_top_attendant = DollCloth("susan", ("upper body", "shirts"), "top", "top_school_4", ["#b9b8b8ff", "#e7dbdbff", "#332b36ff", "#d4a10eff"], unlocked=True)
+default sus_top_attendant_wet = DollCloth("susan", ("upper body", "shirts"), "top", "top_school_6", ["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+default sus_bottom_attendant = DollCloth("susan", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#675a6cff", "#e8b10dff"], unlocked=True)
+default sus_stockings_attendant = DollCloth("susan", ("legwear", "stockings"), "stockings", "short_school_1", ["#d4a10eff", "#332b36ff"], unlocked=True)
+
+default sus_outfit_attedant = DollOutfit([sus_top_attendant,sus_bottom_attendant,sus_stockings_attendant], price=80, name="Train Attendant Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
 
 # Mod Event
-default sus_train_attendant_job_return: = Event(
+default sus_train_attendant_job_return = Event(
     id="sus_ev_train_attendant_job_return", 
     label="sus_train_attendant_job_return", 
     priority=5, 
@@ -28,7 +34,7 @@ default sus_ev_train_attendant_hub = Event(
     autoenqueue=True,
     autodequeue=False,
     queue="sus_eventqueue_jobs_train_attendant",
-    subevents=["label sus_train_attendant_job_return:"]
+    subevents=["sus_train_attendant_job_return"]
     )
 
 if "sus_jobs" not in globals():
@@ -59,8 +65,6 @@ label summon_susan_over:
 
     sus "You wanted to see me, [name_genie_susan]?" ("base", "base", "base", "mid", xpos="base", ypos="base")
 
-    label susan_requests:
-
     sus "" (xpos="base", ypos="base")
 
     menu:
@@ -74,8 +78,8 @@ label summon_susan_over:
             call susan_chitchat
             jump susan_talk
 
-        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if False:
-            $ TBA_message()
+        "-Sexual favours-" (icon="interface/icons/small/condom.webp", style="disabled") if True:
+            # $ TBA_message()
             jump sus_favor_menu
 
         # Wardrobe
@@ -170,4 +174,4 @@ label sus_favor_menu:
             jump sus_requests
 
 init python:
-    config.label_overrides["summon_susans"] = "summon_susan_over"
+    config.label_overrides["summon_susan"] = "summon_susan_over"

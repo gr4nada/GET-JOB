@@ -1,11 +1,11 @@
 label sus_train_attendant_job:
 
     if not states.sus.ev.train_attendant_job.intro_complete:
-        $ states.sus.ev.train_attendant.intro_complete = True
+        $ states.sus.ev.train_attendant_job.intro_complete = True
 
         sus "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
         gen "I heard that the trolley witch could use some help on the Hogwarts Express." ("base", xpos="far_left", ypos="head")
-        sus "You want me to sell snacks on the train?" ("open", "squint", "base", "mid", xpos="right", ypos="base")
+        sus "You want me to sell snacks on the train?" ("open", "narrow", "base", "mid")
         gen "It’s an easy way to earn points and make sure everyone is well-fed during the trip." ("base", xpos="far_left", ypos="head")
         
         if states.sus.level < 4:
@@ -13,11 +13,24 @@ label sus_train_attendant_job:
             sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
             gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
             sus "..." ("angry", "narrow", "base", "down")
+            sus "Why does this look like something from a maid cafe?" ("clench", "base", "base", "down")
+            gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "narro", "base", "mid")
+            gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
+            sus "You can’t be serious..." ("base", "narrow", "base", "base")
+            gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
+            sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
+            gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
+        else:
+            sus "I guess it’s not the worst job..." ("base", "closed", "base", "mid")
+            sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
+            sus "..." ("angry", "narrow", "base", "down")
             sus "Why does this look like something from a maid café?" ("clench", "squint", "base", "down")
             gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
-            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("disgust", "squint", "base", "mid")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "squint", "base", "mid")
             gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
-            sus "You can’t be serious..." ("upset", "narrow", "base", "R")
+            sus "You can’t be serious..." ("base", "narrow", "base", "base")
             gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
             sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
             gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
@@ -28,10 +41,10 @@ label sus_train_attendant_job:
     show screen blkfade
     with d5
     # Setup
-    $ sus_outfit_trainee.used = True
+    $ sus_outfit_attedant.used = True
     play sound "sounds/cloth_sound.ogg"
     $ sus_outfit_last.save()
-    $ susan.equip(sus_outfit_trainee)
+    $ susan.equip(sus_outfit_attedant)
     hide screen blkfade
     with d5
 
@@ -54,7 +67,7 @@ label sus_train_attendant_job_return:
         progress_factor = math.log(states.her.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
     
-    $ susan.equip(sus_outfit_train_attendant)
+    $ susan.equip(sus_outfit_attedant)
 
     call sus_walk(action="enter", xpos="mid", ypos="base")
 
@@ -106,7 +119,7 @@ label sus_train_attendant_job_return:
 
     call sus_walk(action="leave")
 
-    $ sus.equip(sus_outfit_last)
+    $ susan.equip(sus_outfit_last)
 
     $ states.sus.busy = True
     $ current_job = None
