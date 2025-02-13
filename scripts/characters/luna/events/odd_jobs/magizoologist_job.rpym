@@ -1,0 +1,589 @@
+label lun_magizoologist_job:
+
+    if not states.lun.ev.magizoologist.intro_complete:
+        $ states.lun.ev.magizoologist.intro_complete = True
+
+        lun "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
+        gen "I have another job opportunity for you, [name_luna_genie]." ("base", xpos="far_left", ypos="head")
+        lun "What kind of job this time?" ("clench", "base", "base", "mid")
+        gen "You have three choices, all related to magical creatures and plants." ("base", xpos="far_left", ypos="head")
+        gen "You can take care of Fire Crabs at the Magical Menagerie, work with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse, or clean the Black Lake." ("base", xpos="far_left", ypos="head")
+        lun "Oh, well..." ("base", "narrow", "base", "mid")
+        lun "I had a dream about a rabbit last night." ("base", "base", "base", "mid")
+        gen "A rabbit? What about it?" ("base", xpos="far_left", ypos="head")
+        lun "It wanted to be eaten... but no one wanted to eat it. Poor thing." ("open", "base", "base", "mid")
+        gen "Well, I like eating rabbits. I could've helped." ("base", xpos="far_left", ypos="head")
+        lun "That would’ve made him happy, I think. But alas, the dream ended before he found his purpose." ("base", "base", "base", "mid")
+        gen "...Right. So, which job do you want to take?" ("base", xpos="far_left", ypos="head")
+        lun "I suppose the winds of fate will choose for me." ("base", "base", "base", "close")
+        lun @ cheeks blush "Let me think..." ("base", "base", "base", "close")
+
+        $ luna_random_choice = renpy.random.choice(["Fire Crabs", "Magical Plants", "Black Lake"])
+
+        if luna_random_choice == "Fire Crabs":
+            lun "Fire Crabs? Hmm... I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
+            lun "My Pisces horoscope says today is a bad day for dealing with fiery creatures. Something about the moon being too close to Mars." ("closed", "base", "base", "mid")
+            gen "Oh please, you don’t actually believe that, do you?" ("base", xpos="far_left", ypos="head")
+            lun "The universe speaks in mysterious ways, [name_luna_genie]." ("angry", "base", "base", "mid")
+
+        elif luna_random_choice == "Magical Plants":
+            lun "Oh dear... Working with magical plants today?" ("base", "narrow", "base", "mid")
+            lun "My horoscope says that plants will be unusually aggressive under Neptune's influence." ("base", "base", "base", "mid")
+            gen "That sounds like nonsense." ("base", xpos="far_left", ypos="head")
+            lun "Maybe... But have you ever seen an angry Tentacula? It’s terrifying." ("base", "base", "base", "mid")
+
+        else:  # Black Lake
+            lun "The Black Lake? I see... That’s the worst one!" ("angry", "narrow", "worried", "mid")
+            gen "Why’s that?" ("base", xpos="far_left", ypos="head")
+            lun "Because my horoscope says that water is especially treacherous under today’s celestial alignment!" ("angry", "closed", "angry", "mid")
+            lun "What if the Grindylows are in a bad mood? Or the giant squid is feeling playful?" ("angry", "base", "angry", "mid")
+            gen "I’m sure you’ll manage. Just be cautious and don’t provoke any underwater creatures." ("base", xpos="far_left", ypos="head")
+            gen "Why’s that?" ("base", xpos="far_left", ypos="head")
+
+        gen "Well, I’ve made my decision. " ("base", xpos="far_left", ypos="head")
+        lun "*Sigh*..." ("closed", "base", "base", "mid")
+    menu:
+        "Take care of Fire Crabs at the Magical Menagerie.":
+            $ luna_current_job = "Fire Crabs"
+            lun "Fire Crabs?" ("base", "base", "base", "mid")
+            lun "I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
+            gen "Why not?" ("base", xpos="far_left", ypos="head")
+            lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("closed", "base", "base", "mid")
+            gen "Luna, you don’t believe in that nonsense, do you?" ("base", xpos="far_left", ypos="head")
+            lun "The stars don’t lie, [name_luna_genie]. But... I suppose I can be careful." ("base", "base", "base", "mid")
+            gen "Great! Here’s your proper uniform for the task." ("base", xpos="far_left", ypos="head")
+            $ luna.equip(lun_outfit_party)
+        
+        "Work with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse.":
+            $ luna_current_job = "Magical Plants"
+            lun "Oh dear..." ("base", "narrow", "base", "mid")
+            lun "The horoscope also says plants are feeling aggressive today." ("base", "base", "base", "mid")
+            gen "That sounds made up." ("base", xpos="far_left", ypos="head")
+            lun "Maybe. But have you ever seen an angry Tentacula? It’s terrifying." ("base", "base", "base", "mid")
+            gen "I’m sure you’ll manage. Here’s your special uniform for the job." ("base", xpos="far_left", ypos="head")
+            $ luna.equip(lun_outfit_tanktop)
+        
+        "Clean the Black Lake.":
+            $ luna_current_job = "Black Lake"
+            lun "The Black Lake? Do I have to?" ("base", "narrow", "base", "mid")
+            gen "Yes, it needs cleaning. What’s wrong?" ("base", xpos="far_left", ypos="head")
+            lun "Because you picked a swimsuit that barely covers anything!" ("angry", "closed", "angry", "mid")
+            lun "The mermaids will never stop laughing at me!" ("angry", "base", "angry", "mid")
+            gen "It’s proper lake-cleaning attire, [name_luna_genie]. You’ll be fine." ("base", xpos="far_left", ypos="head")
+            lun "It’s practically a bikini! And it’s so small...!" ("angry", "closed", "angry", "mid")
+            gen "You’ll be fine. Just get the job done quickly." ("base", xpos="far_left", ypos="head")
+            lun "*Sigh*... I suppose there’s no way out of this..." ("closed", "base", "base", "mid")
+            $ luna.equip(lun_outfit_bikini3)
+        
+    gen "Come back in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
+    lun "..." ("angry", "narrow", "worried", "mid")
+    gen " (Luna... I don’t know why, but something tells me it’s never wise to upset you.)" ("base", xpos="far_left", ypos="head")
+    gen " (Ancient spirits of nature have a way of remembering those who cross their chosen ones...)" ("base", xpos="far_left", ypos="head")
+
+    show screen blkfade
+    with d5
+    # Setup
+    $ lun_outfit_magizoologist.used = True
+    play sound "sounds/cloth_sound.ogg"
+    $ lun_outfit_last.save()
+    hide screen blkfade
+    with d5
+
+    pause 2.5
+    hide lun_main
+    with d3
+
+    gen "Off you go, then..." ("base", xpos="far_left", ypos="head")
+
+    call lun_walk(action="leave")
+
+    $ states.lun.busy = True
+    
+    jump main_room_menu
+
+
+label lun_magizoologist_job_return:
+    
+    python:
+        progress_factor = math.log(states.lun.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
+        payment = int(progress_factor * random_gold)
+
+    if luna_current_job == "Fire Crabs":
+        $ luna.equip(lun_outfit_party)
+        call lun_walk(action="enter", xpos="mid", ypos="base")
+        gen "[name_luna_genie]... How was your day working in the Magical Menagerie?" ("base", xpos="far_left", ypos="head")
+        lun "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+        menu:
+            "\"What exactly did you do today?\"":
+                if states.lun.level < 13:
+                    random:
+                        block:
+                            lun "I may have unintentionally started a Fire Crab stampede today." ("base", "narrow", "base", "mid")
+                            gen "How?" ("base", xpos="far_left", ypos="head")
+                            lun "I tripped while carrying their food, and suddenly, every single one of them was coming straight at me." ("base", "base", "base", "mid")
+                            lun "It was terrifying. And slightly majestic." ("base", "narrow", "base", "mid")
+                            gen "Did you at least escape unscathed?" ("base", xpos="far_left", ypos="head")
+                            lun "Only minor burns. Nothing a little spell couldn’t fix." ("base", "base", "base", "mid")
+                            lun "Here’s the payment. It should cover my dignity’s damages." ("base", "base", "base", "mid")
+                        block:
+                            lun "I may have trained a Fire Crab today." ("base", "narrow", "base", "mid")
+                            gen "Trained?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes. I accidentally dropped a treat while cleaning, and one of them started rolling towards me when I called it." ("base", "base", "base", "mid")
+                            lun "By the end of the day, it was following me around like a pet." ("base", "narrow", "base", "mid")
+                            gen "That’s... surprisingly adorable." ("base", xpos="far_left", ypos="head")
+                            lun "Yes. Until it tried to sit on my lap. Fire Crabs are still quite fiery, after all." ("base", "base", "base", "mid")
+                            lun "Here’s your payment. If I disappear, I may have started a Fire Crab revolution." ("base", "base", "base", "mid")
+                        block:
+                            lun "Did you know Fire Crabs enjoy music?" ("base", "narrow", "base", "mid")
+                            gen "I can’t say I did." ("base", xpos="far_left", ypos="head")
+                            lun "I started humming while cleaning their enclosure, and they all turned to face me." ("base", "base", "base", "mid")
+                            lun "Then, they started clicking their shells rhythmically." ("base", "narrow", "base", "mid")
+                            gen "That sounds oddly coordinated..." ("base", xpos="far_left", ypos="head")
+                            lun "Yes. Either I discovered a new Fire Crab behavior, or they were warning me to stop singing." ("base", "base", "base", "mid")
+                            lun "Either way, here’s your payment." ("base", "base", "base", "mid")
+                elif states.lun.level < 22:
+                    random:
+                        block:
+                            lun "I... I was taking care of the Demiguise at Magical Menagerie today." ("base", "narrow", "base", "mid")
+                            lun "It started off fine, but then things got... complicated." ("base", "narrow", "base", "mid")
+                            gen "Complicated? You mean, it actually caused some trouble?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing nervously) Well, yes. A few small incidents, but nothing too serious—at first." ("base", "narrow", "base", "mid")
+                            gen "What did you do? Were you... trying to train it?" ("base", xpos="far_left", ypos="head")
+                            lun "(shrugging) I tried to keep it calm by speaking softly and offering it treats. I thought it would help!" ("base", "narrow", "base", "mid")
+                            gen "And that... didn’t go as planned, I’m guessing?" ("base", xpos="far_left", ypos="head")
+                            lun "(grinning sheepishly) Not exactly. It started predicting my movements and dodging me every time I got close!" ("base", "narrow", "base", "mid")
+                            gen "(eyes wide) Wait, it was predicting you? That’s what they do, [name_luna_genie]!" ("base", xpos="far_left", ypos="head")
+                            lun "I didn’t realize how quickly things would spiral out of control. Every time I tried to grab it, it vanished, and then suddenly, things started disappearing!" ("base", "narrow", "base", "mid")
+                            gen "Wait—disappearing? You mean, it was making things invisible?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing) Yes! And it seems to have a sense of humor. It turned invisible, then started taking things—coins, wands, even someone’s hat!" ("base", "narrow", "base", "mid")
+                            gen "So you had to chase something you couldn’t even see?" ("base", xpos="far_left", ypos="head")
+                            lun "(nodding) Yes! And every time I thought I had it cornered, it already knew my next move and dodged me." ("base", "narrow", "base", "mid")
+                            gen "That sounds exhausting... so what happened?" ("base", xpos="far_left", ypos="head")
+                            lun "(grimacing) Well, I tripped over an invisible stool while trying to grab it. And when I landed... I realized something very important—it managed to steal my underwear!" ("base", "narrow", "base", "mid")
+                            gen "(eyes widening) Wait, it took—?" ("base", xpos="far_left", ypos="head")
+                            lun "(blushing) Yes... my panties. I didn’t even realize at first, but when I stood up, everyone was staring at me strangely." ("base", "narrow", "base", "mid")
+                            gen "(smirking) So now you’re standing there, missing something important, and everyone knows?" ("base", xpos="far_left", ypos="head")
+                            lun "(embarrassed) I tried to act normal! But I had to move very carefully to avoid any... revealing angles." ("base", "narrow", "base", "mid")
+                            gen "I’m guessing that wasn’t easy?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing nervously) Not at all. But I finally managed to grab the Demiguise when it got distracted playing with some ribbons. Then everything it stole became visible again." ("base", "narrow", "base", "mid")
+                            gen "Including your... missing item?" ("base", xpos="far_left", ypos="head")
+                            lun "(sighing deeply) Yes. And unfortunately, when it reappeared, it was right in the middle of the store, on full display." ("base", "narrow", "base", "mid")
+                            gen "(groaning) Oh no... did someone—?" ("base", xpos="far_left", ypos="head")
+                            lun "(blushing) Yes. A customer definitely saw. I just froze for a second, then stood up and mumbled," ("base", "narrow", "base", "mid")
+                            lun "(muttering) Well, at least I’m waxed down there." ("base", "narrow", "base", "mid")
+                            lun "I just froze for a second, then stood up and... well, it was the only thing I could think of to say." ("base", "narrow", "base", "mid")
+                            gen "(laughing) Oh, that’s classic [name_luna_genie]." ("base", xpos="far_left", ypos="head")
+                            lun "(shrugging) It was the only silver lining. But now I’m stuck in this awkward situation." ("base", "narrow", "base", "mid")
+                            gen "At least the Demiguise is back in its cage and everything is back to normal, right?" ("base", xpos="far_left", ypos="head")
+                            lun "(fidgeting) Yes, but I’m still... well, very embarrassed. I’m not sure how to live this one down." ("base", "narrow", "base", "mid")
+                            gen "(grinning) At least you’re making it work in your own special way." ("base", xpos="far_left", ypos="head")
+                            lun "(muttering, half-smiling) Could you give me a discount for the unexpected show?" ("base", "narrow", "base", "mid")
+                            gen "(snickering) You’ve already earned it with all the chaos. Consider it a special discount for surviving the Demiguise disaster." ("base", xpos="far_left", ypos="head")
+                            lun "(grinning) A special discount, huh? I suppose it’s the least I deserve for turning a magical mishap into a... performance." ("base", "narrow", "base", "mid")
+                            gen "I think you’re earning that discount in more ways than one..." ("base", xpos="far_left", ypos="head")
+                            lun "(grinning mischievously) I’ll take that as a compliment. But next time, I’ll make sure the Demiguise keeps its hands to itself." ("base", "narrow", "base", "mid")
+                            gen "Let’s hope so, for everyone's sake." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. Just... try not to think too much about what you saw." ("base", "narrow", "base", "mid")
+                        block:
+                            lun "I discovered something interesting today." ("base", "narrow", "base", "mid")
+                            gen "Oh? What is it?" ("base", xpos="far_left", ypos="head")
+                            lun "Fire Crabs have a favorite spot to be scratched." ("base", "base", "base", "mid")
+                            lun "There’s a small ridge on their shells. If you scratch it, they stop shooting fire and just purr." ("base", "narrow", "base", "mid")
+                            gen "Fire Crabs can purr?" ("base", xpos="far_left", ypos="head")
+                            lun "Well, more like a low rumbling sound. Or maybe they were just preparing to explode." ("base", "base", "base", "mid")
+                            lun "Either way, I’ll test it further next time. Here’s the payment." ("base", "base", "base", "mid")
+                else: #22+
+                    random:
+                        block:
+                            lun "I... I was taking care of the Fire Crabs at *Magical Menagerie* today." ("base", "narrow", "base", "mid")  
+                            lun "It started off fine, but then things got... *heated*." ("base", "narrow", "base", "mid")  
+                            gen "Heated? You mean, they actually set something on fire?" ("base", xpos="far_left", ypos="head")  
+                            lun "(laughs nervously) Well, yes. A few *small* fires, but nothing too serious—at first." ("base", "narrow", "base", "mid")  
+                            gen "What did you do? Were you... *complimenting* them again?" ("base", xpos="far_left", ypos="head")  
+                            lun "(shrugging) I tried to keep them calm by telling them how *beautifully fiery* they were. I thought it would help!" ("base", "narrow", "base", "mid")  
+                            gen "And that... set off a firestorm, I’m guessing?" ("base", xpos="far_left", ypos="head")  
+                            lun "(grinning sheepishly) Well, *kind of*. They loved the attention so much that they started *breathing fire* in excitement!" ("base", "narrow", "base", "mid")  
+                            gen "(eyes wide) Breathing fire? On you?!" ("base", xpos="far_left", ypos="head")  
+                            lun "I didn’t realize how flammable the whole situation would become. The Fire Crabs started shooting flames everywhere—burning the plants, the floor, and... well, *me*." ("base", "narrow", "base", "mid")  
+                            gen "You got caught in the crossfire?!" ("base", xpos="far_left", ypos="head")  
+                            lun "(laughing) Let’s just say I was a little too close to their excitement. I ended up getting drenched in water from the plant sprayers to *calm* down the flames." ("base", "narrow", "base", "mid")  
+                            gen "Drenched in *water*? And that helped...?" ("base", xpos="far_left", ypos="head")  
+                            lun "(grimaces) Well, the Fire Crabs were calm, but I was... *completely soaked* by the time it was over." ("base", "narrow", "base", "mid")  
+                            gen "Soaked? Now you're just *steaming* with that water, aren’t you?" ("base", xpos="far_left", ypos="head")  
+                            lun "(laughing awkwardly) Yes, pretty much. And it didn’t help that my clothes got *stuck* to me, like a second skin." ("base", "narrow", "base", "mid")  
+                            gen "So now you’re just *drenched* and stuck in *wet clothes*? I’m starting to think you’re living in a magical disaster." ("base", xpos="far_left", ypos="head")  
+                            lun "(grimacing, tugging at her blouse) Yes, and it’s not just wet. It’s now *transparent* from all the water, which made me realize—well, everyone could see a bit more than they probably should have." ("base", "narrow", "base", "mid")  
+                            gen "(eyes widening) Wait, wait—*transparent*? You mean—" ("base", xpos="far_left", ypos="head")  
+                            lun "(fidgeting) Yes, my blouse is practically *sticking* to me now, and let’s just say... well, *everyone* in the shop can now see a lot more of me than I had planned to share." ("base", "narrow", "base", "mid")  
+                            gen "(groans) Oh, great. So, not only were you fighting fire, you ended up giving the customers a *show*." ("base", xpos="far_left", ypos="head")  
+                            lun "(shrugs) It wasn’t my intention, but... I guess it’s a *lesson* learned." ("base", "narrow", "base", "mid")  
+                            gen "(snickers) A lesson in *keeping your distance* from fire-breathing creatures, right?" ("base", xpos="far_left", ypos="head")  
+                            lun "(sighing) Exactly. And now I’m stuck with this *wet* situation." ("base", "narrow", "base", "mid")  
+                            gen "Well, at least you’re *making it work*. I don’t think I’d want to see the *full show*, though." ("base", xpos="far_left", ypos="head")  
+                            lun "(muttering, half-smiling) Could you give me a *discount* for the free show I’m giving?" ("base", "narrow", "base", "mid")  
+                            gen "(smirking) I’d say *no*—but I’ve already seen enough. I’ll consider it a *special* discount for surviving the chaos." ("base", xpos="far_left", ypos="head")  
+                            lun "A *special* discount for me, huh? That’s the first time anyone’s given me a reward for being drenched and practically naked!" ("base", "narrow", "base", "mid")  
+                            gen "I think you’re *earning* that discount in more ways than one..." ("base", xpos="far_left", ypos="head")  
+                            lun "(grinning) I’ll take that as a compliment. But next time, I’ll make sure the Fire Crabs stay in their cages. No more *spontaneous* performances." ("base", "narrow", "base", "mid")  
+                            gen "Let’s hope so, for everyone’s sake." ("base", xpos="far_left", ypos="head")  
+                            lun "Here’s the payment. Just... don't mind the wet blouse." ("base", "narrow", "base", "mid")                        
+                        block:
+                            lun "I... I was taking care of the Nifflers at Magical Menagerie today." ("base", "narrow", "base", "mid")
+                            lun "It started off fine, but then things got... chaotic." ("base", "narrow", "base", "mid")
+                            gen "Chaotic? You mean, they actually caused some trouble?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing nervously) Well, yes. A few small incidents, but nothing too serious—at first." ("base", "narrow", "base", "mid")
+                            gen "What did you do? Were you... entertaining them again?" ("base", xpos="far_left", ypos="head")
+                            lun "(shrugging) I tried to keep them occupied by complimenting their... shiny fur. I thought it would help!" ("base", "narrow", "base", "mid")
+                            gen "And that... set off a chaos storm, I’m guessing?" ("base", xpos="far_left", ypos="head")
+                            lun "(grinning sheepishly) Well, kind of. They loved the attention so much that they started stealing everything in sight!" ("base", "narrow", "base", "mid")
+                            gen "(eyes wide) Stealing everything? On you?!" ("base", xpos="far_left", ypos="head")
+                            lun "I didn’t realize how quickly things would spiral out of control. The Nifflers started grabbing whatever they could—wallets, broomsticks, even a few shoes—and hoarding them in their little burrows." ("base", "narrow", "base", "mid")
+                            gen "Wait—wallets? Were you stealing from your customers?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing) No! But it seems the Nifflers thought everything was fair game. I ended up chasing after them for ages, trying to get the stolen goods back." ("base", "narrow", "base", "mid")
+                            gen "You had to chase them down?" ("base", xpos="far_left", ypos="head")
+                            lun "(nodding) Yes! And by the time I finally got the last wallet back, I was so out of breath I knocked over a shelf full of merchandise!" ("base", "narrow", "base", "mid")
+                            gen "Oh no... so now you’re dealing with Nifflers and a mess?" ("base", xpos="far_left", ypos="head")
+                            lun "(grimacing) Yes, and to make matters worse, they started pulling at my clothes, thinking they were just another item to add to their treasure pile." ("base", "narrow", "base", "mid")
+                            gen "(groans) So, you were practically undressed while chasing them?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing nervously) Not exactly, but I had to tug my skirt out of one of their paws. And then... I realized something very important—they managed to steal my underwear too!" ("base", "narrow", "base", "mid")
+                            gen "(eyes widening) Wait, they stole—?" ("base", xpos="far_left", ypos="head")
+                            lun "(blushing) Yes... my panties. I didn’t even realize at first, but when I bent down to grab a few more items from the Nifflers’ stash... well, let’s just say I realized the hard way." ("base", "narrow", "base", "mid")
+                            gen "(smirking) So now you’re running around without your... underwear?" ("base", xpos="far_left", ypos="head")
+                            lun "(embarrassed) I didn’t have much of a choice. But I tried to avoid bending down too much after that. I didn’t want to give anyone more than they bargained for." ("base", "narrow", "base", "mid")
+                            gen "I’m guessing it wasn’t easy to avoid bending down while running after everything?" ("base", xpos="far_left", ypos="head")
+                            lun "(laughing nervously) No, not at all. But I managed to recover all the stolen items and finally trap the Nifflers in their little cages." ("base", "narrow", "base", "mid")
+                            gen "So you saved the day, but at a cost, I assume?" ("base", xpos="far_left", ypos="head")
+                            lun "(sighing deeply) Yes... and I had to make sure no one saw anything I didn’t want them to see. But in one of the moments I bent down to grab the last item... well, a customer was definitely watching." ("base", "narrow", "base", "mid")
+                            gen "(groaning) Oh no, did he—?" ("base", xpos="far_left", ypos="head")
+                            lun "(blushing) Yes. He saw everything. I just froze for a second, then stood up." ("base", "narrow", "base", "mid")
+                            lun "(muttering) Well, at least I’m waxed down there." ("base", "narrow", "base", "mid")
+                            gen "At least the Nifflers are locked up and the mess is cleared up, right?" ("base", xpos="far_left", ypos="head")
+                            lun "(fidgeting) Yes, but I’m still... well, a bit exposed. And I’m not sure how to live this one down." ("base", "narrow", "base", "mid")
+                            gen "(grinning) At least you’re making it work in your own special way." ("base", xpos="far_left", ypos="head")
+                            lun "(muttering, half-smiling) Could you give me a discount for the unexpected show?" ("base", "narrow", "base", "mid")
+
+            "-Dismiss her-":
+                gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+                gen "Your contribution are updated.." ("base", xpos="far_left", ypos="head")
+
+    elif luna_current_job == "Magical Plants":
+        $ luna.equip(lun_outfit_tanktop)
+        call lun_walk(action="enter", xpos="mid", ypos="base")
+        gen "[name_luna_genie]... How was your day at the Magical Menagerie?" ("base", xpos="far_left", ypos="head")
+        lun "It was a true test of survival..." ("base", "base", "base", "mid")
+        menu:
+            "\"What exactly did you do today?\"":
+                if states.lun.level < 13:
+                    random:
+                        block:
+                            gen "[name_luna_genie]... How was your day at the Magical Menagerie?" ("base", xpos="far_left", ypos="head")
+                            lun "Oh, you wouldn’t believe it... I had to deal with Venomous Tentacula today." ("base", "narrow", "base", "mid")
+                            lun "My horoscope was right; the plants were definitely... aggressive." ("base", "base", "base", "mid")
+                            gen "I can only imagine the chaos. Glad you survived." ("base", xpos="far_left", ypos="head")
+                            lun "Barely! Two of its vines grabbed me—one by each arm!" ("base", "wide", "narrow", "mid")
+                            lun "And then, out of nowhere, a third vine just *ripped my robes right off!*" ("clothes_off", "shock", "base", "mid")
+                            gen "...You expect me to believe that?" ("base", xpos="far_left", ypos="head")
+                            lun "I swear! One moment, I was fighting for my life, and the next—*whoosh!*—there goes my uniform!" ("base", "narrow", "base", "mid")
+                            gen "Luna, this is starting to sound like one of those books Filch confiscates." ("base", xpos="far_left", ypos="head")
+                            lun "It was *nothing* like that! I was in serious danger!" ("base", "angry", "base", "mid")
+                            lun "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid")
+                            gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", xpos="far_left", ypos="head")
+                            lun "Oh? You think so?" ("base", "base", "base", "mid")
+                            lun "..."
+                            # lun "*[Luna unfastens her cloak, revealing the obvious lack of a uniform beneath.]*" ("base", "narrow", "base", "mid")
+                            gen "...By Merlin’s polka-dot pajamas!" ("angry", xpos="far_left", ypos="head")
+                            gen "..." ("base", xpos="far_left", ypos="head")
+                            lun "Now do you believe me?" ("base", "narrow", "base", "mid")
+                            gen "I—uh—yes. Yes, I do. Very much. Let’s just settle my payment and pretend this *never* happened." ("base", xpos="far_left", ypos="head")
+                            lun "Good idea. Here it is." ("base", "base", "base", "mid")
+                            lun "Next time, I’m bringing a *spiked* cloak." ("base", "narrow", "base", "mid")
+
+                        block:
+
+                            lun "I had to deal with Devil’s Snare and Venomous Tentacula today." ("base", "narrow", "base", "mid")
+                            gen "Wow... I can only imagine the chaos. But at least you made it out." ("base", xpos="far_left", ypos="head")
+                            lun "Barely! A Tentacula wrapped around my ankle and..." ("base", "narrow", "base", "mid")
+                            lun "It tore off my underwear." ("base", "narrow", "narrow", "mid")
+                            gen "Haha! Good one, Luna. You almost got me." ("base", xpos="far_left", ypos="head")
+                            lun "Almost?" ("base", "base", "base", "mid")
+                            lun "..."
+                            # lun "*[Luna lifts her skirt slightly, revealing her bare thighs.]*" ("base", "narrow", "base", "mid")
+                            gen "By Merlin... You're joking, right?" ("angry", xpos="far_left", ypos="head")
+                            lun "*Unfortunately, no.*" ("base", "base", "base", "mid")
+                            lun "The Tentacula was quite persistent..." ("base", "narrow", "base", "mid")
+                            gen "This is... I... well..." ("base", xpos="far_left", ypos="head")
+                            lun "I told you. The stars never lie." ("base", "base", "base", "mid")
+                            gen "*Right... Right..." ("base", xpos="far_left", ypos="head")
+                            lun "Next time, I'm wearing armor." ("base", "narrow", "base", "mid")
+
+                        block:
+                            gen "[name_luna_genie]... How was your day with the Mandrakes?" ("base", xpos="far_left", ypos="head")
+                            lun "Oh, you wouldn’t believe it... I spent all day replanting Mandrakes." ("base", "narrow", "base", "mid")
+                            lun "Do you have any idea how loud they are?" ("base", "narrow", "base", "mid")
+                            gen "I imagine quite loud." ("base", xpos="far_left", ypos="head")
+                            lun "Understatement! I think my ears are still ringing." ("base", "narrow", "base", "mid")
+                            lun "I should have brought earmuffs, but my horoscope said to 'keep my senses open' today." ("base", "narrow", "base", "mid")
+                            gen "Maybe next time ignore the horoscope and wear the earmuffs." ("base", xpos="far_left", ypos="head")
+                            # Add confusion from Luna's hearing and her misunderstanding of the genie
+                            lun "I must have misunderstood. Did you... want me to take off the couthes? is this an exam?" ("base", "narrow", "base", "mid") 
+                            # Luna starts removing her cloak, misinterpreting the genie's words
+                            # lun "*[Luna starts unfastening her cloak, thinking the genie suggested she should]*" ("base", "narrow", "base", "mid")
+                            gen "...Luna, no! I didn’t mean that!" ("base", xpos="far_left", ypos="head")
+                            lun "Oh, I see now! I got it all wrong, didn’t I?" ("base", "narrow", "base", "mid")
+                            gen "..." ("base", xpos="far_left", ypos="head")
+                            lun "Sorry! My ears are still a bit fuzzy." ("base", "narrow", "base", "mid")
+                            gen "That’s alright... Let’s just finish up here, shall we?" ("base", xpos="far_left", ypos="head")
+                            lun "Next time, I’ll bring a *soundproof* cloak." ("base", "narrow", "base", "mid")
+
+                elif states.lun.level < 22:
+                    random:
+                        block:
+                            # *Luna enters, covering her chest with her arms.*
+                            gen "[name_luna_gen]... How was your day with the Fanged Geranium?" ("base", xpos="far_left", ypos="head")
+                            lun "It was... interesting." ("base", "narrow", "base", "mid")
+                            gen "Interesting how?" ("base", xpos="far_left", ypos="head")
+                            lun "Well, I was watering a Fanged Geranium when it decided I looked tastier than the fertilizer." ("angry", "narrow", "base", "mid")
+                            lun "It bit my sleeve and wouldn't let go!" ("angry", "base", "base", "mid")
+                            gen "Did you at least win the fight?" ("base", xpos="far_left", ypos="head")
+                            lun "I think it was a draw. I lost my shirt... and my bra." ("base", "base", "base", "mid")
+                            gen "...Luna, you lost *both*?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes. It got a bit... aggressive." ("base", "narrow", "base", "mid")
+                            lun "And the Fanged Geranium... it's missing a few teeth!" ("base", "narrow", "base", "mid")
+                            lun "Here it is. I should charge extra for combat duty." ("base", "base", "base", "mid")
+                            lun "Next time, I'll bring a *reinforced* shirt." ("base", "narrow", "base", "mid")
+                            nar "*Luna hesitates before handing over the money, still covering her chest."
+                            gen "Are you sure you want to pay like this?" ("base", xpos="far_left", ypos="head")
+                            lun "*Sigh*... Well, I don't have much choice now, do I?" ("base", "narrow", "base", "mid")
+                            lun "Just... don't make this weird." ("base", "narrow", "base", "mid")
+                            nar " *Luna hands over the money and accidentally ends up topless in the process.*"
+                            lun "Oh... I just realized, I’m completely topless now." ("base", "narrow", "base", "mid")
+                            gen "Well, I suppose that's one way of looking at it." ("base", xpos="far_left", ypos="head")
+                            lun "You could at least pretend it's not awkward." ("base", "narrow", "base", "mid")
+                            gen "I mean, I’m trying... but you have to admit, this is funny." ("base", xpos="far_left", ypos="head")
+                            lun "A *very* funny." ("base", "narrow", "base", "mid")
+                            lun "Well, I guess I should probably get dressed now..." ("base", "narrow", "base", "mid")
+                        block:
+                            lun "I had a heart-to-heart conversation with a Whomping Willow sapling today." ("base", "narrow", "base", "mid")
+                            gen "A... conversation?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes. It mostly communicated through swaying and minor attempts at violence." ("base", "base", "base", "mid")
+                            lun "But I could tell... it has dreams, ambitions..." ("base", "narrow", "base", "mid")
+                            gen "Of what? Whomping people more effectively?" ("base", xpos="far_left", ypos="head")
+                            lun "Perhaps. We all have our callings." ("base", "base", "base", "mid")
+                            lun "Anyway, I think it got a little *too* excited about our talk." ("base", "narrow", "base", "mid")
+                            gen "Excited how?" ("base", xpos="far_left", ypos="head")
+                            lun "Well, it suddenly yanked me by the leg. Didn’t even give me a warning." ("base", "base", "base", "mid")
+                            gen "It yanked you by the leg?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes! And when it pulled me, I flipped upside down—completely unprepared!" ("base", "narrow", "base", "mid")
+                            lun "My skirt shifted with the motion and—well—next thing I know, it... caught sight of my underwear." ("base", "narrow", "base", "mid")
+                            gen "Wait, it saw your... *underwear*?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes! And it seemed *particularly* interested in it." ("base", "narrow", "base", "mid")
+                            gen "I... um... what do you mean by ‘interested’?" ("base", xpos="far_left", ypos="head")
+                            lun "It started tugging at the fabric, like it found a treasure." ("base", "narrow", "base", "mid")
+                            lun "I wasn’t sure what else to do, so I just... took it off and gave it to the sapling." ("base", "base", "base", "mid")
+                            lun "It was the only way to make it stop staring so... intently." ("base", "narrow", "base", "mid")
+                            lun "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid")
+                            gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", "base", "base", "mid")
+                            lun "Oh? You think so?" ("base", "narrow", "base", "mid")
+                            lun "..." ("base", "narrow", "base", "mid")
+                            # Luna unfastens her cloak, revealing the obvious lack of a uniform beneath.
+                            gen "...By the bloody Sorting Hat!!!" ("angry", xpos="far_left", ypos="head")
+                            gen "..." ("base", xpos="far_left", ypos="head")
+                            lun "Now do you believe me?" ("base", "narrow", "base", "mid")
+                            gen "And what did it do with it?" ("base", "narrow", "base", "mid")
+                            lun "It placed it on its head. Like some sort of crown." ("base", "narrow", "base", "mid")
+                            gen "So now there's a Whomping Willow sapling with your... underwear... as a crown?" ("base", xpos="far_left", ypos="head")
+                            lun "I guess so. It seems oddly pleased with itself." ("base", "narrow", "base", "mid")
+                            gen "*Ahem*... it’s certainly... regal now." ("base", xpos="far_left", ypos="head")
+                            lun "*Sigh*... I just hope it doesn’t start making demands for more clothes." ("base", "narrow", "base", "mid")
+                            lun "At least it calmed down after that. It's just sitting there, wearing my underwear like it’s the latest fashion trend." ("base", "narrow", "base", "mid")
+                            lun "*Professor Snape suddenly appears from behind a tree, having witnessed the entire scene.* "
+                            gen "*eyes widen in shock*... Professor Snape saw the whole thing, didn’t he?" ("base", xpos="far_left", ypos="head")
+                            lun "*mutters*... Yes... he did. He just stood there, staring at me in disbelief." ("base", "narrow", "base", "mid")
+                            gen "And... neither of you said anything?" ("base", xpos="far_left", ypos="head")
+                            lun "*shrugs*... I think we were both too surprised to react. I mean, who expects a sapling to steal your underwear while you’re upside down?" ("base", "narrow", "base", "mid")
+                            gen "True... it’s not an everyday occurrence." ("base", xpos="far_left", ypos="head")
+                            lun "We just... stood there. Me, upside down, topless, and him... speechless." ("base", "narrow", "base", "mid")
+                            gen "So, no words, just... awkward silence." ("base", xpos="far_left", ypos="head")
+                            lun "Exactly. The weirdest part? He didn’t even flinch when I handed it to the sapling. He just... watched." ("base", "narrow", "base", "mid")
+                            gen "Well, that *is* Snape, isn’t it?" ("base", xpos="far_left", ypos="head")
+                            lun "He’s probably seen worse... but I’m not sure I’ll ever be able to look him in the eye again." ("base", "narrow", "base", "mid")
+
+                else: #22+
+                    random:
+                        block:
+                            lun @ cheeks blush "Well... I may have accidentally started a small revolution in the greenhouse." ("base", "narrow", "base", "mid")
+                            gen "A... revolution?" ("base", xpos="far_left", ypos="head")
+                            lun "Yes. The Gillyweed refused to stay in its pot, the Venomous Tentacula took offense, and then the Puffapods started exploding in protest." ("base", "narrow", "base", "mid")
+                            lun "It was all very dramatic." ("base", "base", "base", "mid")
+                            gen "And what did you do?" ("base", xpos="far_left", ypos="head")
+                            lun "I negotiated a truce by offering extra compost." ("base", "narrow", "base", "mid")
+                            lun "But that wasn’t enough... because the plants had more demands." ("base", "base", "base", "mid")
+                            gen "What else did they want?" ("base", xpos="far_left", ypos="head")
+                            lun "(pauses, looking slightly frustrated)" ("base", "narrow", "base", "mid")
+                            lun "At first, it seemed simple. The Venomous Tentacula wanted a better view of the sun, the Puffapods demanded more attention..." ("base", "narrow", "base", "mid")
+                            lun "But the Gillyweed... the Gillyweed wanted something *personal*." ("base", "narrow", "base", "mid")
+                            gen "(crossing arms) What exactly?" ("base", xpos="far_left", ypos="head")
+                            lun @ cheeks blush"(sighs) My... *bra*." ("base", "narrow", "base", "mid")
+                            gen "(blinks, incredulous) The plants *demanded* your *bra*?" ("base", xpos="far_left", ypos="head")
+                            lun @ cheeks blush"Yes. They wouldn’t stop tugging at my clothes, like they were waiting for me to hand it over." ("base", "narrow", "base", "mid")
+                            gen "And you just *gave* it to them?" ("base", xpos="far_left", ypos="head")
+                            lun "(crossing arms, clearly annoyed) I didn’t have a choice!" ("base", "narrow", "base", "mid")
+                            lun @ cheeks blush "After all the pulling and insisting, I sighed, took off my shirt, and handed over the bra. It was the only way to make them stop." ("base", "narrow", "base", "mid")
+                            lun "As soon as I gave it up, the vines wrapped around it like it was some kind of trophy." ("base", "narrow", "base", "mid")
+                            gen "(massaging temples) This is... ridiculous." ("angry", "closed", "angry", "mid")
+                            lun "Oh, and there’s more." ("base", "narrow", "base", "mid")
+                            gen "(suspicious) ...What else could have possibly happened?" ("base", xpos="far_left", ypos="head")
+                            lun @ cheeks blush "(huffs) When I turned to grab my shirt... it was *gone*." ("base", "narrow", "base", "mid")
+                            gen "(raising an eyebrow) Gone? What do you mean, gone?" ("base", xpos="far_left", ypos="head")
+                            lun "Vanished. Some sneaky plant must’ve taken it when I wasn’t looking." ("base", "narrow", "base", "mid")
+                            gen "So, to sum this up: you went into the greenhouse to negotiate with the plants, ended up giving them your bra, and when you turned around, your shirt had disappeared too?" ("base", xpos="far_left", ypos="head")
+                            lun @ cheeks blush"(arms crossed, visibly frustrated) That’s exactly what happened." ("base", "narrow", "base", "mid")
+                            gen "(laughing) I think they tricked you, Lun." ("angry", "base", "angry", "mid")
+                            lun "(grumbling) I’m starting to think so too..." ("base", "narrow", "base", "mid")
+                            gen "At this rate, I wouldn’t be surprised if they ask for your shoes next." ("base", xpos="far_left", ypos="head")
+                            lun "(sarcastic) Fantastic. Can’t wait to walk back barefoot because some leafy menace decided it wants footwear now." ("base", "narrow", "base", "mid")
+                            lun @ cheeks blush "(takes a deep breath, looking down at her bag)" ("base", "narrow", "base", "mid")
+                            lun @ cheeks blush"(grumbles) And now I still have to open my bag and hand over the payment..." ("base", "narrow", "base", "mid")
+                            lun @ cheeks blush"(hesitates, shifting uncomfortably) This would be *so* much easier if I still had *something* on..." ("base", "narrow", "base", "mid")
+                            gen "(holding back laughter) Need a hand?" ("base", xpos="far_left", ypos="head")
+                            lun "(shoots him a warning glare) Don’t even *think* about it." ("base", "narrow", "base", "mid")
+                            lun "(sighs, looking around) Alright, let’s just get this over with..." ("base", "narrow", "base", "mid")
+                            lun "(reluctantly lowers her arms, trying to get into her bag)" ("base", "narrow", "base", "mid")
+                            lun @ cheeks blush "(muttering) The least you could do is give me a *discount* for the free show..." ("base", "narrow", "base", "mid")
+                        block:
+                            lun "Did you know that if you whisper sweet compliments to a Devil’s Snare, it grows twice as fast?" ("base", "narrow", "base", "mid")  
+                            gen "That... sounds like a disaster waiting to happen." ("base", xpos="far_left", ypos="head")  
+                            lun "Professor Sprout disagrees. She called it 'a fascinating breakthrough in magical botany.'" ("base", "base", "base", "mid")  
+                            gen "(crosses arms) You do realize your job is to *control* the plants, not train them to take hostages?" ("angry", xpos="far_left", ypos="head")  
+                            lun "Oh, don't be so dramatic. I simply *enhanced* its natural growth response." ("base", "narrow", "base", "mid")  
+                            gen "Let me guess. You got a little too close, didn’t you?" ("base", xpos="far_left", ypos="head")  
+                            lun "(sighs) It was all in the name of research! And yes, maybe I got *slightly* entangled in the process." ("base", "narrow", "base", "mid")  
+                            gen "Slightly?" ("base", xpos="far_left", ypos="head")  
+                            lun "(pauses) ...Alright, *completely* entangled." ("base", "narrow", "base", "mid")  
+                            lun "But you should’ve seen it! The vines were practically *purring* when I told them how magnificent they were." ("base", "narrow", "base", "mid")  
+                            gen "Oh yes, I'm sure they were *thrilled* right before they wrapped you up like a Christmas present." ("base", xpos="far_left", ypos="head")  
+                            lun "That’s an unfair exaggeration... *mostly*. Though, I will admit, getting free wasn’t easy." ("base", "narrow", "base", "mid")  
+                            gen "Let me guess, you had to bribe them?" ("base", xpos="far_left", ypos="head")  
+                            lun @ cheeks blush "Sort of! But instead of gold, they seemed more interested in... fabric." ("base", "narrow", "base", "mid")  
+                            gen "...Fabric?" ("base", xpos="far_left", ypos="head")  
+                            lun @ cheeks blush "(clears throat) Yes. My robes were the first to go. Then my cloak. Then my *shirt*." ("base", "narrow", "base", "mid")  
+                            gen "(eyes widen) Luna, please tell me you didn’t—" ("base", xpos="far_left", ypos="head")  
+                            lun @ cheeks blush "Look, I tried *everything* else! And when I finally managed to free my arms, I *may* have had to part ways with... additional garments." ("base", "narrow", "base", "mid")  
+                            gen "...By the mischievous whiskers of Dumbledore!!!" ("angry", xpos="far_left", ypos="head")  
+                            lun "Honestly, it was a small price to pay for scientific progress." ("base", "narrow", "base", "mid")  
+                            gen "A *small* price?! You’re standing here dripping wet, covered in dirt, and barely dressed!" ("angry", xpos="far_left", ypos="head")  
+                            lun @ cheeks blush "Yes, but did you *see* how much it grew? If we harness this, imagine the agricultural advancements!" ("base", "narrow", "base", "mid")  
+                            gen "(sighs) I’d rather imagine you keeping your clothes on for once." ("angry", xpos="far_left", ypos="head")  
+                            lun "Oh, don't be so old-fashioned. Plants don't judge." ("base", "narrow", "base", "mid")  
+                            lun "(glances down at herself) Though, I *was* hoping to retrieve my shirt before coming here... but, well... the Snare *ate* it." ("base", "narrow", "base", "mid")  
+                            gen "It *ate* it?" ("base", xpos="far_left", ypos="head")  
+                            lun "Yes. And it *seemed* quite pleased with itself." ("base", "narrow", "base", "mid")  
+                            gen "(rubs temples) This is why we don’t compliment the man-eating plants, Luna." ("angry", xpos="far_left", ypos="head")  
+                            lun @ cheeks blush "Oh please, it’s hardly man-eating. *Clothes*-eating, maybe." ("base", "narrow", "base", "mid")  
+                            lun @ cheeks blush "(sighs) Anyway, here's your payment. No extra charge for the show." ("angry", "narrow", "angry", "mid")  
+                            gen "(muttering) At this rate, I'll get used to it and start wanting to pay for the show..." ("angry", xpos="far_left", ypos="head") 
+            "-Dismiss her-":
+                gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+                gen "Your contribution are updated.." ("base", xpos="far_left", ypos="head")
+    else:  # Black Lake
+        $ luna.equip(lun_outfit_bikini3)
+        call lun_walk(action="enter", xpos="mid", ypos="base")
+        gen "[name_Luna_genie]... How was your day working in the Black Lake?" ("base", xpos="far_left", ypos="head")
+        lun "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+        menu:
+            "\"What exactly did you do today?\"":
+                if states.lun.level < 13:
+                    random:
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+                elif states.lun.level < 22:
+                    random:
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+                else: #22+
+                    random:
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+
+                        block:
+                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid")
+                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid")
+                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "angry", "mid")
+                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid")
+
+            "-Dismiss her-":
+                gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+                gen "Your contribution are updated.." ("base", xpos="far_left", ypos="head")
+
+    gen "Good job, [name_luna_genie]." ("base", xpos="far_left", ypos="head")
+    lun "Thank you, [name_genie_luna]." ("base", "base", "base", "mid")
+    lun "Here's the payment." ("open", "base", "base", "mid")
+    nar "You receive {number=payment} gold coins."
+
+    $ game.gold += payment
+
+    call lun_walk(action="leave")
+
+    $ luna.equip(lun_outfit_last)
+
+    $ states.lun.busy = True
+    $ current_job = None
+
+    jump main_room_menu
+
+

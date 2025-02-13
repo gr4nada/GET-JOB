@@ -7,14 +7,23 @@ default states.ast.ev.dishwasher_job.intro_complete = False
 #################
 ## dishwasher Outfit ##
 #################
-
 default ast_top_dishash = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffffee", "#ccccccee", "#bbbbbbee"])
-default ast_top_dishash_wet = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffff66", "#cccccccc", "#bbbbbbcc"])
 default ast_bottom_dishash = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#ffffffff", "#ffffffff"])
 default ast_gloves_dishwash = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", ["#ffd700ff"])
 
-default ast_outfit_dishwash = DollOutfit([ast_top_dishash,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
-default ast_outfit_dishwash_wet = DollOutfit([ast_top_dishash_wet,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+default ast_outfit_dishwash = DollOutfit([ast_top_dishash, ast_bottom_dishash, ast_gloves_dishwash], 
+    price=80, 
+    name="Dishwash Uniform", 
+    desc="A practical washing uniform that turns irresistibly sheer when wet."
+)
+
+# default ast_top_dishash = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffffee", "#ccccccee", "#bbbbbbee"])
+# default ast_top_dishash_wet = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+# default ast_bottom_dishash = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#ffffffff", "#ffffffff"])
+# default ast_gloves_dishwash = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", ["#ffd700ff"])
+
+# default ast_outfit_dishwash = DollOutfit([ast_top_dishash,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+# default ast_outfit_dishwash_wet = DollOutfit([ast_top_dishash_wet,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
 
 # Mod Event
 default ast_ev_dishwasher_job_return = Event(

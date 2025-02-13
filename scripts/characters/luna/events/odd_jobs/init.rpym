@@ -1,0 +1,107 @@
+# Commenting out the initialization offset
+init offset = 5
+
+# Mod Event Flags
+default states.lun.ev.magizoologist.intro_complete = False
+
+##########################
+## magizoologist Outfit ##
+##########################
+
+default lun_top_nightie_job = DollCloth("luna", ("upper body", "shirts"), "top", "nightie_2", ["#ffacb8d7"], level=6)
+default lun_top_summer_job = DollCloth("luna", ("upper body", "shirts"), "top", "summer_top_1", ["#ff9acdff"])
+default lun_skirt_plaid_job = DollCloth("luna", ("lower body", "skirts"), "bottom", "skirt_plaid", ["#ffffffff", "#523E5Eff", "#767986ff", "#C3C9E5ff"], level=6)
+
+default lun_outfit_magizoologist = DollOutfit([lun_top_nightie_job,lun_top_summer_job,lun_skirt_plaid_job], price=80, name="Magizoologist Uniform", desc="A practical magizoologist uniform that turns irresistibly sheer when wet.")
+# default lun_outfit_dishwash_wet = DollOutfit([lun_top_dishash_wet,lun_bottom_dishash,lun_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+
+# Mod Event
+default lun_ev_magizoologist_job_return = Event(
+    id="lun_ev_magizoologist_job_return", 
+    label="lun_magizoologist_job_return", 
+    priority=5, 
+    req=(not game.daytime)  
+)
+
+default lun_eventqueue_jobs_magizoologist = EventQueue("lun_eventqueue_jobs_magizoologist")
+
+default lun_ev_magizoologist_job_hub = Event(
+    id="lun_ev_magizoologist_job_hub",
+    label="lun_magizoologist_job",
+    req="states.lun.tier > 0", 
+    autoenqueue=True,
+    autodequeue=False,
+    queue="lun_eventqueue_jobs_magizoologist",
+    subevents=["lun_ev_magizoologist_job_return"]
+)
+
+if "luna_jobs" not in globals():
+    define luna_jobs = [
+        ("lun_eventqueue_jobs_magizoologist", "Work as a magizoologist!"),
+
+]    
+else:
+    $ luna_jobs.append(("lun_eventqueue_jobs_magizoologist", "Work as a magizoologist!"))
+
+# Luna Favor Menu
+label luna_favor_menu_over:
+    menu:
+        "-Level Up-" (icon="interface/icons/small/levelup.webp") if lun_level_up is not None:
+                call luna_level_up(tier=lun_level_up)
+                jump luna_favor_menu
+
+        "-Personal Favours-" (icon="interface/icons/small/heart_red.webp"):
+            call tutorial("hearts")
+
+            label .personal:
+
+            $ result = show_events_menu(luna_favors)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this favour opportunity yet."
+                jump .personal
+            elif result == "exit":
+                jump luna_favor_menu
+            else:
+                $ result.start()
+
+        "-Public Requests-" (icon="interface/icons/small/star_yellow.webp", style="disabled"):
+            label .requests:
+
+            call not_available
+
+            # $ result = show_events_menu(hermione_requests)
+
+            # if result in ("disabled", "noncompliant"):
+            #     "You haven't unlocked this request opportunity yet."
+            #     jump .requests
+            # elif result == "exit":
+            #     jump .skip_points_check
+            # else:
+            #     $ result.start()
+
+            jump luna_favor_menu
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp") if game.daytime:
+            label .odd_jobs:
+
+            $ result = show_events_menu(luna_jobs, report_progress=False)
+
+            if result in ("disabled", "noncompliant"):
+                "You haven't unlocked this job opportunity yet."
+                jump .odd_jobs
+
+            elif result == "exit":
+                jump luna_favor_menu
+            else:
+                $ result.start()
+
+        "-Odd Jobs-" (icon="interface/icons/small/gold.webp", style="disabled") if not game.daytime:
+            nar "Public requests are available during the day only."
+            jump luna_favor_menu
+
+        "-Never mind-":
+            jump luna_requests
+
+init python:
+    config.label_overrides["luna_favor_menu"] = "luna_favor_menu_over"
