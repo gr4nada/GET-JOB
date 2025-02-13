@@ -1,0 +1,130 @@
+label sus_train_attendant_job:
+
+    if not states.sus.ev.train_attendant_job.intro_complete:
+        $ states.sus.ev.train_attendant_job.intro_complete = True
+
+        sus "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
+        gen "I heard that the trolley witch could use some help on the Hogwarts Express." ("base", xpos="far_left", ypos="head")
+        sus "You want me to sell snacks on the train?" ("open", "narrow", "base", "mid")
+        gen "It’s an easy way to earn points and make sure everyone is well-fed during the trip." ("base", xpos="far_left", ypos="head")
+        
+        if states.sus.level < 4:
+            sus "I guess it’s not the worst job..." ("base", "closed", "base", "mid")
+            sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
+            sus "..." ("angry", "narrow", "base", "down")
+            sus "Why does this look like something from a maid cafe?" ("clench", "base", "base", "down")
+            gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "narro", "base", "mid")
+            gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
+            sus "You can’t be serious..." ("base", "narrow", "base", "base")
+            gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
+            sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
+            gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
+        else:
+            sus "I guess it’s not the worst job..." ("base", "closed", "base", "mid")
+            sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
+            sus "..." ("angry", "narrow", "base", "down")
+            sus "Why does this look like something from a maid café?" ("clench", "squint", "base", "down")
+            gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "squint", "base", "mid")
+            gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
+            sus "You can’t be serious..." ("base", "narrow", "base", "base")
+            gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
+            sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
+            gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
+
+            hide susan_main
+            with d3
+
+    show screen blkfade
+    with d5
+    # Setup
+    $ sus_outfit_attedant.used = True
+    play sound "sounds/cloth_sound.ogg"
+    $ sus_outfit_last.save()
+    $ susan.equip(sus_outfit_attedant)
+    hide screen blkfade
+    with d5
+
+    pause 2.5
+    hide susan_main
+    with d3
+
+    gen "Off you go then..." ("base", xpos="far_left", ypos="head")
+
+    call sus_walk(action="leave")
+
+    $ states.sus.busy = True
+    $ current_job = "Assistant"
+
+    jump main_room_menu
+
+label sus_train_attendant_job_return:
+
+    python:
+        progress_factor = math.log(states.her.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
+        payment = int(progress_factor * random_gold)
+    
+    $ susan.equip(sus_outfit_attedant)
+
+    call sus_walk(action="enter", xpos="mid", ypos="base")
+
+    gen "[name_susan_genie]... How was your shift on the train?" ("base", xpos="far_left", ypos="head")
+    sus "Awful!" ("angry", "base", "base", "mid", xpos="right", ypos="base", trans=dissolve)
+
+    menu:
+        "\"What happened?\"":
+            if states.sus.level < 4:
+                random:
+                    block:
+                        sus "The cart was heavier than I expected! I could barely push it between the seats!" ("normal", "narrow", "base", "R_soft")
+                        gen "Well, you did sign up for the job." ("base", xpos="far_left", ypos="head")
+                        sus "I suppose… But I wasn’t expecting to nearly tip it over every time the train shook!" ("open", "narrow", "worried", "down")
+                        gen "Good practice for balance, I guess?" ("base", xpos="far_left", ypos="head")
+                        sus "*Sigh*... Can I get my points now?" ("angry", "closed", "angry", "mid")
+                        gen "Certainly, ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        sus "The skirt was a disaster!" ("mad", "base", "angry", "mid")
+                        gen "Oh? What happened?" ("base", xpos="far_left", ypos="head")
+                        sus "The train kept shaking, and every time I had to grab onto something, I felt like I was flashing the entire carriage!" ("mad", "base", "angry", "mid")
+                        gen "Well, that’s why you should always be aware of your surroundings." ("base", xpos="far_left", ypos="head")
+                        sus "Maybe you could let me wear something more practical?" ("upset", "closed", "angry", "mid")
+                        gen "Sorry, [name_susan_genies]. Rules are rules." ("base", xpos="far_left", ypos="head")
+                        sus "Ugh!" ("angry", "base", "base", "mid")
+                        gen "Do you want your points or not?" ("base", xpos="far_left", ypos="head")
+                        sus "*Fine!* Just give me the points..." ("angry", "closed", "angry", "mid")
+                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        sus "Some fourth-years wouldn’t stop giggling when I walked by!" ("clench", "narrow", "base", "mid")
+                        gen "Why’s that?" ("base", xpos="far_left", ypos="head")
+                        sus "Because this ridiculous outfit made me look like some kind of candy girl from a circus!" ("mad", "base", "angry", "mid")
+                        sus "Every time I bent down to grab a Pumpkin Pasty, I could hear them whispering!" ("angry", "closed", "angry", "mid")
+                        gen "You should take it as a compliment, [name_susan_genie]." ("base", xpos="far_left", ypos="head")
+                        sus "Oh, sure, because being laughed at is exactly what I wanted." ("mad", "base", "angry", "mid")
+                        gen "At least you survived the shift." ("base", xpos="far_left", ypos="head")
+                        sus "*Hmph*..." ("clench", "narrow", "base", "R")
+        "-Dismiss her-":
+            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
+            gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
+
+    sus "Well... It was *definitely* an experience..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+    gen "Good job, [name_susan_genie]." ("base", xpos="far_left", ypos="head")
+    sus "Thank you, [name_genie_susan]." ("base", "base", "base", "mid")
+    sus "Here's the payment." ("open", "base", "base", "mid")
+    nar "You receive {number=payment} gold coins."
+
+    $ game.gold += payment
+
+    call sus_walk(action="leave")
+
+    $ susan.equip(sus_outfit_last)
+
+    $ states.sus.busy = True
+    $ current_job = None
+
+    jump main_room_menu
+
+#Send Astoria to work.
+
