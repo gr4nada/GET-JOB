@@ -22,7 +22,7 @@ label lun_magizoologist_job:
 
         if luna_random_choice == "Fire Crabs":
             lun "Fire Crabs? Hmm... I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
-            lun "My Pisces horoscope says today is a bad day for dealing with fiery creatures. Something about the moon being too close to Mars." ("closed", "base", "base", "mid")
+            lun "My Pisces horoscope says today is a bad day for dealing with fiery creatures. Something about the moon being too close to Mars." ("base", "base", "base", "mid")
             gen "Oh please, you don’t actually believe that, do you?" ("base", xpos="far_left", ypos="head")
             lun "The universe speaks in mysterious ways, [name_luna_genie]." ("angry", "base", "base", "mid")
 
@@ -41,14 +41,14 @@ label lun_magizoologist_job:
             gen "Why’s that?" ("base", xpos="far_left", ypos="head")
 
         gen "Well, I’ve made my decision. " ("base", xpos="far_left", ypos="head")
-        lun "*Sigh*..." ("closed", "base", "base", "mid")
+        lun "*Sigh*..." ("base", "base", "base", "mid")
     menu:
         "Take care of Fire Crabs at the Magical Menagerie.":
             $ luna_current_job = "Fire Crabs"
             lun "Fire Crabs?" ("base", "base", "base", "mid")
             lun "I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
             gen "Why not?" ("base", xpos="far_left", ypos="head")
-            lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("closed", "base", "base", "mid")
+            lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("base", "base", "base", "mid")
             gen "[name_luna_genie], you don’t believe in that nonsense, do you?" ("base", xpos="far_left", ypos="head")
             lun "The stars don’t lie, [name_luna_genie]. But... I suppose I can be careful." ("base", "base", "base", "mid")
             gen "Great! Here’s your proper uniform for the task." ("base", xpos="far_left", ypos="head")
@@ -72,7 +72,7 @@ label lun_magizoologist_job:
             gen "It’s proper lake-cleaning attire, [name_luna_genie]. You’ll be fine." ("base", xpos="far_left", ypos="head")
             lun "It’s practically a bikini! And it’s so small...!" ("angry", "closed", "angry", "mid")
             gen "You’ll be fine. Just get the job done quickly." ("base", xpos="far_left", ypos="head")
-            lun "*Sigh*... I suppose there’s no way out of this..." ("closed", "base", "base", "mid")
+            lun "*Sigh*... I suppose there’s no way out of this..." ("base", "base", "base", "mid")
             $ luna.equip(lun_outfit_bikini3)
         
     gen "Come back in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")

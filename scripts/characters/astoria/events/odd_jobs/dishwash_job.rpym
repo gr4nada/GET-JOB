@@ -93,7 +93,7 @@ label ast_dishwasher_job_return:
     call ast_walk(action="enter", xpos="mid", ypos="base")
 
     gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
-    ast "*Well*, it was as uneventful as it gets..." ("scream", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
+    ast "*Well*, it was as uneventful as it gets..." ("clench", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
 
     menu:
         "\"What exactly did you do today?\"":
