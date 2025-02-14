@@ -86,9 +86,10 @@ label ast_dishwasher_job_return:
         payment = int(progress_factor * random_gold)
 
     # Configuration for wet transparency effect
-    $ ast_outfit_dishwash.ast_top_dishash.set_color(["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+    $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
     $ astoria.equip(ast_outfit_dishwash)
-    $ ast_outfit_dishwash.ast_top_dishash.set_color(["#ffffffee", "#ccccccee", "#bbbbbbee"])
+    $ ast_outfit_dishwash.group[2].color[0] ="#ffffffee"
+    
 
     call ast_walk(action="enter", xpos="mid", ypos="base")
 
@@ -231,8 +232,6 @@ label ast_dishwasher_job_return:
                         gen "Well, you certainly make kitchen work sound exciting." ("base", xpos="far_left", ypos="head")
                         ast "Just—just give me my sentence reduction so I can *forget* this ever happened!" ("angry", "base", "angry", "mid")
                         gen "Already updated. Maybe next time, wear a poncho?" ("base", xpos="far_left", ypos="head")
-
-
         "-Dismiss her-":
             gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
             gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
