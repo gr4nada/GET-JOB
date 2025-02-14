@@ -16,6 +16,7 @@ label lun_magizoologist_job:
         lun "That would’ve made him happy, I think. But alas, the dream ended before he found his purpose." ("base", "base", "base", "mid")
         gen "...Right. So, which job do you want to take?" ("base", xpos="far_left", ypos="head")
         lun "I suppose the winds of fate will choose for me." ("base", "base", "base", "close")
+        play sound "sounds/thunder.ogg"
         lun @ cheeks blush "Let me think..." ("base", "base", "base", "close")
 
         $ luna_random_choice = renpy.random.choice(["Fire Crabs", "Magical Plants", "Black Lake"])
