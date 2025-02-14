@@ -1,4 +1,5 @@
 # Dishwash Job  
+
 label ast_dishwasher_job:  
 
     if not states.ast.ev.dishwasher_job.intro_complete:  
@@ -83,13 +84,16 @@ label ast_dishwasher_job_return:
     python:
         progress_factor = math.log(states.ast.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
-    
-    $ astoria.equip(ast_outfit_dishwash_wet)
+
+    # Configuration for wet transparency effect
+    $ ast_outfit_dishwash.ast_top_dishash.set_color(["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+    $ astoria.equip(ast_outfit_dishwash)
+    $ ast_outfit_dishwash.ast_top_dishash.set_color(["#ffffffee", "#ccccccee", "#bbbbbbee"])
 
     call ast_walk(action="enter", xpos="mid", ypos="base")
 
     gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
-    ast "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+    ast "*Well*, it was as uneventful as it gets..." ("scream", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
 
     menu:
         "\"What exactly did you do today?\"":
