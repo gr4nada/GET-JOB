@@ -1,28 +1,203 @@
 label lun_magizoologist_job:
-
+    # Intro
     if not states.lun.ev.magizoologist.intro_complete:
         $ states.lun.ev.magizoologist.intro_complete = True
-
+        lun "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
+        gen "I have a job opportunity for you, [name_luna_genie]." ("base", xpos="far_left", ypos="head")
+        lun "What kind of job?" ("clench", "base", "base", "mid")
+        gen "You have three options, all involving magical creatures and plants." ("base", xpos="far_left", ypos="head")
+        gen "You can help take care of fantastic creatures at the Magical Menagerie, deal with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse, or clean the Black Lake." ("base", xpos="far_left", ypos="head")
+        lun "Ah... well, I love animals and plants... I feel connected to them, but..." ("base", "narrow", "base", "mid")
+        lun "You know... just thinking about working makes me feel so lazy..." ("base", "narrow", "base", "mid")
+        gen "But, Luna, think about it... not only is it a unique opportunity, but you'll be rewarded... and you could even... well, let's say, do a good deed with that money." ("base", "seductive", xpos="far_left", ypos="head")
+        lun "Rewarded? What do you mean by that?" ("base", "narrow", "base", "mid")
+        gen "Ah, the money... you could donate it to a good cause, like an organization that helps animals, for example." ("base", "tentative", xpos="far_left", ypos="head")
+        lun "Donate? Hmm..." ("base", "narrow", "base", "mid")
+        lun "That sounds... a little too convenient." ("base", "narrow", "base", "mid")
+        gen "And, of course, I'd be more than happy to help with that. What's important is helping, right?" (*almost slipping*) "I... I wouldn't keep anything, of course. Ah... you'll feel really good doing something so noble." ("base", "slightly nervous", xpos="far_left", ypos="head")
+        lun "...I don't know." ("base", "narrow", "base", "mid")
+        lun "I just get the feeling you're hiding something..." ("base", "narrow", "base", "mid")
+        lun "Hmm..." ("base", "thoughtful", "base", "mid")
+        lun "Are you sure there's no catch here? No... trick or secret plan you're not telling me about?" ("base", "skeptical", "base", "mid")
+        gen "...Nope." ("base", "silence", xpos="far_left", ypos="head")
+        lun "You're not even going to try to explain it, are you?" ("base", "narrow", "base", "mid")
+        gen "...Nope." ("base", "silence", xpos="far_left", ypos="head")
+        lun "...You know, I'm getting the feeling that you're just not very good at this convincing thing." ("base", "narrow", "base", "mid")
+        gen "It's not about convincing, Luna. It's about... letting you make your own choice." ("base", "calm", xpos="far_left", ypos="head")
+        lun "Hmm..." ("base", "thoughtful", "base", "mid")
+        lun "Wait a second..." ("base", "excited", "base", "mid")
+        lun "I just remembered something! I read my horoscope today, and it said I would have an unexpected opportunity to work with something I love!" ("base", "happy", "base", "mid")
+        lun "It even said that helping others with my passion would bring me joy. But here's the interesting part..." ("base", "mysterious", "base", "mid")
+        lun "It also said I shouldn't get attached to material things... that I should focus on what truly matters, and that I'll be rewarded for it later." ("base", "thoughtful", "base", "mid")
+        lun "This... this is it! Working with magical creatures and plants, and not worrying about the money... it’s exactly what I needed!" ("base", "excited", "base", "mid")
+        lun "So, yeah, I’m in! I’ll do it!" ("base", "happy", "base", "mid")
+        gen "Well... I guess that worked out nicely, huh?" (*slightly relieved*) ("base", "slightly relieved", xpos="far_left", ypos="head")
+        lun "It’s fate, I suppose! And I’ll donate the money, just like my horoscope told me to!" ("base", "playful", "base", "mid")
+        gen "Uh... sure, Luna. That’s the spirit." ("base", "slightly nervous", xpos="far_left", ypos="head")
+        lun "Oh, well..." ("base", "narrow", "base", "mid")
+    else:
         lun "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
         gen "I have another job opportunity for you, [name_luna_genie]." ("base", xpos="far_left", ypos="head")
         lun "What kind of job this time?" ("clench", "base", "base", "mid")
-        gen "You have three choices, all related to magical creatures and plants." ("base", xpos="far_left", ypos="head")
-        gen "You can take care of Fire Crabs at the Magical Menagerie, work with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse, or clean the Black Lake." ("base", xpos="far_left", ypos="head")
+        gen "You have the same three choices, all related to magical creatures and plants." ("base", xpos="far_left", ypos="head")
+        gen "You can help take care of fantastic creatures at the Magical Menagerie, deal with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse, or clean the Black Lake." ("base", xpos="far_left", ypos="head")
         lun "Oh, well..." ("base", "narrow", "base", "mid")
-        lun "I had a dream about a rabbit last night." ("base", "base", "base", "mid")
-        gen "A rabbit? What about it?" ("base", xpos="far_left", ypos="head")
-        lun "It wanted to be eaten... but no one wanted to eat it. Poor thing." ("open", "base", "base", "mid")
-        gen "Well, I like eating rabbits. I could've helped." ("base", xpos="far_left", ypos="head")
-        lun "That would’ve made him happy, I think. But alas, the dream ended before he found his purpose." ("base", "base", "base", "mid")
+    # Dream
+    menu:
+        "-Ask what she has to say-":
+            if states.lun.level < 4:
+                random:
+                    block:
+                        gen "Would you like to tell me what’s on your mind?" ("base", xpos="far_left", ypos="head")
+                        lun "I had the most peculiar dream last night… I was floating in a pool of warm, shimmering water." ("base", "base", "base", "mid")
+                        gen "That sounds rather nice. Was anyone else there?" ("base", xpos="far_left", ypos="head")
+                        lun "No one I could see. But the water itself… it moved around me, like it was alive, caressing my skin, tracing patterns over me with the gentlest pressure." ("open", "base", "base", "mid")
+                        gen "That’s… strangely intimate." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm… It was. Every ripple sent little shivers through me. It felt as if the air itself was vibrating, humming against my skin, like a whispered secret I couldn’t quite understand." ("base", "base", "base", "close")
+                        gen "And then?" ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "I don’t remember waking up… Just the sensation lingering, wrapping around me like an invisible embrace." ("base", "narrow", "base", "mid")
+                    block:
+                        gen "I’m curious to know what you're thinking."("base", xpos="far_left", ypos="head")
+                        lun "I had a dream about a rabbit last night." ("base", "base", "base", "mid")
+                        gen "A rabbit? What about it?" ("base", xpos="far_left", ypos="head")
+                        lun "It wanted to be eaten... but no one wanted to eat it. Poor thing." ("open", "base", "base", "mid")
+                        gen "Well, I like eating rabbits. I could've helped." ("base", xpos="far_left", ypos="head")
+                        lun "That would’ve made him happy, I think. But alas, the dream ended before he found his purpose." ("base", "base", "base", "mid")
+                    block:
+                        gen "What’s going through your head right now?"("base", xpos="far_left", ypos="head")
+                        lun "I dreamt I was in the Great Hall, but it wasn’t quite right. The ceiling stretched endlessly, and there were golden staircases leading to nowhere." ("base", "base", "base", "mid")
+                        gen "Hogwarts does like to change things up." ("base", xpos="far_left", ypos="head")
+                        lun "There was a table filled with the most delicious things… Strawberries so ripe they nearly burst, dark chocolate melting at the slightest touch, and goblets of the richest red wine." ("open", "base", "base", "mid")
+                        gen "And let me guess… You indulged?" ("base", xpos="far_left", ypos="head")
+                        lun "Oh, yes… Each bite was slow, decadent. The taste of berries sweet and tart on my tongue, my lips sticky with nectar. And the wine… it left my head light, my limbs heavy, as if I were sinking into something… deep." ("base", "base", "base", "close")
+                        gen "Sounds like a rather intoxicating dream." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm… It was. And then, just as I reached for another taste… the dream faded. Such a shame." ("base", "narrow", "base", "mid")
+                    block:
+                        gen "Care to share what you're thinking?"("base", xpos="far_left", ypos="head")
+                        lun "I had a dream about my Defense Against the Dark Arts professor last night." ("base", "base", "base", "mid")
+                        gen "Were they teaching you how to duel?" ("base", xpos="far_left", ypos="head")
+                        lun "Yes… but every time I failed to block a spell, they flicked their wand, making me stumble." ("open", "base", "base", "mid")
+                        lun @ cheeks blush "And since I was wearing a short skirt, well… it made things even more embarrassing." ("base", "base", "base", "mid")
+                        gen "That sounds like a harsh lesson." ("base", xpos="far_left", ypos="head")
+                        lun "It was… But I could tell they were enjoying watching me try to regain my balance." ("base", "base", "base", "mid")
+                        lun @ cheeks blush "By the end, I was failing on purpose, just to see how they'd react." ("base", "base", "base", "close")
+                    block:
+                        lun "I had a dream about a dragon last night." ("base", "base", "base", "mid")
+                        gen "A fire-breathing, treasure-hoarding dragon?" ("base", xpos="far_left", ypos="head")
+                        lun "Yes, but he wasn’t aggressive. He was massive, and his body was so warm..." ("open", "base", "base", "mid")
+                        gen "You weren’t scared?" ("base", xpos="far_left", ypos="head")
+                        lun "Not at all. I rested against his chest, feeling the rumble of his breath... like a soothing lullaby." ("base", "base", "base", "mid")
+                        lun @ cheeks blush "I never wanted to wake up." ("base", "base", "base", "close")
+            if states.lun.level < 13:
+                random:
+                    block:
+                        gen "So, what’s on your mind?"("base", xpos="far_left", ypos="head")
+                        lun "I had the most peculiar dream… I wasn’t quite myself." ("base", "base", "base", "mid")
+                        gen "What do you mean?" ("base", xpos="far_left", ypos="head")
+                        lun "My body… it shifted. I was weightless one moment, then sinking the next. My skin tingled, as if it was waking up to something new, something more." ("open", "base", "base", "mid")
+                        gen "That sounds… intense." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm… It was. I felt strong and vulnerable all at once. Like I was being guided, but also leading. Each sensation built upon the last, threading through me like an unspoken command." ("base", "base", "base", "close")
+                        gen "And when you woke up?" ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "The feeling lingered. Power and surrender… like two halves of the same dream, still echoing inside me." ("base", "narrow", "base", "mid")
+                        gen "That’s... quite the dream. But why do you look so flustered?" ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Well… I also woke up completely soaked." ("base", "narrow", "base", "mid")
+                        gen "Wait… soaked? Like…?" ("base", xpos="far_left", ypos="head")
+                        lun "Oh, yes. Absolutely drenched. My bed, my hair, even my pajamas… It turns out, I fell asleep with my window open, and it rained right through the night!" ("smile", "closed", "base", "mid")
+                        gen "Luna, you had me worried for a second!" ("grin", xpos="far_left", ypos="head")
+                        lun "Dreams are funny like that, aren’t they? Sometimes they leave you with more than just memories." ("smile", "base", "base", "mid")
+                    block:
+                        gen "Care to share what you're thinking?"("base", xpos="far_left", ypos="head")
+                        lun "I wandered into a garden last night… but not like any I’ve ever seen before." ("base", "base", "base", "mid")
+                        gen "A magical one?" ("base", xpos="far_left", ypos="head")
+                        lun "More than that. The flowers pulsed with light, petals opening and closing like they were breathing. The air smelled of honey and something… forbidden." ("open", "base", "base", "mid")
+                        gen "Forbidden? That’s an interesting way to describe it." ("base", xpos="far_left", ypos="head")
+                        lun "Mmm… It was thick, heavy… like velvet wrapping around me. I could feel the ground beneath my bare feet, warm and soft, and when the wind passed through the trees, it whispered my name." ("base", "base", "base", "close")
+                        gen "That sounds... strangely intimate." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "It was. And just as I reached the heart of the garden… something unseen brushed against me, trailing along my skin like the lightest of fingertips." ("base", "narrow", "base", "mid")
+                        gen  "(suddenly stroking an imaginary beard) Ah, yes… That does sound quite magical. Or perhaps… you just sleepwalked into Professor Sprout’s greenhouse again?"
+                        lun  "Oh no… Do you think I accidentally confessed my secrets to a particularly wise Mandrake?"("base", "base", "base", "close")
+                        gen  "If so, let’s hope it doesn’t scream them out in class tomorrow." ("base", xpos="far_left", ypos="head")
+                        lun  "Well, that would certainly make Herbology more interesting!"("base", "base", "base", "mid")
+            if states.lun.level < 22:
+                random:
+                    block:
+                        gen "Would you like to tell me what’s on your mind?" ("base", xpos="far_left", ypos="head")
+                        lun "There was someone in my dream last night. Or… something." ("base", "base", "base", "mid")
+                        gen "That’s ominous." ("base", xpos="far_left", ypos="head")
+                        lun "Not at all. They didn’t have a face, but I knew them. Their presence was warm… familiar. When they moved, they weren’t quite solid, shifting between shapes, between energies." ("open", "base", "base", "mid")
+                        gen "Like… a ghost?" ("base", xpos="far_left", ypos="head")
+                        lun "No… more like a dream given form. They circled around me, close enough that I could feel them, but never quite touching. And yet… I shivered, as if they had." ("base", "base", "base", "close")
+                        gen "That’s… oddly intimate." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm… It was. They never spoke, but I felt them… inside my thoughts, inside my breath. Like a secret only I was meant to hear." ("base", "narrow", "base", "mid")
+                        gen "That sounds... intense. And a little bit eerie." ("base", xpos="far_left", ypos="head")
+                        lun  "Mmm... maybe. But it was also quite nice. Like being wrapped in moonlight." ("base", "base", "base", "mid")
+                        gen "And then you woke up?" ("base", xpos="far_left", ypos="head")
+                        lun "Yes... soaked." ("base", "base", "base", "mid")
+                        gen "Wait, what?!" ("surprised", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm… I think it must have been the Nargles. They do love playing tricks with water." ("base", "narrow", "base", "mid")
+                        gen "Right. Of course. Nargles." ("base", xpos="far_left", ypos="head")
+                    block:
+                        gen "So, what’s on your mind?"("base", xpos="far_left", ypos="head")
+                        lun "I had a dream about a giant octopus last night." ("base", "base", "base", "mid")
+                        gen "Oh no... Let me guess, it grabbed you?" ("base", xpos="far_left", ypos="head")
+                        lun "Yes… So many tentacles… They moved so fluidly, coiling around me, each touch cool and deliberate." ("open", "base", "base", "mid")
+                        gen "And you weren’t terrified?" ("base", xpos="far_left", ypos="head")
+                        lun "I thought I would be… but the way it held me—firm, yet careful—was oddly mesmerizing." ("base", "base", "base", "mid")
+                        lun @ cheeks blush "Every touch sent a shiver down my spine… It felt like being part of something vast, something beyond myself." ("base", "base", "base", "close")
+                        gen "That’s… quite the dream." ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Mmm... Even after I woke up… that pulsing sensation remained, lingering deep inside me for a long time" ("base", "narrow", "base", "mid")
+            else :
+                random:
+                    block:
+                        lun "I had a dream about my Transfiguration professor last night."(base, base, base, mid)
+                        gen "Did they turn you into something strange?"(base, xpos="far_left", ypos="head")
+                        lun "Not exactly… They told me to transform objects, but every time I got distracted, they’d tap their wand on my hand."(open, base, base, mid)
+                        gen "Strict, aren’t they?"(base, xpos="far_left", ypos="head")
+                        lun "The taps weren’t painful… just sharp enough to remind me to focus."(base, base, base, mid)
+                        lun "I started making tiny mistakes on purpose, just to feel it again."(base, base, base, close)
+                        gen: "You really wanted that attention, huh?"(base, xpos="far_left", ypos="head")
+                        lun "I guess I did. It was... kind of addictive? In a weird way."(base, base, base, mid)
+                        gen: "Wow, so now you’re into pain... but magical pain."(base, xpos="far_left", ypos="head")
+                        lun: "No! No, it wasn’t like that! It was more like… a reminder that I had to stay focused."(base, base, base, mid)
+                        lun"But maybe it was kind of nice… the way it felt when I got distracted and they’d tap my hand, like… a little shock to the system."(base, base, base, mid)
+                        gen: "I’m pretty sure that’s not what Transfiguration class is supposed to be about..."(base, xpos="far_left", ypos="head")
+                        lun "I mean… it was just a dream! Just a dream!"(base, base, base, mid)
+                        gen: "So, do you wake up wanting more 'taps' now?"(base, xpos="far_left", ypos="head")
+                        lun "Ugh! No!" (base, base, base, mid)
+                    block:
+                        lun "I had a dream about a dragon last night." ("base", "base", "base", "mid")
+                        gen "A fire-breathing, treasure-hoarding dragon?" ("base", xpos="far_left", ypos="head")
+                        lun "Yes, but he wasn’t aggressive. He was massive, and his body was so warm..." ("open", "base", "base", "mid")
+                        gen "You weren’t scared?" ("base", xpos="far_left", ypos="head")
+                        lun "Not at all. I rested against his chest, feeling the rumble of his breath... like a soothing lullaby." ("base", "base", "base", "mid")
+                        lun @ cheeks blush "I never wanted to wake up." ("base", "base", "base", "close")
+                        gen  "I bet you didn't want to wake up... or maybe it was just the warmth that kept you there." ("base", xpos="center", ypos="mid")
+                        lun @ cheeks blush "Maybe... but it wasn’t just the warmth. It was... something else. Something more." ("base", "base", "base", "mid")
+                        gen "Oh? And what would that be?" ("base", xpos="far_left", ypos="head")
+                        lun @ cheeks blush "Let’s just say... when I woke up, I felt a little too warm." ("base", "base", "base", "close")
+                        gen "Is that so? Well, maybe I should stay close... help you cool off." ("base", xpos="center", ypos="mid")
+                        lun @ cheeks blush "Maybe... but only if you think you can handle it." ("base", "base", "base", "mid")
+        "-I don't want to hear it-":
+            random:
+                block: 
+                    gen   "Ah, [name_luna_genie], as much as I value your unique perspective, I'm afraid I must decline this time."("base", xpos="center", ypos="mid")
+                block: 
+                    gen   "I do believe your thoughts are intriguing, but at the moment, my duties require my full attention."("base", xpos="center", ypos="mid")
+                block: 
+                    gen   "[name_luna_genie], I regret to say that the matters at hand leave me with little time for further discussion."("base", xpos="center", ypos="mid")
+                block: 
+                    gen   "Your ideas are always fascinating, but I must kindly ask for your understanding, as I am pressed for time."("base", xpos="center", ypos="mid")
+                block: 
+                    gen   "While your curiosity is always appreciated, I fear I must attend to other matters now, [name_luna_genie]."("base", xpos="center", ypos="mid")
         gen "...Right. So, which job do you want to take?" ("base", xpos="far_left", ypos="head")
         lun "I suppose the winds of fate will choose for me." ("base", "base", "base", "close")
         play sound "sounds/thunder.ogg"
         lun @ cheeks blush "Let me think..." ("base", "base", "base", "close")
 
-        $ luna_random_choice = renpy.random.choice(["Fire Crabs", "Magical Plants", "Black Lake"])
+        $ luna_random_choice = renpy.random.choice(["Magical Menagerie", "Magical Plants", "Black Lake"])
 
-        if luna_random_choice == "Fire Crabs":
-            lun "Fire Crabs? Hmm... I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
+        if luna_random_choice == "Magical Menagerie":
+            lun "Magical Menagerie? Hmm... I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
             lun "My Pisces horoscope says today is a bad day for dealing with fiery creatures. Something about the moon being too close to Mars." ("base", "base", "base", "mid")
             gen "Oh please, you don’t actually believe that, do you?" ("base", xpos="far_left", ypos="head")
             lun "The universe speaks in mysterious ways, [name_luna_genie]." ("angry", "base", "base", "mid")
@@ -44,9 +219,9 @@ label lun_magizoologist_job:
         gen "Well, I’ve made my decision. " ("base", xpos="far_left", ypos="head")
         lun "*Sigh*..." ("base", "base", "base", "mid")
     menu:
-        "Take care of Fire Crabs at the Magical Menagerie.":
-            $ luna_current_job = "Fire Crabs"
-            lun "Fire Crabs?" ("base", "base", "base", "mid")
+        "Take care of fantastic creatures at the Magical Menagerie.":
+            $ luna_current_job = "Magical Menagerie"
+            lun "Magical Menagerie?" ("base", "base", "base", "mid")
             lun "I don’t think that’s a good idea." ("base", "narrow", "base", "mid")
             gen "Why not?" ("base", xpos="far_left", ypos="head")
             lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("base", "base", "base", "mid")
@@ -105,7 +280,7 @@ label lun_magizoologist_job_return:
         progress_factor = math.log(states.lun.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
 
-    if luna_current_job == "Fire Crabs":
+    if luna_current_job == "Magical Menagerie":
         $ luna.equip(lun_outfit_party)
         call lun_walk(action="enter", xpos="mid", ypos="base")
         gen "[name_luna_genie]... How was your day working in the Magical Menagerie?" ("base", xpos="far_left", ypos="head")
