@@ -26,13 +26,6 @@ label ast_dishwasher_job:
             gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head")
             ast "Very well..." ("open", "base", "base", "mid")
             gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
-            hide astoria_main
-            with d3
-
-            call tutorial("points")
-
-            $ _event.cancel()
-            jump astoria_favor_menu.odd_jobs
                 
         elif states.ast.level >= 13:
             ast "I suppose it could be worse..." ("base", "closed", "base", "mid")
@@ -155,7 +148,7 @@ label ast_dishwasher_job_return:
                         gen "Your sentence reduction is updated." ("base", xpos="far_left", ypos="head") 
                         ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat, a parachute, and a *tent*!" ("angry", "base", "annoyed", "mid") 
                         gen "A tent? Now that’s what I call ‘kitchen couture.’" ("grin", xpos="far_left", ypos="head") 
-            elif states.ast.level < 22
+            elif states.ast.level < 22:
                 random:
                     block:
                         ast "This has to be some kind of *punishment!*" ("angry", "base", "worried", "mid") 
