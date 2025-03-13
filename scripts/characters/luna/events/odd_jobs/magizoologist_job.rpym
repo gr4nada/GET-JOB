@@ -282,22 +282,6 @@ label lun_magizoologist_job:
     $ states.lun.busy = True
     jump main_room_menu
 
-label prepare_appearance(is_wet, missing_top, missing_bra, missing_bottom, missing_panties,outfit_lun_odd_job):
-    $ luna.equip(outfit_lun_odd_job)
-    if is_wet:
-        $ lun_outfit_default.group[0].color[1] ="#777777DD" 
-        $ luna.equip(outfit_lun_odd_job)
-        $ lun_outfit_default.group[0].color[1] ="#777777ff"
-    if missing_top:
-        $ luna.strip("top")
-    if missing_bra:
-        $ luna.strip("bra")
-    if missing_bottom:
-        $ luna.strip("bottom")
-    if missing_panties:
-        $ luna.strip("panties")
-    return 
-
 label lun_magizoologist_job_return:
     
     python:
@@ -434,14 +418,24 @@ label lun_magizoologist_job_return:
                     $ missing_bottom = False
                     $ missing_panties = True 
 
-        $ outfit_lun_odd_job = lun_outfit_default
-
-        call prepare_appearance(is_wet, missing_top, missing_bra, missing_bottom, missing_panties,outfit_lun_odd_job)
-
-        call lun_walk(action="enter", xpos="mid", ypos="base")
+        if is_wet:
+            $ lun_outfit_default.group[0].color[1] ="#777777DD" 
+            $ lun_outfit_default.group[1].color[1] ="#777777AA" 
+            $ lun_outfit_default.group[2].color[0] ="#77777777" 
+            $ lun_outfit_default.group[3].color[0] ="#777777EE" 
+        $ luna.equip(lun_outfit_default)
+        if missing_top:
+            $ luna.strip("top")
+        if missing_bra:
+            $ luna.strip("bra")
+        if missing_bottom:
+            $ luna.strip("bottom")
+        if missing_panties:
+            $ luna.strip("panties")
+            call lun_walk(action="enter", xpos="mid", ypos="base")
 
         gen "[name_luna_genie]... How was your day working in the Magical Menagerie?" ("base", xpos="far_left", ypos="head")
-        lun "*Well*..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+        lun "*Well*..." ("soft", "narrow", "annoyed", "mid")
         menu:
             "\"What exactly did you do today?\"":
                 if dialogue_label == "Fire Crab Stampede":

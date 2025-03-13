@@ -30,7 +30,7 @@ default her_ev_library_job_hub = Event(
 )
 
 if "hermione_jobs" not in globals():
-    define hermione_jobs = [
+    default hermione_jobs = [
         ("her_eventqueue_jobs_library", "Work as a librarian!"),
         ("her_eventqueue_jobs_maid", "Work as a maid!"),
         ("her_eventqueue_jobs_promoter", "Work as a promoter!"),

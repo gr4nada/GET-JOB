@@ -38,7 +38,7 @@ default sus_ev_train_attendant_hub = Event(
     )
 
 if "sus_jobs" not in globals():
-    define sus_jobs = [
+    default sus_jobs = [
         ("sus_eventqueue_jobs_train_attendant", "Work as a Expresso Hoghwarts attendant!"),
 
 ]    
