@@ -78,257 +78,332 @@ label ast_dishwasher_job_return:
         progress_factor = math.log(states.ast.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
 
-    # Configuration for wet transparency effect
-    $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
-    $ astoria.equip(ast_outfit_dishwash)
-    $ ast_outfit_dishwash.group[2].color[0] ="#ffffffee"
-    
+    $ ast_end_day = ""
+    $ is_wet = False
+    $ missing_top = False
+    $ missing_bra = False
+    $ missing_bottom = False
+    $ missing_panties = False
+
+    # Select End Day - status and Missing Clouthes
+    if states.ast.level < 13:           
+        random:
+            block:
+                # "The See-Through Uniform Dilemma"
+                $ ast_end_day = "The See-Through Uniform Dilemma"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                # "Sweating Like a Lobster in the Kitchen Sauna"
+                $ ast_end_day = "Sweating Like a Lobster in the Kitchen Sauna"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                # "The Soggy Tissue Chronicles"
+                $ ast_end_day = "The Soggy Tissue Chronicles"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
+    elif states.ast.level < 22:
+        random:
+            block:
+                $ ast_end_day = "The Boiling Storm: A Kitchen Nightmare"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                $ ast_end_day = "Miss Drippy: The Kitchen Chronicles"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False 
+            block:
+                $ ast_end_day = "Miss Misty: The Teapot Incident"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False 
+    else:
+        random:
+            block:
+                $ ast_end_day = "The Cauldron Catastrophe: A Steamy Misadventure"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False                           
+            block:
+                $ ast_end_day = "The Floating Fiasco: A Kitchen Shame Spiral"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
+            block:
+                $ ast_end_day = "The Zipline Escape: A Sauce-Soaked Disaster"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
 
     call ast_walk(action="enter", xpos="mid", ypos="base")
+    
+    if is_wet:
+        $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
+        $ astoria.equip(ast_outfit_dishwash)
+        $ ast_outfit_dishwash.group[2].color[0] ="#ffffffee"
 
+    $ cho.equip(cho_outfit_cheerleader)
+        
+    if missing_top:
+        $ astoria.strip("top")
+    if missing_bra:
+        $ astoria.strip("bra")
+    if missing_bottom:
+        $ astoria.strip("bottom")
+    if missing_panties:
+        $ astoria.strip("panties")
+    
     gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
     ast "*Well*, it was as uneventful as it gets..." ("clench", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
 
     menu:
         "\"What exactly did you do today?\"":
-            if states.ast.level < 13:
-                random:
-                    block:
-                        ast "This uniform is *completely* impractical!" ("upset", "wide", "base", "mid") 
-                        gen "What happened this time?" ("base", xpos="far_left", ypos="head") 
-                        ast "Every time I washed a dish, water splashed all over me!" ("annoyed", "base", "annoyed", "mid") 
-                        ast "And do you know what happens when a *white* uniform gets wet?" ("annoyed", "base", "annoyed", "mid") 
-                        gen "Hmm... I imagine it becomes more breathable?" ("grin", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("soft", "narrow", "base", "downR") 
-                        gen "Oh dear. That sounds... revealing." ("base", xpos="far_left", ypos="head") 
-                        ast "I had to stand by the stove just to dry off as quickly as possible!" ("annoyed", "base", "annoyed", "mid") 
-                        gen "Well, at least you stayed warm. Silver linings, right?" ("grin", xpos="far_left", ypos="head") 
-                        ast "You're impossible! Just give me my sentence reduction!" ("annoyed", "base", "annoyed", "mid") 
-                        gen "Alright, alright. I’ll consider it—but only if you promise not to flood the kitchen next time." ("base", xpos="far_left", ypos="head") 
-                        ast "Fine! But if I have to wear this uniform again, I’m bringing a raincoat!" ("annoyed", "base", "annoyed", "mid") 
-                        gen "Deal. Now go dry off before someone mistakes you for a ghost." ("grin", xpos="far_left", ypos="head") 
-                    block:
-                        ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "wide", "annoyed", "mid") 
-                        gen "That’s to be expected. It’s a kitchen." ("base", xpos="far_left", ypos="head") 
-                        ast "Expected?! Do you know what it’s like to feel like a lobster in a boiling pot?!" ("angry", "base", "annoyed", "mid") 
-                        gen "Well, at least you’re already red. Saves time on the cooking process." ("grin", xpos="far_left", ypos="head") 
-                        ast "Ugh! And this uniform is *awful*! The apron barely covers anything, and the top kept sliding down!" ("angry", "base", "annoyed", "mid") 
-                        gen "Sounds like a fashion statement. ‘Wet and Wild: Kitchen Edition.’" ("grin", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "Oh, sure, because I spent half my time *holding up my shirt*!" ("angry", "narrow", "annoyed", "mid") 
-                        ast "Do you know what happens when a *white* uniform gets wet? It becomes *see-through*! Like, *completely* transparent!" ("angry", "base", "annoyed", "mid") 
-                        gen "Ah, the classic ‘wet T-shirt contest’ look. Very trendy." ("grin", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "This isn’t funny! I looked like a soggy tissue clinging to a window!" ("angry", "narrow", "annoyed", "mid") 
-                        gen "A soggy tissue? That’s a new one. I’ll add it to the list of Astoria’s kitchen adventures." ("grin", xpos="far_left", ypos="head") 
-                        ast "Can I have my sentence reduction now and *never* do this again?" ("angry", "closed", "annoyed", "mid") 
-                        gen "Great! Your sentence reduction is updated." ("grin", xpos="far_left", ypos="head") 
-                        ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat and a *parachute*!" ("angry", "base", "annoyed", "mid") 
-                        gen "A parachute? For the kitchen? Now that’s a fashion statement I’d pay to see." ("grin", xpos="far_left", ypos="head") 
-                    block:
-                        $ astoria.strip("bottom") 
-                        # panties wet
-                        # $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
-                        # $ astoria.equip(ast_outfit_dishwash)
-                        # $ ast_outfit_dishwash.group[2].color[0] ="#ffffffee"
-                        ast "Do you know how *little* coverage these sleeves offer?!" ("clench", "narrow", "base", "mid") 
-                        gen "I assume... not much?" ("base", xpos="far_left", ypos="head") 
-                        ast "Exactly! Every time I reached for a high shelf, the sleeves rolled up and my arms got splattered with hot water!" ("angry", "base", "worried", "mid") 
-                        ast "And then, I had to clean my arms, which meant *more* water, which meant getting *even wetter*!" ("base", "base", "angry", "mid") 
-                        gen "Sounds like quite the cycle." ("base", xpos="far_left", ypos="head") 
-                        ast "Oh, and let’s not forget that the heat made my hair stick to my face the entire time!" ("angry", "base", "worried", "mid") 
-                        gen "A hard day's work builds character, [name_astoria_genie]." ("base", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "I’d rather build character *without* this ridiculous uniform." ("angry", "base", "worried", "mid") 
-                        ast "But wait, it gets worse! When I was reaching for a pot, my skirt got caught on a hook!" ("angry", "wide", "annoyed", "mid") 
-                        gen "A hook? In the kitchen? How... industrial." ("grin", xpos="far_left", ypos="head") 
-                        ast "Industrial?! The fabric of this skirt is so cheap, it tore like *paper*!" ("angry", "base", "annoyed", "mid") 
-                        ast @ cheeks blush "And then, with all the steam, my... my *undergarments* started getting wet too!" ("soft", "narrow", "base", "downR") 
-                        gen "Ah, the classic ‘steamy kitchen surprise.’ Very... revealing." ("grin", xpos="far_left", ypos="head") 
-                        ast "Revealing?! I looked like a walking *wet tissue*! A soggy, transparent mess!" ("angry", "base", "annoyed", "mid") 
-                        gen "Well, at least you’re consistent. Wet on top, wet on bottom—truly a masterpiece of kitchen fashion." ("grin", xpos="far_left", ypos="head") 
-                        ast "*Ugh!* Just give me my sentence reduction!" ("clench", "narrow", "base", "R") 
-                        gen "Your sentence reduction is updated." ("base", xpos="far_left", ypos="head") 
-                        ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat, a parachute, and a *tent*!" ("angry", "base", "annoyed", "mid") 
-                        gen "A tent? Now that’s what I call ‘kitchen couture.’" ("grin", xpos="far_left", ypos="head") 
-            elif states.ast.level < 22:
-                random:
-                    block:
-                        ast "This has to be some kind of *punishment!*" ("angry", "base", "worried", "mid") 
-                        gen "It is, actually." ("base", xpos="far_left", ypos="head") 
-                        ast "The kitchen is a furnace! The heat, the steam—it's unbearable!" ("base", "base", "angry", "mid") 
-                        gen "Sounds like an authentic culinary experience." ("base", xpos="far_left", ypos="head") 
-                        ast "Authentic?! I was drenched in sweat within minutes! My uniform stuck to me like a second skin!" ("angry", "base", "worried", "mid") 
-                        ast "And as if that wasn’t enough, one of the house-elves handed me a bucket of water to clean the floor..." ("clench", "narrow", "base", "mid") 
-                        gen "A thoughtful gesture." ("base", xpos="far_left", ypos="head") 
-                        ast "Thoughtful?! Until I slipped on the wet tiles and dumped the entire bucket *on myself!*" ("base", "base", "angry", "mid") 
-                        gen "Oh... that explains why you look like you just walked through a storm." ("base", xpos="far_left", ypos="head") 
-                        ast "Not *just* a storm! A *boiling* storm! The water mixed with the heat and the steam—there was nowhere to escape!" ("angry", "base", "worried", "mid") 
-                        gen "You should have taken the opportunity to cool off." ("base", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "Oh, yes, brilliant idea! Let me just enjoy standing in a *see-through* shirt in the middle of the kitchen!" ("base", "base", "angry", "mid") 
-                        gen "I take it the elves were... surprised?" ("base", xpos="far_left", ypos="head") 
-                        ast "Surprised?! They nearly dropped the entire dinner service!" ("angry", "base", "worried", "mid") 
-                        ast "And now I'm standing here, in your office, *dripping* onto the floor while you waste my time! Sentence reduction! Now!" ("clench", "narrow", "base", "R") 
-                        gen "Done. And might I suggest a towel?" ("base", xpos="far_left", ypos="head") 
-                    block:
-                        ast "I swear, that kitchen is cursed!" ("base", "base", "angry", "mid") 
-                        gen "What happened this time?" ("base", xpos="far_left", ypos="head") 
-                        ast "I was scrubbing the counters when the house-elves decided to *help* by throwing a bucket of water onto the surface..." ("angry", "base", "worried", "mid") 
-                        ast "Which, of course, *splashed all over me!*" ("base", "base", "angry", "mid") 
-                        gen "Well, at least the counters got cleaned." ("base", xpos="far_left", ypos="head") 
-                        ast "And so did my *entire uniform!*" ("clench", "narrow", "base", "mid") 
-                        ast "I had to spend the rest of my shift *dripping* and trying to avoid my reflection on the metal pots!" ("angry", "base", "worried", "mid") 
-                        gen "That bad, huh?" ("base", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "Oh, worse! Because then the *steam* got to me, and suddenly I wasn’t just wet—I was *sticking* to everything!" ("base", "base", "angry", "mid") 
-                        ast "And to make matters worse, the house-elves started calling me *‘Miss Drippy’*!" ("angry", "base", "worried", "mid") 
-                        gen "Miss Drippy? That’s... creative." ("grin", xpos="far_left", ypos="head") 
-                        ast "Creative?! They were *laughing* every time I walked by! And don’t even get me started on the *‘wet tissue’* jokes!" ("angry", "base", "worried", "mid") 
-                        gen "Well, at least they’re having fun. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") 
-                        ast "Help? They kept handing me towels and saying things like, *‘Miss Drippy needs a mop!’* or *‘Careful, Miss Drippy, don’t flood the kitchen!’*" ("angry", "base", "worried", "mid") 
-                        ast @ cheeks blush "But... I have to admit, they did help me clean up after I slipped. And they even gave me a dry apron... though they made sure to *peek* while I changed!" ("soft", "narrow", "base", "downR") 
-                        gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") 
-                        ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Drippy* and sneaking glances every chance they get!" ("angry", "base", "worried", "mid") 
-                        gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Drippy’* for weeks!" ("angry", "base", "worried", "mid") 
-                        gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") 
-                        ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
-                        gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") 
-                    block:
-                        ast @ cheeks blush "The humidity in there is *ridiculous!*" ("base", "base", "angry", "mid") 
-                        gen "It’s a kitchen. Steam is part of the experience." ("base", xpos="far_left", ypos="head") 
-                        ast "Part of the experience?! I felt like I was trapped inside a *teapot!* Every time someone opened a pot, it was like a wall of mist hit me in the face!" ("angry", "base", "worried", "mid") 
-                        ast "And this *useless* uniform absorbed every drop of sweat until it was practically painted onto my skin!" ("base", "base", "angry", "mid") 
-                        gen "A custom-fit look?" ("base", xpos="far_left", ypos="head") 
-                        ast "A *humiliation!*" ("angry", "base", "worried", "mid") 
-                        ast "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "base", "mid") 
-                        gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*" ("base", "base", "angry", "mid") 
-                        gen "That must have been refreshing." ("base", xpos="far_left", ypos="head") 
-                        ast "Refreshing?! It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*" ("angry", "base", "worried", "mid") 
-                        gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head") 
-                        ast "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*" ("base", "base", "angry", "mid") 
-                        ast "And do you know what they did? They started calling me *‘Miss Misty’*! Like it was some kind of *compliment!*" ("angry", "base", "worried", "mid") 
-                        gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") 
-                        ast "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’*" ("angry", "base", "worried", "mid") 
-                        gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") 
-                        ast "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!’*" ("angry", "base", "worried", "mid") 
-                        ast @ cheeks blush "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!" ("soft", "narrow", "base", "downR") 
-                        gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") 
-                        ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Misty* and sneaking glances every chance they get!" ("angry", "base", "worried", "mid") 
-                        gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Misty’* for weeks!" ("angry", "base", "worried", "mid") 
-                        gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") 
-                        ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
-                        gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") 
-            else: #22+
-                random:
-                    block:
-                        $ astoria.strip("up") 
-                        ast "This is getting ridiculous!" ("angry", "base", "worried", "mid") 
-                        gen "Another *incident*?" ("base", xpos="far_left", ypos="head") 
-                        ast "I was carrying a tray of dishes when a house-elf tripped and sent a full *cauldron* of warm water flying at me!" ("base", "base", "angry", "mid") 
-                        gen "Ah, so that's why you have that... natural look." ("base", xpos="far_left", ypos="head")
-                        ast "Yes! A *public* bath where *everyone* got a front-row seat!" ("clench", "narrow", "base", "mid") 
-                        ast "The second it happened, all the steam in the room *clung* to me, and my shirt turned into a *see-through disaster!*" ("base", "base", "angry", "mid") 
-                        ast "But that wasn’t even the worst part! When I tried to dry off by the stove, the heat made my shirt *shrink*!" ("angry", "base", "worried", "mid") 
-                        gen "Shrink? How... unfortunate." ("base", xpos="far_left", ypos="head") 
-                        ast "Unfortunate?! It was *impossible* to wear! It was so tight, I could barely *breathe!*" ("angry", "base", "worried", "mid") 
-                        ast @ cheeks blush "I was so embarrassed, I almost *cried!* But then... something unexpected happened." ("soft", "narrow", "base", "downR") 
-                        gen "Unexpected? Do tell." ("base", xpos="far_left", ypos="head") 
-                        ast "The house-elves... they saw how upset I was, and one by one, they started taking off their *own* shirts!" ("base", "base", "angry", "mid") 
-                        gen "They... what?" ("base", xpos="far_left", ypos="head") 
-                        ast "They said, *‘Miss Astoria, if you’re uncomfortable, we’ll be uncomfortable with you!’*" ("base", "base", "angry", "mid") 
-                        ast @ cheeks blush "It wasn’t the same, of course... but it was so *kind* of them. I almost forgot how humiliating the whole thing was!" ("soft", "narrow", "base", "downR") 
-                        gen "Well, it seems the house-elves have a soft spot for you." ("base", xpos="far_left", ypos="head") 
-                        ast "They do... but that doesn’t change the fact that I’m standing here, dripping onto your floor, reliving the whole thing!" ("angry", "base", "worried", "mid") 
-                        gen "At least you're keeping my floor clean." ("base", xpos="far_left", ypos="head") 
-                        ast "Sentence reduction! Now!" ("clench", "narrow", "base", "R") 
-                        gen "Done. And might I recommend a waterproof uniform next time?" ("base", xpos="far_left", ypos="head") 
-                    block:
-                        $ astoria.strip("up")
-                        $ astoria.strip("bottom")
-                        ast "If I ever step into that kitchen again, it’ll be too soon!" ("base", "base", "angry", "mid") 
-                        gen "Let me guess—something involving water?" ("base", xpos="far_left", ypos="head") 
-                        ast "Steam! *Everywhere!* I could barely see, and then—*bam!* A full pot of water right over my head!" ("angry", "base", "worried", "mid") 
-                        gen "An unfortunate accident." ("base", xpos="far_left", ypos="head") 
-                        ast "Oh, sure! *Totally* an accident! Because it *just happened* to land on me and *only* me!" ("base", "base", "angry", "mid") 
-                        gen "Are you suggesting sabotage?" ("base", xpos="far_left", ypos="head") 
-                        ast "I’m suggesting I looked like a *soaked towel* while the elves panicked around me!" ("angry", "base", "worried", "mid") 
-                        ast @ cheeks blush "And don’t even get me started on the heat! The moment the water hit me, the steam *exploded* around me like a fog spell!" ("base", "base", "angry", "mid") 
-                        ast "And then, as if that wasn’t enough, the *inspector* showed up!" ("angry", "base", "worried", "mid") 
-                        gen "The inspector? What did he do?" ("base", xpos="far_left", ypos="head") 
-                        ast "He couldn’t even *look me in the eye!* Every time he tried to talk to me, his eyes kept... *wandering!*" ("angry", "base", "worried", "mid") 
-                        gen "Wandering? Where exactly were they wandering?" ("base", xpos="far_left", ypos="head") 
-                        ast "Oh, you know... *the mountains!*" ("angry", "base", "worried", "mid") 
-                        gen "The... mountains?" ("base", xpos="far_left", ypos="head") 
-                        ast "Yes, the *mountains!* He couldn’t keep his eyes off them! It was *mortifying!*" ("angry", "base", "worried", "mid") 
-                        gen "Ah, so he was... *exploring the landscape.*" ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, yes, *very funny!*" ("angry", "base", "worried", "mid") 
-                        gen "Ah, so he was... *distracted* by your... situation." ("base", xpos="far_left", ypos="head") 
-                        ast "Distracted?! He was practically *enjoying the show!* But that wasn’t even the worst part!" ("angry", "base", "worried", "mid") 
-                        ast "And then, as if things couldn’t get worse, I *floated*!" ("angry", "base", "worried", "mid") 
-                        gen "Floated? How... unusual." ("base", xpos="far_left", ypos="head") 
-                        ast "Unusual?! I was *stuck in the air*, spinning like a top! And every time someone tried to grab me, they ended up pulling off a piece of my uniform!" ("angry", "base", "worried", "mid") 
-                        ast "One of the elves jumped, grabbed my leg with one arm, and the other... *grabbed my skirt!*" ("angry", "base", "worried", "mid") 
-                        ast "And then, as he was trying to pull me down, he *lost his grip* and was flung across the room—*with my skirt still in his hand!*" ("angry", "base", "worried", "mid") 
-                        ast "Then, a *second elf* jumped in! He managed to grab my arms and tried to climb up to help me... but he ended up grabbing my *shirt* instead!" ("angry", "base", "worried", "mid") 
-                        ast "And guess what? The *centripetal force* sent him flying too—*with my shirt in his hands!*" ("angry", "base", "worried", "mid") 
-                        gen "Ah, so they were... *helping you undress.* How thoughtful." ("grin", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "By the time I landed, I was practically *back in my birthday suit!*" ("soft", "narrow", "base", "downR") 
-                        ast "I stood up, completely silent, trying to maintain what little dignity I had left... and started walking out of the kitchen." ("base", "base", "angry", "mid") 
-                        ast "But then, one of the house-elves—*of course*—remembered that scene from *Game of Thrones* where the queen walks naked to atone for her sins... and he *yelled*, *‘Shame!’*" ("angry", "base", "worried", "mid") 
-                        ast "And then, *all the other elves* joined in, chanting *‘Shame! Shame! Shame!’* while I was standing there, practically naked!" ("angry", "base", "worried", "mid") 
-                        gen "Ah, so they were... *recreating a cultural moment.* How... creative." ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, yes, *very creative!* I was so mortified, I just grabbed your money, walked out in silence, and came straight here... " ("angry", "base", "worried", "mid") 
-                        ast "Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
-                        gen "Already done. Try not to float away on your way out." ("base", xpos="far_left", ypos="head") 
-                    block:
-                        $ astoria.strip("up")
-                        $ astoria.strip("bottom")
-                        ast "This has been the *worst* shift yet!" ("angry", "base", "angry", "mid") 
-                        gen "Go on, tell me all about it." ("base", xpos="far_left", ypos="head") 
-                        ast "First, I was assigned to wash the dishes. Simple, right?" ("angry", "closed", "worried", "mid") 
-                        ast "But then, the steam turned the kitchen into a *hellish sauna*, and my shirt stuck to me like I’d just taken a dive into the lake!" ("angry", "base", "angry", "mid") 
-                        gen "Sounds... *steamy.*" ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, that was just the *beginning!* Because *then*, an entire tray of glasses toppled over!" ("angry", "base", "worried", "mid") 
-                        ast "I tried to catch them, slipped on the wet floor, and landed *right* into a tub of dishwater!" ("angry", "base", "worried", "mid") 
-                        gen "A truly unfortunate series of events." ("base", xpos="far_left", ypos="head") 
-                        ast "It’s not over! While I was trying to get out of the tub, I realized someone had taken advantage of the chaos to steal the secret sauce recipe!" ("angry", "base", "worried", "mid") 
-                        gen "Wait, someone actually stole something during all that chaos?" ("grin", xpos="far_left", ypos="head") 
-                        ast "Yes! The Chef started yelling that the sauce was gone and *accused me!* He said I caused the chaos as a distraction!" ("angry", "base", "worried", "mid") 
-                        gen "Well… did you?" ("grin", xpos="far_left", ypos="head") 
-                        ast "[name_genie_astoria], for Merlin’s sake! I was literally soaked in a tub of dirty dishwater—how could I have stolen anything?!" ("angry", "base", "worried", "mid") 
-                        gen "Fair point. So what happened next?" ("base", xpos="far_left", ypos="head") 
-                        ast "It was a nightmare! The Chef yelled that I wasn’t leaving the kitchen until I proved my innocence! So I decided to *escape!*" ("angry", "base", "worried", "mid") 
-                        gen "You… ran?" ("grin", xpos="far_left", ypos="head") 
-                        ast "Yes! I ran down the hallway, still dripping wet, but then—" ("angry", "base", "worried", "mid") 
-                        ast @ cheeks blush "My uniform got caught on the door! I pulled, and… well… let’s just say I escaped with *less clothing* than I’d have liked." ("angry", "base", "worried", "mid") 
-                        gen "Oh wow. That explains why you look like you fought a tornado." ("grin", xpos="far_left", ypos="head") 
-                        ast "But that’s not even the worst part! As I was running, I saw a steel cable connecting our building to the next one. I thought, *‘This is my chance to escape!’*" ("angry", "base", "worried", "mid") 
-                        gen "Wait… you didn’t…" ("grin", xpos="far_left", ypos="head") 
-                        ast "I did! I ripped off my shirt, wrapped it around the cable, and tried to zip-line to the other building!" ("angry", "base", "worried", "mid") 
-                        gen "You… used your *shirt* as a zip-line?!" ("grin", xpos="far_left", ypos="head") 
-                        ast "Yes! But the cable was too loose, and I got stuck *right in the middle*—completely shirtless, arms raised, just… dangling there!" ("angry", "base", "worried", "mid") 
-                        gen "Oh no…" ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh yes! I was swinging back and forth, calling for help, and *everyone* stopped to watch! Even the pigeons were staring!" ("angry", "base", "worried", "mid") 
-                        gen "I’m sure it was… *memorable.*" ("grin", xpos="far_left", ypos="head") 
-                        ast "Memorable?! I was *humiliated!* And to make matters worse, the guards had to *rescue me* with a ladder!" ("angry", "base", "worried", "mid") 
-                        gen "Well, at least you gave everyone a good show." ("grin", xpos="far_left", ypos="head") 
-                        gen "That’s a sight I wish I’d seen." ("grin", xpos="far_left", ypos="head") 
-                        ast "And then, just when I thought my reputation was officially dead…" ("angry", "base", "worried", "mid") 
-                        ast "We found the real thief!" ("angry", "base", "worried", "mid") 
-                        gen "Ah, now it gets interesting! Who was it?" ("grin", xpos="far_left", ypos="head") 
-                        ast "The Chef’s assistant! He hid the sauce in his *hat!*" ("angry", "base", "worried", "mid") 
-                        gen "Wait… he stole it and just walked around with it on his head?" ("grin", xpos="far_left", ypos="head") 
-                        ast "Yes! But guess who still had to clean up the entire mess because I was *supposedly* an accomplice?!" ("angry", "base", "worried", "mid") 
-                        gen "You?" ("grin", xpos="far_left", ypos="head") 
-                        ast "ME!" ("angry", "base", "worried", "mid") 
-                        ast "And now I’m here, soaked, humiliated, and with half my reputation intact!" ("angry", "base", "worried", "mid") 
-                        gen "Well, I think we learned an important lesson here." ("grin", xpos="far_left", ypos="head") 
-                        ast "Oh, really? And what would that be?" ("angry", "base", "worried", "mid") 
-                        gen "If you’re going to steal a sauce, don’t hide it in your own hat." ("grin", xpos="far_left", ypos="head") 
-                        ast "[name_genie_astoria]!" ("angry", "base", "worried", "mid") 
-                        gen "Also, maybe next time bring a spare outfit. Or… you know, just embrace the chaos." ("grin", xpos="far_left", ypos="head") 
-                        ast @ cheeks blush "I'm leaving before you make this worse!" ("angry", "base", "worried", "mid") 
-                        gen "Don’t forget your towel on the way out!" ("grin", xpos="far_left", ypos="head") 
-                       
+            if ast_end_day== "The See-Through Uniform Dilemma":
+                ast "This uniform is *completely* impractical!" ("upset", "wide", "base", "mid") 
+                gen "What happened this time?" ("base", xpos="far_left", ypos="head") 
+                ast "Every time I washed a dish, water splashed all over me!" ("annoyed", "base", "annoyed", "mid") 
+                ast "And do you know what happens when a *white* uniform gets wet?" ("annoyed", "base", "annoyed", "mid") 
+                gen "Hmm... I imagine it becomes more breathable?" ("grin", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("soft", "narrow", "base", "downR") 
+                gen "Oh dear. That sounds... revealing." ("base", xpos="far_left", ypos="head") 
+                ast "I had to stand by the stove just to dry off as quickly as possible!" ("annoyed", "base", "annoyed", "mid") 
+                gen "Well, at least you stayed warm. Silver linings, right?" ("grin", xpos="far_left", ypos="head") 
+                ast "You're impossible! Just give me my sentence reduction!" ("annoyed", "base", "annoyed", "mid") 
+                gen "Alright, alright. I’ll consider it—but only if you promise not to flood the kitchen next time." ("base", xpos="far_left", ypos="head") 
+                ast "Fine! But if I have to wear this uniform again, I’m bringing a raincoat!" ("annoyed", "base", "annoyed", "mid") 
+                gen "Deal. Now go dry off before someone mistakes you for a ghost." ("grin", xpos="far_left", ypos="head") 
+            elif ast_end_day== "Sweating Like a Lobster in the Kitchen Sauna":
+                ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "wide", "annoyed", "mid") 
+                gen "That’s to be expected. It’s a kitchen." ("base", xpos="far_left", ypos="head") 
+                ast "Expected?! Do you know what it’s like to feel like a lobster in a boiling pot?!" ("angry", "base", "annoyed", "mid") 
+                gen "Well, at least you’re already red. Saves time on the cooking process." ("grin", xpos="far_left", ypos="head") 
+                ast "Ugh! And this uniform is *awful*! The apron barely covers anything, and the top kept sliding down!" ("angry", "base", "annoyed", "mid") 
+                gen "Sounds like a fashion statement. ‘Wet and Wild: Kitchen Edition.’" ("grin", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "Oh, sure, because I spent half my time *holding up my shirt*!" ("angry", "narrow", "annoyed", "mid") 
+                ast "Do you know what happens when a *white* uniform gets wet? It becomes *see-through*! Like, *completely* transparent!" ("angry", "base", "annoyed", "mid") 
+                gen "Ah, the classic ‘wet T-shirt contest’ look. Very trendy." ("grin", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "This isn’t funny! I looked like a soggy tissue clinging to a window!" ("angry", "narrow", "annoyed", "mid") 
+                gen "A soggy tissue? That’s a new one. I’ll add it to the list of Astoria’s kitchen adventures." ("grin", xpos="far_left", ypos="head") 
+                ast "Can I have my sentence reduction now and *never* do this again?" ("angry", "closed", "annoyed", "mid") 
+                gen "Great! Your sentence reduction is updated." ("grin", xpos="far_left", ypos="head") 
+                ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat and a *parachute*!" ("angry", "base", "annoyed", "mid") 
+                gen "A parachute? For the kitchen? Now that’s a fashion statement I’d pay to see." ("grin", xpos="far_left", ypos="head") 
+            elif ast_end_day== "The Soggy Tissue Chronicles":
+                $ astoria.strip("bottom") 
+                ast "Do you know how *little* coverage these sleeves offer?!" ("clench", "narrow", "base", "mid") 
+                gen "I assume... not much?" ("base", xpos="far_left", ypos="head") 
+                ast "Exactly! Every time I reached for a high shelf, the sleeves rolled up and my arms got splattered with hot water!" ("angry", "base", "worried", "mid") 
+                ast "And then, I had to clean my arms, which meant *more* water, which meant getting *even wetter*!" ("base", "base", "angry", "mid") 
+                gen "Sounds like quite the cycle." ("base", xpos="far_left", ypos="head") 
+                ast "Oh, and let’s not forget that the heat made my hair stick to my face the entire time!" ("angry", "base", "worried", "mid") 
+                gen "A hard day's work builds character, [name_astoria_genie]." ("base", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "I’d rather build character *without* this ridiculous uniform." ("angry", "base", "worried", "mid") 
+                ast "But wait, it gets worse! When I was reaching for a pot, my skirt got caught on a hook!" ("angry", "wide", "annoyed", "mid") 
+                gen "A hook? In the kitchen? How... industrial." ("grin", xpos="far_left", ypos="head") 
+                ast "Industrial?! The fabric of this skirt is so cheap, it tore like *paper*!" ("angry", "base", "annoyed", "mid") 
+                ast @ cheeks blush "And then, with all the steam, my... my *undergarments* started getting wet too!" ("soft", "narrow", "base", "downR") 
+                gen "Ah, the classic ‘steamy kitchen surprise.’ Very... revealing." ("grin", xpos="far_left", ypos="head") 
+                ast "Revealing?! I looked like a walking *wet tissue*! A soggy, transparent mess!" ("angry", "base", "annoyed", "mid") 
+                gen "Well, at least you’re consistent. Wet on top, wet on bottom—truly a masterpiece of kitchen fashion." ("grin", xpos="far_left", ypos="head") 
+                ast "*Ugh!* Just give me my sentence reduction!" ("clench", "narrow", "base", "R") 
+                gen "Your sentence reduction is updated." ("base", xpos="far_left", ypos="head") 
+                ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat, a parachute, and a *tent*!" ("angry", "base", "annoyed", "mid") 
+                gen "A tent? Now that’s what I call ‘kitchen couture.’" ("grin", xpos="far_left", ypos="head") 
+            elif ast_end_day== "The Boiling Storm: A Kitchen Nightmare":
+                ast "This has to be some kind of *punishment!*" ("angry", "base", "worried", "mid") 
+                gen "It is, actually." ("base", xpos="far_left", ypos="head") 
+                ast "The kitchen is a furnace! The heat, the steam—it's unbearable!" ("base", "base", "angry", "mid") 
+                gen "Sounds like an authentic culinary experience." ("base", xpos="far_left", ypos="head") 
+                ast "Authentic?! I was drenched in sweat within minutes! My uniform stuck to me like a second skin!" ("angry", "base", "worried", "mid") 
+                ast "And as if that wasn’t enough, one of the house-elves handed me a bucket of water to clean the floor..." ("clench", "narrow", "base", "mid") 
+                gen "A thoughtful gesture." ("base", xpos="far_left", ypos="head") 
+                ast "Thoughtful?! Until I slipped on the wet tiles and dumped the entire bucket *on myself!*" ("base", "base", "angry", "mid") 
+                gen "Oh... that explains why you look like you just walked through a storm." ("base", xpos="far_left", ypos="head") 
+                ast "Not *just* a storm! A *boiling* storm! The water mixed with the heat and the steam—there was nowhere to escape!" ("angry", "base", "worried", "mid") 
+                gen "You should have taken the opportunity to cool off." ("base", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "Oh, yes, brilliant idea! Let me just enjoy standing in a *see-through* shirt in the middle of the kitchen!" ("base", "base", "angry", "mid") 
+                gen "I take it the elves were... surprised?" ("base", xpos="far_left", ypos="head") 
+                ast "Surprised?! They nearly dropped the entire dinner service!" ("angry", "base", "worried", "mid") 
+                ast "And now I'm standing here, in your office, *dripping* onto the floor while you waste my time! Sentence reduction! Now!" ("clench", "narrow", "base", "R") 
+                gen "Done. And might I suggest a towel?" ("base", xpos="far_left", ypos="head") 
+            elif ast_end_day== "Miss Drippy: The Kitchen Chronicles":
+                ast "I swear, that kitchen is cursed!" ("base", "base", "angry", "mid") 
+                gen "What happened this time?" ("base", xpos="far_left", ypos="head") 
+                ast "I was scrubbing the counters when the house-elves decided to *help* by throwing a bucket of water onto the surface..." ("angry", "base", "worried", "mid") 
+                ast "Which, of course, *splashed all over me!*" ("base", "base", "angry", "mid") 
+                gen "Well, at least the counters got cleaned." ("base", xpos="far_left", ypos="head") 
+                ast "And so did my *entire uniform!*" ("clench", "narrow", "base", "mid") 
+                ast "I had to spend the rest of my shift *dripping* and trying to avoid my reflection on the metal pots!" ("angry", "base", "worried", "mid") 
+                gen "That bad, huh?" ("base", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "Oh, worse! Because then the *steam* got to me, and suddenly I wasn’t just wet—I was *sticking* to everything!" ("base", "base", "angry", "mid") 
+                ast "And to make matters worse, the house-elves started calling me *‘Miss Drippy’*!" ("angry", "base", "worried", "mid") 
+                gen "Miss Drippy? That’s... creative." ("grin", xpos="far_left", ypos="head") 
+                ast "Creative?! They were *laughing* every time I walked by! And don’t even get me started on the *‘wet tissue’* jokes!" ("angry", "base", "worried", "mid") 
+                gen "Well, at least they’re having fun. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") 
+                ast "Help? They kept handing me towels and saying things like, *‘Miss Drippy needs a mop!’* or *‘Careful, Miss Drippy, don’t flood the kitchen!’*" ("angry", "base", "worried", "mid") 
+                ast @ cheeks blush "But... I have to admit, they did help me clean up after I slipped. And they even gave me a dry apron... though they made sure to *peek* while I changed!" ("soft", "narrow", "base", "downR") 
+                gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") 
+                ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Drippy* and sneaking glances every chance they get!" ("angry", "base", "worried", "mid") 
+                gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Drippy’* for weeks!" ("angry", "base", "worried", "mid") 
+                gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") 
+                ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
+                gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") 
+            elif ast_end_day== "Miss Misty: The Teapot Incident":
+                ast @ cheeks blush "The humidity in there is *ridiculous!*" ("base", "base", "angry", "mid") 
+                gen "It’s a kitchen. Steam is part of the experience." ("base", xpos="far_left", ypos="head") 
+                ast "Part of the experience?! I felt like I was trapped inside a *teapot!* Every time someone opened a pot, it was like a wall of mist hit me in the face!" ("angry", "base", "worried", "mid") 
+                ast "And this *useless* uniform absorbed every drop of sweat until it was practically painted onto my skin!" ("base", "base", "angry", "mid") 
+                gen "A custom-fit look?" ("base", xpos="far_left", ypos="head") 
+                ast "A *humiliation!*" ("angry", "base", "worried", "mid") 
+                ast "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "base", "mid") 
+                gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*" ("base", "base", "angry", "mid") 
+                gen "That must have been refreshing." ("base", xpos="far_left", ypos="head") 
+                ast "Refreshing?! It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*" ("angry", "base", "worried", "mid") 
+                gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head") 
+                ast "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*" ("base", "base", "angry", "mid") 
+                ast "And do you know what they did? They started calling me *‘Miss Misty’*! Like it was some kind of *compliment!*" ("angry", "base", "worried", "mid") 
+                gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") 
+                ast "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’*" ("angry", "base", "worried", "mid") 
+                gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") 
+                ast "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!’*" ("angry", "base", "worried", "mid") 
+                ast @ cheeks blush "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!" ("soft", "narrow", "base", "downR") 
+                gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") 
+                ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Misty* and sneaking glances every chance they get!" ("angry", "base", "worried", "mid") 
+                gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Misty’* for weeks!" ("angry", "base", "worried", "mid") 
+                gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") 
+                ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
+                gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") 
+            elif ast_end_day== "The Cauldron Catastrophe: A Steamy Misadventure":
+                ast "This is getting ridiculous!" ("angry", "base", "worried", "mid") 
+                gen "Another *incident*?" ("base", xpos="far_left", ypos="head") 
+                ast "I was carrying a tray of dishes when a house-elf tripped and sent a full *cauldron* of warm water flying at me!" ("base", "base", "angry", "mid") 
+                gen "Ah, so that's why you have that... natural look." ("base", xpos="far_left", ypos="head")
+                ast "Yes! A *public* bath where *everyone* got a front-row seat!" ("clench", "narrow", "base", "mid") 
+                ast "The second it happened, all the steam in the room *clung* to me, and my shirt turned into a *see-through disaster!*" ("base", "base", "angry", "mid") 
+                ast "But that wasn’t even the worst part! When I tried to dry off by the stove, the heat made my shirt *shrink*!" ("angry", "base", "worried", "mid") 
+                gen "Shrink? How... unfortunate." ("base", xpos="far_left", ypos="head") 
+                ast "Unfortunate?! It was *impossible* to wear! It was so tight, I could barely *breathe!*" ("angry", "base", "worried", "mid") 
+                ast @ cheeks blush "I was so embarrassed, I almost *cried!* But then... something unexpected happened." ("soft", "narrow", "base", "downR") 
+                gen "Unexpected? Do tell." ("base", xpos="far_left", ypos="head") 
+                ast "The house-elves... they saw how upset I was, and one by one, they started taking off their *own* shirts!" ("base", "base", "angry", "mid") 
+                gen "They... what?" ("base", xpos="far_left", ypos="head") 
+                ast "They said, *‘Miss Astoria, if you’re uncomfortable, we’ll be uncomfortable with you!’*" ("base", "base", "angry", "mid") 
+                ast @ cheeks blush "It wasn’t the same, of course... but it was so *kind* of them. I almost forgot how humiliating the whole thing was!" ("soft", "narrow", "base", "downR") 
+                gen "Well, it seems the house-elves have a soft spot for you." ("base", xpos="far_left", ypos="head") 
+                ast "They do... but that doesn’t change the fact that I’m standing here, dripping onto your floor, reliving the whole thing!" ("angry", "base", "worried", "mid") 
+                gen "At least you're keeping my floor clean." ("base", xpos="far_left", ypos="head") 
+                ast "Sentence reduction! Now!" ("clench", "narrow", "base", "R") 
+                gen "Done. And might I recommend a waterproof uniform next time?" ("base", xpos="far_left", ypos="head") 
+            elif ast_end_day== "The Floating Fiasco: A Kitchen Shame Spiral":
+                ast "If I ever step into that kitchen again, it’ll be too soon!" ("base", "base", "angry", "mid") 
+                gen "Let me guess—something involving water?" ("base", xpos="far_left", ypos="head") 
+                ast "Steam! *Everywhere!* I could barely see, and then—*bam!* A full pot of water right over my head!" ("angry", "base", "worried", "mid") 
+                gen "An unfortunate accident." ("base", xpos="far_left", ypos="head") 
+                ast "Oh, sure! *Totally* an accident! Because it *just happened* to land on me and *only* me!" ("base", "base", "angry", "mid") 
+                gen "Are you suggesting sabotage?" ("base", xpos="far_left", ypos="head") 
+                ast "I’m suggesting I looked like a *soaked towel* while the elves panicked around me!" ("angry", "base", "worried", "mid") 
+                ast @ cheeks blush "And don’t even get me started on the heat! The moment the water hit me, the steam *exploded* around me like a fog spell!" ("base", "base", "angry", "mid") 
+                ast "And then, as if that wasn’t enough, the *inspector* showed up!" ("angry", "base", "worried", "mid") 
+                gen "The inspector? What did he do?" ("base", xpos="far_left", ypos="head") 
+                ast "He couldn’t even *look me in the eye!* Every time he tried to talk to me, his eyes kept... *wandering!*" ("angry", "base", "worried", "mid") 
+                gen "Wandering? Where exactly were they wandering?" ("base", xpos="far_left", ypos="head") 
+                ast "Oh, you know... *the mountains!*" ("angry", "base", "worried", "mid") 
+                gen "The... mountains?" ("base", xpos="far_left", ypos="head") 
+                ast "Yes, the *mountains!* He couldn’t keep his eyes off them! It was *mortifying!*" ("angry", "base", "worried", "mid") 
+                gen "Ah, so he was... *exploring the landscape.*" ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, yes, *very funny!*" ("angry", "base", "worried", "mid") 
+                gen "Ah, so he was... *distracted* by your... situation." ("base", xpos="far_left", ypos="head") 
+                ast "Distracted?! He was practically *enjoying the show!* But that wasn’t even the worst part!" ("angry", "base", "worried", "mid") 
+                ast "And then, as if things couldn’t get worse, I *floated*!" ("angry", "base", "worried", "mid") 
+                gen "Floated? How... unusual." ("base", xpos="far_left", ypos="head") 
+                ast "Unusual?! I was *stuck in the air*, spinning like a top! And every time someone tried to grab me, they ended up pulling off a piece of my uniform!" ("angry", "base", "worried", "mid") 
+                ast "One of the elves jumped, grabbed my leg with one arm, and the other... *grabbed my skirt!*" ("angry", "base", "worried", "mid") 
+                ast "And then, as he was trying to pull me down, he *lost his grip* and was flung across the room—*with my skirt still in his hand!*" ("angry", "base", "worried", "mid") 
+                ast "Then, a *second elf* jumped in! He managed to grab my arms and tried to climb up to help me... but he ended up grabbing my *shirt* instead!" ("angry", "base", "worried", "mid") 
+                ast "And guess what? The *centripetal force* sent him flying too—*with my shirt in his hands!*" ("angry", "base", "worried", "mid") 
+                gen "Ah, so they were... *helping you undress.* How thoughtful." ("grin", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "By the time I landed, I was practically *back in my birthday suit!*" ("soft", "narrow", "base", "downR") 
+                ast "I stood up, completely silent, trying to maintain what little dignity I had left... and started walking out of the kitchen." ("base", "base", "angry", "mid") 
+                ast "But then, one of the house-elves—*of course*—remembered that scene from *Game of Thrones* where the queen walks naked to atone for her sins... and he *yelled*, *‘Shame!’*" ("angry", "base", "worried", "mid") 
+                ast "And then, *all the other elves* joined in, chanting *‘Shame! Shame! Shame!’* while I was standing there, practically naked!" ("angry", "base", "worried", "mid") 
+                gen "Ah, so they were... *recreating a cultural moment.* How... creative." ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, yes, *very creative!* I was so mortified, I just grabbed your money, walked out in silence, and came straight here... " ("angry", "base", "worried", "mid") 
+                ast "Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "base", "R") 
+                gen "Already done. Try not to float away on your way out." ("base", xpos="far_left", ypos="head") 
+            elif ast_end_day== "The Zipline Escape: A Sauce-Soaked Disaster":
+                ast "This has been the *worst* shift yet!" ("angry", "base", "angry", "mid") 
+                gen "Go on, tell me all about it." ("base", xpos="far_left", ypos="head") 
+                ast "First, I was assigned to wash the dishes. Simple, right?" ("angry", "closed", "worried", "mid") 
+                ast "But then, the steam turned the kitchen into a *hellish sauna*, and my shirt stuck to me like I’d just taken a dive into the lake!" ("angry", "base", "angry", "mid") 
+                gen "Sounds... *steamy.*" ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, that was just the *beginning!* Because *then*, an entire tray of glasses toppled over!" ("angry", "base", "worried", "mid") 
+                ast "I tried to catch them, slipped on the wet floor, and landed *right* into a tub of dishwater!" ("angry", "base", "worried", "mid") 
+                gen "A truly unfortunate series of events." ("base", xpos="far_left", ypos="head") 
+                ast "It’s not over! While I was trying to get out of the tub, I realized someone had taken advantage of the chaos to steal the secret sauce recipe!" ("angry", "base", "worried", "mid") 
+                gen "Wait, someone actually stole something during all that chaos?" ("grin", xpos="far_left", ypos="head") 
+                ast "Yes! The Chef started yelling that the sauce was gone and *accused me!* He said I caused the chaos as a distraction!" ("angry", "base", "worried", "mid") 
+                gen "Well… did you?" ("grin", xpos="far_left", ypos="head") 
+                ast "[name_genie_astoria], for Merlin’s sake! I was literally soaked in a tub of dirty dishwater—how could I have stolen anything?!" ("angry", "base", "worried", "mid") 
+                gen "Fair point. So what happened next?" ("base", xpos="far_left", ypos="head") 
+                ast "It was a nightmare! The Chef yelled that I wasn’t leaving the kitchen until I proved my innocence! So I decided to *escape!*" ("angry", "base", "worried", "mid") 
+                gen "You… ran?" ("grin", xpos="far_left", ypos="head") 
+                ast "Yes! I ran down the hallway, still dripping wet, but then—" ("angry", "base", "worried", "mid") 
+                ast @ cheeks blush "My uniform got caught on the door! I pulled, and… well… let’s just say I escaped with *less clothing* than I’d have liked." ("angry", "base", "worried", "mid") 
+                gen "Oh wow. That explains why you look like you fought a tornado." ("grin", xpos="far_left", ypos="head") 
+                ast "But that’s not even the worst part! As I was running, I saw a steel cable connecting our building to the next one. I thought, *‘This is my chance to escape!’*" ("angry", "base", "worried", "mid") 
+                gen "Wait… you didn’t…" ("grin", xpos="far_left", ypos="head") 
+                ast "I did! I ripped off my shirt, wrapped it around the cable, and tried to zip-line to the other building!" ("angry", "base", "worried", "mid") 
+                gen "You… used your *shirt* as a zip-line?!" ("grin", xpos="far_left", ypos="head") 
+                ast "Yes! But the cable was too loose, and I got stuck *right in the middle*—completely shirtless, arms raised, just… dangling there!" ("angry", "base", "worried", "mid") 
+                gen "Oh no…" ("grin", xpos="far_left", ypos="head") 
+                ast "Oh yes! I was swinging back and forth, calling for help, and *everyone* stopped to watch! Even the pigeons were staring!" ("angry", "base", "worried", "mid") 
+                gen "I’m sure it was… *memorable.*" ("grin", xpos="far_left", ypos="head") 
+                ast "Memorable?! I was *humiliated!* And to make matters worse, the guards had to *rescue me* with a ladder!" ("angry", "base", "worried", "mid") 
+                gen "Well, at least you gave everyone a good show." ("grin", xpos="far_left", ypos="head") 
+                gen "That’s a sight I wish I’d seen." ("grin", xpos="far_left", ypos="head") 
+                ast "And then, just when I thought my reputation was officially dead…" ("angry", "base", "worried", "mid") 
+                ast "We found the real thief!" ("angry", "base", "worried", "mid") 
+                gen "Ah, now it gets interesting! Who was it?" ("grin", xpos="far_left", ypos="head") 
+                ast "The Chef’s assistant! He hid the sauce in his *hat!*" ("angry", "base", "worried", "mid") 
+                gen "Wait… he stole it and just walked around with it on his head?" ("grin", xpos="far_left", ypos="head") 
+                ast "Yes! But guess who still had to clean up the entire mess because I was *supposedly* an accomplice?!" ("angry", "base", "worried", "mid") 
+                gen "You?" ("grin", xpos="far_left", ypos="head") 
+                ast "ME!" ("angry", "base", "worried", "mid") 
+                ast "And now I’m here, soaked, humiliated, and with half my reputation intact!" ("angry", "base", "worried", "mid") 
+                gen "Well, I think we learned an important lesson here." ("grin", xpos="far_left", ypos="head") 
+                ast "Oh, really? And what would that be?" ("angry", "base", "worried", "mid") 
+                gen "If you’re going to steal a sauce, don’t hide it in your own hat." ("grin", xpos="far_left", ypos="head") 
+                ast "[name_genie_astoria]!" ("angry", "base", "worried", "mid") 
+                gen "Also, maybe next time bring a spare outfit. Or… you know, just embrace the chaos." ("grin", xpos="far_left", ypos="head") 
+                ast @ cheeks blush "I'm leaving before you make this worse!" ("angry", "base", "worried", "mid") 
+                gen "Don’t forget your towel on the way out!" ("grin", xpos="far_left", ypos="head") 
         "-Dismiss her-":
             gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
             gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
