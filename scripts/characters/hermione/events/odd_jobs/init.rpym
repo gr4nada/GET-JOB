@@ -14,7 +14,7 @@ default her_ev_library_job_return = Event(
     id="her_ev_library_job_return", 
     label="her_library_job_return", 
     priority=5, 
-    req=(not game.daytime)  
+    req="not game.daytime" 
 )
 
 default her_eventqueue_jobs_library = EventQueue("her_eventqueue_jobs_library")
@@ -30,7 +30,7 @@ default her_ev_library_job_hub = Event(
 )
 
 if "hermione_jobs" not in globals():
-    default hermione_jobs = [
+    define hermione_jobs = [
         ("her_eventqueue_jobs_library", "Work as a librarian!"),
         ("her_eventqueue_jobs_maid", "Work as a maid!"),
         ("her_eventqueue_jobs_promoter", "Work as a promoter!"),

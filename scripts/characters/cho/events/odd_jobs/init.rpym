@@ -15,7 +15,7 @@ default cho_ev_quidditch_assistant_job_return = Event(
     id="cho_ev_quidditch_assistant_job_return", 
     label="cho_quidditch_assistant_job_return", 
     priority=5, 
-    req=(not game.daytime)  
+    req="not game.daytime"  
 )
 
 default cho_eventqueue_jobs_quidditch_assistant = EventQueue("cho_eventqueue_jobs_quidditch_assistant")
@@ -32,7 +32,7 @@ default cho_ev_quidditch_assistantjob_hub = Event(
 )
 
 if "cho_jobs" not in globals():
-    default cho_jobs = [
+    define cho_jobs = [
         ("cho_eventqueue_jobs_quidditch_assistant", "Work as a quidditch Assistant Coach!"),
 
 ]    

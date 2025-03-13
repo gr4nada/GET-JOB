@@ -20,7 +20,7 @@ default lun_ev_magizoologist_job_return = Event(
     id="lun_ev_magizoologist_job_return", 
     label="lun_magizoologist_job_return", 
     priority=5, 
-    req=(not game.daytime)  
+    req="not game.daytime" 
 )
 
 default lun_eventqueue_jobs_magizoologist = EventQueue("lun_eventqueue_jobs_magizoologist")
@@ -36,7 +36,7 @@ default lun_ev_magizoologist_job_hub = Event(
 )
 
 if "luna_jobs" not in globals():
-    default luna_jobs = [
+    define luna_jobs = [
         ("lun_eventqueue_jobs_magizoologist", "Work as a magizoologist!"),
 
 ]    

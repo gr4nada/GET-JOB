@@ -21,7 +21,7 @@ default sus_train_attendant_job_return = Event(
     id="sus_ev_train_attendant_job_return", 
     label="sus_train_attendant_job_return", 
     priority=5, 
-    req=(not game.daytime)  
+    req="not game.daytime" 
 )
 
 default sus_eventqueue_jobs_train_attendant = EventQueue("sus_eventqueue_jobs_train_attendant")
@@ -38,7 +38,7 @@ default sus_ev_train_attendant_hub = Event(
     )
 
 if "sus_jobs" not in globals():
-    default sus_jobs = [
+    define sus_jobs = [
         ("sus_eventqueue_jobs_train_attendant", "Work as a Expresso Hoghwarts attendant!"),
 
 ]    

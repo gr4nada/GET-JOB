@@ -10,20 +10,27 @@ default states.ast.ev.dishwasher_job.intro_complete = False
 default ast_top_dishash = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffffee", "#ccccccee", "#bbbbbbee"])
 default ast_bottom_dishash = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#ffffffff", "#ffffffff"])
 default ast_gloves_dishwash = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", ["#ffd700ff"])
-default ast_bra_basic_dishwash = DollCloth("astoria", ("upper undergarment", "bras"), "bra", "basic_bra_2", ["#ffffffff"])
-default ast_panties_dishwash = DollCloth("astoria", ("lower undergarment", "panties"), "panties", "basic_panties_2", ["#ffffffff"])
 
-default ast_outfit_dishwash = DollOutfit([ast_top_dishash, ast_bottom_dishash, ast_gloves_dishwash,ast_bra_basic_dishwash,ast_panties_dishwash], 
+default ast_outfit_dishwash = DollOutfit([ast_top_dishash, ast_bottom_dishash, ast_gloves_dishwash], 
     price=80, 
     name="Dishwash Uniform", 
     desc="A practical washing uniform that turns irresistibly sheer when wet."
 )
+
+# default ast_top_dishash = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffffee", "#ccccccee", "#bbbbbbee"])
+# default ast_top_dishash_wet = DollCloth("astoria", ("upper body", "shirts"), "top", "top_school_6", ["#ffffff66", "#cccccccc", "#bbbbbbcc"])
+# default ast_bottom_dishash = DollCloth("astoria", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#ffffffff", "#ffffffff"])
+# default ast_gloves_dishwash = DollCloth("astoria", ("upper body", "gloves"), "gloves", "ann_takamaki", ["#ffd700ff"])
+
+# default ast_outfit_dishwash = DollOutfit([ast_top_dishash,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+# default ast_outfit_dishwash_wet = DollOutfit([ast_top_dishash_wet,ast_bottom_dishash,ast_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+
 # Mod Event
 default ast_ev_dishwasher_job_return = Event(
     id="ast_ev_dishwasher_job_return", 
     label="ast_dishwasher_job_return", 
     priority=5, 
-    req=(not game.daytime)  
+    req="not game.daytime"
 )
 
 default ast_eventqueue_jobs_dishwasher = EventQueue("ast_eventqueue_jobs_dishwasher")
@@ -90,13 +97,13 @@ label astoria_favor_menu_over:
                 jump .odd_jobs
 
             elif result == "exit":
-                jump astoria_favor_menu
+                jump .skip_points_check
             else:
                 $ result.start()
 
         "-Odd Jobs-" (icon="interface/icons/small/gold.webp", style="disabled") if not game.daytime:
             nar "Public requests are available during the day only."
-            jump astoria_favor_menu
+            jump .skip_points_check
         
 
         "-Never mind-":
