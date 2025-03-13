@@ -118,32 +118,6 @@ label cho_quidditch_assistant_job:
 
     jump main_room_menu
 
-label prepare_appearance(is_wet, missing_top, missing_bra, missing_bottom, missing_panties):
-    if is_wet:
-        # top
-        $ cho_outfit_cheerleader.group[7].color[0] ="#DDDDDDDD"  
-        $ cho_outfit_cheerleader.group[7].color[1] ="#DDDDDDDD" 
-        #bottom
-        $ cho_outfit_cheerleader.group[1].color[0] ="#DDDDDDDD" 
-        $ cho_outfit_cheerleader.group[1].color[1] ="#DDDDDDDD" 
-        #Bra
-        $ cho_outfit_cheerleader.group[6].color[0] ="#DDDDDD33"  
-        # panties
-        $ cho_outfit_cheerleader.group[0].color[0] ="#DDDDDD55"   
-        # socks 
-        $ cho_outfit_cheerleader.group[5].color[0] ="#FFFFFFDD"  
-    $ cho.equip(cho_outfit_cheerleader)
-        
-    if missing_top:
-        $ cho.strip("top")
-    if missing_bra:
-        $ cho.strip("bra")
-    if missing_bottom:
-        $ cho.strip("bottom")
-    if missing_panties:
-        $ cho.strip("panties")
-    return 
-
 label cho_quidditch_assistant_job_return:
 
     python:
@@ -218,16 +192,40 @@ label cho_quidditch_assistant_job_return:
                 $ missing_panties = False
 
     call cho_walk(action="enter", xpos="mid", ypos="base")
-    call prepare_appearance(is_wet, missing_top, missing_bra, missing_bottom, missing_panties)
+    
+    if is_wet:
+        # top
+        $ cho_outfit_cheerleader.group[7].color[0] ="#DDDDDDDD"  
+        $ cho_outfit_cheerleader.group[7].color[1] ="#DDDDDDDD" 
+        #bottom
+        $ cho_outfit_cheerleader.group[1].color[0] ="#DDDDDDDD" 
+        $ cho_outfit_cheerleader.group[1].color[1] ="#DDDDDDDD" 
+        #Bra
+        $ cho_outfit_cheerleader.group[6].color[0] ="#DDDDDD33"  
+        # panties
+        $ cho_outfit_cheerleader.group[0].color[0] ="#DDDDDDAA"   
+        # socks 
+        $ cho_outfit_cheerleader.group[5].color[0] ="#AAAAAACC"  
 
-    gen "Ms. Chang... How was your first day as an assistant coach?" ("base", xpos="far_left", ypos="head")
-    cho "Well... It was *definitely* an experience..." ("base", "base", "base", "mid", xpos="right", ypos="base")
+    $ cho.equip(cho_outfit_cheerleader)
+        
+    if missing_top:
+        $ cho.strip("top")
+    if missing_bra:
+        $ cho.strip("bra")
+    if missing_bottom:
+        $ cho.strip("bottom")
+    if missing_panties:
+        $ cho.strip("panties")
+
+    gen "Ms. Chang... How was your first day as an assistant coach?" ("grin", xpos="far_left", ypos="head")
+    cho "Well... It was *definitely* an experience..." ("annoyed", "base", "base", "mid", xpos="right", ypos="base")
 
     menu:
         "What happened?":
             if cho_end_day== "Puddle Plunge: A Quidditch Catastrophe":
                 # "Puddle Plunge: A Quidditch Catastrophe"
-                cho "Everything was going fine until practice ended, and I had to gather the equipment..." ("base", "base", "base", "mid") # Neutral
+                cho "Everything was going fine until practice ended, and I had to gather the equipment..." ("disgust", "happyCl", "worried", "mid") # Worried
                 cho "It had rained earlier, so the field was full of puddles..." ("clench", "narrow", "base", "mid") # Uncomfortable
                 cho "I was carrying the Quaffles, some spare brooms, and the training cones when—slip!" ("angry", "base", "annoyed", "mid") # Irritated
                 cho "I completely lost my footing and fell face-first into a massive puddle!" ("angry", "closed", "annoyed", "mid") # Irritated
@@ -264,7 +262,7 @@ label cho_quidditch_assistant_job_return:
                 gen "Acknowledged." ("base", xpos="far_left", ypos="head") # Normal
             elif cho_end_day=="Runaway Brooms: Cho's Cleaning Catastrophe":
                 # "Runaway Brooms: Cho's Cleaning Catastrophe"
-                cho "Everything was going fine at first... The brooms were lined up, and I had just started polishing them." ("base", "base", "base", "mid") # Neutral
+                cho "Everything was going fine at first... The brooms were lined up, and I had just started polishing them." ("disgust", "happyCl", "worried", "mid") # Worried
                 cho "I was being extra careful this time, after what happened with the puddle incident." ("clench", "narrow", "base", "mid") # Determined
                 cho "But then, out of nowhere, one of them suddenly took off while I was still holding it!" ("angry", "narrow", "angry", "mid") # Irritated
                 gen "Oh dear... That must have been quite the experience." ("base", xpos="far_left", ypos="head") # Normal
@@ -287,7 +285,7 @@ label cho_quidditch_assistant_job_return:
                 cho "(I hate this job. I really hate this job.)" ("soft", "narrow", "base", "downR") # Reflective and exhausted
             elif cho_end_day=="Freezer Fury: Cho's Drenching Disaster":
                 # "Freezer Fury: Cho's Drenching Disaster"
-                cho "I can’t believe I fell asleep on the coach’s bench... I just wanted a quick nap..." ("tired", "base", "mid")  # Exhausted  
+                cho "I can’t believe I fell asleep on the coach’s bench... I just wanted a quick nap..." ("disgust", "happyCl", "worried", "mid") # Worried 
                 gen "You’ve been working hard. No one will blame you for resting a little." ("base", xpos="far_left", ypos="head")  # Neutral  
                 cho "Yawn... It was finally peaceful for once... I could barely keep my eyes open..." ("sleepy", "base", "mid")  # Sleepy  
                 cho "Suddenly, laughter fills the air..." ("angry", "base", "mid")  # Suspicious  
@@ -318,7 +316,7 @@ label cho_quidditch_assistant_job_return:
                 cho "GOOD!" ("angry", "base", "angry", "mid")  # Furious  
             elif cho_end_day=="Soaked and Seen: Cho's Embarrassing Broom Encounter":
                 # Soaked and Seen: Cho's Embarrassing Broom Encounter
-                cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("base", "base", "base", "mid") # Neutral, reporting the event
+                cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("disgust", "happyCl", "worried", "mid") # Worried
                 gen "That’s... unexpected." ("base", xpos="far_left", ypos="head") # Neutral, surprised
                 cho "I grabbed it with one hand to stop it, but instead, it dragged me along!" ("clench", "base", "base", "mid") # Tense, describing the situation
                 gen "A low-altitude flight?" ("base", xpos="far_left", ypos="head") # Ironic, trying to lighten the situation
@@ -349,7 +347,7 @@ label cho_quidditch_assistant_job_return:
                 cho "Ugh!" ("angry", "base", "angry", "mid") # Irritated, leaving
             elif cho_end_day=="The Locker Room Shower: A Freezing Surprise":
                 # The Locker Room Shower: A Freezing Surprise
-                cho "I was so exhausted after practice, I fell asleep in the locker room..." ("base", "closed", "base", "mid") # Tired, eyes closed, neutral tone
+                cho "I was so exhausted after practice, I fell asleep in the locker room..." ("disgust", "happyCl", "worried", "mid") # Worried
                 cho "I didn’t even hear the team sneak in..." ("soft", "base", "base", "mid") # Softer voice, showing vulnerability
                 cho "Next thing I know, I feel something cold dripping down my neck!" ("angry", "base", "angry", "mid") # Initial anger, surprise at the cold
                 cho "I shot up, eyes wide, and before I could even process what was happening..." ("angry", "narrow", "angry", "mid") # Eyes wide, indignant
@@ -372,7 +370,7 @@ label cho_quidditch_assistant_job_return:
                 gen "Well, at least you survived... and your compensation has been updated." ("base", xpos="far_left", ypos="head") # Ironic, trying to lighten the mood
             elif cho_end_day=="Soaked and Seen: Cho's Embarrassing Broom Encounter":
                 # Soaked and Seen: Cho's Embarrassing Broom Encounter
-                cho "I was tasked with organizing the Quidditch gear for the big match, but everything went wrong from the start." ("base", "base", "base", "mid")
+                cho "I was tasked with organizing the Quidditch gear for the big match, but everything went wrong from the start." ("disgust", "happyCl", "worried", "mid") # Worried
                 cho "First, the broomsticks kept *flying off* the racks and hovering around the room!" ("angry", "narrow", "base", "mid")
                 cho "I had barely grabbed one when—*whoosh*! It zoomed away and knocked me into the equipment chest!" ("angry", "base", "angry", "mid")
                 gen "Sounds like the brooms had a mind of their own." ("base", xpos="far_left", ypos="head")
@@ -410,7 +408,7 @@ label cho_quidditch_assistant_job_return:
                 gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
             else :
                 # Team Prank Gone Wild: Cho's Flying Fiasco
-                cho "I was helping set up for practice when I noticed something was off..." ("base", "base", "base", "mid") # Neutral
+                cho "I was helping set up for practice when I noticed something was off..." ("disgust", "happyCl", "worried", "mid") # Worried
                 cho "The brooms... They felt different, like they were waiting for something." ("angry", "narrow", "base", "mid") # Irritated
                 cho "But I couldn’t put my finger on it. I thought maybe it was just me..." ("clench", "base", "worried", "mid") # Embarrassed
                 gen "Different in what way?" ("base", xpos="far_left", ypos="head") # Normal
