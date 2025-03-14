@@ -61,39 +61,39 @@ label cho_quidditch_assistant_job:
 
     if not states.cho.ev.quidditch_assistant_job.intro_complete:
         $ states.cho.ev.quidditch_assistant_job.intro_complete = True
-        cho "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade) 
-        gen "I have a job opportunity for you, Ms. Chang." ("base", xpos="far_left", ypos="head") 
-        cho "What kind of job?" ("clench", "base", "base", "mid") 
-        gen "The professional Quidditch team, the Rune Riders, is training at Hogwarts this season." ("base", xpos="far_left", ypos="head") 
-        gen "They need an assistant to help with training." ("base", xpos="far_left", ypos="head") 
-        cho "Wait... Are you serious?!" ("base", "base", "base", "mid") 
-        gen "Yes. Their stadium has been overrun by a swarm of Ashwinders, and they need a place to train while they resolve the issue." ("base", xpos="far_left", ypos="head") 
-        cho "This is amazing! I've always dreamed of working with a professional team!" ("grin", "base", "base", "mid") 
-        gen "I thought you might say that. But before you get too excited, there are a few conditions." ("base", xpos="far_left", ypos="head") 
-        cho "Conditions? What kind of conditions?" ("clench", "base", "base", "mid") 
-        gen "First, you’ll need to sign a confidentiality agreement. The Riders are very protective of their training methods." ("base", xpos="far_left", ypos="head") 
-        cho "That makes sense. I can handle that." ("base", "base", "base", "mid") 
-        gen "Second, you’ll need to return any financial compensation to me." ("base", xpos="far_left", ypos="head") 
-        cho "Wait, what? Why would I have to give you the money?" ("clench", "base", "base", "mid") 
-        gen "Rules are rules, Ms. Chang. Hogwarts is providing the facilities, so any compensation must be returned to the school." ("base", xpos="far_left", ypos="head") 
-        cho "That doesn’t seem fair... I’d be doing all the work!" ("angry", "base", "base", "mid") 
-        gen "Think of it as an investment in your future. The experience alone will be invaluable." ("base", xpos="far_left", ypos="head") 
-        cho "Hmm... I suppose you’re right. But what exactly would I have to do?" ("base", "base", "base", "mid") 
-        gen "Nothing too complicated. You’ll help with warm-ups, organize equipment, polish the brooms, and assist during practice." ("base", xpos="far_left", ypos="head") 
-        cho "Polishing brooms? That doesn’t sound very glamorous..." ("clench", "base", "base", "mid") 
-        gen "It’s not all polishing brooms. You’ll also get to observe their training sessions up close. Imagine learning from the best players in the league!" ("base", xpos="far_left", ypos="head") 
-        cho "That does sound amazing... But I’m not sure if it’s worth giving up all the money." ("base", "base", "base", "mid") 
-        gen "Well, there’s one more thing... Their star Seeker, Orion Knight, will be here for the training sessions." ("base", xpos="far_left", ypos="head") 
-        cho "Orion Knight?! The Orion Knight?!" ("grin", "base", "base", "mid") 
-        gen "The one and only. I hear he’s quite the fan favorite." ("base", xpos="far_left", ypos="head") 
-        cho @ cheeks blush "He’s not just a fan favorite... He’s incredible! And so... handsome." ("soft", "base", "base", "mid") 
-        gen "So, does that change your mind?" ("base", xpos="far_left", ypos="head") 
-        cho "Well... if it means I get to work with Orion Knight, I suppose I can overlook the money issue." ("base", "base", "base", "mid") 
-        gen "Excellent. Here’s your assistant coach uniform." ("base", xpos="far_left", ypos="head") 
-        cho "Uniform? What’s wrong with what I’m wearing?" ("clench", "base", "base", "mid") 
-        gen "It’s part of the job. You’ll need to look professional while representing the team." ("base", xpos="far_left", ypos="head") 
-        cho @ cheeks blush "If it’s necessary for the job, fine. But I’m only doing this for the experience... and maybe a chance to talk to Orion." ("base", "base", "base", "mid") 
-        gen "Great attitude. Now go and let me know how it goes." ("base", xpos="far_left", ypos="head") 
+        cho "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)  # Neutral, normal eyes, neutral eyebrows, pupils center
+        gen "I have a job opportunity for you, Ms. Chang." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "What kind of job?" ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Irritation)
+        gen "The professional Quidditch team, the Rune Riders, is training at Hogwarts this season." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        gen "They need an assistant to help with training." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Wait... Are you serious?!" ("open", "base", "base", "mid")  # Open mouth, normal eyes, neutral eyebrows, pupils center (Surprise)
+        gen "Yes. Their stadium has been overrun by a swarm of Ashwinders, and they need a place to train while they resolve the issue." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "This is amazing! I've always dreamed of working with a professional team!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+        gen "I thought you might say that. But before you get too excited, there are a few conditions." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Conditions? What kind of conditions?" ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Irritation)
+        gen "First, you’ll need to sign a confidentiality agreement. The Riders are very protective of their training methods." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "That makes sense. I can handle that." ("base", "base", "base", "mid")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        gen "Second, you’ll need to return any financial compensation to me." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Wait, what? Why would I have to give you the money?" ("angry", "base", "base", "mid")  # Angry mouth, normal eyes, neutral eyebrows, pupils center (Anger)
+        gen "Rules are rules, Ms. Chang. Hogwarts is providing the facilities, so any compensation must be returned to the school." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "That doesn’t seem fair... I’d be doing all the work!" ("angry", "narrow", "angry", "mid")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils center)
+        gen "Think of it as an investment in your future. The experience alone will be invaluable." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Hmm... I suppose you’re right. But what exactly would I have to do?" ("base", "base", "base", "mid")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        gen "Nothing too complicated. You’ll help with warm-ups, organize equipment, polish the brooms, and assist during practice." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Polishing brooms? That doesn’t sound very glamorous..." ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Irritation)
+        gen "It’s not all polishing brooms. You’ll also get to observe their training sessions up close. Imagine learning from the best players in the league!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "That does sound amazing... But I’m not sure if it’s worth giving up all the money." ("base", "narrow", "worried", "mid")  # Neutral worry (Neutral mouth, narrowed eyes, worried eyebrows, pupils center)
+        gen "Well, there’s one more thing... Their star Seeker, Orion Knight, will be here for the training sessions." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Orion Knight?! The Orion Knight?!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+        gen "The one and only. I hear he’s quite the fan favorite." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho @ cheeks blush "He’s not just a fan favorite... He’s incredible! And so... handsome." ("soft", "base", "base", "mid")  # Soft mouth, normal eyes, neutral eyebrows, pupils center (Blushing)
+        gen "So, does that change your mind?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Well... if it means I get to work with Orion Knight, I suppose I can overlook the money issue." ("base", "base", "base", "mid")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        gen "Excellent. Here’s your assistant coach uniform." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho "Uniform? What’s wrong with what I’m wearing?" ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Irritation)
+        gen "It’s part of the job. You’ll need to look professional while representing the team." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+        cho @ cheeks blush "If it’s necessary for the job, fine. But I’m only doing this for the experience... and maybe a chance to talk to Orion." ("base", "base", "base", "mid")  # Neutral, normal eyes, neutral eyebrows, pupils center (Blushing)
+        gen "Great attitude. Now go and let me know how it goes." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
         show screen blkfade
         with d5
         # Setup
@@ -122,52 +122,52 @@ label cho_quidditch_assistant_job:
         hide cho_main
         with d3
         if states.cho.level < 13:
-            cho "This uniform is *amazing!* It’s so... professional!" ("grin", "base", "base", "mid") 
-            gen "Professionalism, Ms. Chang. Remember, you’re representing an elite team." ("base", xpos="far_left", ypos="head") 
-            cho "I know, I know! But it’s a bit tight... I mean, it’s *snug*! Like, really snug!" ("grin", "base", "base", "mid") 
-            gen "Hmm... It seems a bit tight around the bottom, but oddly loose on top. Did they give you the wrong size?" ("grin", xpos="far_left", ypos="head") 
-            cho "WHAT?!" ("angry", "wide", "angry", "mid") 
-            gen "I’m just saying, it looks... uneven. Maybe you should ask for a different size." ("base", xpos="far_left", ypos="head") 
-            cho "Uneven?! Are you saying my—my *top* is too loose?!" ("angry", "base", "angry", "mid") 
-            gen "I’m just making an observation. Professionalism, Ms. Chang. Professionalism." ("grin", xpos="far_left", ypos="head") 
-            cho "I’ll show you *professionalism*! How about I *professionally* hex you into next week?!" ("angry", "base", "angry", "mid") 
-            gen "Now, now, Ms. Chang. Let’s not be hasty. I’m just trying to help." ("base", xpos="far_left", ypos="head") 
-            cho "Help?! You’re not helping! You’re just—just—ugh! I can’t even look at you right now!" ("angry", "base", "angry", "mid") 
-            cho "(Oh no... What if he’s right? What if I’m... *gaining weight*?!)" ("soft", "narrow", "base", "downR") 
-            cho "(This uniform is going to make me look ridiculous! What if Orion sees me like this?!)" ("angry", "narrow", "base", "downR") 
-            cho "(No, no, no! Focus, Cho! You’re here to work, not to freak out over a stupid uniform!)" ("clench", "narrow", "base", "mid") 
-            cho "(Breathe in... breathe out... breathe in... breathe out...)" ("soft", "closed", "base", "mid") 
-            gen "Ms. Chang? Are you... meditating?" ("base", xpos="far_left", ypos="head") 
-            cho "Yes, I’m meditating! Because someone decided to make me feel *completely insecure* about this uniform!" ("angry", "base", "angry", "mid") 
-            gen "I didn’t mean to—" ("base", xpos="far_left", ypos="head") 
-            cho "Don’t! Just... don’t. I’m trying to focus here." ("angry", "base", "angry", "mid") 
-            cho "(Alright, Cho. You’ve got this. You’re here to work, not to worry about what anyone thinks of you.)" ("base", "base", "base", "mid") 
-            gen "Impressive. I didn’t know you had such self-control." ("base", xpos="far_left", ypos="head") 
-            cho "Don’t push your luck, Gen. I’m still mad at you." ("angry", "base", "angry", "mid") 
-            gen "Noted. Now, let’s get to work. The Riders don’t pay for idle hands... or idle meditations." ("grin", xpos="far_left", ypos="head") 
-            cho "I’m going to kill him... I’m really going to kill him..." ("angry", "narrow", "angry", "mid") 
-            gen "I heard that, Ms. Chang." ("grin", xpos="far_left", ypos="head") 
-            cho "GOOD!" ("angry", "base", "angry", "mid") 
+            cho "This uniform is *amazing!* It’s so... professional!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+            gen "Professionalism, Ms. Chang. Remember, you’re representing an elite team." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "I know, I know! But it’s a bit tight... I mean, it’s *snug*! Like, really snug!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement with slight embarrassment)
+            gen "Hmm... It seems a bit tight around the bottom, but oddly loose on top. Did they give you the wrong size?" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful)
+            cho "WHAT?!" ("angry", "wide", "angry", "mid")  # Angry mouth, wide eyes, furrowed eyebrows, pupils center (Shock with anger)
+            gen "I’m just saying, it looks... uneven. Maybe you should ask for a different size." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Uneven?! Are you saying my—my *top* is too loose?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            gen "I’m just making an observation. Professionalism, Ms. Chang. Professionalism." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful)
+            cho "I’ll show you *professionalism*! How about I *professionally* hex you into next week?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            gen "Now, now, Ms. Chang. Let’s not be hasty. I’m just trying to help." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Help?! You’re not helping! You’re just—just—ugh! I can’t even look at you right now!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            cho "(Oh no... What if he’s right? What if I’m... *gaining weight*?!)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Worry)
+            cho "(This uniform is going to make me look ridiculous! What if Orion sees me like this?!)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Worry with anger)
+            cho "(No, no, no! Focus, Cho! You’re here to work, not to freak out over a stupid uniform!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determination)
+            cho "(Breathe in... breathe out... breathe in... breathe out...)" ("soft", "closed", "base", "mid")  # Soft mouth, closed eyes, neutral eyebrows, pupils center (Calming down)
+            gen "Ms. Chang? Are you... meditating?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Yes, I’m meditating! Because someone decided to make me feel *completely insecure* about this uniform!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            gen "I didn’t mean to—" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Don’t! Just... don’t. I’m trying to focus here." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            cho "(Alright, Cho. You’ve got this. You’re here to work, not to worry about what anyone thinks of you.)" ("base", "base", "base", "mid")  # Neutral, normal eyes, neutral eyebrows, pupils center (Calm determination)
+            gen "Impressive. I didn’t know you had such self-control." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Don’t push your luck, Gen. I’m still mad at you." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
+            gen "Noted. Now, let’s get to work. The Riders don’t pay for idle hands... or idle meditations." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful)
+            cho "I’m going to kill him... I’m really going to kill him..." ("angry", "narrow", "angry", "mid")  # Angry mouth, narrowed eyes, furrowed eyebrows, pupils center (Intense anger)
+            gen "I heard that, Ms. Chang." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful)
+            cho "GOOD!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Intense anger)
             
         elif states.cho.level >= 13:
-            cho "This uniform is *amazing!* It’s so... professional!" ("grin", "base", "base", "mid") 
-            gen "Professionalism, Ms. Chang. Remember, you’re representing an elite team." ("base", xpos="far_left", ypos="head") 
-            cho "I know, I know! But it’s a bit tight... I mean, it’s *snug*! Like, really snug!" ("grin", "base", "base", "mid") 
-            cho "(Oh no... What if Orion Knight sees me like this? What if he thinks I look ridiculous?!)" ("soft", "narrow", "base", "downR") 
-            cho "(I can’t let him see me struggling with this uniform... I need to look professional! But what if he offers to help? What if he touches the uniform?!)" ("angry", "narrow", "base", "downR") 
-            cho "(No, no, no! Focus, Cho! You’re here to work, not to daydream about Orion Knight!)" ("clench", "narrow", "base", "mid") 
-            gen "Focus, Ms. Chang. You’re here to work, not to socialize." ("base", xpos="far_left", ypos="head") 
-            cho "I *am* focused! I’m *super* focused! I mean, this is the Riders! How could I not be focused?" ("grin", "base", "base", "mid") 
-            cho "(Oh Merlin... What if I have to polish Orion’s broom? What if he’s watching me? What if he thinks I’m doing it wrong?!)" ("soft", "narrow", "base", "downR") 
-            cho "(No, no, no! Stop thinking about that! It’s just a broom! It’s just a broom!)" ("angry", "narrow", "base", "mid") 
-            gen "Now that we’ve settled the uniform issue, let’s get to work. The Riders don’t pay for idle hands." ("base", xpos="far_left", ypos="head") 
-            cho "They don’t pay at all, remember? But that’s fine! I’m here for the experience! And the... the *professionalism*!" ("grin", "base", "base", "mid") 
-            gen "Details, Ms. Chang. Details." ("base", xpos="far_left", ypos="head") 
-            cho "Details, schmetails! Let’s get to work! I’m ready to polish brooms, organize equipment, and... and whatever else you need!" ("grin", "base", "base", "mid") 
-            cho "(What if Orion sees me polishing his broom? What if he thinks I’m doing it wrong? What if he thinks I’m... flirting with him?!)" ("soft", "narrow", "base", "downR") 
-            cho "(No, no, no! Stop it, Cho! You’re here to work, not to fantasize about Orion Knight!)" ("angry", "narrow", "base", "mid") 
-            gen "Enough chit-chat. Let’s get to work." ("base", xpos="far_left", ypos="head") 
-            cho "Yes, sir! Let’s do this! I’m ready to take on the world... or at least the Riders!" ("grin", "base", "base", "mid") 
+            cho "This uniform is *amazing!* It’s so... professional!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+            gen "Professionalism, Ms. Chang. Remember, you’re representing an elite team." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "I know, I know! But it’s a bit tight... I mean, it’s *snug*! Like, really snug!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement with slight embarrassment)
+            cho "(Oh no... What if Orion Knight sees me like this? What if he thinks I look ridiculous?!)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Worry)
+            cho "(I can’t let him see me struggling with this uniform... I need to look professional! But what if he offers to help? What if he touches the uniform?!)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Panic)
+            cho "(No, no, no! Focus, Cho! You’re here to work, not to daydream about Orion Knight!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determination)
+            gen "Focus, Ms. Chang. You’re here to work, not to socialize." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "I *am* focused! I’m *super* focused! I mean, this is the Riders! How could I not be focused?" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+            cho "(Oh Merlin... What if I have to polish Orion’s broom? What if he’s watching me? What if he thinks I’m doing it wrong?!)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Worry)
+            cho "(No, no, no! Stop thinking about that! It’s just a broom! It’s just a broom!)" ("angry", "narrow", "base", "mid")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils center (Frustration)
+            gen "Now that we’ve settled the uniform issue, let’s get to work. The Riders don’t pay for idle hands." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "They don’t pay at all, remember? But that’s fine! I’m here for the experience! And the... the *professionalism*!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+            gen "Details, Ms. Chang. Details." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Details, schmetails! Let’s get to work! I’m ready to polish brooms, organize equipment, and... and whatever else you need!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
+            cho "(What if Orion sees me polishing his broom? What if he thinks I’m doing it wrong? What if he thinks I’m... flirting with him?!)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Worry)
+            cho "(No, no, no! Stop it, Cho! You’re here to work, not to fantasize about Orion Knight!)" ("angry", "narrow", "base", "mid")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils center (Frustration)
+            gen "Enough chit-chat. Let’s get to work." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+            cho "Yes, sir! Let’s do this! I’m ready to take on the world... or at least the Riders!" ("grin", "base", "base", "mid")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Excitement)
     gen "Off you go then..." ("base", xpos="far_left", ypos="head")
 
     call cho_walk(action="leave")
@@ -284,219 +284,228 @@ label cho_quidditch_assistant_job_return:
         "What happened?":
             if cho_end_day== "Puddle Plunge: A Quidditch Catastrophe":
                 # "Puddle Plunge: A Quidditch Catastrophe"
-                cho "Everything was going fine until practice ended, and I had to gather the equipment..." ("disgust", "happyCl", "worried", "mid") # Worried
-                cho "It had rained earlier, so the field was full of puddles..." ("clench", "narrow", "base", "mid") # Uncomfortable
-                cho "I was carrying the Quaffles, some spare brooms, and the training cones when—slip!" ("angry", "base", "annoyed", "mid") # Irritated
-                cho "I completely lost my footing and fell face-first into a massive puddle!" ("angry", "closed", "annoyed", "mid") # Irritated
-                gen "Oh dear... That must have been embarrassing." ("base", xpos="far_left", ypos="head") # Normal
-                cho "Oh, you have no idea! The entire team saw it happen!" ("angry", "base", "annoyed", "mid") # Irritated
-                cho "And to make matters worse... My uniform got soaked!" ("angry", "narrow", "worried", "mid") # Alarmed
-                gen "Hmm... I imagine that wasn't ideal." ("base", xpos="far_left", ypos="head") # Normal
-                cho @ cheeks blush "It became completely see-through! And it clung to me like a second skin!" ("clench", "base", "annoyed", "mid") # Uncomfortable
-                cho "I was standing there, drenched, fully exposed, holding all that equipment... I couldn't even cover myself!" ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Well, at least the team saw how dedicated you are!" ("base", xpos="far_left", ypos="head") # Normal
-                cho "That's your takeaway from this?!" ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Every job has its challenges. Consider it a lesson in resilience!" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Ugh..." ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head") # Normal
-                cho "(This is so unfair... I just wanted to do my job!)" ("soft", "narrow", "base", "downR") # Normal Embarrassed
-                cho "(And now everyone thinks I’m some sort of walking disaster!)" ("angry", "narrow", "base", "downR") # Embarrassed
-                cho "(Or worse... what if Orion saw that?!)" ("clench", "narrow", "base", "mid") # Uncomfortable
-                gen "You seem troubled, Ms. Chang." ("base", xpos="far_left", ypos="head") # Normal
-                cho "No, really? What gave it away?" ("annoyed", "base", "base", "R") # Irritated
-                gen "Just an observation. Professionalism, Ms. Chang. Professionalism." ("grin", xpos="far_left", ypos="head") # Smug/Malicious Smile
-                cho "Ugh! If you say 'professionalism' one more time, I swear—" ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Relax. Your uniform will dry... eventually." ("base", xpos="far_left", ypos="head") # Normal
-                cho "Oh, fantastic! That totally solves everything!" ("angry", "base", "annoyed", "mid") # Irritated
-                cho "(Maybe I should just quit... No, no. Don’t be ridiculous. I worked too hard to get here.)" ("soft", "closed", "base", "mid") # Reflective
-                cho "(Breathe in... breathe out... ignore the smug idiot next to you.)" ("soft", "closed", "base", "mid") # Reflective
-                gen "Are you meditating again?" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Yes. Because someone is testing my very limited patience." ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Oh, I wouldn’t dream of doing such a thing." ("grin", xpos="far_left", ypos="head") # Smug
-                cho "Liar." ("annoyed", "base", "base", "mid") # Skeptical
-                gen "Anyway, I’ll make sure to note this in your performance review." ("base", xpos="far_left", ypos="head") # Normal
-                cho "You better not!" ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Too late." ("grin", xpos="far_left", ypos="head") # Smug
-                cho "I hate you!" ("angry", "base", "annoyed", "mid") # Irritated
-                gen "Acknowledged." ("base", xpos="far_left", ypos="head") # Normal
+                cho "Everything was going fine until practice ended, and I had to gather the equipment..." ("soft", "narrow", "worried", "mid")  # Soft mouth, narrowed eyes, worried eyebrows, pupils center (Worry)
+                cho "It had rained earlier, so the field was full of puddles..." ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Uncomfortable)
+                cho "I was carrying the Quaffles, some spare brooms, and the training cones when—slip!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                cho "I completely lost my footing and fell face-first into a massive puddle!" ("angry", "closed", "angry", "mid")  # Angry mouth, closed eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Oh dear... That must have been embarrassing." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Oh, you have no idea! The entire team saw it happen!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                cho "And to make matters worse... My uniform got soaked!" ("angry", "narrow", "worried", "mid")  # Angry mouth, narrowed eyes, worried eyebrows, pupils center (Alarm)
+                gen "Hmm... I imagine that wasn't ideal." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho @ cheeks blush "It became completely see-through! And it clung to me like a second skin!" ("clench", "base", "worried", "mid")  # Clenched teeth, normal eyes, worried eyebrows, pupils center (Uncomfortable)
+                cho "I was standing there, drenched, fully exposed, holding all that equipment... I couldn't even cover myself!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Well, at least the team saw how dedicated you are!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "That's your takeaway from this?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Every job has its challenges. Consider it a lesson in resilience!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Ugh..." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "(This is so unfair... I just wanted to do my job!)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Embarrassment)
+                cho "(And now everyone thinks I’m some sort of walking disaster!)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Embarrassment with anger)
+                cho "(Or worse... what if Orion saw that?!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Uncomfortable)
+                gen "You seem troubled, Ms. Chang." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "No, really? What gave it away?" ("annoyed", "base", "base", "R")  # Annoyed mouth, normal eyes, neutral eyebrows, pupils right (Irritation)
+                gen "Just an observation. Professionalism, Ms. Chang. Professionalism." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "Ugh! If you say 'professionalism' one more time, I swear—" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Relax. Your uniform will dry... eventually." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Oh, fantastic! That totally solves everything!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                cho "(Maybe I should just quit... No, no. Don’t be ridiculous. I worked too hard to get here.)" ("soft", "closed", "base", "mid")  # Soft mouth, closed eyes, neutral eyebrows, pupils center (Reflection)
+                cho "(Breathe in... breathe out... ignore the smug idiot next to you.)" ("soft", "closed", "base", "mid")  # Soft mouth, closed eyes, neutral eyebrows, pupils center (Reflection)
+                gen "Are you meditating again?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Yes. Because someone is testing my very limited patience." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Oh, I wouldn’t dream of doing such a thing." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "Liar." ("annoyed", "base", "base", "mid")  # Annoyed mouth, normal eyes, neutral eyebrows, pupils center (Skepticism)
+                gen "Anyway, I’ll make sure to note this in your performance review." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "You better not!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Too late." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "I hate you!" ("horny", "base", "angry", "mid")  # Horny mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Acknowledged." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
             elif cho_end_day=="Runaway Brooms: Cho's Cleaning Catastrophe":
                 # "Runaway Brooms: Cho's Cleaning Catastrophe"
-                cho "Everything was going fine at first... The brooms were lined up, and I had just started polishing them." ("disgust", "happyCl", "worried", "mid") # Worried
-                cho "I was being extra careful this time, after what happened with the puddle incident." ("clench", "narrow", "base", "mid") # Determined
-                cho "But then, out of nowhere, one of them suddenly took off while I was still holding it!" ("angry", "narrow", "angry", "mid") # Irritated
-                gen "Oh dear... That must have been quite the experience." ("base", xpos="far_left", ypos="head") # Normal
-                cho "Oh, you have no idea! Before I could react, I was being dragged across the storage room, knocking over everything in my path!" ("clench", "base", "angry", "mid") # Frustrated
-                cho "Training cones, Quaffles, even the spare uniforms went flying everywhere!" ("angry", "base", "angry", "mid") # Irritated
-                gen "Sounds like you really made an impact." ("grin", xpos="far_left", ypos="head") # Smirking
-                cho "That’s your takeaway from this?!" ("angry", "base", "angry", "mid") # Irritated
-                cho "And do you know what happens when you hold onto a broom too tightly while it's spinning out of control?" ("angry", "narrow", "worried", "mid") # Alarmed
-                gen "Hmm... I imagine it gets difficult to stay composed?" ("base", xpos="far_left", ypos="head") # Normal
-                cho @ cheeks blush "My shirt got caught on the handle, and it yanked it halfway up while I was still flying!" ("clench", "base", "angry", "mid") # Embarrassed and irritated
-                cho "And before you ask—yes, everyone saw it. Again." ("angry", "narrow", "worried", "mid") # Alarmed
-                cho "By the time I finally crashed into the supply shelves, my skirt had flipped up, my shirt was a mess, and everything in the room was covered in polishing oil!" ("angry", "base", "angry", "mid") # Irritated
-                gen "Well, at least the brooms are very polished now!" ("grin", xpos="far_left", ypos="head") # Smirking
-                cho "Oh, fantastic! Let’s just ignore my dignity and focus on the brooms!" ("angry", "base", "angry", "mid") # Irritated
-                gen "Every job has its challenges. Consider it a lesson in broom control!" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Oh, I’ve learned something, alright. I’ve learned that I should quit before I completely humiliate myself!" ("angry", "base", "angry", "mid") # Frustrated
-                gen "Nonsense. You're just getting started." ("grin", xpos="far_left", ypos="head") # Smirking
-                cho "UGH!" ("angry", "base", "angry", "mid") # Irritated
-                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head") # Normal
-                cho "(I hate this job. I really hate this job.)" ("soft", "narrow", "base", "downR") # Reflective and exhausted
+                cho "Everything was going fine at first... The brooms were lined up, and I had just started polishing them." ("soft", "narrow", "worried", "mid")  # Soft mouth, narrowed eyes, worried eyebrows, pupils center (Worry)
+                cho "I was being extra careful this time, after what happened with the puddle incident." ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determination)
+                cho "But then, out of nowhere, one of them suddenly took off while I was still holding it!" ("angry", "narrow", "angry", "mid")  # Angry mouth, narrowed eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Oh dear... That must have been quite the experience." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Oh, you have no idea! Before I could react, I was being dragged across the storage room, knocking over everything in my path!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustration)
+                cho "Training cones, Quaffles, even the spare uniforms went flying everywhere!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Sounds like you really made an impact." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "That’s your takeaway from this?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                cho "And do you know what happens when you hold onto a broom too tightly while it's spinning out of control?" ("angry", "narrow", "worried", "mid")  # Angry mouth, narrowed eyes, worried eyebrows, pupils center (Alarm)
+                gen "Hmm... I imagine it gets difficult to stay composed?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho @ cheeks blush "My shirt got caught on the handle, and it yanked it halfway up while I was still flying!" ("clench", "base", "worried", "mid")  # Clenched teeth, normal eyes, worried eyebrows, pupils center (Embarrassment and irritation)
+                cho "And before you ask—yes, everyone saw it. Again." ("angry", "narrow", "worried", "mid")  # Angry mouth, narrowed eyes, worried eyebrows, pupils center (Alarm)
+                cho "By the time I finally crashed into the supply shelves, my skirt had flipped up, my shirt was a mess, and everything in the room was covered in polishing oil!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Well, at least the brooms are very polished now!" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "Oh, fantastic! Let’s just ignore my dignity and focus on the brooms!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Every job has its challenges. Consider it a lesson in broom control!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Oh, I’ve learned something, alright. I’ve learned that I should quit before I completely humiliate myself!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustration)
+                gen "Nonsense. You're just getting started." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smug)
+                cho "UGH!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritation)
+                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "(I hate this job. I really hate this job.)" ("soft", "narrow", "base", "downR")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils down-right (Reflection and exhaustion)
             elif cho_end_day=="Freezer Fury: Cho's Drenching Disaster":
                 # "Freezer Fury: Cho's Drenching Disaster"
-                cho "I can’t believe I fell asleep on the coach’s bench... I just wanted a quick nap..." ("disgust", "happyCl", "worried", "mid") # Worried 
-                gen "You’ve been working hard. No one will blame you for resting a little." ("base", xpos="far_left", ypos="head")  # Neutral  
-                cho "Yawn... It was finally peaceful for once... I could barely keep my eyes open..." ("sleepy", "base", "mid")  # Sleepy  
-                cho "Suddenly, laughter fills the air..." ("angry", "base", "mid")  # Suspicious  
-                cho "Wait... What’s going on?" ("confused", "base", "mid")  # Confused  
-                cho "Before she can react, one of the team members dumps an entire bucket of ice-cold water from the freezer over her head, completely drenching her." ("shocked", "wide", "angry", "mid")  # Shocked and furious  
-                cho "WHAT—?! HEY! What the hell are you doing?!" ("angry", "base", "angry", "mid")  # Furious  
-                gen "Just a little team bonding, you know? You looked so comfortable sleeping, we thought you could use a *wake-up call*!" ("grin", xpos="far_left", ypos="head")  # Smirking  
-                cho "A wake-up call?! This is NOT what I had in mind!" ("angry", "base", "angry", "mid")  # Irritated  
-                cho @ cheeks blush "My shirt... It’s soaked! The water is *freezing*! And this... this is *humiliating*!" ("angry", "narrow", "worried", "mid")  # Angry and embarrassed  
-                gen "Ah, don’t worry, you’ll dry off soon. You’re a good sport, right?" ("base", xpos="far_left", ypos="head")  # Neutral  
-                cho "A *good sport*?! I’m *shivering* and completely drenched, and you think I’m a good sport?!" ("angry", "base", "angry", "mid")  # Furious  
-                gen "Come on, this was a team effort! And, let’s be honest, you *did* fall asleep on the job." ("grin", xpos="far_left", ypos="head")  # Smirking  
-                cho @ cheeks blush "Well, one thing’s for sure... I am *definitely* never napping on the bench again!" ("angry", "base", "angry", "mid")  # Annoyed but resigned  
-                gen "Great! I’ll make sure to let the team know. Your compensation has been updated!" ("base", xpos="far_left", ypos="head")  # Neutral  
-                cho "(Unbelievable... This team is *insane*!)" ("angry", "narrow", "base", "downR")  # Frustrated  
-                cho "(And now I look like a complete fool! My uniform is sticking to me, and everyone is laughing!)" ("angry", "narrow", "base", "downR")  # Annoyed  
-                cho "(No, no, Cho, get it together! You’re here to work, not to let some prank ruin your focus!)" ("clench", "narrow", "base", "mid")  # Determined  
-                cho "(Breathe in... breathe out... breathe in... breathe out...)" ("soft", "closed", "base", "mid")  # Trying to calm down  
-                gen "Ms. Chang? Are you... meditating?" ("base", xpos="far_left", ypos="head")  # Curious  
-                cho "YES! Because *someone* decided to make me feel *completely miserable* right now!" ("angry", "base", "angry", "mid")  # Irritated  
-                gen "I didn’t mean to—" ("base", xpos="far_left", ypos="head")  # Neutral  
-                cho "Don’t! Just... don’t. I’m trying to focus here." ("angry", "base", "angry", "mid")  # Frustrated  
-                gen "Impressive. I didn’t know you had such self-control." ("base", xpos="far_left", ypos="head")  # Neutral  
-                cho "Don’t push your luck, Gen. I’m *still* mad at you." ("angry", "base", "angry", "mid")  # Annoyed  
-                gen "Noted. Now, let’s get to work. The Riders don’t pay for idle hands... or idle meditations." ("grin", xpos="far_left", ypos="head")  # Smirking  
-                cho "I swear... I’m going to *hex* him one day..." ("angry", "narrow", "angry", "mid")  # Muttering angrily  
-                gen "I heard that, Ms. Chang." ("grin", xpos="far_left", ypos="head")  # Smirking  
-                cho "GOOD!" ("angry", "base", "angry", "mid")  # Furious  
+                cho "I can’t believe I fell asleep on the coach’s bench... I just wanted a quick nap..." ("soft", "narrow", "worried", "mid")  # Soft mouth, narrowed eyes, worried eyebrows, pupils center (Worry)
+                gen "You’ve been working hard. No one will blame you for resting a little." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Yawn... It was finally peaceful for once... I could barely keep my eyes open..." ("soft", "closed", "base", "mid")  # Soft mouth, closed eyes, neutral eyebrows, pupils center (Sleepy)
+                cho "Suddenly, laughter fills the air..." ("angry", "base", "base", "mid")  # Angry mouth, normal eyes, neutral eyebrows, pupils center (Suspicious)
+                cho "Wait... What’s going on?" ("soft", "narrow", "base", "mid")  # Soft mouth, narrowed eyes, neutral eyebrows, pupils center (Confused)
+                cho "Before she can react, one of the team members dumps an entire bucket of ice-cold water from the freezer over her head, completely drenching her." ("angry", "wide", "angry", "mid")  # Angry mouth, wide eyes, furrowed eyebrows, pupils center (Shocked and furious)
+                cho "WHAT—?! HEY! What the hell are you doing?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Furious)
+                gen "Just a little team bonding, you know? You looked so comfortable sleeping, we thought you could use a *wake-up call*!" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smirking)
+                cho "A wake-up call?! This is NOT what I had in mind!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated)
+                cho @ cheeks blush "My shirt... It’s soaked! The water is *freezing*! And this... this is *humiliating*!" ("angry", "narrow", "worried", "mid")  # Angry mouth, narrowed eyes, worried eyebrows, pupils center (Angry and embarrassed)
+                gen "Ah, don’t worry, you’ll dry off soon. You’re a good sport, right?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "A *good sport*?! I’m *shivering* and completely drenched, and you think I’m a good sport?!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Furious)
+                gen "Come on, this was a team effort! And, let’s be honest, you *did* fall asleep on the job." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smirking)
+                cho @ cheeks blush "Well, one thing’s for sure... I am *definitely* never napping on the bench again!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Annoyed but resigned)
+                gen "Great! I’ll make sure to let the team know. Your compensation has been updated!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "(Unbelievable... This team is *insane*!)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Frustrated)
+                cho "(And now I look like a complete fool! My uniform is sticking to me, and everyone is laughing!)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Annoyed)
+                cho "(No, no, Cho, get it together! You’re here to work, not to let some prank ruin your focus!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determined)
+                cho "(Breathe in... breathe out... breathe in... breathe out...)" ("soft", "closed", "base", "mid")  # Soft mouth, closed eyes, neutral eyebrows, pupils center (Calming down)
+                gen "Ms. Chang? Are you... meditating?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "YES! Because *someone* decided to make me feel *completely miserable* right now!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated)
+                gen "I didn’t mean to—" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Don’t! Just... don’t. I’m trying to focus here." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustrated)
+                gen "Impressive. I didn’t know you had such self-control." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "Don’t push your luck, Gen. I’m *still* mad at you." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Annoyed)
+                gen "Noted. Now, let’s get to work. The Riders don’t pay for idle hands... or idle meditations." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smirking)
+                cho "I swear... I’m going to *hex* him one day..." ("angry", "narrow", "angry", "mid")  # Angry mouth, narrowed eyes, furrowed eyebrows, pupils center (Muttering angrily)
+                gen "I heard that, Ms. Chang." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smirking)
+                cho "GOOD!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Furious)
             elif cho_end_day=="Soaked and Seen: Cho's Embarrassing Broom Encounter":
                 # Soaked and Seen: Cho's Embarrassing Broom Encounter
-                cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("disgust", "happyCl", "worried", "mid") # Worried
-                gen "That’s... unexpected." ("base", xpos="far_left", ypos="head") # Neutral, surprised
-                cho "I grabbed it with one hand to stop it, but instead, it dragged me along!" ("clench", "base", "base", "mid") # Tense, describing the situation
-                gen "A low-altitude flight?" ("base", xpos="far_left", ypos="head") # Ironic, trying to lighten the situation
-                cho @ cheeks blush "Right over the whole team! And, well... my skirt did not cooperate with gravity..." ("angry", "base", "angry", "mid") # Irritated and embarrassed
-                gen "I assume the team got a good look at—" ("grin", xpos="far_left", ypos="head") # Amused, provoking
-                cho "Don't even finish that sentence!" ("clench", "base", "angry", "mid") # Furious, interrupting
-                cho "And just when I thought it couldn't get worse, it started raining again!" ("angry", "base", "angry", "mid") # Frustrated with the situation
-                gen "You're soaked!" ("base", xpos="far_left", ypos="head") # Neutral, stating the obvious
-                cho @ cheeks blush "Yes, and now my uniform is sticking to me like glue! I swear, this job is cursed!" ("angry", "base", "angry", "mid") # Embarrassed and irritated
-                gen "Well, at least you're getting real Quidditch experience?" ("base", xpos="far_left", ypos="head") # Playful, trying to cheer her up
-                cho "I'd rather gain experience without getting airborne against my will!" ("angry", "base", "angry", "mid") # Sarcastic and frustrated
-                gen "Alright, alright." ("base", xpos="far_left", ypos="head") # Neutral, appeasing
-                cho "Good! Now if you'll excuse me, I need to dry off before I catch a cold!" ("angry", "base", "angry", "mid") # Irritated, leaving
-                gen "Hold on, Ms. Chang. You should probably change into something dry first." ("base", xpos="far_left", ypos="head") # Practical, advising
-                cho @ cheeks blush "I would if I had anything dry to change into! But no, I came prepared for work, not for unexpected skydiving!" ("angry", "base", "angry", "mid") # Embarrassed and frustrated
-                gen "Well, there’s always the locker room—" ("grin", xpos="far_left", ypos="head") # Playful, provoking
-                cho "Oh, sure! I’ll just march right in there while half the team is still laughing at me! Great idea!" ("angry", "base", "angry", "mid") # Sarcastic and furious
-                gen "Just a suggestion." ("base", xpos="far_left", ypos="head") # Neutral, shrugging
-                cho "(This is awful... First the uniform was too tight, now it’s soaked! And Orion definitely saw everything...)" ("angry", "narrow", "base", "downR") # Frustrated, thinking
-                cho "(No, no, no! Stop thinking about that! Focus on work, Cho! You’re a professional!)" ("clench", "narrow", "base", "mid") # Determined, trying to compose herself
-                gen "Ms. Chang? You’re mumbling to yourself." ("base", xpos="far_left", ypos="head") # Curious, observing
-                cho "I know! I’m just... mentally preparing myself to never let this happen again!" ("angry", "base", "angry", "mid") # Frustrated, determined
-                gen "That’s the spirit. Now, go dry off before you freeze." ("base", xpos="far_left", ypos="head") # Playful, but sincere
-                cho "Oh, now you’re concerned about me freezing? After letting me get soaked, dragged into the air, and publicly humiliated?" ("angry", "base", "angry", "mid") # Sarcastic, indignant
-                gen "Well, you did provide quality entertainment." ("grin", xpos="far_left", ypos="head") # Amused, provoking
-                cho "I swear—one day, I’m hexing you so hard you won’t even remember your own name!" ("angry", "base", "angry", "mid") # Furious, threatening
-                gen "Looking forward to it, Ms. Chang." ("grin", xpos="far_left", ypos="head") # Smiling, challenging
-                cho "Ugh!" ("angry", "base", "angry", "mid") # Irritated, leaving
+                cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("soft", "narrow", "worried", "mid")  # Soft mouth, narrowed eyes, worried eyebrows, pupils center (Worry)
+                gen "That’s... unexpected." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "I grabbed it with one hand to stop it, but instead, it dragged me along!" ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Tense, describing the situation)
+                gen "A low-altitude flight?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Ironic, trying to lighten the situation)
+                cho @ cheeks blush "Right over the whole team! And, well... my skirt did not cooperate with gravity..." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated and embarrassed)
+                gen "I assume the team got a good look at—" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Amused, provoking)
+                cho "Don't even finish that sentence!" ("clench", "base", "angry", "mid")  # Clenched teeth, normal eyes, furrowed eyebrows, pupils center (Furious, interrupting)
+                cho "And just when I thought it couldn't get worse, it started raining again!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustrated with the situation)
+                gen "You're soaked!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Stating the obvious)
+                cho @ cheeks blush "Yes, and now my uniform is sticking to me like glue! I swear, this job is cursed!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Embarrassed and irritated)
+                gen "Well, at least you're getting real Quidditch experience?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Playful, trying to cheer her up)
+                cho "I'd rather gain experience without getting airborne against my will!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic and frustrated)
+                gen "Alright, alright." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Appeasing)
+                cho "Good! Now if you'll excuse me, I need to dry off before I catch a cold!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated, leaving)
+                gen "Hold on, Ms. Chang. You should probably change into something dry first." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Practical, advising)
+                cho @ cheeks blush "I would if I had anything dry to change into! But no, I came prepared for work, not for unexpected skydiving!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Embarrassed and frustrated)
+                gen "Well, there’s always the locker room—" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful, provoking)
+                cho "Oh, sure! I’ll just march right in there while half the team is still laughing at me! Great idea!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic and furious)
+                gen "Just a suggestion." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Shrugging)
+                cho "(This is awful... First the uniform was too tight, now it’s soaked! And Orion definitely saw everything...)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Frustrated, thinking)
+                cho "(No, no, no! Stop thinking about that! Focus on work, Cho! You’re a professional!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determined, trying to compose herself)
+                gen "Ms. Chang? You’re mumbling to yourself." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Curious, observing)
+                cho "I know! I’m just... mentally preparing myself to never let this happen again!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustrated, determined)
+                gen "That’s the spirit. Now, go dry off before you freeze." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Playful, but sincere)
+                cho "Oh, now you’re concerned about me freezing? After letting me get soaked, dragged into the air, and publicly humiliated?" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic, indignant)
+                gen "Well, you did provide quality entertainment." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Amused, provoking)
+                cho "I swear—one day, I’m hexing you so hard you won’t even remember your own name!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Furious, threatening)
+                gen "Looking forward to it, Ms. Chang." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smiling, challenging)
+                cho "Ugh!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated, leaving)
             elif cho_end_day=="The Locker Room Shower: A Freezing Surprise":
-                # The Locker Room Shower: A Freezing Surprise
-                cho "I was so exhausted after practice, I fell asleep in the locker room..." ("disgust", "happyCl", "worried", "mid") # Worried
-                cho "I didn’t even hear the team sneak in..." ("soft", "base", "base", "mid") # Softer voice, showing vulnerability
-                cho "Next thing I know, I feel something cold dripping down my neck!" ("angry", "base", "angry", "mid") # Initial anger, surprise at the cold
-                cho "I shot up, eyes wide, and before I could even process what was happening..." ("angry", "narrow", "angry", "mid") # Eyes wide, indignant
-                cho "The entire team is standing there, laughing, as a bucket of freezing water empties onto me!" ("angry", "base", "angry", "mid") # Total fury, humiliation
-                gen "Oh no, they really did that?" ("base", xpos="far_left", ypos="head") # Surprised, neutral
-                cho "Yes! They dumped it all over me, straight from the beverage freezer!" ("angry", "base", "angry", "mid") # Outraged
-                cho "My entire body was drenched in ice-cold water!" ("angry", "narrow", "angry", "mid") # Emphasizing the discomfort
-                cho @ cheeks blush "And I’m there, in my Quidditch gear, trying to keep myself from shivering and covering up!" ("angry", "base", "angry", "mid") # Embarrassed, trying to compose herself
-                gen "That sounds brutal... Was it bad?" ("base", xpos="far_left", ypos="head") # Sympathetic, but curious
-                cho "Bad doesn’t even begin to cover it!" ("angry", "base", "angry", "mid") # Outraged
-                cho "The water was freezing, and it got everywhere!" ("angry", "narrow", "angry", "mid") # Emphasizing the severity
-                cho @ cheeks blush "I was soaked through, and my clothes were sticking to me in all the wrong places!" ("angry", "base", "angry", "mid") # Embarrassed, still frustrated
-                gen "Did the team at least apologize?" ("base", xpos="far_left", ypos="head") # Hopeful
-                cho "Apologize? No!" ("angry", "base", "angry", "mid") # Pure fury
-                cho "They were too busy rolling on the floor, laughing at me, completely enjoying the show!" ("angry", "base", "angry", "mid") # Resentful
-                cho "And I was left there, drenched and exposed to the entire locker room!" ("angry", "narrow", "embarrassed", "mid") # Shame and anger mixed
-                gen "They really went all out with this prank..." ("base", xpos="far_left", ypos="head") # Impressed, but still neutral
-                cho "Oh, they did. And I got the cold, wet end of the deal!" ("angry", "base", "angry", "mid") # Bitterness
-                cho "Ugh... I’ll get them back for this. Just wait until next practice!" ("angry", "base", "angry", "mid") # Determined to get revenge
-                gen "Well, at least you survived... and your compensation has been updated." ("base", xpos="far_left", ypos="head") # Ironic, trying to lighten the mood
+                # Soaked and Seen: Cho's Embarrassing Broom Encounter
+                cho "I was just cleaning the brooms when one of them suddenly shot up into the air!" ("soft", "narrow", "worried", "mid")  # Soft mouth, narrowed eyes, worried eyebrows, pupils center (Worry)
+                gen "That’s... unexpected." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center
+                cho "I grabbed it with one hand to stop it, but instead, it dragged me along!" ("clench", "base", "base", "mid")  # Clenched teeth, normal eyes, neutral eyebrows, pupils center (Tense, describing the situation)
+                gen "A low-altitude flight?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Ironic, trying to lighten the situation)
+                cho @ cheeks blush "Right over the whole team! And, well... my skirt did not cooperate with gravity..." ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated and embarrassed)
+                gen "I assume the team got a good look at—" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Amused, provoking)
+                cho "Don't even finish that sentence!" ("clench", "base", "angry", "mid")  # Clenched teeth, normal eyes, furrowed eyebrows, pupils center (Furious, interrupting)
+                cho "And just when I thought it couldn't get worse, it started raining again!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustrated with the situation)
+                gen "You're soaked!" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Stating the obvious)
+                cho @ cheeks blush "Yes, and now my uniform is sticking to me like glue! I swear, this job is cursed!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Embarrassed and irritated)
+                gen "Well, at least you're getting real Quidditch experience?" ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Playful, trying to cheer her up)
+                cho "I'd rather gain experience without getting airborne against my will!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic and frustrated)
+                gen "Alright, alright." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Appeasing)
+                cho "Good! Now if you'll excuse me, I need to dry off before I catch a cold!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated, leaving)
+                gen "Hold on, Ms. Chang. You should probably change into something dry first." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Practical, advising)
+                cho @ cheeks blush "I would if I had anything dry to change into! But no, I came prepared for work, not for unexpected skydiving!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Embarrassed and frustrated)
+                gen "Well, there’s always the locker room—" ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Playful, provoking)
+                cho "Oh, sure! I’ll just march right in there while half the team is still laughing at me! Great idea!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic and furious)
+                gen "Just a suggestion." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Shrugging)
+                cho "(This is awful... First the uniform was too tight, now it’s soaked! And Orion definitely saw everything...)" ("angry", "narrow", "base", "downR")  # Angry mouth, narrowed eyes, neutral eyebrows, pupils down-right (Frustrated, thinking)
+                cho "(No, no, no! Stop thinking about that! Focus on work, Cho! You’re a professional!)" ("clench", "narrow", "base", "mid")  # Clenched teeth, narrowed eyes, neutral eyebrows, pupils center (Determined, trying to compose herself)
+                gen "Ms. Chang? You’re mumbling to yourself." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Curious, observing)
+                cho "I know! I’m just... mentally preparing myself to never let this happen again!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Frustrated, determined)
+                gen "That’s the spirit. Now, go dry off before you freeze." ("base", xpos="far_left", ypos="head")  # Neutral, normal eyes, neutral eyebrows, pupils center (Playful, but sincere)
+                cho "Oh, now you’re concerned about me freezing? After letting me get soaked, dragged into the air, and publicly humiliated?" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Sarcastic, indignant)
+                gen "Well, you did provide quality entertainment." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Amused, provoking)
+                cho "I swear—one day, I’m hexing you so hard you won’t even remember your own name!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Furious, threatening)
+                gen "Looking forward to it, Ms. Chang." ("grin", xpos="far_left", ypos="head")  # Wide smile, normal eyes, neutral eyebrows, pupils center (Smiling, challenging)
+                cho "Ugh!" ("angry", "base", "angry", "mid")  # Angry mouth, normal eyes, furrowed eyebrows, pupils center (Irritated, leaving)
+
             elif cho_end_day=="Soaked and Seen: Cho's Embarrassing Broom Encounter":
                 # Soaked and Seen: Cho's Embarrassing Broom Encounter
-                cho "I was tasked with organizing the Quidditch gear for the big match, but everything went wrong from the start." ("disgust", "happyCl", "worried", "mid") # Worried
-                cho "First, the broomsticks kept *flying off* the racks and hovering around the room!" ("angry", "narrow", "base", "mid")
-                cho "I had barely grabbed one when—*whoosh*! It zoomed away and knocked me into the equipment chest!" ("angry", "base", "angry", "mid")
-                gen "Sounds like the brooms had a mind of their own." ("base", xpos="far_left", ypos="head")
-                cho "*Mind of their own*? It was like they were *laughing* at me!" ("angry", "base", "angry", "mid")
-                cho "I tried grabbing another one, but the bludger came out of *nowhere* and hit the drinks freezer!" ("angry", "narrow", "base", "mid")
-                cho "The freezer door flew open and *water* sprayed everywhere!" ("angry", "base", "angry", "mid")
-                cho "And *of course*, I was standing right in front of it when it happened!" ("angry", "narrow", "angry", "mid")
-                gen "So, you got soaked?" ("base", xpos="far_left", ypos="head")
-                cho "Soaked? I was *drenched*!" ("angry", "base", "angry", "mid")
-                cho "The water hit me first, and then *splattered* all over the entire team!" ("angry", "base", "angry", "mid")
-                cho "*And* do you know what that did to my skirt?" ("angry", "narrow", "embarrassed", "mid")
-                cho @ cheeks blush "It went flying up, exposing *everything* while I tried to keep my balance!" ("angry", "base", "angry", "mid")
-                gen "That must've been quite the sight..." ("base", xpos="far_left", ypos="head")
-                cho @ cheeks blush "Oh, it *was*!" ("angry", "base", "angry", "mid")
-                cho "I was standing there, completely soaked, with my skirt fluttering around, trying to cover myself and keep the gear from falling!" ("angry", "base", "embarrassed", "mid")
-                cho @ cheeks blush "The whole team saw me *struggling* in front of the water explosion!" ("angry", "base", "angry", "mid")
-                cho "And if that wasn't bad enough, I slipped! Right there, in the middle of the mess!" ("frustrated", "narrow", "angry", "mid")
-                cho "I flailed my arms trying to grab *something*, and guess what I grabbed?" ("frustrated", "base", "angry", "mid")
-                gen "Please don't say Orion Knight's broom." ("base", xpos="far_left", ypos="head")
-                cho "Oh, I *wish* it was just his broom! No! I grabbed *his arm*!" ("frustrated", "base", "angry", "mid")
-                cho "And in the process, I dragged him down into the puddle *with me*!" ("frustrated", "base", "angry", "mid")
-                cho "So now *not only* was I soaked and embarrassed, but so was *he*!" ("frustrated", "narrow", "angry", "mid")
-                gen "That must have been... an unfortunate turn of events." ("base", xpos="far_left", ypos="head")
-                cho "Unfortunate?! He just *stared* at me, completely drenched, while the rest of the team burst out laughing!" ("frustrated", "narrow", "embarrassed", "mid")
-                cho "I think I mumbled something like 'Uh, sorry?' but I was too mortified to even think properly!" ("embarrassed", "narrow", "base", "mid")
-                gen "I take it he wasn’t pleased?" ("base", xpos="far_left", ypos="head")
-                cho "Oh, he *was* amused, alright. He just smirked and said, 'Guess we’re making a splash before the match, huh?'" ("embarrassed", "base", "embarrassed", "mid")
-                gen "At least he took it well." ("base", xpos="far_left", ypos="head")
-                cho "That’s not the point! The whole team saw! Now I’m 'The Girl Who Drenched Orion Knight'!" ("frustrated", "narrow", "angry", "mid")
-                cho "I’ll *never* live this down!" ("frustrated", "base", "angry", "mid")
-                gen "Well, on the bright side, at least the Quidditch gear is finally organized." ("base", xpos="far_left", ypos="head")
-                cho "Oh, sure! *That’s* the bright side! Meanwhile, I’m still drying off!" ("frustrated", "base", "angry", "mid")
-                gen "Every job has its challenges." ("base", xpos="far_left", ypos="head")
-                cho "*Ugh!*" ("angry", "base", "angry", "mid")
-                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")
+                cho "I was tasked with organizing the Quidditch gear for the big match, but everything went wrong from the start." ("base", "narrow", "worried", "L")  # Neutral worry (Neutral mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho "First, the broomsticks kept *flying off* the racks and hovering around the room!" ("angry", "narrow", "base", "R")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, neutral eyebrows, pupils right)
+                cho "I had barely grabbed one when—*whoosh*! It zoomed away and knocked me into the equipment chest!" ("clench", "wink", "angry", "mid")  # Anger with clenched teeth (Clenched teeth, wink, furrowed eyebrows, pupils center)
+                gen "Sounds like the brooms had a mind of their own." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "*Mind of their own*? It was like they were *laughing* at me!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "I tried grabbing another one, but the bludger came out of *nowhere* and hit the drinks freezer!" ("open", "narrow", "angry", "ahegao")  # Surprise with anger (Open mouth, narrowed eyes, furrowed eyebrows, ahegao pupils)
+                cho "The freezer door flew open and *water* sprayed everywhere!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                cho "And *of course*, I was standing right in front of it when it happened!" ("angry", "narrow", "angry", "down")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils down)
+                gen "So, you got soaked?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Soaked? I was *drenched*!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "The water hit me first, and then *splattered* all over the entire team!" ("angry", "narrow", "base", "R")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, neutral eyebrows, pupils right)
+                cho "*And* do you know what that did to my skirt?" ("angry", "narrow", "worried", "L")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho @ cheeks blush "It went flying up, exposing *everything* while I tried to keep my balance!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "That must've been quite the sight..." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho @ cheeks blush "Oh, it *was*!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "I was standing there, completely soaked, with my skirt fluttering around, trying to cover myself and keep the gear from falling!" ("angry", "base", "worried", "L")  # Worried anger (Angry mouth, normal eyes, worried eyebrows, pupils left)
+                cho @ cheeks blush "The whole team saw me *struggling* in front of the water explosion!" ("angry", "narrow", "angry", "down")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils down)
+                cho "And if that wasn't bad enough, I slipped! Right there, in the middle of the mess!" ("clench", "closed", "base", "down")  # Clenched teeth (Clenched teeth, closed eyes, neutral eyebrows, pupils down)
+                cho "I flailed my arms trying to grab *something*, and guess what I grabbed?" ("open", "narrow", "worried", "L")  # Open mouth with worry (Open mouth, narrowed eyes, worried eyebrows, pupils left)
+                gen "Please don't say Orion Knight's broom." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Oh, I *wish* it was just his broom! No! I grabbed *his arm*!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                cho "And in the process, I dragged him down into the puddle *with me*!" ("angry", "narrow", "angry", "ahegao")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, ahegao pupils)
+                cho "So now *not only* was I soaked and embarrassed, but so was *he*!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "That must have been... an unfortunate turn of events." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Unfortunate?! He just *stared* at me, completely drenched, while the rest of the team burst out laughing!" ("angry", "narrow", "worried", "L")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho "I think I mumbled something like 'Uh, sorry?' but I was too mortified to even think properly!" ("base", "narrow", "worried", "L")  # Neutral worry (Neutral mouth, narrowed eyes, worried eyebrows, pupils left)
+                gen "I take it he wasn’t pleased?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Oh, he *was* amused, alright. He just smirked and said, 'Guess we’re making a splash before the match, huh?'" ("grin", "base", "angry", "ahegao")  # Smile with anger (Wide smile, normal eyes, furrowed eyebrows, ahegao pupils)
+                gen "At least he took it well." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "That’s not the point! The whole team saw! Now I’m 'The Girl Who Drenched Orion Knight'!" ("angry", "narrow", "angry", "down")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils down)
+                cho "I’ll *never* live this down!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "Well, on the bright side, at least the Quidditch gear is finally organized." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Oh, sure! *That’s* the bright side! Meanwhile, I’m still drying off!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                gen "Every job has its challenges." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "*Ugh!*" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
             else :
                 # Team Prank Gone Wild: Cho's Flying Fiasco
-                cho "I was helping set up for practice when I noticed something was off..." ("disgust", "happyCl", "worried", "mid") # Worried
-                cho "The brooms... They felt different, like they were waiting for something." ("angry", "narrow", "base", "mid") # Irritated
-                cho "But I couldn’t put my finger on it. I thought maybe it was just me..." ("clench", "base", "worried", "mid") # Embarrassed
-                gen "Different in what way?" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Well, they kept wiggling in my hands, like they were eager to fly off!" ("angry", "narrow", "base", "mid") # Irritated
-                cho "And when I finally managed to mount one, it zoomed out from under me!" ("angry", "base", "base", "mid") # Irritated
-                cho "I thought I was going to crash into the stands!" ("angry", "narrow", "angry", "mid") # Irritated
-                gen "Sounds dangerous. Were you okay?" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Yeah, but it didn’t stop there!" ("angry", "base", "base", "mid") # Irritated
-                cho "I tried to gather up the spare brooms... but every time I picked one up, it slipped out of my hands and started flying by itself!" ("angry", "base", "base", "mid") # Irritated
-                cho "And then, the Quaffles started bouncing around, like they were in on the joke!" ("angry", "narrow", "worried", "mid") # Embarrassed
-                cho "I was running around like a lunatic, trying to catch everything!" ("angry", "base", "base", "mid") # Irritated
-                gen "That sounds... strange. Are you sure you weren’t imagining it?" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Oh, I’m sure!" ("angry", "base", "angry", "mid") # Irritated
-                cho "I’m trying to corral a broom, and suddenly... the team starts laughing!" ("angry", "base", "annoyed", "mid") # Irritated
-                cho "I realized too late they had enchanted the brooms to mess with me!" ("angry", "narrow", "worried", "mid") # Embarrassed
-                gen "You’re kidding! The team did that?" ("base", xpos="far_left", ypos="head") # Normal
-                cho "Yes! They were all in on it!" ("angry", "base", "base", "mid") # Irritated
-                cho "I was chasing brooms, dodging Quaffles, and getting bumped around by the equipment like some sort of circus act!" ("angry", "narrow", "embarrassed", "mid") # Embarrassed
-                cho "And just when I thought I had it under control—boom!" ("angry", "base", "base", "mid") # Irritated
-                cho @ cheeks blush "The brooms went crazy, and my skirt went flying up in the wind, exposing everything!" ("angry", "narrow", "worried", "mid") # Embarrassed
-                gen "I bet that was... awkward." ("base", xpos="far_left", ypos="head") # Normal
-                cho "You have no idea! The entire team was watching me flailing around, laughing so hard they could barely breathe!" ("angry", "base", "base", "mid") # Irritated
-                cho @ cheeks blush "And there I was, totally exposed, trying to keep my balance and pretend like it was all part of the plan!" ("angry", "narrow", "worried", "mid") # Embarrassed
-                gen "Well, at least it sounds like you were the center of attention!" ("base", xpos="far_left", ypos="head") # Normal
-                cho @ cheeks blush "Not the kind of attention I wanted!" ("angry", "base", "base", "mid") # Irritated
-                cho "Ugh... I’m never trusting those brooms again." ("angry", "base", "base", "close") # Irritated
-                gen "It was a good lesson in resilience, right?" ("base", xpos="far_left", ypos="head") # Normal
-                cho @ cheeks blush "A terrible lesson in embarrassment!" ("angry", "base", "base", "mid") # Embarrassed
-                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head") # Normal
+                cho "I was helping set up for practice when I noticed something was off..." ("base", "narrow", "worried", "L")  # Neutral worry (Neutral mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho "The brooms... They felt different, like they were waiting for something." ("angry", "narrow", "base", "R")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, neutral eyebrows, pupils right)
+                cho "But I couldn’t put my finger on it. I thought maybe it was just me..." ("clench", "wink", "angry", "mid")  # Anger with clenched teeth (Clenched teeth, wink, furrowed eyebrows, pupils center)
+                gen "Different in what way?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Well, they kept wiggling in my hands, like they were eager to fly off!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "And when I finally managed to mount one, it zoomed out from under me!" ("angry", "narrow", "angry", "down")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils down)
+                cho "I thought I was going to crash into the stands!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "Sounds dangerous. Were you okay?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Yeah, but it didn’t stop there!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "I tried to gather up the spare brooms... but every time I picked one up, it slipped out of my hands and started flying by itself!" ("angry", "narrow", "base", "R")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, neutral eyebrows, pupils right)
+                cho "And then, the Quaffles started bouncing around, like they were in on the joke!" ("angry", "narrow", "worried", "L")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho "I was running around like a lunatic, trying to catch everything!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "That sounds... strange. Are you sure you weren’t imagining it?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Oh, I’m sure!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "I’m trying to corral a broom, and suddenly... the team starts laughing!" ("angry", "narrow", "angry", "down")  # Anger with narrowed eyes (Angry mouth, narrowed eyes, furrowed eyebrows, pupils down)
+                cho "I realized too late they had enchanted the brooms to mess with me!" ("angry", "base", "worried", "L")  # Worried anger (Angry mouth, normal eyes, worried eyebrows, pupils left)
+                gen "You’re kidding! The team did that?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "Yes! They were all in on it!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                cho "I was chasing brooms, dodging Quaffles, and getting bumped around by the equipment like some sort of circus act!" ("angry", "narrow", "worried", "L")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils left)
+                cho "And just when I thought I had it under control—boom!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho @ cheeks blush "The brooms went crazy, and my skirt went flying up in the wind, exposing everything!" ("angry", "narrow", "worried", "mid")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils center)
+                gen "I bet that was... awkward." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho "You have no idea! The entire team was watching me flailing around, laughing so hard they could barely breathe!" ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                cho @ cheeks blush "And there I was, totally exposed, trying to keep my balance and pretend like it was all part of the plan!" ("angry", "narrow", "worried", "L")  # Worried anger (Angry mouth, narrowed eyes, worried eyebrows, pupils left)
+                gen "Well, at least it sounds like you were the center of attention!" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho @ cheeks blush "Not the kind of attention I wanted!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                cho "Ugh... I’m never trusting those brooms again." ("angry", "base", "angry", "mid")  # Anger with normal eyes (Angry mouth, normal eyes, furrowed eyebrows, pupils center)
+                gen "It was a good lesson in resilience, right?" ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
+                cho @ cheeks blush "A terrible lesson in embarrassment!" ("angry", "base", "angry", "ahegao")  # Intense anger (Angry mouth, normal eyes, furrowed eyebrows, ahegao pupils)
+                gen "Your compensation has been updated." ("base", xpos="far_left", ypos="head")  # Neutral (Neutral mouth, normal eyes, neutral eyebrows, pupils center)
         "-Dismiss her-":
             gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
             gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
