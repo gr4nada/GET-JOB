@@ -1,38 +1,99 @@
+# | Closest Expression             | Mouth           | Eyes      | Eyebrows        | Pupils    | Expression Combination                                  |
+# |---------------------------------|-----------------|-----------|-----------------|-----------|-------------------------------------------------------|
+# | Angry Ahegao                   | ahegao          | base      | angry           | ahegao    | Ahegao mouth, normal eyes, angry eyebrows, ahegao pupils |
+# | Drooling Annoyance             | ahegao_drool    | closed    | annoyed         | down      | Drooling ahegao, closed eyes, annoyed eyebrows, down pupils |
+# | Intense Anger                  | angry           | narrow    | angry           | mid       | Angry mouth, narrowed eyes, angry eyebrows, mid pupils |
+# | Annoyed Wink                   | annoyed         | wink      | annoyed         | left      | Annoyed mouth, wink, annoyed eyebrows, left pupils |
+# | Neutral Base                   | base            | base      | base            | mid       | Base mouth, base eyes, base eyebrows, mid pupils |
+# | Clenched Worry                 | clench          | narrow    | worried         | downL     | Clenched mouth, narrow eyes, worried eyebrows, down-left pupils |
+# | Disgusted Shock                | disgust         | wide      | shocked         | right     | Disgusted mouth, wide eyes, shocked eyebrows, right pupils |
+# | Grinning Happy                 | grin            | happy     | raised          | stare     | Grinning mouth, happy eyes, raised eyebrows, stare pupils |
+# | Horny Low                      | horny           | closed    | low             | up        | Horny mouth, closed eyes, low eyebrows, up pupils |
+# | Normal Sad                     | normal          | base      | sad             | downR     | Normal mouth, base eyes, sad eyebrows, down-right pupils |
+# | Open Surprise                  | open            | wide      | shocked         | unfocused | Open mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Open Tongue Annoyance          | open_tongue     | wink      | annoyed         | left      | Open tongue, wink, annoyed eyebrows, left pupils |
+# | Open Wide Angry                | open_wide       | narrow    | angry           | mid       | Open wide mouth, narrow eyes, angry eyebrows, mid pupils |
+# | Open Wide Tongue Worry         | open_wide_tongue| wide      | worried         | down      | Open wide tongue, wide eyes, worried eyebrows, down pupils |
+# | Screaming Sadness              | scream          | closed    | sad             | downL     | Screaming mouth, closed eyes, sad eyebrows, down-left pupils |
+# | Smiling Raised                 | smile           | happyCl   | raised          | stare     | Smiling mouth, happy closed eyes, raised eyebrows, stare pupils |
+# | Soft Base                      | soft            | base      | base            | mid       | Soft mouth, base eyes, base eyebrows, mid pupils |
+# | Upset Low                      | upset           | narrow    | low             | downR     | Upset mouth, narrow eyes, low eyebrows, down-right pupils |
+# | Ahegao Drool Down              | ahegao_drool    | base      | base            | down      | Ahegao drool mouth, normal eyes, base eyebrows, down pupils |
+# | Angry Wink                     | angry           | wink      | angry           | left      | Angry mouth, wink, angry eyebrows, left pupils |
+# | Annoyed Happy                  | annoyed         | happy     | annoyed         | right     | Annoyed mouth, happy eyes, annoyed eyebrows, right pupils |
+# | Base Worried                   | base            | narrow    | worried         | downL     | Base mouth, narrow eyes, worried eyebrows, down-left pupils |
+# | Clenched Raised                | clench          | closed    | raised          | up        | Clenched mouth, closed eyes, raised eyebrows, up pupils |
+# | Disgust Low                    | disgust         | base      | low             | downR     | Disgust mouth, normal eyes, low eyebrows, down-right pupils |
+# | Grin Shocked                   | grin            | wide      | shocked         | unfocused | Grin mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Horny Angry                    | horny           | narrow    | angry           | mid       | Horny mouth, narrow eyes, angry eyebrows, mid pupils |
+# | Normal Raised                  | normal          | happyCl   | raised          | stare     | Normal mouth, happy closed eyes, raised eyebrows, stare pupils |
+# | Open Sad                       | open            | closed    | sad             | down      | Open mouth, closed eyes, sad eyebrows, down pupils |
+# | Open Tongue Worried            | open_tongue     | narrow    | worried         | downL     | Open tongue mouth, narrow eyes, worried eyebrows, down-left pupils |
+# | Open Wide Annoyed              | open_wide       | wide      | annoyed         | right     | Open wide mouth, wide eyes, annoyed eyebrows, right pupils |
+# | Open Wide Tongue Base          | open_wide_tongue| base      | base            | mid       | Open wide tongue mouth, normal eyes, base eyebrows, mid pupils |
+# | Scream Angry                   | scream          | narrow    | angry           | left      | Scream mouth, narrow eyes, angry eyebrows, left pupils |
+# | Smile Low                      | smile           | base      | low             | downR     | Smile mouth, normal eyes, low eyebrows, down-right pupils |
+# | Soft Worried                   | soft            | narrow    | worried         | downL     | Soft mouth, narrow eyes, worried eyebrows, down-left pupils |
+# | Upset Shocked                  | upset           | wide      | shocked         | unfocused | Upset mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Ahegao Sad                     | ahegao          | closed    | sad             | down      | Ahegao mouth, closed eyes, sad eyebrows, down pupils |
+# | Angry Base                     | angry           | base      | base            | mid       | Angry mouth, normal eyes, base eyebrows, mid pupils |
+# | Annoyed Raised                 | annoyed         | happyCl   | raised          | stare     | Annoyed mouth, happy closed eyes, raised eyebrows, stare pupils |
+# | Base Shocked                   | base            | wide      | shocked         | unfocused | Base mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Clench Sad                     | clench          | closed    | sad             | downL     | Clench mouth, closed eyes, sad eyebrows, down-left pupils |
+# | Disgust Angry                  | disgust         | narrow    | angry           | left      | Disgust mouth, narrow eyes, angry eyebrows, left pupils |
+# | Grin Worried                   | grin            | narrow    | worried         | downR     | Grin mouth, narrow eyes, worried eyebrows, down-right pupils |
+# | Horny Shocked                  | horny           | wide      | shocked         | up        | Horny mouth, wide eyes, shocked eyebrows, up pupils |
+# | Normal Annoyed                 | normal          | wink      | annoyed         | right     | Normal mouth, wink, annoyed eyebrows, right pupils |
+# | Open Base                      | open            | base      | base            | mid       | Open mouth, normal eyes, base eyebrows, mid pupils |
+# | Open Tongue Raised             | open_tongue     | happyCl   | raised          | stare     | Open tongue mouth, happy closed eyes, raised eyebrows, stare pupils |
+# | Open Wide Sad                  | open_wide       | closed    | sad             | down      | Open wide mouth, closed eyes, sad eyebrows, down pupils |
+# | Open Wide Tongue Angry         | open_wide_tongue| narrow    | angry           | left      | Open wide tongue mouth, narrow eyes, angry eyebrows, left pupils |
+# | Scream Low                     | scream          | base      | low             | downR     | Scream mouth, normal eyes, low eyebrows, down-right pupils |
+# | Smile Worried                  | smile           | narrow    | worried         | downL     | Smile mouth, narrow eyes, worried eyebrows, down-left pupils |
+# | Soft Shocked                   | soft            | wide      | shocked         | unfocused | Soft mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Upset Angry                    | upset           | narrow    | angry           | mid       | Upset mouth, narrow eyes, angry eyebrows, mid pupils |
+# | Ahegao Raised                  | ahegao          | happyCl   | raised          | stare     | Ahegao mouth, happy closed eyes, raised eyebrows, stare pupils |
+# | Angry Shocked                  | angry           | wide      | shocked         | unfocused | Angry mouth, wide eyes, shocked eyebrows, unfocused pupils |
+# | Annoyed Sad                    | annoyed         | closed    | sad             | down      | Annoyed mouth, closed eyes, sad eyebrows, down pupils |
+# | Base Low                       | base            | base      | low             | downR     | Base mouth, normal eyes, low eyebrows, down-right pupils |
+# | Clench Angry                   | clench          | narrow    | angry           | left      | Clench mouth, narrow eyes, angry eyebrows, left pupils |
+# | Disgust Worried                | disgust         | narrow    | worried         | downL     | Disgust mouth, narrow eyes, worried eyebrows, down-left pupils |
+
 label sus_train_attendant_job:
 
     if not states.sus.ev.train_attendant_job.intro_complete:
         $ states.sus.ev.train_attendant_job.intro_complete = True
 
-        sus "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
+        sus "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade) # Neutral Base: Base mouth, base eyes, base eyebrows, mid pupils
         gen "I heard that the trolley witch could use some help on the Hogwarts Express." ("base", xpos="far_left", ypos="head")
-        sus "You want me to sell snacks on the train?" ("open", "narrow", "base", "mid")
+        sus "You want me to sell snacks on the train?" ("open", "narrow", "base", "mid") # Open Surprise: Open mouth, narrow eyes, base eyebrows, mid pupils
         gen "It’s an easy way to earn points and make sure everyone is well-fed during the trip." ("base", xpos="far_left", ypos="head")
-        
+
         if states.sus.level < 4:
-            sus "I guess it’s not the worst job..." ("base", "closed", "base", "mid")
-            sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            sus "I guess it’s not the worst job..." ("smile", "closed", "base", "downR") # Smile Low: Smile mouth, closed eyes, base eyebrows, down-right pupils
+            sus "Alright, I’ll do it!" ("grin", "happy", "raised", "stare") # Grinning Happy: Grin mouth, happy eyes, raised eyebrows, stare pupils
             gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
-            sus "..." ("angry", "narrow", "base", "down")
-            sus "Why does this look like something from a maid cafe?" ("clench", "base", "base", "down")
+            sus "..." ("angry", "narrow", "angry", "down") # Intense Anger: Angry mouth, narrow eyes, angry eyebrows, down pupils.
+            sus "Why does this look like something from a maid cafe?" ("clench", "wide", "worried", "left") # Clenched Worry: Clench mouth, wide eyes, worried eyebrows, left pupils.
             gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
-            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "narro", "base", "mid")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils.
             gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
-            sus "You can’t be serious..." ("base", "narrow", "base", "base")
+            sus "You can’t be serious..." ("upset", "narrow", "sad", "downL") # Upset Sad: Upset mouth, narrow eyes, sad eyebrows, down-left pupils.
             gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
-            sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
+            sus "*Sigh*... Fine." ("ahegao_drool", "closed", "angry", "mid") # Ahegao Drool Down: Ahegao drool mouth, closed eyes, angry eyebrows, mid pupils.
             gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
         else:
-            sus "I guess it’s not the worst job..." ("base", "closed", "base", "mid")
-            sus "Alright, I’ll do it!" ("base", "base", "base", "mid")
+            sus "I guess it’s not the worst job..." ("soft", "closed", "base", "right") # Soft Base: Soft mouth, closed eyes, base eyebrows, right pupils
+            sus "Alright, I’ll do it!" ("grin", "happyCl", "raised", "stare") # Grinning Happy: Grin mouth, happyCl eyes, raised eyebrows, stare pupils
             gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
-            sus "..." ("angry", "narrow", "base", "down")
-            sus "Why does this look like something from a maid café?" ("clench", "squint", "base", "down")
+            sus "..." ("angry", "narrow", "angry", "down") # Intense Anger: Angry mouth, narrow eyes, angry eyebrows, down pupils.
+            sus "Why does this look like something from a maid café?" ("clench", "narrow", "worried", "left") # Clenched Worry: Clench mouth, narrow eyes, worried eyebrows, left pupils
             gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
-            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("base", "squint", "base", "mid")
+            sus "This skirt is way too short! And the stockings... Why are they striped?!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils.
             gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
-            sus "You can’t be serious..." ("base", "narrow", "base", "base")
+            sus "You can’t be serious..." ("upset", "narrow", "sad", "downL") # Upset Sad: Upset mouth, narrow eyes, sad eyebrows, down-left pupils.
             gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
-            sus "*Sigh*... Fine." ("angry", "closed", "angry", "mid")
+            sus "*Sigh*... Fine." ("ahegao_drool", "closed", "angry", "mid") # Ahegao Drool Down: Ahegao drool mouth, closed eyes, angry eyebrows, mid pupils.
             gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
 
             hide susan_main
@@ -79,32 +140,114 @@ label sus_train_attendant_job_return:
             if states.sus.level < 4:
                 random:
                     block:
-                        sus "The cart was heavier than I expected! I could barely push it between the seats!" ("normal", "narrow", "base", "R_soft")
+                        sus "The cart was heavier than I expected! I could barely push it between the seats!" ("normal", "narrow", "base", "downR") # Normal Sad: Normal mouth, narrow eyes, base eyebrows, down-right pupils
                         gen "Well, you did sign up for the job." ("base", xpos="far_left", ypos="head")
-                        sus "I suppose… But I wasn’t expecting to nearly tip it over every time the train shook!" ("open", "narrow", "worried", "down")
+                        sus "I suppose… But I wasn’t expecting to nearly tip it over every time the train shook!" ("open", "narrow", "worried", "downL") # Open Tongue Worried: Open mouth, narrow eyes, worried eyebrows, down-left pupils.
                         gen "Good practice for balance, I guess?" ("base", xpos="far_left", ypos="head")
-                        sus "*Sigh*... Can I get my points now?" ("angry", "closed", "angry", "mid")
+                        sus "*Sigh*... Can I get my points now?" ("ahegao_drool", "closed", "angry", "mid") # Ahegao Drool Down: Ahegao drool mouth, closed eyes, angry eyebrows, mid pupils.
                         gen "Certainly, ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
                     block:
-                        sus "The skirt was a disaster!" ("mad", "base", "angry", "mid")
+                        sus "The skirt was a disaster!" ("angry", "base", "angry", "left") # Angry Base: Angry mouth, base eyes, angry eyebrows, left pupils.
                         gen "Oh? What happened?" ("base", xpos="far_left", ypos="head")
-                        sus "The train kept shaking, and every time I had to grab onto something, I felt like I was flashing the entire carriage!" ("mad", "base", "angry", "mid")
+                        sus "The train kept shaking, and every time I had to grab onto something, I felt like I was flashing the entire carriage!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils.
                         gen "Well, that’s why you should always be aware of your surroundings." ("base", xpos="far_left", ypos="head")
-                        sus "Maybe you could let me wear something more practical?" ("upset", "closed", "angry", "mid")
+                        sus "Maybe you could let me wear something more practical?" ("upset", "closed", "sad", "down") # Upset Sad: Upset mouth, closed eyes, sad eyebrows, down pupils.
                         gen "Sorry, [name_susan_genie]. Rules are rules." ("base", xpos="far_left", ypos="head")
-                        sus "Ugh!" ("angry", "base", "base", "mid")
+                        sus "Ugh!" ("clench", "narrow", "angry", "mid") # Clench Angry: Clench mouth, narrow eyes, angry eyebrows, mid pupils.
                         gen "Do you want your points or not?" ("base", xpos="far_left", ypos="head")
-                        sus "*Fine!* Just give me the points..." ("angry", "closed", "angry", "mid")
+                        sus "*Fine!* Just give me the points..." ("ahegao", "closed", "angry", "mid") # Ahegao Sad: Ahegao mouth, closed eyes, angry eyebrows, mid pupils.
                         gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
                     block:
-                        sus "Some fourth-years wouldn’t stop giggling when I walked by!" ("clench", "narrow", "base", "mid")
+                        sus "Some fourth-years wouldn’t stop giggling when I walked by!" ("disgust", "narrow", "worried", "downL") # Disgust Worried: Disgust mouth, narrow eyes, worried eyebrows, down-left pupils.
                         gen "Why’s that?" ("base", xpos="far_left", ypos="head")
-                        sus "Because this ridiculous outfit made me look like some kind of candy girl from a circus!" ("mad", "base", "angry", "mid")
-                        sus "Every time I bent down to grab a Pumpkin Pasty, I could hear them whispering!" ("angry", "closed", "angry", "mid")
+                        sus "Because this ridiculous outfit made me look like some kind of candy girl from a circus!" ("mad", "wide", "angry", "right") # Angry Shocked: Angry mouth, wide eyes, angry eyebrows, right pupils.
+                        sus "Every time I bent down to grab a Pumpkin Pasty, I could hear them whispering!" ("annoyed", "closed", "sad", "downR") # Annoyed Sad: Annoyed mouth, closed eyes, sad eyebrows, down-right pupils.
                         gen "You should take it as a compliment, [name_susan_genie]." ("base", xpos="far_left", ypos="head")
-                        sus "Oh, sure, because being laughed at is exactly what I wanted." ("mad", "base", "angry", "mid")
+                        sus "Oh, sure, because being laughed at is exactly what I wanted." ("scream", "narrow", "angry", "left") # Scream Angry: Scream mouth, narrow eyes, angry eyebrows, left pupils.
                         gen "At least you survived the shift." ("base", xpos="far_left", ypos="head")
-                        sus "*Hmph*..." ("clench", "narrow", "base", "R")
+                        sus "*Hmph*..." ("horny", "narrow", "base", "mid") # Horny Angry: Horny mouth, narrow eyes, base eyebrows, mid pupils.
+            if states.sus.level < 13:
+
+                random:
+                    block:
+                        sus "You won't believe what happened!" ("open", "wide", "shocked", "unfocused") # Open Shocked: Open mouth, wide eyes, shocked eyebrows, unfocused pupils
+                        gen "What is it this time, Susan?" ("base", xpos="far_left", ypos="head")
+                        sus "I was serving pumpkin juice when the train took a sharp turn and... well, let's just say a group of Hufflepuffs got a pumpkin shower!" ("open_wide", "narrow", "worried", "downL") # Open Wide Worried: Open wide mouth, narrow eyes, worried eyebrows, down-left pupils
+                        gen "Oh dear! And how did they react?" ("base", xpos="far_left", ypos="head")
+                        sus "Some laughed, others were furious. And to make matters worse, I slipped on the spilled juice and nearly flashed my knickers to the entire carriage!" ("clench", "narrow", "angry", "mid") # Clench Angry: Clench mouth, narrow eyes, angry eyebrows, mid pupils
+                        gen "Well, at least you didn't get hurt." ("base", xpos="far_left", ypos="head")
+                        sus "Speak for yourself! I'm all sticky and smell like pumpkin!" ("angry", "base", "angry", "left") # Angry Base: Angry mouth, base eyes, angry eyebrows, left pupils
+                        gen "Ten points to Gryffindor for your... persistence." ("base", xpos="far_left", ypos="head")
+
+                    block:
+                        sus "I swear this wand is possessed!" ("scream", "wide", "angry", "right") # Scream Angry: Scream mouth, wide eyes, angry eyebrows, right pupils
+                        gen "What did your wand do now, Susan?" ("base", xpos="far_left", ypos="head")
+                        sus "I was trying to grab a Chocolate Frog for a student when the wand fired a water spell. Result: me and the Chocolate Frog got soaked!" ("upset", "closed", "sad", "down") # Upset Sad: Upset mouth, closed eyes, sad eyebrows, down pupils
+                        gen "Did the student at least get the Chocolate Frog?" ("base", xpos="far_left", ypos="head")
+                        sus "Yes, but my skirt shrank from the water and now it's even shorter! I bent down to get the frog and... well, you can imagine the rest." ("ahegao", "narrow", "worried", "mid") # Ahegao Worried: Ahegao mouth, narrow eyes, worried eyebrows, mid pupils.
+                        gen "Perhaps you should wear trousers next time." ("base", xpos="far_left", ypos="head")
+                        sus "You think? I'd love to!" ("grin", "happy", "raised", "stare") # Grinning Happy: Grin mouth, happy eyes, raised eyebrows, stare pupils
+                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+                    block:
+                        sus "I'm never cleaning anything on this train again!" ("mad", "narrow", "angry", "downR") # Mad Angry: Mad mouth, narrow eyes, angry eyebrows, down-right pupils
+                        gen "What happened, Susan? You look a bit... wet." ("base", xpos="far_left", ypos="head")
+                        sus "I was trying to clean the carriage ceiling with a broom when it went haywire and threw me into a bucket of dirty water!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils
+                        gen "And what happened to the broom?" ("base", xpos="far_left", ypos="head")
+                        sus "It flew away and ripped my blouse in the process! Now I'm cold and my clothes are all torn!" ("ahegao_drool", "closed", "sad", "downL") # Ahegao Drool Sad: Ahegao drool mouth, closed eyes, sad eyebrows, down-left pupils
+                        gen "Well, you still have your skirt, right?" ("base", xpos="far_left", ypos="head")
+                        sus "Yes, but it's also soaked and showing more than it should!" ("disgust", "narrow", "worried", "left") # Disgust Worried: Disgust mouth, narrow eyes, worried eyebrows, left pupils
+                        gen "Ten points to Gryffindor for your... courage." ("base", xpos="far_left", ypos="head")
+            if states.sus.level < 22:
+                random:
+                    block:
+                        sus "As a Hufflepuff, I always try to see the bright side, but today... today was too much!" ("open", "wide", "shocked", "unfocused")
+                        gen "What happened, Susan? You look like you swam in a pumpkin river." ("base", xpos="far_left", ypos="head")
+                        sus "I was serving pumpkin juice, trying to spread some Hufflepuff cheer, when the train jolted and I spilled everything on a group of Slytherins!" ("open_wide", "narrow", "worried", "downL")
+                        gen "Slytherins? That doesn't sound good." ("base", xpos="far_left", ypos="head")
+                        sus "It wasn't! They looked at me like I'd just insulted their families. To make matters worse, I tried to clean up with a spell and my wand, which clearly hates me, turned the carriage into a pumpkin juice pool!" ("clench", "narrow", "angry", "mid")
+                        gen "A pumpkin juice pool? That's... creative." ("base", xpos="far_left", ypos="head")
+                        sus "Creative? I slipped, fell, and lost my Hufflepuff skirt! I had to wear a borrowed coat, and when I thought it was over, I fell onto a giant pumpkin cake!" ("ahegao", "closed", "sad", "down")
+                        gen "Are you alright, Susan?" ("base", xpos="far_left", ypos="head")
+                        sus "I'm all sticky and smell like pumpkin! And my reputation as a kind and helpful Hufflepuff? Ruined! Ten points to Hufflepuff, please, and may I never see a pumpkin again." ("angry", "base", "angry", "left")
+                        gen "Ten points to Hufflepuff for your... devotion to spreading the Hufflepuff spirit, even in unconventional ways." ("base", xpos="far_left", ypos="head")
+                        sus "Thank you... I guess." ("soft", "narrow", "worried", "downR") # Soft Worried
+                        gen "Perhaps next time, you could try serving chamomile tea." ("base", xpos="far_left", ypos="head")
+                        sus "Good idea! Chamomile tea doesn't turn into a pool, right?" ("smile", "happy", "base", "mid") # Smile Happy
+                        gen "I hope not." ("base", xpos="far_left", ypos="head")
+                        sus "Me too." ("base", "base", "base", "downL") # Base Down-Left
+            else:
+                random:
+                    block:
+                        sus "I swear this wand was made by a mischievous troll! And as a Hufflepuff, I value patience, but this is testing me!" ("scream", "wide", "angry", "right")
+                        gen "What happened now, Susan? Chocolate frogs again?" ("base", xpos="far_left", ypos="head")
+                        sus "Worse! I tried to create more frogs for a student and the wand made an army! They invaded the carriage, jumped into students' clothes, and one even got into my blouse!" ("upset", "closed", "sad", "down")
+                        gen "An army of frogs? That's... an amphibian invasion." ("base", xpos="far_left", ypos="head")
+                        sus "Amphibian invasion? I had to do a ridiculous dance to get the frog out of my blouse! And it doesn't stop there. I tried to use a spell to control the frogs and the wand made it rain inside the train!" ("ahegao", "narrow", "worried", "mid")
+                        gen "Rain inside the train? That's... refreshing?" ("base", xpos="far_left", ypos="head")
+                        sus "Refreshing? I'm soaked and cold! And my shoes are full of water! And to make matters worse, one of the frogs bit my ear!" ("disgust", "narrow", "worried", "left")
+                        gen "Bit your ear? Oh dear!" ("base", xpos="far_left", ypos="head")
+                        sus "Yes! I'm never using this wand again! Ten points to Hufflepuff, please, and may this wand be turned into plant fertilizer." ("mad", "narrow", "angry", "downR")
+                        gen "Ten points to Hufflepuff for your... ability to handle animals, even the most rebellious ones." ("base", xpos="far_left", ypos="head")
+                        sus "Thank you... I guess. And may those frogs find a happy home far away from me." ("soft", "wide", "worried", "mid") # Soft Wide Worried
+                        gen "I'm sure they will." ("base", xpos="far_left", ypos="head")
+                        sus "I hope so." ("base", "base", "base", "downR") # Base Down-Right
+                        gen "Perhaps you could try using a gardening spell next time." ("base", xpos="far_left", ypos="head")
+                        sus "Good idea! Plants don't bite, right?" ("smile", "happy", "base", "mid") # Smile Happy
+                        gen "I hope not." ("base", xpos="far_left", ypos="head")
+                    block:
+                        sus "As a Hufflepuff, I believe in hard work, but this broomstick is making me question everything!" ("mad", "narrow", "angry", "downR")
+                        gen "Still having trouble with the broomstick, Susan?" ("base", xpos="far_left", ypos="head")
+                        sus "Trouble? It threw me into a bucket of dirty water, ripped my blouse, and then came back to hit me! I look like I fought a boggart!" ("open_wide", "wide", "shocked", "unfocused")
+                        gen "A boggart? That's... scary." ("base", xpos="far_left", ypos="head")
+                        sus "Scary? I lost my lucky Hufflepuff striped stockings! And to make matters worse, I had to bend down to pick up a sweet and showed more than I intended to the first-year students!" ("ahegao_drool", "closed", "sad", "downL")
+                        gen "Oh dear! What a day." ("base", xpos="far_left", ypos="head")
+                        sus "Day? It was a disaster! And now I'm cold and barefoot! And to make matters worse, the broomstick is still out there, watching me!" ("disgust", "narrow", "worried", "left")
+                        gen "Watching you? That's... unsettling." ("base", xpos="far_left", ypos="head")
+                        sus "Unsettling? I'm afraid to use anything to clean! Ten points to Hufflepuff, please, and may that broomstick be turned into firewood." ("angry", "base", "angry", "left")
+                        gen "Ten points to Hufflepuff for your... determination to maintain cleanliness, even under adverse circumstances." ("base", xpos="far_left", ypos="head")
+                        sus "Thank you... I guess. And may that broomstick find a new owner, far away from me." ("soft", "narrow", "worried", "downR") # Soft Worried
+                        gen "I'm sure it will." ("base", xpos="far_left", ypos="head")
+        sus "I hope so." ("base", "base", "base", "downL") # Base Down-Left
         "-Dismiss her-":
             gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
             gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
