@@ -1,3 +1,61 @@
+# | Closest Expression                   | Mouth           | Eyes      | Eyebrows        | Pupils    | Expression Combination                                  |
+# |--------------------------------------|-----------------|-----------|-----------------|-----------|-------------------------------------------------------|
+# | Intense anger                        | angry           | base      | angry           | ahegao    | Intense anger, normal eyes, furrowed eyebrows, ahegao pupils |
+# | Irritation                           | annoyed         | closed    | base            | down      | Irritation, closed eyes, neutral eyebrows, pupils down |
+# | Neutral worry                        | base            | narrow    | worried         | L         | Neutral, narrowed eyes, worried eyebrows, pupils left  |
+# | Anger with clenched teeth            | clench          | wink      | angry           | mid       | Clenched teeth, wink, furrowed eyebrows, pupils center |
+# | Wide smile                           | grin            | base      | base            | R         | Wide smile, normal eyes, neutral eyebrows, pupils right |
+# | Excitement                           | horny           | closed    | worried         | up        | Excited, closed eyes, worried eyebrows, pupils up      |
+# | Surprise with anger                  | open            | narrow    | angry           | ahegao    | Open mouth, narrowed eyes, furrowed eyebrows, ahegao pupils |
+# | Scream                               | scream          | wink      | base            | down      | Scream, wink, neutral eyebrows, pupils down            |
+# | Worried smile                        | smile           | base      | worried         | L         | Smile, normal eyes, worried eyebrows, pupils left      |
+# | Sadness                              | upset           | closed    | angry           | mid       | Sadness, closed eyes, furrowed eyebrows, pupils center |
+# | Anger with narrowed eyes             | angry           | narrow    | base            | R         | Anger, narrowed eyes, neutral eyebrows, pupils right   |
+# | Irritation with wink                 | annoyed         | wink      | worried         | up        | Irritation, wink, worried eyebrows, pupils up          |
+# | Neutral with anger                   | base            | base      | angry           | ahegao    | Neutral, normal eyes, furrowed eyebrows, ahegao pupils |
+# | Clenched teeth                       | clench          | closed    | base            | down      | Clenched teeth, closed eyes, neutral eyebrows, pupils down |
+# | Worried smile with narrowed eyes     | grin            | narrow    | worried         | L         | Wide smile, narrowed eyes, worried eyebrows, pupils left |
+# | Excitement with wink                 | horny           | wink      | angry           | mid       | Excited, wink, furrowed eyebrows, pupils center        |
+# | Open mouth                           | open            | base      | base            | R         | Open mouth, normal eyes, neutral eyebrows, pupils right |
+# | Scream with closed eyes              | scream          | closed    | worried         | up        | Scream, closed eyes, worried eyebrows, pupils up        |
+# | Smile with anger                     | smile           | narrow    | angry           | ahegao    | Smile, narrowed eyes, furrowed eyebrows, ahegao pupils |
+# | Sadness with wink                    | upset           | wink      | base            | down      | Sadness, wink, neutral eyebrows, pupils down           |
+# | Worried anger                        | angry           | base      | worried         | L         | Anger, normal eyes, worried eyebrows, pupils left      |
+# | Irritation with closed eyes          | annoyed         | closed    | angry           | mid       | Irritation, closed eyes, furrowed eyebrows, pupils center |
+# | Neutral with narrowed eyes           | base            | narrow    | base            | R         | Neutral, narrowed eyes, neutral eyebrows, pupils right |
+# | Clenched teeth with wink             | clench          | wink      | worried         | up        | Clenched teeth, wink, worried eyebrows, pupils up      |
+# | Smile with anger                     | grin            | base      | angry           | ahegao    | Wide smile, normal eyes, furrowed eyebrows, ahegao pupils |
+# | Excitement with closed eyes          | horny           | closed    | base            | down      | Excited, closed eyes, neutral eyebrows, pupils down     |
+# | Open mouth with worry                | open            | narrow    | worried         | L         | Open mouth, narrowed eyes, worried eyebrows, pupils left |
+# | Scream with wink                     | scream          | wink      | angry           | mid       | Scream, wink, furrowed eyebrows, pupils center          |
+# | Neutral smile                        | smile           | base      | base            | R         | Smile, normal eyes, neutral eyebrows, pupils right      |
+# | Sadness with closed eyes             | upset           | closed    | worried         | up        | Sadness, closed eyes, worried eyebrows, pupils up       |
+# | Anger with narrowed eyes             | angry           | narrow    | angry           | down      | Anger, narrowed eyes, furrowed eyebrows, pupils down   |
+# | Irritation with wink                 | annoyed         | wink      | base            | L         | Irritation, wink, neutral eyebrows, pupils left        |
+# | Neutral worry                        | base            | base      | worried         | mid       | Neutral, normal eyes, worried eyebrows, pupils center   |
+# | Clenched teeth with closed eyes      | clench          | closed    | angry           | R         | Clenched teeth, closed eyes, furrowed eyebrows, pupils right |
+# | Smile with narrowed eyes             | grin            | narrow    | base            | up        | Wide smile, narrowed eyes, neutral eyebrows, pupils up |
+# | Excitement with wink                 | horny           | wink      | worried         | ahegao    | Excited, wink, worried eyebrows, ahegao pupils         |
+# | Open mouth with anger                | open            | base      | angry           | down      | Open mouth, normal eyes, furrowed eyebrows, pupils down |
+# | Scream with closed eyes              | scream          | closed    | base            | L         | Scream, closed eyes, neutral eyebrows, pupils left      |
+# | Worried smile                        | smile           | narrow    | worried         | mid       | Smile, narrowed eyes, worried eyebrows, pupils center  |
+# | Sadness with wink                    | upset           | wink      | angry           | R         | Sadness, wink, furrowed eyebrows, pupils right          |
+# | Anger with normal eyes               | angry           | base      | base            | up        | Anger, normal eyes, neutral eyebrows, pupils up        |
+# | Irritation with closed eyes          | annoyed         | closed    | worried         | ahegao    | Irritation, closed eyes, worried eyebrows, ahegao pupils |
+# | Neutral with anger                   | base            | narrow    | angry           | down      | Neutral, narrowed eyes, furrowed eyebrows, pupils down |
+# | Clenched teeth with wink             | clench          | wink      | base            | L         | Clenched teeth, wink, neutral eyebrows, pupils left    |
+# | Worried smile                        | grin            | base      | worried         | mid       | Wide smile, normal eyes, worried eyebrows, pupils center |
+# | Excitement with closed eyes          | horny           | closed    | angry           | R         | Excited, closed eyes, furrowed eyebrows, pupils right  |
+# | Open mouth with narrowed eyes        | open            | narrow    | base            | up        | Open mouth, narrowed eyes, neutral eyebrows, pupils up |
+# | Scream with wink                     | scream          | wink      | worried         | ahegao    | Scream, wink, worried eyebrows, ahegao pupils           |
+# | Smile with anger                     | smile           | base      | angry           | down      | Smile, normal eyes, furrowed eyebrows, pupils down     |
+# | Sadness with closed eyes             | upset           | closed    | base            | L         | Sadness, closed eyes, neutral eyebrows, pupils left    |
+# | Worried anger                        | angry           | narrow    | worried         | mid       | Anger, narrowed eyes, worried eyebrows, pupils center  |
+# | Irritation with wink                 | annoyed         | wink      | angry           | R         | Irritation, wink, furrowed eyebrows, pupils right      |
+# | Neutral                              | base            | base      | base            | up        | Neutral, normal eyes, neutral eyebrows, pupils up      |
+# | Clenched teeth with closed eyes      | clench          | closed    | worried         | ahegao    | Clenched teeth, closed eyes, worried eyebrows, ahegao pupils |
+# | Smile with anger                     | grin            | narrow    | angry           | down      | Wide smile, narrowed eyes, furrowed eyebrows, pupils down |
+# | Excitement with wink                 | horny           | wink      | base            | L         | Excited, wink, neutral eyebrows, pupils left            |
 
 label cho_quidditch_assistant_job:
 
