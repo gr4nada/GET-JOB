@@ -13,7 +13,7 @@ default her_outfit_library = DollOutfit([her_accessory_vintage_library_glasses, 
 default her_ev_library_job_return = Event(
     id="her_ev_library_job_return", 
     label="her_library_job_return", 
-    priority=5, 
+    priority=10, 
     req="not game.daytime" 
 )
 

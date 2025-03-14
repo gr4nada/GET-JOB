@@ -91,7 +91,7 @@ label sus_train_attendant_job_return:
                         sus "The train kept shaking, and every time I had to grab onto something, I felt like I was flashing the entire carriage!" ("mad", "base", "angry", "mid")
                         gen "Well, that’s why you should always be aware of your surroundings." ("base", xpos="far_left", ypos="head")
                         sus "Maybe you could let me wear something more practical?" ("upset", "closed", "angry", "mid")
-                        gen "Sorry, [name_susan_genies]. Rules are rules." ("base", xpos="far_left", ypos="head")
+                        gen "Sorry, [name_susan_genie]. Rules are rules." ("base", xpos="far_left", ypos="head")
                         sus "Ugh!" ("angry", "base", "base", "mid")
                         gen "Do you want your points or not?" ("base", xpos="far_left", ypos="head")
                         sus "*Fine!* Just give me the points..." ("angry", "closed", "angry", "mid")

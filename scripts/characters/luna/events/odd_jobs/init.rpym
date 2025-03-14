@@ -4,22 +4,11 @@ init offset = 5
 # Mod Event Flags
 default states.lun.ev.magizoologist.intro_complete = False
 
-##########################
-## magizoologist Outfit ##
-##########################
-
-default lun_top_nightie_job = DollCloth("luna", ("upper body", "shirts"), "top", "nightie_2", ["#ffacb8d7"], level=6)
-default lun_top_summer_job = DollCloth("luna", ("upper body", "shirts"), "top", "summer_top_1", ["#ff9acdff"])
-default lun_skirt_plaid_job = DollCloth("luna", ("lower body", "skirts"), "bottom", "skirt_plaid", ["#ffffffff", "#523E5Eff", "#767986ff", "#C3C9E5ff"], level=6)
-
-default lun_outfit_magizoologist = DollOutfit([lun_top_nightie_job,lun_top_summer_job,lun_skirt_plaid_job], price=80, name="Magizoologist Uniform", desc="A practical magizoologist uniform that turns irresistibly sheer when wet.")
-# default lun_outfit_dishwash_wet = DollOutfit([lun_top_dishash_wet,lun_bottom_dishash,lun_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
-
 # Mod Event
 default lun_ev_magizoologist_job_return = Event(
     id="lun_ev_magizoologist_job_return", 
     label="lun_magizoologist_job_return", 
-    priority=5, 
+    priority=10, 
     req="not game.daytime" 
 )
 

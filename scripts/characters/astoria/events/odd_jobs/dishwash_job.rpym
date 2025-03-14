@@ -56,6 +56,8 @@ label ast_dishwasher_job:
     play sound "sounds/cloth_sound.ogg"
     $ ast_outfit_last.save()
     $ astoria.equip(ast_outfit_dishwash)
+    # $ astoria.equip(ast_bra_dishwash)
+    $ astoria.equip(ast_panties_dishwash)
     hide screen blkfade
     with d5
 
@@ -159,41 +161,46 @@ label ast_dishwasher_job_return:
                 $ missing_bottom = True
                 $ missing_panties = False
 
-    call ast_walk(action="enter", xpos="mid", ypos="base")
+
     
     if is_wet:
-        $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
-        $ ast_outfit_dishwash.group[0].color[0] ="#ffffffee" 
+        $ ast_outfit_dishwash.group[2].color[0] ="#DDDDDDDD" 
+        $ ast_outfit_dishwash.group[0].color[0] ="#DDDDDDDD" 
 
     $ astoria.equip(ast_outfit_dishwash)
-        
+    $ ast_outfit_dishwash.group[2].color[0] ="#ffffffff" 
+    $ ast_outfit_dishwash.group[0].color[0] ="#ffffffee" 
     if missing_top:
         $ astoria.strip("top")
     if missing_bra:
         $ astoria.strip("bra")
+
     if missing_bottom:
         $ astoria.strip("bottom")
     if missing_panties:
         $ astoria.strip("panties")
-    
+    else:
+        $ astoria.equip(ast_panties_dishwash)
+    call ast_walk(action="enter", xpos="mid", ypos="base")
+    # (mouth="open", eyes="base", eyebrows="angry", pupils="mid")
     gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
     ast "*Well*, it was as uneventful as it gets..." ("clench", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
 
     menu:
         "\"What exactly did you do today?\"":
             if ast_end_day== "The See-Through Uniform Dilemma":
-                ast "This uniform is *completely* impractical!" ("upset", "wide", "base", "mid") 
+                ast "This uniform is *completely* impractical!" ("clench", "base", "base", "mid") 
                 gen "What happened this time?" ("base", xpos="far_left", ypos="head") 
-                ast "Every time I washed a dish, water splashed all over me!" ("annoyed", "base", "annoyed", "mid") 
-                ast "And do you know what happens when a *white* uniform gets wet?" ("annoyed", "base", "annoyed", "mid") 
+                ast "Every time I washed a dish, water splashed all over me!" ("annoyed", "base", "base", "mid") 
+                ast "And do you know what happens when a *white* uniform gets wet?" ("annoyed", "base", "base", "mid") 
                 gen "Hmm... I imagine it becomes more breathable?" ("grin", xpos="far_left", ypos="head") 
-                ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("soft", "narrow", "base", "downR") 
+                ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("angry", "narrow", "base", "mid") 
                 gen "Oh dear. That sounds... revealing." ("base", xpos="far_left", ypos="head") 
-                ast "I had to stand by the stove just to dry off as quickly as possible!" ("annoyed", "base", "annoyed", "mid") 
+                ast "I had to stand by the stove just to dry off as quickly as possible!" ("annoyed", "base", "base", "mid") 
                 gen "Well, at least you stayed warm. Silver linings, right?" ("grin", xpos="far_left", ypos="head") 
-                ast "You're impossible! Just give me my sentence reduction!" ("annoyed", "base", "annoyed", "mid") 
+                ast "You're impossible! Just give me my sentence reduction!" ("annoyed", "base", "worried", "mid") 
                 gen "Alright, alright. I’ll consider it—but only if you promise not to flood the kitchen next time." ("base", xpos="far_left", ypos="head") 
-                ast "Fine! But if I have to wear this uniform again, I’m bringing a raincoat!" ("annoyed", "base", "annoyed", "mid") 
+                ast "Fine! But if I have to wear this uniform again, I’m bringing a raincoat!" ("annoyed", "base", "worried", "mid") 
                 gen "Deal. Now go dry off before someone mistakes you for a ghost." ("grin", xpos="far_left", ypos="head") 
             elif ast_end_day== "Sweating Like a Lobster in the Kitchen Sauna":
                 ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "wide", "annoyed", "mid") 
