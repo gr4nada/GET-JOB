@@ -1,3 +1,4 @@
+
 label cho_quidditch_assistant_job:
 
     if not states.cho.ev.quidditch_assistant_job.intro_complete:
