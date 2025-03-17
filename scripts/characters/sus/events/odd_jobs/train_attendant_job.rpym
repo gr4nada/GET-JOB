@@ -202,17 +202,17 @@ label sus_train_attendant_job_return:
               
     if is_wet:
         # top
-        $ sus_outfit_attedant.group[7].color[0] ="#DDDDDDDD"  
-        $ sus_outfit_attedant.group[7].color[1] ="#DDDDDDDD" 
+        $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDDD"  
+        $ sus_outfit_attedant.group[0].color[1] ="#DDDDDDDD" 
         #bottom
         $ sus_outfit_attedant.group[1].color[0] ="#DDDDDDDD" 
         $ sus_outfit_attedant.group[1].color[1] ="#DDDDDDDD" 
         #Bra
-        $ sus_outfit_attedant.group[6].color[0] ="#DDDDDD33"  
+        # $ sus_outfit_attedant.group[6].color[0] ="#DDDDDD33"  
         # panties
-        $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDAA"   
+        # $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDAA"   
         # socks 
-        $ sus_outfit_attedant.group[5].color[0] ="#AAAAAACC"  
+        $ sus_outfit_attedant.group[2].color[0] ="#AAAAAACC"  
 
     $ susan.equip(sus_outfit_attedant)
         
@@ -249,7 +249,7 @@ label sus_train_attendant_job_return:
                 sus "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*"  ("open_wide", "narrow", "angry", "mid") # Open Wide Angry
                 sus "And do you know what they did? They started calling me *‘Miss Misty’*! Like it was some kind of *compliment!*"  ("grin" ,"narrow" ,"worried", "downR") # Grin Worried
                 gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") # Grinning Happy
-                sus "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!'"  ("upset", "wide" ,"shocked ,"unfocused" )# Upset Shocked
+                sus "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’" ("upset", "wide", "shocked", "unfocused") # Upset Shocked
                 gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head")
                 sus "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!'"  ("scream", "base", "low" ,"downR" )# Scream Low
                 sus "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!"  ("soft", "narrow" ,"worried", "downL") # Soft Worried
@@ -335,7 +335,7 @@ label sus_train_attendant_job_return:
                 gen "A heroic dessert spirit. And I bet they’ll be talking about ‘The Wind-Blown Wonder’ for years to come." ("grin", xpos="far_left", ypos="head")
                 sus "Ugh! Just give me my points before I melt from embarrassment!" ("clench", "narrow", "angry", "left") # Clench Angry
                 gen "Already updated. Though, [name_susan_genie]? You might want to borrow a spare cloak before you leave. Hogwarts might not be ready for this new fashion statement." ("base", xpos="far_left", ypos="head")
-            if sus_end_day =="The Water Wand Mishap"
+            if sus_end_day =="The Water Wand Mishap":
                 sus "This is the last straw! If one more thing goes wrong, I swear, I’ll throw this wand into the lake!" ("scream", "wide", "angry", "left") # Scream Angry
                 gen "What’s going on now, [name_susan_genie]?" ("base", xpos="far_left", ypos="head")
                 sus "You won’t believe it! I was getting ready to take the last tray of Chocolate Frogs to the snack cart when—POOF! The lights in the entire train flickered out, and then— BAM! A wave of freezing cold air rushed in from the hallway, and it felt like we were about to freeze solid!" ("angry", "narrow", "angry", "mid") # Intense Anger
@@ -361,7 +361,7 @@ label sus_train_attendant_job_return:
                 sus "I did... though, there was one small problem. My blouse was completely soaked from the mist and was, well, a little... transparent in the train light. You wouldn’t believe how many first- and second-year boys kept sneaking glances... I mean, they couldn’t help themselves, but it was a bit distracting. I think I gave them quite the show!" ("open_wide_tongue", "narrow", "angry", "left") # Open Wide Angry
                 gen "That’s one way to attract attention!" ("base", xpos="far_left", ypos="head")
                 sus "Oh, definitely! At least they bought my sweets, but I don’t think I’ll be wearing that blouse again anytime soon." ("grin", "happy", "raised", "stare") # Grinning Happy
-            if sus_end_day =="The Broomstick Betrayal and the Bucket Bath"
+            if sus_end_day =="The Broomstick Betrayal and the Bucket Bath":
                 sus "I swear on my life, I will never let a rebellious broom control my fate again!" ("shout", "narrow", "angry", "left")
                 gen "What grand battle did you fight this time, [name_susan_genie]? You seem... baptized." ("grin", xpos="far_left", ypos="head")
                 sus "It all started when I was trying to bring order to the chaos up on the ceiling of the train carriage. There were sweets flying everywhere, and that cursed broom was causing all kinds of havoc! It swooped down and threw me into a vat of filth like it had a mind of its own!" ("wide_open", "wide", "shocked", "unfocused")
@@ -388,7 +388,7 @@ label sus_train_attendant_job_return:
                 sus "When the train finally stopped and the students began to leave, I waited until the last one was gone... I could feel the weight of every stare that was still following me, but I knew I needed to go to his office. I needed a little peace." ("soft", "narrow", "sigh", "downL")
                 sus "I snuck to his office, like I was escaping the world. But inside, I just wanted no one else to see me." ("soft", "narrow", "tired", "downL")
                 sus "It was a tough day, [name_genie_susan]... I never imagined I’d go through something like this, but somehow, strangely, I’m starting to get used to it. You know what they say... what doesn’t kill you makes you stronger." ("soft", "narrow", "reflective", "downL")
-            if sus_end_day =="Hufflepuff Cheer and Slytherin Sneers"
+            if sus_end_day =="Hufflepuff Cheer and Slytherin Sneers":
                 sus "As a Hufflepuff, I always try to see the bright side, but today... today was too much!" ("open", "wide", "shocked", "unfocused")
                 gen "What happened, Susan? You look like you swam in a pumpkin river." ("base", xpos="far_left", ypos="head")
                 sus "It started innocently enough, serving pumpkin juice, trying to spread some Hufflepuff cheer... until the train lurched, and I spilled the whole thing on a group of Slytherins!" ("open_wide", "narrow", "worried", "downL")
@@ -418,7 +418,7 @@ label sus_train_attendant_job_return:
                 sus "Yeah... it really was. But you know, at this point, I think I'm getting used to it. I don’t care anymore. What doesn’t kill you, right? It's just another part of my day now." ("soft", "narrow", "reflective", "downL")
                 gen "Well, at least you're still standing." ("base", "chuckle", "head")
                 sus "For now. But I’ll be okay. Just a little embarrassed... but what’s new?" ("soft", "narrow", "resigned", "downL")
-            if sus_end_day =="Unconscious Heroism"
+            if sus_end_day =="Unconscious Heroism":
                 sus "I had this strange feeling, you know? Like something wasn’t quite right. A student shouldn’t be so... out of place." ("narrow", "suspicious", "left")
                 gen "What do you mean?" ("base", xpos="far_left", ypos="head")
                 sus "Well, there was this guy. I thought he was a student at first, but something about him felt wrong. He wasn’t acting like the others, didn’t belong in the carriage." ("narrow", "determined", "left")

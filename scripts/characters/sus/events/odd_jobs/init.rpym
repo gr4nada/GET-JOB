@@ -12,8 +12,10 @@ default states.sus.ev.train_attendant_job.intro_complete = False
 default sus_top_attendant = DollCloth("susan", ("upper body", "shirts"), "top", "top_school_4", ["#b9b8b8ff", "#e7dbdbff", "#332b36ff", "#d4a10eff"], unlocked=True)
 default sus_bottom_attendant = DollCloth("susan", ("lower body", "skirts"), "bottom", "school_skirt_3", ["#675a6cff", "#e8b10dff"], unlocked=True)
 default sus_stockings_attendant = DollCloth("susan", ("legwear", "stockings"), "stockings", "short_school_1", ["#d4a10eff", "#332b36ff"], unlocked=True)
+default sus_bra_base_attendant = DollCloth("susan", ("upper undergarment", "bras"), "bra", "basic_bra_1", ["#ffeeedff", "#ecbfbfff", "#f98787ff"], unlocked=True)
+default sus_panties_attendant = DollCloth("susan", ("lower undergarment", "panties"), "panties", "basic_panties_1", ["#ffeeedff", "#ecbfbfff", "#f98787ff"], unlocked=True)
 
-default sus_outfit_attedant = DollOutfit([sus_top_attendant,sus_bottom_attendant,sus_stockings_attendant], price=80, name="Train Attendant Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
+default sus_outfit_attedant = DollOutfit([sus_top_attendant,sus_bottom_attendant,sus_stockings_attendant,sus_bra_base_attendant,sus_panties_attendant], price=80, name="Train Attendant Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
 
 # Mod Event
 default sus_train_attendant_job_return = Event(
