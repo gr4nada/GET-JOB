@@ -14,7 +14,6 @@
 # | Open Tongue Annoyance          | open_tongue     | wink      | annoyed         | left      | Open tongue, wink, annoyed eyebrows, left pupils |
 # | Open Wide Angry                | open_wide       | narrow    | angry           | mid       | Open wide mouth, narrow eyes, angry eyebrows, mid pupils |
 # | Open Wide Tongue Worry         | open_wide_tongue| wide      | worried         | down      | Open wide tongue, wide eyes, worried eyebrows, down pupils |
-# | Screaming Sadness              | scream          | closed    | sad             | downL     | Screaming mouth, closed eyes, sad eyebrows, down-left pupils |
 # | Smiling Raised                 | smile           | happyCl   | raised          | stare     | Smiling mouth, happy closed eyes, raised eyebrows, stare pupils |
 # | Soft Base                      | soft            | base      | base            | mid       | Soft mouth, base eyes, base eyebrows, mid pupils |
 # | Upset Low                      | upset           | narrow    | low             | downR     | Upset mouth, narrow eyes, low eyebrows, down-right pupils |
@@ -31,7 +30,6 @@
 # | Open Tongue Worried            | open_tongue     | narrow    | worried         | downL     | Open tongue mouth, narrow eyes, worried eyebrows, down-left pupils |
 # | Open Wide Annoyed              | open_wide       | wide      | annoyed         | right     | Open wide mouth, wide eyes, annoyed eyebrows, right pupils |
 # | Open Wide Tongue Base          | open_wide_tongue| base      | base            | mid       | Open wide tongue mouth, normal eyes, base eyebrows, mid pupils |
-# | Scream Angry                   | scream          | narrow    | angry           | left      | Scream mouth, narrow eyes, angry eyebrows, left pupils |
 # | Smile Low                      | smile           | base      | low             | downR     | Smile mouth, normal eyes, low eyebrows, down-right pupils |
 # | Soft Worried                   | soft            | narrow    | worried         | downL     | Soft mouth, narrow eyes, worried eyebrows, down-left pupils |
 # | Upset Shocked                  | upset           | wide      | shocked         | unfocused | Upset mouth, wide eyes, shocked eyebrows, unfocused pupils |
@@ -48,7 +46,6 @@
 # | Open Tongue Raised             | open_tongue     | happyCl   | raised          | stare     | Open tongue mouth, happy closed eyes, raised eyebrows, stare pupils |
 # | Open Wide Sad                  | open_wide       | closed    | sad             | down      | Open wide mouth, closed eyes, sad eyebrows, down pupils |
 # | Open Wide Tongue Angry         | open_wide_tongue| narrow    | angry           | left      | Open wide tongue mouth, narrow eyes, angry eyebrows, left pupils |
-# | Scream Low                     | scream          | base      | low             | downR     | Scream mouth, normal eyes, low eyebrows, down-right pupils |
 # | Smile Worried                  | smile           | narrow    | worried         | downL     | Smile mouth, narrow eyes, worried eyebrows, down-left pupils |
 # | Soft Shocked                   | soft            | wide      | shocked         | unfocused | Soft mouth, wide eyes, shocked eyebrows, unfocused pupils |
 # | Upset Angry                    | upset           | narrow    | angry           | mid       | Upset mouth, narrow eyes, angry eyebrows, mid pupils |
@@ -74,7 +71,7 @@ label sus_train_attendant_job:
             sus "Alright, I’ll do it!" ("grin", "happy", "raised", "stare") # Grinning Happy: Grin mouth, happy eyes, raised eyebrows, stare pupils
             gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
             sus "..." ("angry", "narrow", "angry", "down") # Intense Anger: Angry mouth, narrow eyes, angry eyebrows, down pupils.
-            sus "Why does this look like something from a maid cafe?" ("clench", "wide", "worried", "left") # Clenched Worry: Clench mouth, wide eyes, worried eyebrows, left pupils.
+            sus "This looks like something a carny would wear, not a train attendant!" ("clench", "wide", "worried", "left") # Clenched Worry: Clench mouth, wide eyes, worried eyebrows, left pupils.
             gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
             sus @ cheeks blush "This skirt is way too short! And the stockings... Why are they striped?!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils.
             gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
@@ -82,12 +79,13 @@ label sus_train_attendant_job:
             gen "Rules are rules, [name_susan_genie]. The uniform is mandatory." ("base", xpos="far_left", ypos="head")
             sus "*Sigh*... Fine." ("ahegao_drool", "closed", "angry", "mid") # Ahegao Drool Down: Ahegao drool mouth, closed eyes, angry eyebrows, mid pupils.
             gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
+            
         else:
             sus "I guess it’s not the worst job..." ("soft", "closed", "base", "right") # Soft Base: Soft mouth, closed eyes, base eyebrows, right pupils
             sus "Alright, I’ll do it!" ("grin", "happyCl", "raised", "stare") # Grinning Happy: Grin mouth, happyCl eyes, raised eyebrows, stare pupils
             gen "Perfect! Here’s your uniform." ("base", xpos="far_left", ypos="head")
             sus "..." ("angry", "narrow", "angry", "down") # Intense Anger: Angry mouth, narrow eyes, angry eyebrows, down pupils.
-            sus "Why does this look like something from a maid café?" ("clench", "narrow", "worried", "left") # Clenched Worry: Clench mouth, narrow eyes, worried eyebrows, left pupils
+            sus "Oh, perfect. I've always wanted to look like a circus peanut vendor." ("clench", "narrow", "worried", "left") # Clenched Worry: Clench mouth, narrow eyes, worried eyebrows, left pupils
             gen "It’s the official train attendant uniform!" ("base", xpos="far_left", ypos="head")
             sus @ cheeks blush"This skirt is way too short! And the stockings... Why are they striped?!" ("open_wide", "wide", "shocked", "unfocused") # Open Wide Shocked: Open wide mouth, wide eyes, shocked eyebrows, unfocused pupils.
             gen "It’s all part of the aesthetic." ("base", xpos="far_left", ypos="head")
@@ -96,9 +94,6 @@ label sus_train_attendant_job:
             sus "*Sigh*... Fine." ("ahegao_drool", "closed", "angry", "mid") # Ahegao Drool Down: Ahegao drool mouth, closed eyes, angry eyebrows, mid pupils.
             gen "Return here after your shift to report on how it went." ("base", xpos="far_left", ypos="head")
 
-            hide susan_main
-            with d3
-
     show screen blkfade
     with d5
     # Setup
@@ -106,6 +101,7 @@ label sus_train_attendant_job:
     play sound "sounds/cloth_sound.ogg"
     $ sus_outfit_last.save()
     $ susan.equip(sus_outfit_attedant)
+    $ susan.equip(sus_panties_attendant) 
     hide screen blkfade
     with d5
 
@@ -143,14 +139,16 @@ label sus_train_attendant_job_return:
                 $ missing_top = False
                 $ missing_bra = False
                 $ missing_bottom = False
-                $ missing_panties = False                
+                $ missing_panties = False    
+                         
             block:
                 $ sus_end_day = "Miss Misty's Express Catastrophe"
                 $ is_wet = True
                 $ missing_top = False
                 $ missing_bra = False
                 $ missing_bottom = True
-                $ missing_panties = False                
+                $ missing_panties = False
+               
     if states.sus.level < 13:
         random:
             block:
@@ -159,14 +157,16 @@ label sus_train_attendant_job_return:
                 $ missing_top = True
                 $ missing_bra = False
                 $ missing_bottom = True
-                $ missing_panties = False                
+                $ missing_panties = False             
+   
             block:
                 $ sus_end_day = "The Water Wand Mishap"                
                 $ is_wet = True
                 $ missing_top = False
                 $ missing_bra = False
                 $ missing_bottom = False
-                $ missing_panties = False                
+                $ missing_panties = False             
+   
     if states.sus.level < 22:
         random:
             block:
@@ -176,6 +176,7 @@ label sus_train_attendant_job_return:
                 $ missing_bra = True
                 $ missing_bottom = False
                 $ missing_panties = False                
+
             block:
                 $ sus_end_day = "Circus Chic and Student Snickers"
                 $ is_wet = True
@@ -183,6 +184,7 @@ label sus_train_attendant_job_return:
                 $ missing_bra = False
                 $ missing_bottom = True
                 $ missing_panties = False               
+
     else:
         random:
             block:
@@ -192,6 +194,7 @@ label sus_train_attendant_job_return:
                 $ missing_bra = True
                 $ missing_bottom = True
                 $ missing_panties = False             
+
             block:
                 $ sus_end_day = "Hufflepuff Cheer and Slytherin Sneers"
                 $ is_wet = False
@@ -200,19 +203,19 @@ label sus_train_attendant_job_return:
                 $ missing_bottom = True
                 $ missing_panties = True   
               
-    if is_wet:
+    if is_wet:    
         # top
-        $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDDD"  
-        $ sus_outfit_attedant.group[0].color[1] ="#DDDDDDDD" 
+        $ sus_outfit_attedant.group[0].color[0] ="#b9b8b8DD"  
+        $ sus_outfit_attedant.group[0].color[1] ="#e32525CC" 
         #bottom
-        $ sus_outfit_attedant.group[1].color[0] ="#DDDDDDDD" 
-        $ sus_outfit_attedant.group[1].color[1] ="#DDDDDDDD" 
+        $ sus_outfit_attedant.group[1].color[0] ="#675a6cDD" 
+        $ sus_outfit_attedant.group[1].color[1] ="#e32525DD" 
         #Bra
         # $ sus_outfit_attedant.group[6].color[0] ="#DDDDDD33"  
         # panties
         # $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDAA"   
         # socks 
-        $ sus_outfit_attedant.group[2].color[0] ="#AAAAAACC"  
+        $ sus_outfit_attedant.group[2].color[1] ="#e32525CC"  
 
     $ susan.equip(sus_outfit_attedant)
         
@@ -224,7 +227,8 @@ label sus_train_attendant_job_return:
         $ susan.strip("bottom")
     if missing_panties:
         $ susan.strip("panties")
-
+    else:
+        $ susan.equip(sus_panties_attendant)  
     call sus_walk(action="enter", xpos="mid", ypos="base")
 
     gen "[name_susan_genie]... How was your shift on the train?" ("base", xpos="far_left", ypos="head")
@@ -242,7 +246,7 @@ label sus_train_attendant_job_return:
                 sus @ cheeks blush"A *humiliation!*"  ("disgust", "narrow", "angry", "left") # Disgust Angry
                 sus "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "worried", "downL") # Clenched Worry
                 gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head")
-                sus "A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*"  ("scream", "narrow", "angry", "left") # Scream Angry
+                sus "A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*"  ("upset", "narrow", "angry", "left") # upset Angry
                 gen "That must have been refreshing." ("base", xpos="far_left", ypos="head")
                 sus @ cheeks blush "Refreshing?! It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*"  ("horny", "narrow" ,"angry" ,"mid") # Horny Angry
                 gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head")
@@ -251,7 +255,7 @@ label sus_train_attendant_job_return:
                 gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") # Grinning Happy
                 sus "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’" ("upset", "wide", "shocked", "unfocused") # Upset Shocked
                 gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head")
-                sus "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!'"  ("scream", "base", "low" ,"downR" )# Scream Low
+                sus "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!'"  ("upset", "base", "low" ,"downR" )# upset Low
                 sus "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!"  ("soft", "narrow" ,"worried", "downL") # Soft Worried
                 gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") # Grinning Happy
                 sus "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves me calling me *Miss Misty* and sneaking glances every chance they get!"  ("open_wide_tongue", "narrow" ,"angry", "left") # Open Wide Tongue Angry
@@ -270,14 +274,14 @@ label sus_train_attendant_job_return:
                 sus "A humiliation! And when I tried to pull it free, it ripped completely!" (disgust, narrow, angry, left)
                 sus "Then, as if that wasn’t enough, a basin of water fell on me from the overhead compartment!" (clench, narrow, worried, downL)
                 gen "That must have been refreshing." (base, xpos="far_left", ypos="head")
-                sus "Refreshing?! It was freezing! And with the steam from the trolley, my shirt turned into a see-through rag!" (scream, narrow, angry, left)
+                sus "Refreshing?! It was freezing! And with the steam from the trolley, my shirt turned into a see-through rag!" (upset, narrow, angry, left)
                 gen "At least you blended in with the mist." (base, xpos="far_left", ypos="head")
                 sus "Oh, yes, how helpful! Too bad the passengers didn’t vanish with the mist, because they saw everything!" (horny, narrow, angry, mid)
                 sus "And do you know what they did? They started calling me ‘Miss Misty’! Like it was some kind of compliment!" (open_wide, narrow, angry, mid)
                 gen "Miss Misty? That’s... poetic." (grin, xpos="far_left", ypos="head")
                 sus "Poetic?! They were laughing every time I walked by! And then they started making jokes like, ‘Careful, Miss Misty, don’t evaporate!’" (grin, narrow, worried, downR)
                 gen "Well, at least they’re creative. And they did buy your sweets, right?" (base, xpos="far_left", ypos="head")
-                sus "Buy? They handed me a towel and said, ‘Here, Miss Misty, dry off before you turn into a cloud!’" (scream, base, low, downR)
+                sus "Buy? They handed me a towel and said, ‘Here, Miss Misty, dry off before you turn into a cloud!’" (upset, base, low, downR)
                 sus "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to peek while I changed!" (soft, narrow, worried, downL)
                 gen "Ah, so they’re helpful and cheeky. Sounds like a win-win." (grin, xpos="far_left", ypos="head")
                 sus "A win-win?! I’m standing here, soaked to the bone, with a bunch of passengers calling me Miss Misty and sneaking glances every chance they get!"  (open_wide_tongue, narrow, angry, left)
@@ -288,7 +292,7 @@ label sus_train_attendant_job_return:
                 gen "So, what did you do?"  (base, xpos="far_left", ypos="head")
                 sus "I waited for the students and the platform to clear out. Then, I took off the apron and—Merlin help me—had to sneak through the castle like a thief!" (open_wide, narrow, worried, downL)
                 gen "Stealth mode activated?"  (grin, xpos="far_left", ypos="head")
-                sus "Exactly! I had to duck behind statues, avoid Peeves, and at one point, I even rolled under a moving suit of armor!"  (scream, narrow, angry, left)
+                sus "Exactly! I had to duck behind statues, avoid Peeves, and at one point, I even rolled under a moving suit of armor!"  (upset, narrow, angry, left)
                 gen "That’s impressive. Did you make it?"  (base, xpos="far_left", ypos="head")
                 sus "Barely! I reached your office without anyone seeing me—at least, I hope so. But if I hear one more ‘Miss Misty’ joke tomorrow, I’m hexing someone!" ("clench", "narrow", "angry", "left")
                 sus "Ugh! Just give me my points before I drown in my own misery!"  (clench, narrow, angry, left)
@@ -299,7 +303,7 @@ label sus_train_attendant_job_return:
                 sus "Because this ridiculous outfit made me look like some kind of candy girl from a circus!" ("open_wide", "narrow", "angry", "mid") # Open Wide Angry
                 sus "Every time I bent down to grab a Pumpkin Pasty, I could hear them whispering!" ("annoyed", "closed", "sad", "down") # Annoyed Sad
                 gen "You should take it as a compliment, [name_susan_genie]." ("grin", xpos="far_left", ypos="head")
-                sus "Oh, sure, because being laughed at is exactly what I wanted." ("scream", "narrow", "angry", "left") # Scream Angry
+                sus "Oh, sure, because being laughed at is exactly what I wanted." ("upset", "narrow", "angry", "left") # upset Angry
                 gen "At least you survived the shift." ("base", xpos="far_left", ypos="head")
                 sus "Survived? Barely! There was a problem with the train’s latch, and the trolley door wouldn’t close!" ("open_wide", "wide", "shocked", "unfocused") # Open Surprise
                 gen "That does sound like an issue." ("base", xpos="far_left", ypos="head")
@@ -308,7 +312,7 @@ label sus_train_attendant_job_return:
                 gen "A bold fashion statement!" ("grin", xpos="far_left", ypos="head")
                 sus "Fashion statement?! I was hanging onto the side of the train in my stockings! And THEN, when I finally managed to get the door shut, a gust of steam from the engine drenched me!" ("angry", "wide", "shocked", "unfocused") # Angry Shocked
                 gen "Well, at least you’re dedicated to your job." ("grin", xpos="far_left", ypos="head")
-                sus "Dedicated?! The students were pressed against the windows watching the whole thing! I could hear them cheering like I was some kind of performer!" ("scream", "narrow", "angry", "left") # Scream Angry
+                sus "Dedicated?! The students were pressed against the windows watching the whole thing! I could hear them cheering like I was some kind of performer!" ("upset", "narrow", "angry", "left") # upset Angry
                 gen "To be fair, that does sound impressive. A daring stunt with a dramatic twist." ("base", xpos="far_left", ypos="head")
                 sus "Oh, yes, and the dramatic twist was me walking back into the carriage with half my uniform missing and my shirt soaked!" ("open_wide_tongue", "narrow", "angry", "left") # Open Wide Tongue Angry
                 gen "Well, at least they respect you more now." ("grin", xpos="far_left", ypos="head")
@@ -326,17 +330,17 @@ label sus_train_attendant_job_return:
                 sus "It stunned them long enough for me to grab the first-year and lead her away. But then—I tripped over a suitcase and tumbled right into the emergency exit lever!" ("angry", "base", "angry", "left") # Angry Base
                 sus "The door flew open, and the next thing I knew, I was dangling from the side of the train, my skirt caught on a hook!" ("disgust", "narrow", "worried", "downL") # Disgust Worried
                 gen "Merlin’s beard! How did you get back inside?!" ("grin", xpos="far_left", ypos="head")
-                sus "I had to climb along the outer rail! The wind was so strong it blew my shirt off! And just when I thought I’d made it, my apron got yanked away by a tree branch!" ("scream", "narrow", "angry", "left") # Scream Angry
+                sus "I had to climb along the outer rail! The wind was so strong it blew my shirt off! And just when I thought I’d made it, my apron got yanked away by a tree branch!" ("upset", "narrow", "angry", "left") # upset Angry
                 gen "Wait, so you came back in... missing a few things?" ("grin", xpos="far_left", ypos="head")
                 sus "Oh, yes! The entire carriage was waiting for me when I climbed back through the window. Half-cheering, half-staring at me like I was the main event at the circus!" ("open_wide_tongue", "narrow", "angry", "left") # Open Wide Tongue Angry
-                sus "And then someone yelled, ‘The Wind-Blown Wonder has returned!’ They started clapping! I wanted to vanish!" ("scream", "closed", "sad", "downL") # Scream Sadness
+                sus "And then someone yelled, ‘The Wind-Blown Wonder has returned!’ They started clapping! I wanted to vanish!" ("upset", "closed", "sad", "downL") # upset Sadness
                 gen "Well, at least they respect your bravery now. And you saved that first-year!" ("base", xpos="far_left", ypos="head")
                 sus "Bravery?! I was half-dressed and covered in pastry filling! I looked like a deranged dessert spirit!" ("clench", "narrow", "angry", "left") # Clench Angry
                 gen "A heroic dessert spirit. And I bet they’ll be talking about ‘The Wind-Blown Wonder’ for years to come." ("grin", xpos="far_left", ypos="head")
                 sus "Ugh! Just give me my points before I melt from embarrassment!" ("clench", "narrow", "angry", "left") # Clench Angry
                 gen "Already updated. Though, [name_susan_genie]? You might want to borrow a spare cloak before you leave. Hogwarts might not be ready for this new fashion statement." ("base", xpos="far_left", ypos="head")
             if sus_end_day =="The Water Wand Mishap":
-                sus "This is the last straw! If one more thing goes wrong, I swear, I’ll throw this wand into the lake!" ("scream", "wide", "angry", "left") # Scream Angry
+                sus "This is the last straw! If one more thing goes wrong, I swear, I’ll throw this wand into the lake!" ("upset", "wide", "angry", "left") # upset Angry
                 gen "What’s going on now, [name_susan_genie]?" ("base", xpos="far_left", ypos="head")
                 sus "You won’t believe it! I was getting ready to take the last tray of Chocolate Frogs to the snack cart when—POOF! The lights in the entire train flickered out, and then— BAM! A wave of freezing cold air rushed in from the hallway, and it felt like we were about to freeze solid!" ("angry", "narrow", "angry", "mid") # Intense Anger
                 gen "That sounds terrifying! What happened?" ("base", xpos="far_left", ypos="head")
@@ -348,7 +352,7 @@ label sus_train_attendant_job_return:
                 gen "And then?" ("base", xpos="far_left", ypos="head")
                 sus "I told them all to calm down, and I quickly ran down to the kitchen cart, grabbed a blanket, and started casting a warming charm. The cold started to fade, and the students began to cheer! But just as I thought we were in the clear—out of the darkness, I saw it." ("grin", "happy", "raised", "stare") # Grinning Happy
                 gen "What did you see?" ("base", xpos="far_left", ypos="head")
-                sus "A Dementor. It was just standing there, like a shadow in the mist, its cold, eerie presence making everyone freeze. For a moment, I thought we were done for. The students were paralyzed with fear." ("scream", "narrow", "angry", "mid") # Scream Angry
+                sus "A Dementor. It was just standing there, like a shadow in the mist, its cold, eerie presence making everyone freeze. For a moment, I thought we were done for. The students were paralyzed with fear." ("upset", "narrow", "angry", "mid") # upset Angry
                 gen "A Dementor on the train? That’s insane!" ("base", xpos="far_left", ypos="head")
                 sus "I didn’t know what to do. My wand was still trembling in my hand, and then... I just... let it happen. I didn’t even think. A flash of light burst from the tip of my wand, and suddenly—there it was." ("open_wide_tongue", "wide", "shocked", "unfocused") # Open Wide Shocked
                 gen "No way! What was it?" ("base", xpos="far_left", ypos="head")
@@ -362,7 +366,7 @@ label sus_train_attendant_job_return:
                 gen "That’s one way to attract attention!" ("base", xpos="far_left", ypos="head")
                 sus "Oh, definitely! At least they bought my sweets, but I don’t think I’ll be wearing that blouse again anytime soon." ("grin", "happy", "raised", "stare") # Grinning Happy
             if sus_end_day =="The Broomstick Betrayal and the Bucket Bath":
-                sus "I swear on my life, I will never let a rebellious broom control my fate again!" ("shout", "narrow", "angry", "left")
+                sus "I swear on my life, I will never let a rebellious broom control my fate again!" ("upset", "narrow", "angry", "left")
                 gen "What grand battle did you fight this time, [name_susan_genie]? You seem... baptized." ("grin", xpos="far_left", ypos="head")
                 sus "It all started when I was trying to bring order to the chaos up on the ceiling of the train carriage. There were sweets flying everywhere, and that cursed broom was causing all kinds of havoc! It swooped down and threw me into a vat of filth like it had a mind of its own!" ("wide_open", "wide", "shocked", "unfocused")
                 sus "And, as if that wasn't enough, it actually ripped my blouse off and then... it fled!" ("clench", "closed", "sad", "downL")
@@ -376,7 +380,7 @@ label sus_train_attendant_job_return:
                 sus "I was fuming. I got up, dripping wet, and screamed at that broom, ‘Now you’ve really crossed the line!’" ("clench", "narrow", "furious", "left")
                 sus "I decided it was time to end this once and for all. I pulled out my wand and was ready for the final showdown." ("shout", "narrow", "furious", "left")
                 sus "‘Accio broom!’ I called, determined. It was like we were in some dramatic duel, and I wasn’t about to lose!" ("concentrated", "narrow", "determined", "center")
-                sus "And then it came, swooping right at me, but this time—I was ready." ("shout", "narrow", "furious", "left")
+                sus "And then it came, swooping right at me, but this time—I was ready." ("upset", "narrow", "furious", "left")
                 sus "‘Expelliarmus!’ I shouted, and bam! The broom went flying—but it also ripped my bra right off me in the process!" ("wide_open", "wide", "shocked", "unfocused")
                 sus "I couldn’t believe it! There I was, half-naked and standing in front of all the students... It was like one of those nightmares!" ("wide_open", "wide", "shocked", "unfocused")
                 sus "But then, at least the broom was defeated, flying out of the train and leaving me in my... situation." ("disgust", "narrow", "embarrassed", "downL")
@@ -445,7 +449,7 @@ label sus_train_attendant_job_return:
                 gen "Well, at least they’ll have a great story to tell." ("grin", xpos="far_left", ypos="head")
                 sus "I don’t think I’ll be hearing the end of it any time soon..." ("soft", "narrow", "exhausted", "downL")
             else:
-                sus "I swear this wand was made by a mischievous troll! And as a Hufflepuff, I value patience, but this is testing me!" ("scream", "wide", "angry", "right")
+                sus "I swear this wand was made by a mischievous troll! And as a Hufflepuff, I value patience, but this is testing me!" ("upset", "wide", "angry", "right")
                 gen "What happened now, [name_susan_genie]? Chocolate frogs again?" ("base", xpos="far_left", ypos="head")
                 sus "Worse! I tried to create more frogs for a student and the wand made an army! They invaded the carriage, jumped into students' clothes, and one even got into my blouse!" ("upset", "closed", "sad", "down")
                 gen "An army of frogs? That's... an amphibian invasion." ("base", xpos="far_left", ypos="head")
