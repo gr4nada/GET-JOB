@@ -199,11 +199,10 @@ label sus_train_attendant_job_return:
                 $ missing_bra = False
                 $ missing_bottom = True
                 $ missing_panties = True   
-              
     if is_wet:
         # top
-        $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDDD"  
-        $ sus_outfit_attedant.group[0].color[1] ="#DDDDDDDD" 
+        $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDBB"  
+        $ sus_outfit_attedant.group[0].color[1] ="#DDDDDDBB" 
         #bottom
         $ sus_outfit_attedant.group[1].color[0] ="#DDDDDDDD" 
         $ sus_outfit_attedant.group[1].color[1] ="#DDDDDDDD" 
@@ -213,7 +212,6 @@ label sus_train_attendant_job_return:
         # $ sus_outfit_attedant.group[0].color[0] ="#DDDDDDAA"   
         # socks 
         $ sus_outfit_attedant.group[2].color[0] ="#AAAAAACC"  
-
     $ susan.equip(sus_outfit_attedant)
         
     if missing_top:
@@ -249,7 +247,7 @@ label sus_train_attendant_job_return:
                 sus "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*"  ("open_wide", "narrow", "angry", "mid") # Open Wide Angry
                 sus "And do you know what they did? They started calling me *‘Miss Misty’*! Like it was some kind of *compliment!*"  ("grin" ,"narrow" ,"worried", "downR") # Grin Worried
                 gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") # Grinning Happy
-                sus "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’" ("upset", "wide", "shocked", "unfocused") # Upset Shocked
+                sus "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *Careful, Miss Misty, don’t evaporate!*" ("upset", "wide", "shocked", "unfocused") # Upset Shocked
                 gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head")
                 sus "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!'"  ("scream", "base", "low" ,"downR" )# Scream Low
                 sus "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!"  ("soft", "narrow" ,"worried", "downL") # Soft Worried
@@ -419,7 +417,7 @@ label sus_train_attendant_job_return:
                 gen "Well, at least you're still standing." ("base", "chuckle", "head")
                 sus "For now. But I’ll be okay. Just a little embarrassed... but what’s new?" ("soft", "narrow", "resigned", "downL")
             if sus_end_day =="Unconscious Heroism":
-                sus "I had this strange feeling, you know? Like something wasn’t quite right. A student shouldn’t be so... out of place." ("narrow", "suspicious", "left")
+                sus "I had this strange feeling, you know? Like something wasn’t quite right. A student shouldn’t be so... out of place." ("scream","narrow", "suspicious", "left")
                 gen "What do you mean?" ("base", xpos="far_left", ypos="head")
                 sus "Well, there was this guy. I thought he was a student at first, but something about him felt wrong. He wasn’t acting like the others, didn’t belong in the carriage." ("narrow", "determined", "left")
                 gen "A stranger on the train?" ("base", xpos="far_left", ypos="head")
@@ -433,15 +431,15 @@ label sus_train_attendant_job_return:
                 gen "You fought him off?" ("base", xpos="far_left", ypos="head")
                 sus "I tried, but in the middle of it... I felt lightheaded. I don’t know what he did, but I was suddenly too dizzy to keep going." ("clench", "narrow", "worried", "downL")
                 gen "You fainted?" ("base", xpos="far_left", ypos="head")
-                sus "Yeah. And when I woke up... I wasn’t in the same place. My shirt was wet, and... my bra was gone!" ("open", "wide", "shocked", "unfocused")
+                sus "Yeah. And when I woke up... I wasn’t in the same place. My shirt was wet, and... my bra was gone!" ("open", "wide", "angry", "unfocused")
                 gen "Wait, what?! What happened to you?" ("base", xpos="far_left", ypos="head")
-                sus "I don’t know exactly, but when I came to, there were first-year girls gathered around me, thanking me for something. They looked at me like I was a hero, but I had no idea what was going on." ("clench", "narrow", "confused", "downL")
+                sus "I don’t know exactly, but when I came to, there were first-year girls gathered around me, thanking me for something. They looked at me like I was a hero, but I had no idea what was going on." ("clench", "narrow", "angry", "downL")
                 gen "They thanked you? For what?" ("base", xpos="far_left", ypos="head")
                 sus "I don’t know. I asked what happened, and they said I’d saved them from the guy! Apparently, when I fainted, they came running and saw him trying to hurt them. I... I must’ve done something in my unconscious state to stop him." ("soft", "narrow", "worried", "downL")
                 gen "So you saved them... without even realizing it?" ("base", xpos="far_left", ypos="head")
-                sus "I guess. But the real question is: What happened to my bra? And how did I end up in this situation?!" ("open", "wide", "shocked", "unfocused")
+                sus "I guess. But the real question is: What happened to my bra? And how did I end up in this situation?!" ("open", "wide", "angry", "unfocused")
                 gen "Sounds like you were part of some heroic accident, Susan." ("grin", xpos="far_left", ypos="head")
-                sus "I don’t know about heroism, but I definitely didn’t sign up for being half-dressed in front of a bunch of first-year girls!" ("soft", "embarrassed", "downL")
+                sus "I don’t know about heroism, but I definitely didn’t sign up for being half-dressed in front of a bunch of first-year girls!" ("angry", "narrow", "angry", "left")
                 gen "Well, at least they’ll have a great story to tell." ("grin", xpos="far_left", ypos="head")
                 sus "I don’t think I’ll be hearing the end of it any time soon..." ("soft", "narrow", "exhausted", "downL")
             else:
