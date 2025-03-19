@@ -45,14 +45,13 @@
 # | Irritated/Impatient | annoyed              | narrow     | angry      | squint  | ("annoyed", "narrow", "angry", "squint")        |
 # | Irritated/Impatient | clench               | base       | annoyed    | stare   | ("clench", "base", "annoyed", "stare")          |
 # | Irritated/Impatient | angry                | wide       | angry      | mid     | ("angry", "wide", "angry", "mid")               |
-
 label lun_magizoologist_job:
     # Intro
     if not states.lun.ev.magizoologist.intro_complete:
         $ states.lun.ev.magizoologist.intro_complete = True
         lun "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
         gen "I have a job opportunity for you, [name_luna_genie]." ("base", xpos="far_left", ypos="head")
-        lun "What kind of job?" ("soft", "base", "raised", "mid")  # Curious
+        lun "What kind of job?" ("soft", "base", "raised", "mid") # Curious
         gen "You have three options, all involving magical creatures and plants." ("base", xpos="far_left", ypos="head")
         gen "You can help take care of fantastic creatures at the Magical Menagerie, deal with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse, or clean the Black Lake." ("base", xpos="far_left", ypos="head")
         lun "Ah... well, I love animals and plants...{heart} I feel connected to them, but..." ("soft", "base", "base", "mid")  # Serene
@@ -271,34 +270,34 @@ label lun_magizoologist_job:
     lun "*Sigh*..." ("base", "closed", "base", "mid") # Neutral, expressing resignation.
 
     menu:
-    "Take care of fantastic creatures at the Magical Menagerie.":
-        $ luna_current_job = "Magical Menagerie"
-        lun "Magical Menagerie?" ("normal", "closed", "low", "down") # Reflective, slightly reserved, questioning the choice. (adjusted mouth, eyes, eyebrows)
-        lun "I don’t think that’s a good idea." ("soft", "narrow", "low", "down") # Thoughtful, expressing concern. (adjusted mouth, eyes, eyebrows)
-        gen "Why not?" ("base", xpos="far_left", ypos="head")
-        lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("normal", "closed", "low", "down") # Reflective, stating her reason. (adjusted mouth, eyes, eyebrows)
-        gen "[name_luna_genie], you don’t believe in that nonsense, do you?" ("base", xpos="far_left", ypos="head")
-        lun "The stars don’t lie, [name_luna_genie]. But... I suppose I can be careful." ("soft", "narrow", "low", "down") # Thoughtful, contemplative, with slight resignation. (adjusted mouth, eyes, eyebrows)
-        gen "Great! Here’s your proper uniform for the task." ("base", xpos="far_left", ypos="head")
+        "Take care of fantastic creatures at the Magical Menagerie.":
+            $ luna_current_job = "Magical Menagerie"
+            lun "Magical Menagerie?" ("normal", "closed", "low", "down") # Reflective, slightly reserved, questioning the choice. (adjusted mouth, eyes, eyebrows)
+            lun "I don’t think that’s a good idea." ("soft", "narrow", "low", "down") # Thoughtful, expressing concern. (adjusted mouth, eyes, eyebrows)
+            gen "Why not?" ("base", xpos="far_left", ypos="head")
+            lun "Because my Aquarius horoscope says today is an unlucky day for dealing with fiery creatures." ("normal", "closed", "low", "down") # Reflective, stating her reason. (adjusted mouth, eyes, eyebrows)
+            gen "[name_luna_genie], you don’t believe in that nonsense, do you?" ("base", xpos="far_left", ypos="head")
+            lun "The stars don’t lie, [name_luna_genie]. But... I suppose I can be careful." ("soft", "narrow", "low", "down") # Thoughtful, contemplative, with slight resignation. (adjusted mouth, eyes, eyebrows)
+            gen "Great! Here’s your proper uniform for the task." ("base", xpos="far_left", ypos="head")
 
-    "Work with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse.":
-        $ luna_current_job = "Magical Plants"
-        lun "Oh dear..." ("soft", "narrow", "low", "down") # Thoughtful, expressing concern. (adjusted mouth, eyes, eyebrows)
-        lun "The horoscope also says plants are feeling aggressive today." ("normal", "closed", "low", "down") # Reflective, stating her reason. (adjusted mouth, eyes, eyebrows)
-        gen "That sounds made up." ("base", xpos="far_left", ypos="head")
-        lun "Maybe. But have you ever seen an angry Tentacula? It’s terrifying." ("open", "wide", "worried", "up") # Worried, providing a cautionary example. (adjusted mouth, eyes, eyebrows)
-        gen "I’m sure you’ll manage. Here’s your special uniform for the job." ("base", xpos="far_left", ypos="head")
+        "Work with Devil’s Snare and Venomous Tentacula in the Hogwarts greenhouse.":
+            $ luna_current_job = "Magical Plants"
+            lun "Oh dear..." ("soft", "narrow", "low", "down") # Thoughtful, expressing concern. (adjusted mouth, eyes, eyebrows)
+            lun "The horoscope also says plants are feeling aggressive today." ("normal", "closed", "low", "down") # Reflective, stating her reason. (adjusted mouth, eyes, eyebrows)
+            gen "That sounds made up." ("base", xpos="far_left", ypos="head")
+            lun "Maybe. But have you ever seen an angry Tentacula? It’s terrifying." ("open", "wide", "worried", "up") # Worried, providing a cautionary example. (adjusted mouth, eyes, eyebrows)
+            gen "I’m sure you’ll manage. Here’s your special uniform for the job." ("base", xpos="far_left", ypos="head")
 
-    "Clean the Black Lake.":
-        $ luna_current_job = "Black Lake"
-        lun "The Black Lake? Do I have to?" ("soft", "narrow", "low", "down") # Thoughtful, expressing reluctance. (adjusted mouth, eyes, eyebrows)
-        gen "Yes, it needs cleaning. What’s wrong?" ("base", xpos="far_left", ypos="head")
-        lun "Because you picked a swimsuit that barely covers anything!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong disapproval. (adjusted mouth, eyes, eyebrows)
-        lun "The mermaids will never stop laughing at me!" ("angry", "wide", "angry", "stare") # Angry, expressing specific fear. (adjusted mouth, eyes, eyebrows)
-        gen "It’s proper lake-cleaning attire, [name_luna_genie]. You’ll be fine." ("base", xpos="far_left", ypos="head")
-        lun "It’s practically a bikini! And it’s so small...!" ("angry", "narrow", "angry", "mid") # Angry, reiterating her disapproval. (adjusted mouth, eyes, eyebrows)
-        gen "You’ll be fine. Just get the job done quickly." ("base", xpos="far_left", ypos="head")
-        lun "*Sigh*... I suppose there’s no way out of this..." ("normal", "closed", "low", "down") # Reflective, expressing resignation. (adjusted mouth, eyes, eyebrows)
+        "Clean the Black Lake.":
+            $ luna_current_job = "Black Lake"
+            lun "The Black Lake? Do I have to?" ("soft", "narrow", "low", "down") # Thoughtful, expressing reluctance. (adjusted mouth, eyes, eyebrows)
+            gen "Yes, it needs cleaning. What’s wrong?" ("base", xpos="far_left", ypos="head")
+            lun "Because you picked a swimsuit that barely covers anything!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong disapproval. (adjusted mouth, eyes, eyebrows)
+            lun "The mermaids will never stop laughing at me!" ("angry", "wide", "angry", "stare") # Angry, expressing specific fear. (adjusted mouth, eyes, eyebrows)
+            gen "It’s proper lake-cleaning attire, [name_luna_genie]. You’ll be fine." ("base", xpos="far_left", ypos="head")
+            lun "It’s practically a bikini! And it’s so small...!" ("angry", "narrow", "angry", "mid") # Angry, reiterating her disapproval. (adjusted mouth, eyes, eyebrows)
+            gen "You’ll be fine. Just get the job done quickly." ("base", xpos="far_left", ypos="head")
+            lun "*Sigh*... I suppose there’s no way out of this..." ("normal", "closed", "low", "down") # Reflective, expressing resignation. (adjusted mouth, eyes, eyebrows)
 
     gen "Come back in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
     lun "..." ("angry", "narrow", "worried", "mid") # Worried, expressing silent disapproval.
@@ -344,7 +343,7 @@ label lun_magizoologist_job_return:
     $ missing_bra = False
     $ missing_bottom = False
     $ missing_panties = False
-
+    $ change_pose = False
     if luna_current_job == "Magical Menagerie":
 
         # lun_end_day and appearance config
@@ -589,7 +588,7 @@ label lun_magizoologist_job_return:
                     lun "Let’s just say I now know more about one wizard’s love life than I ever wanted to." ("normal", "closed", "low", "down") # Reflective, expressing mild distaste. (adjusted mouth, eyes, eyebrows)
                     lun "Here’s your payment. If anyone asks, I was not eavesdropping—just an unfortunate victim of bird biology." ("normal", "closed", "low", "down") # Reflective, with a humorous disclaimer. (adjusted mouth, eyes, eyebrows)
 
-                elif lun_end_day == "Demiguise's Invisible Heist" :
+                elif lun_end_day == "Demiguise's Invisible Heist":
                     #"Demiguise's Invisible Heist"
                     lun "I... I was taking care of the Demiguise at Magical Menagerie today." ("soft", "narrow", "low", "down") # Thoughtful, expressing mild concern. (adjusted mouth, eyes, eyebrows)
                     lun "It started off fine, but then things got... complicated." ("soft", "narrow", "low", "down") # Thoughtful, expressing mild concern. (adjusted mouth, eyes, eyebrows)
@@ -778,120 +777,68 @@ label lun_magizoologist_job_return:
             random:
                 block:
                     # "Fire Crab Stampede"
-                    $ lun_end_day = "Fire Crab Stampede"
+                    $ lun_end_day = "The Venomous Tentacula Tussle"
                     $ is_wet = True
                     $ missing_top = False
                     $ missing_bra = True
                     $ missing_bottom = False
                     $ missing_panties = False
                 block:
-                    # "Niffler Riot"
-                    $ lun_end_day = "Niffler Riot"
+                    #"The Tentacula's Unwelcome Surprise"
+                    $ lun_end_day = "The Tentacula's Unwelcome Surprise"
                     $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = False
                     $ missing_bottom = False
-                    $ missing_panties = False
+                    $ missing_panties = True
                 block:
-                    # "Fire Crab Training Gone Wrong"
-                    $ lun_end_day = "Fire Crab Training Gone Wrong"
+                    # "The Mandrake Miscommunication"
+                    $ lun_end_day = "The Mandrake Miscommunication"
                     $ is_wet = True
                     $ missing_top = False
                     $ missing_bra = True
                     $ missing_bottom = False
                     $ missing_panties = False
-                block:
-                    # "Fwooper Serenade"
-                    $ lun_end_day = "Fwooper Serenade"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Demiguise Discovery"
-                    $ lun_end_day = "Demiguise Discovery"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Kelpie's Revenge"
-                    $ lun_end_day = "Kelpie's Revenge"
-                    $ is_wet = True
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Occamy Scarf Mishap"
-                    $ lun_end_day = "Occamy Scarf Mishap"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Erumpent Mating Dance"
-                    $ lun_end_day = "Erumpent Mating Dance"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:  
-                    # "Jobberknoll's Final Words"
-                    $ lun_end_day = "Jobberknoll's Final Words"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
+
         elif states.lun.level < 13:
             random:
                 block:
                     # Input data
-                    $ lun_end_day = "Demiguise's Invisible Heist"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = True
-                    $ missing_panties = False
-                block:  
-                    # Input data
-                    $ lun_end_day =  "Fire Crab Concert Gone Wild"
-                    $ is_wet = False
-                    $ missing_top = True
-                    $ missing_bra = True
-                    $ missing_bottom = True
-                    $ missing_panties = False
-                block:    
-                    # Input data
-                    $ lun_end_day =  "Demiguise's Wardrobe Malfunction"
+                    $ lun_end_day = "The Fanged Geranium's Wardrobe Raid"
                     $ is_wet = False
                     $ missing_top = True
                     $ missing_bra = True
                     $ missing_bottom = False
-                    $ missing_panties = False                                          
+                    $ missing_panties = False
+                block:  
+                    # Input data
+                    $ lun_end_day = "The Whomping Willow's Royal Heist"
+                    $ is_wet = False
+                    $ missing_top = False
+                    $ missing_bra = False
+                    $ missing_bottom = False
+                    $ missing_panties = True
+                                        
         else:
             random:
                 block:
                     # Input data
-                    $ lun_end_day =  "Fire Crab's Fiery Fiasco"
+                    $ lun_end_day = "The Greenhouse Rebellion"
                     $ is_wet = True
                     $ missing_top = False
                     $ missing_bra = False
                     $ missing_bottom = False
                     $ missing_panties = False 
+                    $ change_pose = True
                 block:
                     # Input data
-                    $ lun_end_day = "Niffler's Underwear Heist"
+                    $ lun_end_day = "The Devil’s Snare’s Complimentary Feast"
                     $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
+                    $ missing_top = True
+                    $ missing_bra = True
                     $ missing_bottom = False
-                    $ missing_panties = True 
+                    $ missing_panties = False 
+                    $ change_pose = True
 
         if is_wet:
             $ lun_outfit_default.group[0].color[1] ="#777777DD" 
@@ -908,6 +855,8 @@ label lun_magizoologist_job_return:
         if missing_panties:
             $ luna.strip("panties")
             call lun_walk(action="enter", xpos="mid", ypos="base")
+        if change_pose:
+            $ luna.set_pose("hand_on_pussy_and_breast")
 
         $ luna.equip(lun_outfit_default)
         call lun_walk(action="enter", xpos="mid", ypos="base")
@@ -915,221 +864,209 @@ label lun_magizoologist_job_return:
         lun "It was a true test of survival..." ("base", "base", "base", "mid")
         menu:
             "\"What exactly did you do today?\"":
-                if lun_end_day == "The Venomous Tentacula Adventure":
-                if states.lun.level < 4:
-                    random:
-                        block:
-                            lun "Oh, you wouldn’t believe it... I had to deal with Venomous Tentacula today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "My horoscope was right; the plants were definitely... aggressive." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "I can only imagine the chaos. Glad you survived." ("base", xpos="far_left", ypos="head")
-                            lun "Barely! Two of its vines grabbed me—one by each arm!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern.
-                            lun "And then, out of nowhere, a third vine just *ripped my robes right off!*" ("clothes_off", "shock", "base", "mid") # Shocked, expressing surprise.
-                            gen "...You expect me to believe that?" ("base", xpos="far_left", ypos="head")
-                            lun "I swear! One moment, I was fighting for my life, and the next—*whoosh!*—there goes my uniform!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "[name_luna_genie], this is starting to sound like one of those books Filch confiscates." ("base", xpos="far_left", ypos="head")
-                            lun "It was *nothing* like that! I was in serious danger!" ("base", "angry", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern.
-                            gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", xpos="far_left", ypos="head")
-                            lun "Oh? You think so?" ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "..."
-                            # lun "*[luna unfastens her cloak, revealing the obvious lack of a uniform beneath.]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "...By Merlin’s polka-dot pajamas!" ("angry", xpos="far_left", ypos="head")
-                            gen "..." ("base", xpos="far_left", ypos="head")
-                            lun "Now do you believe me?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "I—uh—yes. Yes, I do. Very much. Let’s just settle my payment and pretend this *never* happened." ("base", xpos="far_left", ypos="head")
-                            lun "Good idea. Here it is." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "Next time, I’m bringing a *spiked* cloak." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                if lun_end_day == "The Venomous Tentacula Adventure":
-                        block:
-                            $ luna.strip("panties")
-                            lun "I had to deal with Devil’s Snare and Venomous Tentacula today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Wow... I can only imagine the chaos. But at least you made it out." ("base", xpos="far_left", ypos="head")
-                            lun "Barely! A Tentacula wrapped around my ankle and..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "It tore off my underwear." ("base", "narrow", "narrow", "mid") # Thoughtful, expressing mild concern.
-                            gen "Haha! Good one, [name_luna_genie]. You almost got me." ("base", xpos="far_left", ypos="head")
-                            lun "Almost?" ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "..."
-                            # lun "*[luna lifts her skirt slightly, revealing her bare thighs.]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "By Merlin... You're joking, right?" ("angry", xpos="far_left", ypos="head")
-                            lun "*Unfortunately, no.*" ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "The Tentacula was quite persistent..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "This is... I... well..." ("base", xpos="far_left", ypos="head")
-                            lun "I told you. The stars never lie." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "*Right... Right..." ("base", xpos="far_left", ypos="head")
-                            lun "Next time, I'm wearing armor." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                        block:
-                if lun_end_day == "The Mandrake Misunderstanding":
-                            gen "[name_luna_genie]... How was your day with the Mandrakes?" ("base", xpos="far_left", ypos="head")
-                            lun "Oh, you wouldn’t believe it... I spent all day replanting Mandrakes." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "Do you have any idea how loud they are?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "I imagine quite loud." ("base", xpos="far_left", ypos="head")
-                            lun "Understatement! I think my ears are still ringing." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "I should have brought earmuffs, but my horoscope said to 'keep my senses open' today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Maybe next time ignore the horoscope and wear the earmuffs." ("base", xpos="far_left", ypos="head")
-                            # Add confusion from luna's hearing and her misunderstanding of the genie
-                            lun "I must have misunderstood. Did you... want me to take off the couthes? is this an exam?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            # luna starts removing her cloak, misinterpreting the genie's words
-                            # lun "*[luna starts unfastening her cloak, thinking the genie suggested she should]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "...[name_luna_genie], no! I didn’t mean that!" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Oh, I see now! I got it all wrong, didn’t I?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            gen "..." ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Sorry! My ears are still a bit fuzzy." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            gen "That’s alright... Let’s just finish up here, shall we?" ("base", xpos="far_left", ypos="head")
-                            lun "Next time, I’ll bring a *soundproof* cloak." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                if lun_end_day == "The Venomous Tentacula Tussle":
+                    lun "Oh, you wouldn’t believe it... I had to deal with Venomous Tentacula today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "My horoscope was right; the plants were definitely... aggressive." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "I can only imagine the chaos. Glad you survived." ("base", xpos="far_left", ypos="head")
+                    lun "Barely! Two of its vines grabbed me—one by each arm!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern.
+                    lun "And then, out of nowhere, a third vine just *ripped my robes right off!*" ("clothes_off", "shock", "base", "mid") # Shocked, expressing surprise.
+                    gen "...You expect me to believe that?" ("base", xpos="far_left", ypos="head")
+                    lun "I swear! One moment, I was fighting for my life, and the next—*whoosh!*—there goes my uniform!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "[name_luna_genie], this is starting to sound like one of those books Filch confiscates." ("base", xpos="far_left", ypos="head")
+                    lun "It was *nothing* like that! I was in serious danger!" ("base", "angry", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern.
+                    gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", xpos="far_left", ypos="head")
+                    lun "Oh? You think so?" ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "..."
+                    # lun "*[luna unfastens her cloak, revealing the obvious lack of a uniform beneath.]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "...By Merlin’s polka-dot pajamas!" ("angry", xpos="far_left", ypos="head")
+                    gen "..." ("base", xpos="far_left", ypos="head")
+                    lun "Now do you believe me?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "I—uh—yes. Yes, I do. Very much. Let’s just settle my payment and pretend this *never* happened." ("base", xpos="far_left", ypos="head")
+                    lun "Good idea. Here it is." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "Next time, I’m bringing a *spiked* cloak." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
 
-                elif states.lun.level < 12:
-                    random:
-                        block:
-                            $ luna.strip("top", "bra")
-                            # *luna enters, covering her chest with her arms.*
-                            gen "[name_luna_gen]... How was your day with the Fanged Geranium?" ("base", xpos="far_left", ypos="head")
-                            lun "It was... interesting." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Interesting how?" ("base", xpos="far_left", ypos="head")
-                            lun "Well, I was watering a Fanged Geranium when it decided I looked tastier than the fertilizer." ("angry", "narrow", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "It bit my sleeve and wouldn't let go!" ("angry", "base", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Did you at least win the fight?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "I think it was a draw. I lost my shirt... and my bra." ("base", "base", "base", "mid") # Neutral, stating a fact and embarrassment.
-                            gen "...[name_luna_genie], you lost *both*?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes. It got a bit... aggressive." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "And the Fanged Geranium... it's missing a few teeth!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "Here it is. I should charge extra for combat duty." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "Next time, I'll bring a *reinforced* shirt." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            nar "*[name_luna_genie] hesitates before handing over the money, still covering her chest."
-                            gen "Are you sure you want to pay like this?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "*Sigh*... Well, I don't have much choice now, do I?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            lun "Just... don't make this weird." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            nar " *[name_luna_genie] hands over the money and accidentally ends up topless in the process.*"
-                            lun "Oh... I just realized, I’m completely topless now." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Well, I suppose that's one way of looking at it." ("base", xpos="far_left", ypos="head")
-                            lun "You could at least pretend it's not awkward." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "I mean, I’m trying... but you have to admit, this is funny." ("base", xpos="far_left", ypos="head")
-                            lun "A *very* funny." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "Well, I guess I should probably get dressed now..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                        block:
-                            $ luna.strip("panties")
-                            lun "I had a heart-to-heart conversation with a Whomping Willow sapling today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "A... conversation?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes. It mostly communicated through swaying and minor attempts at violence." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "But I could tell... it has dreams, ambitions..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Of what? Whomping people more effectively?" ("base", xpos="far_left", ypos="head")
-                            lun "Perhaps. We all have our callings." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "Anyway, I think it got a little *too* excited about our talk." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Excited how?" ("base", xpos="far_left", ypos="head")
-                            lun "Well, it suddenly yanked me by the leg. Didn’t even give me a warning." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "It yanked you by the leg?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes! And when it pulled me, I flipped upside down—completely unprepared!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "My skirt shifted with the motion and—well—next thing I know, it... caught sight of my underwear." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Wait, it saw your... *underwear*?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Yes! And it seemed *particularly* interested in it." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            gen "I... um... what do you mean by ‘interested’?" ("base", xpos="far_left", ypos="head")
-                            lun "It started tugging at the fabric, like it found a treasure." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "I wasn’t sure what else to do, so I just... took it off and gave it to the sapling." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "It was the only way to make it stop staring so... intently." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun @ cheeks blush "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern and embarrassment.
-                            gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            lun "Oh? You think so?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            # luna unfastens her cloak, revealing the obvious lack of a uniform beneath.
-                            gen "...By the bloody Sorting Hat!!!" ("angry", xpos="far_left", ypos="head")
-                            gen "..." ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Now do you believe me?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            gen "And what did it do with it?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "It placed it on its head. Like some sort of crown." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "So now there's a Whomping Willow sapling with your... underwear... as a crown?" ("base", xpos="far_left", ypos="head")
-                            lun "I guess so. It seems oddly pleased with itself." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "*Ahem*... it’s certainly... regal now." ("base", xpos="far_left", ypos="head")
-                            lun "*Sigh*... I just hope it doesn’t start making demands for more clothes." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "At least it calmed down after that. It's just sitting there, wearing my underwear like it’s the latest fashion trend." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "*Professor Snape suddenly appears from behind a tree, having witnessed the entire scene.* "
-                            gen "*eyes widen in shock*... Professor Snape saw the whole thing, didn’t he?" ("base", xpos="far_left", ypos="head")
-                            lun "*mutters*... Yes... he did. He just stood there, staring at me in disbelief." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "And... neither of you said anything?" ("base", xpos="far_left", ypos="head")
-                            lun "*shrugs*... I think we were both too surprised to react. I mean, who expects a sapling to steal your underwear while you’re upside down?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "True... it’s not an everyday occurrence." ("base", xpos="far_left", ypos="head")
-                            lun "We just... stood there. Me, upside down, topless, and him... speechless." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "So, no words, just... awkward silence." ("base", xpos="far_left", ypos="head")
-                            lun "Exactly. The weirdest part? He didn’t even flinch when I handed it to the sapling. He just... watched." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Well, that *is* Snape, isn’t it?" ("base", xpos="far_left", ypos="head")
-                            lun "He’s probably seen worse... but I’m not sure I’ll ever be able to look him in the eye again." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                elif lun_end_day == "The Tentacula's Unwelcome Surprise":
+                    lun "I had to deal with Devil’s Snare and Venomous Tentacula today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Wow... I can only imagine the chaos. But at least you made it out." ("base", xpos="far_left", ypos="head")
+                    lun "Barely! A Tentacula wrapped around my ankle and..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "It tore off my underwear." ("base", "narrow", "narrow", "mid") # Thoughtful, expressing mild concern.
+                    gen "Haha! Good one, [name_luna_genie]. You almost got me." ("base", xpos="far_left", ypos="head")
+                    lun "Almost?" ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "..."
+                    # lun "*[luna lifts her skirt slightly, revealing her bare thighs.]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "By Merlin... You're joking, right?" ("angry", xpos="far_left", ypos="head")
+                    lun "*Unfortunately, no.*" ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "The Tentacula was quite persistent..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "This is... I... well..." ("base", xpos="far_left", ypos="head")
+                    lun "I told you. The stars never lie." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "*Right... Right..." ("base", xpos="far_left", ypos="head")
+                    lun "Next time, I'm wearing armor." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
 
-                else: #22+
-                    random:
-                        block:
-                            $ luna.strip("top", "bra")
-                            $ luna.set_pose("hand_on_pussy_and_breast")
-                            lun @ cheeks blush "Well... I may have accidentally started a small revolution in the greenhouse." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment and mild concern.
-                            gen "A... revolution?" ("base", xpos="far_left", ypos="head") 
-                            lun "Yes. The Gillyweed refused to stay in its pot, the Venomous Tentacula took offense, and then the Puffapods started exploding in protest." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "It was all very dramatic." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "And what did you do?" ("base", xpos="far_left", ypos="head")
-                            lun "I negotiated a truce by offering extra compost." ("grin", "narrow", "base", "mid") # Proud, expressing mild satisfaction.
-                            lun "But that wasn’t enough... because the plants had more demands." ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "What else did they want?" ("base", xpos="far_left", ypos="head")
-                            lun "(pauses, looking slightly frustrated)" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "At first, it seemed simple. The Venomous Tentacula wanted a better view of the sun, the Puffapods demanded more attention..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            lun "But the Gillyweed... the Gillyweed wanted something *personal*." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
-                            gen "What exactly?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "(sighs) My... *bra*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            gen "The plants *demanded* your *bra*?"("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Yes. They wouldn’t stop tugging at my clothes, like they were waiting for me to hand it over." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            gen "And you just *gave* it to them?" ("base", xpos="far_left", ypos="head")
-                            lun "(crossing arms, clearly annoyed) I didn’t have a choice!" ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
-                            lun @ cheeks blush "After all the pulling and insisting, I sighed, took off my shirt, and handed over the bra. It was the only way to make them stop." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            lun "As soon as I gave it up, the vines wrapped around it like it was some kind of trophy." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            gen "(massaging temples) This is... ridiculous." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, and there’s more." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "(suspicious) ...What else could have possibly happened?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "(huffs) When I turned to grab my shirt... it was *gone*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            gen "(raising an eyebrow) Gone? What do you mean, gone?" ("base", xpos="far_left", ypos="head")
-                            lun "Vanished. Some sneaky plant must’ve taken it when I wasn’t looking." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            gen "So, to sum this up: you went into the greenhouse to negotiate with the plants, ended up giving them your bra, and when you turned around, your shirt had disappeared too?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "(arms crossed, visibly frustrated) That’s exactly what happened." ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
-                            gen "(laughing) I think they tricked you, lun."("base", xpos="far_left", ypos="head")
-                            lun "(grumbling) I’m starting to think so too..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            gen "At this rate, I wouldn’t be surprised if they ask for your shoes next." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "(sarcastic) Fantastic. Can’t wait to walk back barefoot because some leafy menace decided it wants footwear now." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            lun @ cheeks blush "(takes a deep breath, looking down at her bag)" ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            lun @ cheeks blush "(grumbles) And now I still have to open my bag and hand over the payment..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                            lun @ cheeks blush "(hesitates, shifting uncomfortably) This would be *so* much easier if I still had *something* on..." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            gen "Need a hand?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Don’t even *think* about it." ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
-                            lun "Alright, let’s just get this over with..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "(reluctantly lowers her arms, trying to get into her bag)" ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            lun @ cheeks blush "(muttering) The least you could do is give me a *discount* for the free show..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
-                        block:
-                            $ luna.strip("top", "bra")
-                            $ luna.set_pose("hand_on_pussy_and_breast")
-                            lun "Did you know that if you whisper sweet compliments to a Devil’s Snare, it grows twice as fast?" ("grin", "narrow", "base", "mid") # Curious, expressing fascination and excitement.
-                            gen "That... sounds like a disaster waiting to happen." ("base", xpos="far_left", ypos="head")
-                            lun "Professor Sprout disagrees. She called it 'a fascinating breakthrough in magical botany.'" ("base", "base", "base", "mid") # Neutral, stating a fact.
-                            gen "You do realize your job is to *control* the plants, not train them to take hostages?" ("angry", xpos="far_left", ypos="head")
-                            lun "Oh, don't be so dramatic. I simply *enhanced* its natural growth response." ("soft", "narrow", "base", "mid") # Reflective, expressing mild defensiveness.
-                            gen "Let me guess. You got a little too close, didn’t you?" ("base", xpos="far_left", ypos="head")
-                            lun "(sighs) It was all in the name of research! And yes, maybe I got *slightly* entangled in the process." ("base", "narrow", "base", "down") # Embarrassed, expressing mild regret.
-                            gen "Slightly?" ("base", xpos="far_left", ypos="head")
-                            lun "...Alright, *completely* entangled." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
-                            lun "But you should’ve seen it! The vines were practically *purring* when I told them how magnificent they were." ("grin", "narrow", "base", "mid") # Excited, expressing enthusiasm.
-                            gen "Oh yes, I'm sure they were *thrilled* right before they wrapped you up like a Christmas present." ("base", xpos="far_left", ypos="head")
-                            lun "That’s an unfair exaggeration... *mostly*. Though, I will admit, getting free wasn’t easy." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Let me guess, you had to bribe them?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Sort of! But instead of gold, they seemed more interested in... fabric." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
-                            gen "...Fabric?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Yes. My robes were the first to go. Then my cloak. Then my *shirt*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
-                            gen "[name_luna_genie], please tell me you didn’t—" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Look, I tried *everything* else! And when I finally managed to free my arms, I *may* have had to part ways with... additional garments." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
-                            gen "...By the mischievous whiskers of Dumbledore!!!" ("angry", xpos="far_left", ypos="head")
-                            lun "Honestly, it was a small price to pay for scientific progress." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "A *small* price?! You’re standing here dripping wet, covered in dirt, and barely dressed!" ("angry", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Yes, but did you *see* how much it grew? If we harness this, imagine the agricultural advancements!" ("grin", "narrow", "base", "mid") # Excited, expressing enthusiasm mixed with embarrassment.
-                            gen "(sighs) I’d rather imagine you keeping your clothes on for once." ("angry", xpos="far_left", ypos="head")
-                            lun "Oh, don't be so old-fashioned. Plants don't judge."  ("grin", "narrow", "base", "mid") # Playful, expressing lightheartedness.
-                            lun "(glances down at herself) Though, I *was* hoping to retrieve my shirt before coming here... but, well... the Snare *ate* it." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
-                            gen "It *ate* it?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes. And it *seemed* quite pleased with itself." ("grin", "narrow", "base", "mid") # Amused, expressing mild fascination.
-                            gen "This is why we don’t compliment the man-eating plants, [name_luna_genie]." ("angry", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Oh please, it’s hardly man-eating. *Clothes*-eating, maybe." ("grin", "narrow", "base", "mid") # Playful, expressing lightheartedness.
-                            lun @ cheeks blush "(sighs) Anyway, here's your payment. No extra charge for the show." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "(muttering) At this rate, I'll get used to it and start wanting to pay for the show..." ("angry", xpos="far_left", ypos="head")
+                elif lun_end_day =="The Mandrake Miscommunication":
+                    gen "[name_luna_genie]... How was your day with the Mandrakes?" ("base", xpos="far_left", ypos="head")
+                    lun "Oh, you wouldn’t believe it... I spent all day replanting Mandrakes." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "Do you have any idea how loud they are?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "I imagine quite loud." ("base", xpos="far_left", ypos="head")
+                    lun "Understatement! I think my ears are still ringing." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "I should have brought earmuffs, but my horoscope said to 'keep my senses open' today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Maybe next time ignore the horoscope and wear the earmuffs." ("base", xpos="far_left", ypos="head")
+                    # Add confusion from luna's hearing and her misunderstanding of the genie
+                    lun "I must have misunderstood. Did you... want me to take off the couthes? is this an exam?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    # luna starts removing her cloak, misinterpreting the genie's words
+                    # lun "*[luna starts unfastening her cloak, thinking the genie suggested she should]*" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "...[name_luna_genie], no! I didn’t mean that!" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Oh, I see now! I got it all wrong, didn’t I?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    gen "..." ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Sorry! My ears are still a bit fuzzy." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    gen "That’s alright... Let’s just finish up here, shall we?" ("base", xpos="far_left", ypos="head")
+                    lun "Next time, I’ll bring a *soundproof* cloak." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+
+                elif lun_end_day == "The Fanged Geranium's Wardrobe Raid":
+                    # *luna enters, covering her chest with her arms.*
+                    gen "[name_luna_gen]... How was your day with the Fanged Geranium?" ("base", xpos="far_left", ypos="head")
+                    lun "It was... interesting." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Interesting how?" ("base", xpos="far_left", ypos="head")
+                    lun "Well, I was watering a Fanged Geranium when it decided I looked tastier than the fertilizer." ("angry", "narrow", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "It bit my sleeve and wouldn't let go!" ("angry", "base", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Did you at least win the fight?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "I think it was a draw. I lost my shirt... and my bra." ("base", "base", "base", "mid") # Neutral, stating a fact and embarrassment.
+                    gen "...[name_luna_genie], you lost *both*?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes. It got a bit... aggressive." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "And the Fanged Geranium... it's missing a few teeth!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "Here it is. I should charge extra for combat duty." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "Next time, I'll bring a *reinforced* shirt." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    nar "*[name_luna_genie] hesitates before handing over the money, still covering her chest."
+                    gen "Are you sure you want to pay like this?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "*Sigh*... Well, I don't have much choice now, do I?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    lun "Just... don't make this weird." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    nar " *[name_luna_genie] hands over the money and accidentally ends up topless in the process.*"
+                    lun "Oh... I just realized, I’m completely topless now." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Well, I suppose that's one way of looking at it." ("base", xpos="far_left", ypos="head")
+                    lun "You could at least pretend it's not awkward." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "I mean, I’m trying... but you have to admit, this is funny." ("base", xpos="far_left", ypos="head")
+                    lun "A *very* funny." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "Well, I guess I should probably get dressed now..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+
+                elif lun_end_day == "The Whomping Willow's Royal Heist":
+                    lun "I had a heart-to-heart conversation with a Whomping Willow sapling today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "A... conversation?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes. It mostly communicated through swaying and minor attempts at violence." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "But I could tell... it has dreams, ambitions..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Of what? Whomping people more effectively?" ("base", xpos="far_left", ypos="head")
+                    lun "Perhaps. We all have our callings." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "Anyway, I think it got a little *too* excited about our talk." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Excited how?" ("base", xpos="far_left", ypos="head")
+                    lun "Well, it suddenly yanked me by the leg. Didn’t even give me a warning." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "It yanked you by the leg?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes! And when it pulled me, I flipped upside down—completely unprepared!" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "My skirt shifted with the motion and—well—next thing I know, it... caught sight of my underwear." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Wait, it saw your... *underwear*?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Yes! And it seemed *particularly* interested in it." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    gen "I... um... what do you mean by ‘interested’?" ("base", xpos="far_left", ypos="head")
+                    lun "It started tugging at the fabric, like it found a treasure." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "I wasn’t sure what else to do, so I just... took it off and gave it to the sapling." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "It was the only way to make it stop staring so... intently." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun @ cheeks blush "I had to wrestle myself free while practically half-naked!" ("base", "wide", "narrow", "mid") # Neutral, expressing mild concern and embarrassment.
+                    gen "Oh, please. I bet you just tripped over a root and lost your robes in the panic." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    lun "Oh? You think so?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    # luna unfastens her cloak, revealing the obvious lack of a uniform beneath.
+                    gen "...By the bloody Sorting Hat!!!" ("angry", xpos="far_left", ypos="head")
+                    gen "..." ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Now do you believe me?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    gen "And what did it do with it?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "It placed it on its head. Like some sort of crown." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "So now there's a Whomping Willow sapling with your... underwear... as a crown?" ("base", xpos="far_left", ypos="head")
+                    lun "I guess so. It seems oddly pleased with itself." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "*Ahem*... it’s certainly... regal now." ("base", xpos="far_left", ypos="head")
+                    lun "*Sigh*... I just hope it doesn’t start making demands for more clothes." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "At least it calmed down after that. It's just sitting there, wearing my underwear like it’s the latest fashion trend." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "*Professor Snape suddenly appears from behind a tree, having witnessed the entire scene.* "
+                    gen "*eyes widen in shock*... Professor Snape saw the whole thing, didn’t he?" ("base", xpos="far_left", ypos="head")
+                    lun "*mutters*... Yes... he did. He just stood there, staring at me in disbelief." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "And... neither of you said anything?" ("base", xpos="far_left", ypos="head")
+                    lun "*shrugs*... I think we were both too surprised to react. I mean, who expects a sapling to steal your underwear while you’re upside down?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "True... it’s not an everyday occurrence." ("base", xpos="far_left", ypos="head")
+                    lun "We just... stood there. Me, upside down, topless, and him... speechless." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "So, no words, just... awkward silence." ("base", xpos="far_left", ypos="head")
+                    lun "Exactly. The weirdest part? He didn’t even flinch when I handed it to the sapling. He just... watched." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Well, that *is* Snape, isn’t it?" ("base", xpos="far_left", ypos="head")
+                    lun "He’s probably seen worse... but I’m not sure I’ll ever be able to look him in the eye again." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+
+                elif lun_end_day =="The Greenhouse Rebellion":
+                    lun @ cheeks blush "Well... I may have accidentally started a small revolution in the greenhouse." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment and mild concern.
+                    gen "A... revolution?" ("base", xpos="far_left", ypos="head") 
+                    lun "Yes. The Gillyweed refused to stay in its pot, the Venomous Tentacula took offense, and then the Puffapods started exploding in protest." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "It was all very dramatic." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "And what did you do?" ("base", xpos="far_left", ypos="head")
+                    lun "I negotiated a truce by offering extra compost." ("grin", "narrow", "base", "mid") # Proud, expressing mild satisfaction.
+                    lun "But that wasn’t enough... because the plants had more demands." ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "What else did they want?" ("base", xpos="far_left", ypos="head")
+                    lun "(pauses, looking slightly frustrated)" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "At first, it seemed simple. The Venomous Tentacula wanted a better view of the sun, the Puffapods demanded more attention..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    lun "But the Gillyweed... the Gillyweed wanted something *personal*." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
+                    gen "What exactly?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "(sighs) My... *bra*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    gen "The plants *demanded* your *bra*?"("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Yes. They wouldn’t stop tugging at my clothes, like they were waiting for me to hand it over." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    gen "And you just *gave* it to them?" ("base", xpos="far_left", ypos="head")
+                    lun "(crossing arms, clearly annoyed) I didn’t have a choice!" ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
+                    lun @ cheeks blush "After all the pulling and insisting, I sighed, took off my shirt, and handed over the bra. It was the only way to make them stop." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    lun "As soon as I gave it up, the vines wrapped around it like it was some kind of trophy." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    gen "(massaging temples) This is... ridiculous." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, and there’s more." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "(suspicious) ...What else could have possibly happened?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "(huffs) When I turned to grab my shirt... it was *gone*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    gen "(raising an eyebrow) Gone? What do you mean, gone?" ("base", xpos="far_left", ypos="head")
+                    lun "Vanished. Some sneaky plant must’ve taken it when I wasn’t looking." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    gen "So, to sum this up: you went into the greenhouse to negotiate with the plants, ended up giving them your bra, and when you turned around, your shirt had disappeared too?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "(arms crossed, visibly frustrated) That’s exactly what happened." ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
+                    gen "(laughing) I think they tricked you, lun."("base", xpos="far_left", ypos="head")
+                    lun "(grumbling) I’m starting to think so too..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    gen "At this rate, I wouldn’t be surprised if they ask for your shoes next." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "(sarcastic) Fantastic. Can’t wait to walk back barefoot because some leafy menace decided it wants footwear now." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    lun @ cheeks blush "(takes a deep breath, looking down at her bag)" ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    lun @ cheeks blush "(grumbles) And now I still have to open my bag and hand over the payment..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+                    lun @ cheeks blush "(hesitates, shifting uncomfortably) This would be *so* much easier if I still had *something* on..." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    gen "Need a hand?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Don’t even *think* about it." ("angry", "narrow", "base", "mid") # Angry, expressing mild frustration.
+                    lun "Alright, let’s just get this over with..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "(reluctantly lowers her arms, trying to get into her bag)" ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    lun @ cheeks blush "(muttering) The least you could do is give me a *discount* for the free show..." ("annoyed", "narrow", "base", "mid") # Annoyed, expressing mild frustration.
+
+                elif lun_end_day =="The Devil’s Snare’s Complimentary Feast":
+                    lun "Did you know that if you whisper sweet compliments to a Devil’s Snare, it grows twice as fast?" ("grin", "narrow", "base", "mid") # Curious, expressing fascination and excitement.
+                    gen "That... sounds like a disaster waiting to happen." ("base", xpos="far_left", ypos="head")
+                    lun "Professor Sprout disagrees. She called it 'a fascinating breakthrough in magical botany.'" ("base", "base", "base", "mid") # Neutral, stating a fact.
+                    gen "You do realize your job is to *control* the plants, not train them to take hostages?" ("angry", xpos="far_left", ypos="head")
+                    lun "Oh, don't be so dramatic. I simply *enhanced* its natural growth response." ("soft", "narrow", "base", "mid") # Reflective, expressing mild defensiveness.
+                    gen "Let me guess. You got a little too close, didn’t you?" ("base", xpos="far_left", ypos="head")
+                    lun "(sighs) It was all in the name of research! And yes, maybe I got *slightly* entangled in the process." ("base", "narrow", "base", "down") # Embarrassed, expressing mild regret.
+                    gen "Slightly?" ("base", xpos="far_left", ypos="head")
+                    lun "...Alright, *completely* entangled." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
+                    lun "But you should’ve seen it! The vines were practically *purring* when I told them how magnificent they were." ("grin", "narrow", "base", "mid") # Excited, expressing enthusiasm.
+                    gen "Oh yes, I'm sure they were *thrilled* right before they wrapped you up like a Christmas present." ("base", xpos="far_left", ypos="head")
+                    lun "That’s an unfair exaggeration... *mostly*. Though, I will admit, getting free wasn’t easy." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Let me guess, you had to bribe them?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Sort of! But instead of gold, they seemed more interested in... fabric." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
+                    gen "...Fabric?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Yes. My robes were the first to go. Then my cloak. Then my *shirt*." ("soft", "narrow", "base", "downR") # Flustered, expressing deep embarrassment.
+                    gen "[name_luna_genie], please tell me you didn’t—" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Look, I tried *everything* else! And when I finally managed to free my arms, I *may* have had to part ways with... additional garments." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern and embarrassment.
+                    gen "...By the mischievous whiskers of Dumbledore!!!" ("angry", xpos="far_left", ypos="head")
+                    lun "Honestly, it was a small price to pay for scientific progress." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "A *small* price?! You’re standing here dripping wet, covered in dirt, and barely dressed!" ("angry", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Yes, but did you *see* how much it grew? If we harness this, imagine the agricultural advancements!" ("grin", "narrow", "base", "mid") # Excited, expressing enthusiasm mixed with embarrassment.
+                    gen "(sighs) I’d rather imagine you keeping your clothes on for once." ("angry", xpos="far_left", ypos="head")
+                    lun "Oh, don't be so old-fashioned. Plants don't judge."  ("grin", "narrow", "base", "mid") # Playful, expressing lightheartedness.
+                    lun "(glances down at herself) Though, I *was* hoping to retrieve my shirt before coming here... but, well... the Snare *ate* it." ("soft", "narrow", "base", "downR") # Flustered, expressing embarrassment.
+                    gen "It *ate* it?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes. And it *seemed* quite pleased with itself." ("grin", "narrow", "base", "mid") # Amused, expressing mild fascination.
+                    gen "This is why we don’t compliment the man-eating plants, [name_luna_genie]." ("angry", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Oh please, it’s hardly man-eating. *Clothes*-eating, maybe." ("grin", "narrow", "base", "mid") # Playful, expressing lightheartedness.
+                    lun @ cheeks blush "(sighs) Anyway, here's your payment. No extra charge for the show." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "(muttering) At this rate, I'll get used to it and start wanting to pay for the show..." ("angry", xpos="far_left", ypos="head")
             "-Dismiss her-":
                 gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
                 gen "Your contribution are updated.." ("base", xpos="far_left", ypos="head")
@@ -1139,98 +1076,52 @@ label lun_magizoologist_job_return:
         if states.lun.level < 4:
             random:
                 block:
-                    # "Fire Crab Stampede"
-                    $ lun_end_day = "Fire Crab Stampede"
+                    # "The Black Lake’s Wardrobe Malfunction"
+                    $ lun_end_day = "The Black Lake’s Wardrobe Malfunction"
                     $ is_wet = True
                     $ missing_top = False
                     $ missing_bra = True
                     $ missing_bottom = False
                     $ missing_panties = False
                 block:
-                    # "Niffler Riot"
-                    $ lun_end_day = "Niffler Riot"
+                    # "The Squid’s Bikini Heist"
+                    $ lun_end_day = "The Squid’s Bikini Heist"
                     $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = False
                     $ missing_bottom = False
                     $ missing_panties = False
                 block:
-                    # "Fire Crab Training Gone Wrong"
-                    $ lun_end_day = "Fire Crab Training Gone Wrong"
-                    $ is_wet = True
+                    # "Lakeweed and Laughter"
+                    $ lun_end_day = "Lakeweed and Laughter"
+                    $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = True
                     $ missing_bottom = False
                     $ missing_panties = False
-                block:
-                    # "Fwooper Serenade"
-                    $ lun_end_day = "Fwooper Serenade"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Demiguise Discovery"
-                    $ lun_end_day = "Demiguise Discovery"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Kelpie's Revenge"
-                    $ lun_end_day = "Kelpie's Revenge"
-                    $ is_wet = True
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Occamy Scarf Mishap"
-                    $ lun_end_day = "Occamy Scarf Mishap"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:
-                    # "Erumpent Mating Dance"
-                    $ lun_end_day = "Erumpent Mating Dance"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
-                block:  
-                    # "Jobberknoll's Final Words"
-                    $ lun_end_day = "Jobberknoll's Final Words"
-                    $ is_wet = False
-                    $ missing_top = False
-                    $ missing_bra = False
-                    $ missing_bottom = False
-                    $ missing_panties = False
+                
         elif states.lun.level < 13:
             random:
                 block:
                     # Input data
-                    $ lun_end_day = "Demiguise's Invisible Heist"
+                    $ lun_end_day = "The Whirlpool Heist"
+                    $ is_wet = False
+                    $ missing_top = True
+                    $ missing_bra = True
+                    $ missing_bottom = False
+                    $ missing_panties = False
+                block:  
+                    # Input data
+                    $ lun_end_day = "The Overeager Fishermen"
                     $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = False
                     $ missing_bottom = True
-                    $ missing_panties = False
-                block:  
-                    # Input data
-                    $ lun_end_day =  "Fire Crab Concert Gone Wild"
-                    $ is_wet = False
-                    $ missing_top = True
-                    $ missing_bra = True
-                    $ missing_bottom = True
-                    $ missing_panties = False
+                    $ missing_panties = True
+                    $ change_pose = True
                 block:    
                     # Input data
-                    $ lun_end_day =  "Demiguise's Wardrobe Malfunction"
+                    $ lun_end_day =  "Laughter and Shame at the Lake"
                     $ is_wet = False
                     $ missing_top = True
                     $ missing_bra = True
@@ -1240,21 +1131,30 @@ label lun_magizoologist_job_return:
             random:
                 block:
                     # Input data
-                    $ lun_end_day =  "Fire Crab's Fiery Fiasco"
-                    $ is_wet = True
+                    $ lun_end_day = "Luna's Aquatic Adventures: The Lake That Shows No Mercy"
+                    $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = False
+                    $ missing_bottom = True
+                    $ missing_panties = True 
+                    $ change_pose = True
+                block:
+                    # Input data
+                    $ lun_end_day = "The Cursed Bikini and the Friendly Squid"
+                    $ is_wet = False
+                    $ missing_top = True
+                    $ missing_bra = True
                     $ missing_bottom = False
                     $ missing_panties = False 
                 block:
                     # Input data
-                    $ lun_end_day = "Niffler's Underwear Heist"
+                    $ lun_end_day = "Luna and the Lake: A Tale of Losses and Gains"
                     $ is_wet = False
                     $ missing_top = False
                     $ missing_bra = False
                     $ missing_bottom = False
-                    $ missing_panties = True 
-
+                    $ missing_panties = False 
+                    $ change_pose = True
         if is_wet:
             $ lun_outfit_default.group[0].color[1] ="#777777DD" 
             $ lun_outfit_default.group[1].color[1] ="#777777AA" 
@@ -1276,338 +1176,319 @@ label lun_magizoologist_job_return:
         lun "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
         menu:
             "\"What exactly did you do today?\"":
-                if states.lun.level < 4:
-                    random:
-                        block:
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
-                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, right... the payment. Just give me a moment..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            # *Luna reaches for her pouch, but her wet fingers slip, and she fumbles with it. The pouch pops open, sending coins flying everywhere.*
-                            lun "Oh no!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The coins bounce off furniture, roll under the desk, and one even lands in a nearby cauldron with a loud *plop!*.*
-                            gen "Luna... please tell me that wasn't the entire payment." ("base", xpos="far_left", ypos="head")
-                            lun "Just—just give me a second! I can get them back!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            # *She scrambles after the rolling coins, but the floor is still wet from her clothes. She slips, flailing her arms wildly before crashing onto the floor with a loud *THUD!*.*
-                            gen "Are you alright?" ("base", xpos="far_left", ypos="head")
-                            lun "Perfectly fine. Just enjoying my time on the floor." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion with sarcasm.
-                            # *She reaches for a coin under the desk but knocks over a stack of books, which tumble onto her head.*
-                            lun "Ow!" ("angry", "closed", "base", "mid") # Angry, expressing pain.
-                            gen "Luna, maybe you should—"
-                            # *Before he can finish, Luna tries to stand but steps on another coin, slipping again and knocking over an entire shelf of potion ingredients. A puff of purple smoke bursts into the air.*
-                            lun "Oh no, that can’t be good..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *As the smoke clears, her hair is now bright green and sticking up in every direction.*
-                            gen "You look... refreshed." ("base", xpos="far_left", ypos="head")
-                            lun "I hate everything about today." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *Finally, she collects the remaining coins, now covered in slime, soot, and possibly some lake residue. She holds them out with an exhausted sigh.*
-                            lun "Here. Just take it before something else happens." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "You know, I think I should give you a discount for effort alone." ("base", xpos="far_left", ypos="head")
-                            lun "At this point, I deserve a raise." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "Go dry off, Luna. Before the office collapses around you." ("base", xpos="far_left", ypos="head")
-                            lun "Not the worst way this day could end..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "...I regret all of my choices today." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Here’s a suggestion: Next time, bring a robe." ("base", xpos="far_left", ypos="head")
-                            lun "Noted." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                        block:
-                            # *Luna enters the headmaster's office, drenched from head to toe, her tiny bikini barely holding on after a long, exhausting day.*
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "And I have never felt so *violated* in my entire life." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "I told you, it’s the right attire for the job." ("base", xpos="far_left", ypos="head")
-                            lun "Oh really? Try telling that to the giant squid that spent the last hour playing with my bikini strings!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "...The giant squid?" ("base", xpos="far_left", ypos="head")
-                            lun "YES! That pervy calamari had a *field day* tugging at my top! Every time I tied it back, *slip!*—there went the knot again!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "Maybe he was just curious?" ("base", xpos="far_left", ypos="head")
-                            lun "Oh, I’m sure he was! But curiosity *should not* involve tentacles untying knots at high speeds!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She huffs, crossing her arms, but realizes this only makes her look more exposed. She quickly uncrosses them, then crosses them again, unsure what to do.*
-                            gen "At least it sounds like you got through the job." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, I *thought* I did. Then a swarm of Grindylows decided my bikini ties looked like *delicious seaweed* and tried to snack on them." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "That sounds... unfortunate." ("base", xpos="far_left", ypos="head")
-                            lun "Do you know how hard it is to wrestle off a dozen Grindylows while *underwater*—and while also trying to hold on to your last shred of dignity?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She shivers, shaking some leftover water onto the carpet. A stray fish flops out of her hair, flopping sadly on the floor.*
-                            lun "Oh, wonderful. That’s Fredrick. He’s been in my hair since the kelpie incident." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "I don’t think I want to know what happened there." ("base", xpos="far_left", ypos="head")
-                            lun "Smart choice." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
-                            lun "Right. The payment. Just—hold on..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            # *She reaches for her pouch, which is tied to her hip by a soaked, knotted string. As she fumbles to untie it, her bikini bottom starts to slip dangerously low.*
-                            lun @ cheeks blush "Oh no, no, no, stay up—!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            # *She quickly lets go of the pouch to grab her bikini bottom, but now her top string loosens slightly. She panics, trying to cover both at once with just two hands.*
-                            lun "This is impossible!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Would you like help—"
-                            lun "NO!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She attempts a wandless summoning spell instead.*
-                            lun "Accio pouch!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The pouch flies into her hands—but due to the force of the spell, it bursts open, sending coins scattering across the office. One bounces off the Genie's head, another lands in his teacup.*
-                            gen "…Impressive aim." ("base", xpos="far_left", ypos="head")
-                            lun "*Why does this always happen to me?!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She scrambles to pick up the coins, but bending down causes another *catastrophic wardrobe malfunction*—forcing her to immediately straighten up again, flustered.*
-                            lun "You know what? Keep the coins that landed near you. I'll just—I'll just leave now." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She backs toward the door, trying to maintain what little modesty she has left, but accidentally steps on a puddle of lake water. She slips, flails wildly—*
-                            # *—and crashes *directly* into the Genie’s desk, knocking over an entire stack of enchanted scrolls.*
-                            gen "Luna, maybe you should—"
-                            lun "I KNOW!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She quickly scoops up the remaining coins, slams them onto the desk, and dashes out the door, nearly tripping over her own feet.*
-                            lun @ cheeks blush "(offscreen) I QUIT!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            # *A moment of silence. The Genie sips his tea.*
-                            gen "I should start charging admission for this." ("base", xpos="far_left", ypos="head")
-                            lun "..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                        block:
-                            $ luna.strip("bra")
-                            # *Luna enters the headmaster’s office, completely soaked, her face red with embarrassment. She’s clutching a bundle of wet lakeweed against her chest like a makeshift top.*
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "And in return, I was *assaulted* by an overgrown seafood platter!" ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "Let me guess… the giant squid?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes! And do you know what that *perverted cephalopod* did?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Judging by your… *creative choice* of attire, I have a guess." ("base", xpos="far_left", ypos="head")
-                            lun "He stole my bikini top! *Ripped it right off!* One second, I’m scrubbing algae off a rock, the next—WHOOSH! Tentacles *everywhere*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "That squid has good taste." ("base", xpos="far_left", ypos="head")
-                            lun "*NOT HELPING!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She tightens her grip on the lakeweed, shivering slightly from the cold.*
-                            lun "Then, as I’m desperately trying to cover myself, the mermaids pop up. Do they help? No. They *point and laugh*! One of them even gave me a *rating*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "A rating?" ("base", xpos="far_left", ypos="head")
-                            lun "*A six out of ten!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Oof. Tough critics." ("base", xpos="far_left", ypos="head")
-                            lun "AND THEN, while I’m arguing with them, the squid has the *audacity* to start waving my bikini top around like some kind of *victory flag!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "*That’s just showing off.*" ("base", xpos="far_left", ypos="head")
-                            lun "I tried to *Accio* it back, but noooo—Mr. Grabby Tentacles was too fast! Every time it flew towards me, he’d snatch it back like it was some *game!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She sighs dramatically, her shoulders slumping.*
-                            lun "At that point, I had two choices: keep fighting a *literal* sea monster over a glorified napkin… or get out of there with what little dignity I had left." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And you chose…?" ("base", xpos="far_left", ypos="head")
-                            lun "Option C: *RUN FOR MY LIFE!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She gestures wildly, nearly dropping the lakeweed in the process. She squeaks, adjusting it just in time.*
-                            lun "I sprinted to shore, *dived* into a bush, and crafted this *fashion statement* out of lakeweed and shame." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Ah yes, the latest in wetland couture." ("base", xpos="far_left", ypos="head")
-                            lun "And THEN I had to sneak through the castle like some kind of *criminal!* Dodging students, hiding behind suits of armor—at one point, I *had to outrun Peeves!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "I assume he didn’t make things easy." ("base", xpos="far_left", ypos="head")
-                            lun "He chased me down the entire corridor singing, *'Loony’s streaking through the halls!'*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She buries her face in her free hand, groaning.*
-                            lun "I *tried* to use a Disillusionment Charm, but in my panic, I mispronounced it. Instead of blending in, I just turned BRIGHT NEON PINK!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "A bold strategy, but not the most effective." ("base", xpos="far_left", ypos="head")
-                            lun "*No kidding!* I looked like a half-naked, fluorescent *sign* sprinting through the castle!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She takes a deep breath, visibly trembling from frustration.*
-                            lun "But I *finally* made it here. And I got the payment. So just take it before something else goes wrong." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            # *She awkwardly reaches for her pouch, still clutching the lakeweed against her chest. But as she tries to open the zipper one-handed, the wet fabric slips from her grasp.*
-                            lun "Oh no—!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The lakeweed flutters to the ground. Silence.*
-                            # *Luna freezes. The Genie slowly raises an eyebrow.*
-                            # *In one panicked motion, she *throws* the entire pouch at his face, snatches the lakeweed back, and bolts for the door.*
-                            lun "KEEP THE CHANGE!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The door SLAMS behind her. A moment of silence.*
-                            call lun_walk(action="leave")
-                            # *The Genie slowly peels the pouch off his face, sighing.*
-                            gen "I should start a betting pool on how much clothing she loses per job." ("base", xpos="far_left", ypos="head")
-                        $ game.gold += payment
-                        $ luna.equip(lun_outfit_last)
-                        $ states.lun.busy = True
-                        $ current_job = None
-                        jump main_room_menu
+                if lun_end_day =="The Black Lake’s Wardrobe Malfunction"
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                    lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, right... the payment. Just give me a moment..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    # *Luna reaches for her pouch, but her wet fingers slip, and she fumbles with it. The pouch pops open, sending coins flying everywhere.*
+                    lun "Oh no!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The coins bounce off furniture, roll under the desk, and one even lands in a nearby cauldron with a loud *plop!*.*
+                    gen "Luna... please tell me that wasn't the entire payment." ("base", xpos="far_left", ypos="head")
+                    lun "Just—just give me a second! I can get them back!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    # *She scrambles after the rolling coins, but the floor is still wet from her clothes. She slips, flailing her arms wildly before crashing onto the floor with a loud *THUD!*.*
+                    gen "Are you alright?" ("base", xpos="far_left", ypos="head")
+                    lun "Perfectly fine. Just enjoying my time on the floor." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion with sarcasm.
+                    # *She reaches for a coin under the desk but knocks over a stack of books, which tumble onto her head.*
+                    lun "Ow!" ("angry", "closed", "base", "mid") # Angry, expressing pain.
+                    gen "Luna, maybe you should—"
+                    # *Before he can finish, Luna tries to stand but steps on another coin, slipping again and knocking over an entire shelf of potion ingredients. A puff of purple smoke bursts into the air.*
+                    lun "Oh no, that can’t be good..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *As the smoke clears, her hair is now bright green and sticking up in every direction.*
+                    gen "You look... refreshed." ("base", xpos="far_left", ypos="head")
+                    lun "I hate everything about today." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *Finally, she collects the remaining coins, now covered in slime, soot, and possibly some lake residue. She holds them out with an exhausted sigh.*
+                    lun "Here. Just take it before something else happens." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "You know, I think I should give you a discount for effort alone." ("base", xpos="far_left", ypos="head")
+                    lun "At this point, I deserve a raise." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "Go dry off, Luna. Before the office collapses around you." ("base", xpos="far_left", ypos="head")
+                    lun "Not the worst way this day could end..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "...I regret all of my choices today." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Here’s a suggestion: Next time, bring a robe." ("base", xpos="far_left", ypos="head")
+                    lun "Noted." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                elif lun_end_day =="The Squid’s Bikini Heist"
+                    # *Luna enters the headmaster's office, drenched from head to toe, her tiny bikini barely holding on after a long, exhausting day.*
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "And I have never felt so *violated* in my entire life." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "I told you, it’s the right attire for the job." ("base", xpos="far_left", ypos="head")
+                    lun "Oh really? Try telling that to the giant squid that spent the last hour playing with my bikini strings!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "...The giant squid?" ("base", xpos="far_left", ypos="head")
+                    lun "YES! That pervy calamari had a *field day* tugging at my top! Every time I tied it back, *slip!*—there went the knot again!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "Maybe he was just curious?" ("base", xpos="far_left", ypos="head")
+                    lun "Oh, I’m sure he was! But curiosity *should not* involve tentacles untying knots at high speeds!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She huffs, crossing her arms, but realizes this only makes her look more exposed. She quickly uncrosses them, then crosses them again, unsure what to do.*
+                    gen "At least it sounds like you got through the job." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, I *thought* I did. Then a swarm of Grindylows decided my bikini ties looked like *delicious seaweed* and tried to snack on them." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "That sounds... unfortunate." ("base", xpos="far_left", ypos="head")
+                    lun "Do you know how hard it is to wrestle off a dozen Grindylows while *underwater*—and while also trying to hold on to your last shred of dignity?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She shivers, shaking some leftover water onto the carpet. A stray fish flops out of her hair, flopping sadly on the floor.*
+                    lun "Oh, wonderful. That’s Fredrick. He’s been in my hair since the kelpie incident." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "I don’t think I want to know what happened there." ("base", xpos="far_left", ypos="head")
+                    lun "Smart choice." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                    lun "Right. The payment. Just—hold on..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    # *She reaches for her pouch, which is tied to her hip by a soaked, knotted string. As she fumbles to untie it, her bikini bottom starts to slip dangerously low.*
+                    lun @ cheeks blush "Oh no, no, no, stay up—!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    # *She quickly lets go of the pouch to grab her bikini bottom, but now her top string loosens slightly. She panics, trying to cover both at once with just two hands.*
+                    lun "This is impossible!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Would you like help—"
+                    lun "NO!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She attempts a wandless summoning spell instead.*
+                    lun "Accio pouch!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The pouch flies into her hands—but due to the force of the spell, it bursts open, sending coins scattering across the office. One bounces off the Genie's head, another lands in his teacup.*
+                    gen "…Impressive aim." ("base", xpos="far_left", ypos="head")
+                    lun "*Why does this always happen to me?!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She scrambles to pick up the coins, but bending down causes another *catastrophic wardrobe malfunction*—forcing her to immediately straighten up again, flustered.*
+                    lun "You know what? Keep the coins that landed near you. I'll just—I'll just leave now." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She backs toward the door, trying to maintain what little modesty she has left, but accidentally steps on a puddle of lake water. She slips, flails wildly—*
+                    # *—and crashes *directly* into the Genie’s desk, knocking over an entire stack of enchanted scrolls.*
+                    gen "Luna, maybe you should—"
+                    lun "I KNOW!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She quickly scoops up the remaining coins, slams them onto the desk, and dashes out the door, nearly tripping over her own feet.*
+                    lun @ cheeks blush "(offscreen) I QUIT!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    # *A moment of silence. The Genie sips his tea.*
+                    gen "I should start charging admission for this." ("base", xpos="far_left", ypos="head")
+                    lun "..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                elif lun_end_day =="Lakeweed and Laughter"
+                    # *Luna enters the headmaster’s office, completely soaked, her face red with embarrassment. She’s clutching a bundle of wet lakeweed against her chest like a makeshift top.*
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "And in return, I was *assaulted* by an overgrown seafood platter!" ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "Let me guess… the giant squid?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes! And do you know what that *perverted cephalopod* did?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Judging by your… *creative choice* of attire, I have a guess." ("base", xpos="far_left", ypos="head")
+                    lun "He stole my bikini top! *Ripped it right off!* One second, I’m scrubbing algae off a rock, the next—WHOOSH! Tentacles *everywhere*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "That squid has good taste." ("base", xpos="far_left", ypos="head")
+                    lun "*NOT HELPING!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She tightens her grip on the lakeweed, shivering slightly from the cold.*
+                    lun "Then, as I’m desperately trying to cover myself, the mermaids pop up. Do they help? No. They *point and laugh*! One of them even gave me a *rating*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "A rating?" ("base", xpos="far_left", ypos="head")
+                    lun "*A six out of ten!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Oof. Tough critics." ("base", xpos="far_left", ypos="head")
+                    lun "AND THEN, while I’m arguing with them, the squid has the *audacity* to start waving my bikini top around like some kind of *victory flag!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "*That’s just showing off.*" ("base", xpos="far_left", ypos="head")
+                    lun "I tried to *Accio* it back, but noooo—Mr. Grabby Tentacles was too fast! Every time it flew towards me, he’d snatch it back like it was some *game!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She sighs dramatically, her shoulders slumping.*
+                    lun "At that point, I had two choices: keep fighting a *literal* sea monster over a glorified napkin… or get out of there with what little dignity I had left." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And you chose…?" ("base", xpos="far_left", ypos="head")
+                    lun "Option C: *RUN FOR MY LIFE!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She gestures wildly, nearly dropping the lakeweed in the process. She squeaks, adjusting it just in time.*
+                    lun "I sprinted to shore, *dived* into a bush, and crafted this *fashion statement* out of lakeweed and shame." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Ah yes, the latest in wetland couture." ("base", xpos="far_left", ypos="head")
+                    lun "And THEN I had to sneak through the castle like some kind of *criminal!* Dodging students, hiding behind suits of armor—at one point, I *had to outrun Peeves!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "I assume he didn’t make things easy." ("base", xpos="far_left", ypos="head")
+                    lun "He chased me down the entire corridor singing, *'Loony’s streaking through the halls!'*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She buries her face in her free hand, groaning.*
+                    lun "I *tried* to use a Disillusionment Charm, but in my panic, I mispronounced it. Instead of blending in, I just turned BRIGHT NEON PINK!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "A bold strategy, but not the most effective." ("base", xpos="far_left", ypos="head")
+                    lun "*No kidding!* I looked like a half-naked, fluorescent *sign* sprinting through the castle!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She takes a deep breath, visibly trembling from frustration.*
+                    lun "But I *finally* made it here. And I got the payment. So just take it before something else goes wrong." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    # *She awkwardly reaches for her pouch, still clutching the lakeweed against her chest. But as she tries to open the zipper one-handed, the wet fabric slips from her grasp.*
+                    lun "Oh no—!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The lakeweed flutters to the ground. Silence.*
+                    # *Luna freezes. The Genie slowly raises an eyebrow.*
+                    # *In one panicked motion, she *throws* the entire pouch at his face, snatches the lakeweed back, and bolts for the door.*
+                    lun "KEEP THE CHANGE!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie slowly peels the pouch off his face, sighing.*
+                    gen "I should start a betting pool on how much clothing she loses per job." ("base", xpos="far_left", ypos="head")
 
-                elif states.lun.level < 12:
-                    random:
-                        block:
-                            $ luna.strip("bra")
-                            # *The door swings open, and Luna stumbles in, dripping wet and breathing heavily. She clutches a bundle of soaked fabric against her chest, her expression caught between exhaustion and disbelief.*
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "And judging by your entrance, it was quite the adventure." ("base", xpos="far_left", ypos="head")
-                            # *Luna closes her eyes, inhaling deeply before exhaling through gritted teeth.*
-                            lun "The lake... attacked me." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie raises an eyebrow.*
-                            gen "Attacked? The lake itself?" ("base", xpos="far_left", ypos="head")
-                            lun "Yes! The *water* suddenly started swirling like a giant drain! Next thing I knew, I was spinning in circles, getting sucked toward Merlin-knows-where!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Huh. Sounds like a rogue whirlpool." ("base", xpos="far_left", ypos="head")
-                            # *Luna glares at him.*
-                            lun @ cheeks blush "Oh, it gets better. The whirlpool didn't just spin me—it *stole* from me." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Stole? What could a whirlpool possibly—?" ("base", xpos="far_left", ypos="head")
-                            # *Luna aggressively gestures to the soaked fabric in her arms, her face flushed.*
-                            lun @ cheeks blush "It yanked off my *bikini top*. Just—gone! Swallowed by the abyss!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            # *The Genie blinks.*
-                            gen "...So you're saying the lake *robbed* you?" ("base", xpos="far_left", ypos="head")
-                            lun "YES! And do you know what's worse?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Something tells me you're going to enlighten me." ("base", xpos="far_left", ypos="head")
-                            lun "I managed to escape the current, but guess who *else* was nearby?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie leans forward slightly.*
-                            gen "...Mermaids?" ("base", xpos="far_left", ypos="head")
-                            # *Luna groans, dragging a hand down her face.*
-                            lun @ cheeks blush "*And* grindylows. And the giant squid. And an entire school of curious fish! All getting a *very* unexpected show!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "So... you had an audience?" ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Oh yes. The mermaids *cheered*. The grindylows tried to *pull my last remaining piece of dignity off*. And the squid? The squid decided to be *helpful*—by handing me a giant clamshell to cover myself!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            # *The Genie snorts.*
-                            gen "Well, that's thoughtful." ("base", xpos="far_left", ypos="head")
-                            lun "I HAD TO SWIM BACK HOLDING A CLAMSHELL TO MY CHEST." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie bursts into laughter.*
-                            gen "That explains why you're carrying a wet heap of fabric instead of wearing it." ("base", xpos="far_left", ypos="head")
-                            # *Luna glares but then sighs, shaking her head.*
-                            lun "At least the lake is *clean*. It should sparkle like a freshly polished crystal ball for the next decade." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And you got paid?" ("base", xpos="far_left", ypos="head")
-                            # *Luna nods, reaching for the small pouch tied awkwardly to her wrist.*
-                            # *She struggles for a moment, trying to untie it with one hand while still holding her soggy bikini top and clamshell in place.*
-                            # *After several failed attempts, she groans and just tosses the pouch at the Genie’s head.*
-                            lun "THERE. Take it. I’m going to go *reevaluate my life choices*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie catches the pouch, chuckling as Luna stomps toward the door.*
-                            gen "At least now we know—next time, bring *glue*." ("base", xpos="far_left", ypos="head")
-                            # *Luna pauses, turning her head just enough to glare at him over her shoulder.*
-                            lun "Next time, *I'm making the lake pay ME.*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *With that, she storms out, leaving a trail of lake water behind.*
-                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
+                elif lun_end_day =="The Whirlpool Heist"
+                    $ luna.strip("bra")
+                    # *The door swings open, and Luna stumbles in, dripping wet and breathing heavily. She clutches a bundle of soaked fabric against her chest, her expression caught between exhaustion and disbelief.*
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "And judging by your entrance, it was quite the adventure." ("base", xpos="far_left", ypos="head")
+                    # *Luna closes her eyes, inhaling deeply before exhaling through gritted teeth.*
+                    lun "The lake... attacked me." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie raises an eyebrow.*
+                    gen "Attacked? The lake itself?" ("base", xpos="far_left", ypos="head")
+                    lun "Yes! The *water* suddenly started swirling like a giant drain! Next thing I knew, I was spinning in circles, getting sucked toward Merlin-knows-where!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Huh. Sounds like a rogue whirlpool." ("base", xpos="far_left", ypos="head")
+                    # *Luna glares at him.*
+                    lun @ cheeks blush "Oh, it gets better. The whirlpool didn't just spin me—it *stole* from me." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Stole? What could a whirlpool possibly—?" ("base", xpos="far_left", ypos="head")
+                    # *Luna aggressively gestures to the soaked fabric in her arms, her face flushed.*
+                    lun @ cheeks blush "It yanked off my *bikini top*. Just—gone! Swallowed by the abyss!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    # *The Genie blinks.*
+                    gen "...So you're saying the lake *robbed* you?" ("base", xpos="far_left", ypos="head")
+                    lun "YES! And do you know what's worse?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Something tells me you're going to enlighten me." ("base", xpos="far_left", ypos="head")
+                    lun "I managed to escape the current, but guess who *else* was nearby?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie leans forward slightly.*
+                    gen "...Mermaids?" ("base", xpos="far_left", ypos="head")
+                    # *Luna groans, dragging a hand down her face.*
+                    lun @ cheeks blush "*And* grindylows. And the giant squid. And an entire school of curious fish! All getting a *very* unexpected show!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "So... you had an audience?" ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Oh yes. The mermaids *cheered*. The grindylows tried to *pull my last remaining piece of dignity off*. And the squid? The squid decided to be *helpful*—by handing me a giant clamshell to cover myself!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    # *The Genie snorts.*
+                    gen "Well, that's thoughtful." ("base", xpos="far_left", ypos="head")
+                    lun "I HAD TO SWIM BACK HOLDING A CLAMSHELL TO MY CHEST." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie bursts into laughter.*
+                    gen "That explains why you're carrying a wet heap of fabric instead of wearing it." ("base", xpos="far_left", ypos="head")
+                    # *Luna glares but then sighs, shaking her head.*
+                    lun "At least the lake is *clean*. It should sparkle like a freshly polished crystal ball for the next decade." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And you got paid?" ("base", xpos="far_left", ypos="head")
+                    # *Luna nods, reaching for the small pouch tied awkwardly to her wrist.*
+                    # *She struggles for a moment, trying to untie it with one hand while still holding her soggy bikini top and clamshell in place.*
+                    # *After several failed attempts, she groans and just tosses the pouch at the Genie’s head.*
+                    lun "THERE. Take it. I’m going to go *reevaluate my life choices*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie catches the pouch, chuckling as Luna stomps toward the door.*
+                    gen "At least now we know—next time, bring *glue*." ("base", xpos="far_left", ypos="head")
+                    # *Luna pauses, turning her head just enough to glare at him over her shoulder.*
+                    lun "Next time, *I'm making the lake pay ME.*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *With that, she storms out, leaving a trail of lake water behind.*
+                    lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
 
-                        block:
-                            $ luna.set_pose("hand_on_pussy_and_breast")
-                            $ luna.strip("panties")                        
-                            # *The door creaks open, and Luna steps inside, her hair dripping wet, her arms crossed tightly over her chest, and her expression caught between irritation and disbelief.*
-                            gen "Ah, my favorite lake cleaner returns. Judging by your look, I assume everything went smoothly?" ("base", xpos="far_left", ypos="head")
-                            lun "Oh, absolutely. The Black Lake is pristine. Not because of me, mind you, but because an entire group of *pescadores bruxos* decided to take over the job." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Wait, what?" ("base", xpos="far_left", ypos="head")
-                            lun "The moment I waded in, these guys—fully equipped with enchanted nets, diving charms, and *way too much enthusiasm*—popped up out of nowhere!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And they just... started cleaning?" ("base", xpos="far_left", ypos="head")
-                            lun "Not exactly. First, they were *very* interested in why a student was out there in a *bikini the size of a handkerchief*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie smirks.*
-                            gen "I assume they were simply impressed by your dedication." ("base", xpos="far_left", ypos="head")
-                            lun "*Impressed* is one word for it. They practically turned it into a sporting event! One of them cast a bubble-head charm on himself just to follow me around underwater, making sure I was—quote—'safe from dangerous creatures'." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "That’s very responsible of them." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, sure! So responsible that another one started polishing rocks with his wand just because I *looked at them*! Meanwhile, two others were fighting over who got to clear the kelp near me!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie chuckles.*
-                            gen "Well, at least they were thorough." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, you haven’t heard the best part. I *tried* to actually do some cleaning, but as soon as I bent down to pick up some debris—SPLASH! They *dived in* like a pod of overexcited dolphins, cleaning *everything* before I even touched it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "So you’re saying they cleaned the whole lake *for* you?" ("base", xpos="far_left", ypos="head")
-                            lun "*Yes!* I was practically decorative!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And yet... you still look upset." ("base", xpos="far_left", ypos="head")
-                            lun "Because *right as they were finishing up*, one of them tried to show off by casting an overpowered *Aguamenti* spell." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *She exhales sharply.*
-                            lun "Do you know what happens when a high-pressure water jet *hits someone wearing a string bikini*?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie blinks.*
-                            gen "...Oh no." ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Oh yes. My *bottoms* went flying. Gone. Never to be seen again. Probably halfway to the Merrow Kingdom by now." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            # *The Genie struggles to hold back laughter.*
-                            gen "And what did your new fisherman friends do?" ("base", xpos="far_left", ypos="head")
-                            lun "Oh, they *helped*, of course! One of them immediately transfigured a fish into a towel. Another one *blindfolded himself* out of respect. And the third? He offered me *his robe*, but not before dramatically twirling it around like some kind of dueling champion!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie bursts out laughing.*
-                            gen "You have to admit, that’s some serious chivalry." ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "I don’t need *chivalry*, I need a lake that doesn’t conspire against me!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Well, at least you got paid?" ("base", xpos="far_left", ypos="head")
-                            # *Luna sighs, pulling a pouch from the oversized robe now draped around her.*
-                            # *She tries to toss it to the Genie, but since the robe sleeves are far too big, the pouch gets tangled, causing her to flail awkwardly before finally shaking it loose.*
-                            # *It soars across the room—straight into the Genie’s teacup.*
-                            lun "…That wasn’t my fault." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            # *The Genie plucks the dripping pouch from his tea and grins.*
-                            gen "Don’t worry. I'll deduct the laundry fee from your next job." ("base", xpos="far_left", ypos="head")
-                            # *Luna groans, turns on her heel, and stomps toward the door, muttering under her breath.*
-                            lun "Next time, I’m charging *extra* for emotional damage." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                        block:
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
-                            lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
-                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                else: #22+
-                    random:
-                        block:
-                            $ luna.strip("panties")
-                            $ luna.set_pose("hand_on_pussy_and_breast")
-                            # *The door bursts open as Luna rushes in, out of breath, soaking wet, and clutching a large piece of kelp against her body.*
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "And it looks like it tried to clean you back." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "The Giant Squid... stole the *bottom* of my bikini." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "…Sorry, *what?*" ("angry", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
-                            lun "So, I was almost done cleaning, just a bit more magic to purify the water, when I suddenly felt a pull. At first, I thought it was just a strong current..." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            lun @ cheeks blush "Then I looked down and saw a tentacle coming out of the water... *and taking my bikini bottom with it!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "I... have no words." ("base", xpos="far_left", ypos="head")
-                            lun @ cheeks blush "Neither do I! It all happened so fast! I tried to summon it back, but the Squid *dove* before I could retrieve it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Maybe it just wanted a souvenir?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun @ cheeks blush "Great! Now it has a full collection! Because this *isn't the first time!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Well, I guess this means you’re officially part of the lake’s ecosystem now." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun "Oh, fantastic. Can't wait to be in magical creature textbooks as ‘The Giant Squid’s Favorite Target’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "Anyway, I *had* to get out of there *fast*. But how? I couldn't just swim to shore like *this!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "And that’s when you used..." ("base", xpos="far_left", ypos="head")
-                            lun "The first thing I could grab. Don't even ask if this is safe to wear. It worked *at the time*, and that’s all that mattered." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Well, if any students saw you, they probably just assumed you *belonged* in the lake now." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Better than some of the other reactions I got. First, *Peeves* showed up and tried to ‘fix’ my outfit with *strategically placed wind*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Peeves, always improving airflow. Very helpful." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Then *Filch* saw me and started grumbling about ‘indecent students running around naked’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "*Technically*, he wasn’t wrong." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Anyway, here’s the payment. At least *this* I managed to keep safe." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "…Luna, do you need help?" ("base", xpos="far_left", ypos="head")
-                            lun "I *don’t want* to need help!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "Okay! Bad plan! I need a new plan!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Just out of curiosity… was there *any* point in your day where you *weren’t* in an embarrassing situation?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "*NO!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Alright, alright. How about this—I take the coins, you pretend none of this ever happened, and we move on with our lives?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Deal. But if anyone asks… I was *never* here today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "What? I don’t even know who you are. Who is this soaking wet girl in my office?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "I hate the Black Lake." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Pretty sure it *loves* you." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Well… I guess I need a new bikini." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Maybe something *tentacle-proof* this time?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                        block:
-                            $ luna.strip("bra")
-                            # *The door creaks open as Luna steps in, completely drenched, her hair tangled with bits of lakeweed, and her arms *very strategically* crossed over her chest.*
-                            lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "And judging by your posture… something tells me you lost more than just dirt in the process." ("base", xpos="far_left", ypos="head")
-                            lun "The lake... took my top." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "I... I'm sorry, *what*?"  ("base", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
-                            lun "A magical current. Out of nowhere. It *ripped* my top away. Just—whoosh—gone!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
-                            gen "Huh. Didn’t know the lake accepted clothing donations." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Oh, it *does*. I saw my top floating away in the distance… *right into the arms of a mermaid.*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And did she, you know, *give it back*?" ("base", xpos="far_left", ypos="head")
-                            lun "No. She *laughed* and *swam away* with it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Oof. That’s rough. But hey, at least your job is done?" ("base", xpos="far_left", ypos="head")
-                            lun "Yeah. The lake is spotless. Crystal clear. I even purified the water completely before... the *incident*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "So, technically, you *won*." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Yeah, great. I won. Except I had to *swim* all the way back, *topless*, while dodging grindylows that suddenly found me *very* interesting." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Oh. Extra challenge mode." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Then, once I got out, I had to sneak past a group of first-years, and *that* is how I learned that kelp is a terrible substitute for clothing." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "For future reference." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "And *then*, Peeves showed up." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Oh no." ("base", xpos="far_left", ypos="head")
-                            lun "Oh *yes.* He threw *ink balloons*. Do you know how hard it is to stay hidden when you’re *covered in black splotches*?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Yeah, that’s what we call ‘maximum exposure.’" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "I ran. I ran *so fast*. Right past a group of Ravenclaws, who will *absolutely* be writing about this in their journals tonight." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Sounds like you're going down in history." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "*I don’t want to be in history!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "Anyway. Here’s your payment. At least *this* didn’t get washed away." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            lun "I *hate* this." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Want me to—?" ("base", xpos="far_left", ypos="head")
-                            lun "*No!* I’ll figure it out!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "That counts as ‘delivered,’ right?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "I’ll allow it." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun "Alright. I need a shower. And a *robe*. And maybe therapy." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "And a new bikini." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "And a *new lake*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Next time, maybe bring an anchor?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun "Next time, I’m bringing *revenge*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                        block:
-                            # $ luna.strip("bra")
-                            # $ luna.strip("panties")
-                            $ luna.set_pose("hand_on_pussy_and_breast")
-                            lun "I cleaned the Black Lake... again." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
-                            gen "Oh no... What happened *this* time?" ("base", xpos="far_left", ypos="head")
-                            lun "EVERYTHING went wrong. It started off simple—I was skimming algae, dodging grindylows... and then a group of wizard fishermen showed up!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Fishermen? In the Black Lake? That’s a new one." ("base", xpos="far_left", ypos="head")
-                            lun "Oh, they weren’t *just* fishing. They were enchanted. Mesmerized. Because SOMEONE—ME—was the only thing in sight wearing a *microbikini*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Wait... are you telling me they stopped fishing to watch you clean the lake?" ("grin", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
-                            lun "Oh, it gets WORSE. The mermaids noticed too. They swam over, started cheering me on, calling me ‘The Lake’s Siren’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "Well, at least you had a fan club?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            lun @ cheeks blush "NO! Because while the mermaids were clapping, the GIANT SQUID decided to get ‘helpful’ again!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Oh, this should be good." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun @ cheeks blush "It *wasn’t*! The squid thought my bikini top was a *fish*! It grabbed it and just—RIPPED IT OFF!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "PFFT—" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun @ cheeks blush "And as I was trying to grab it back, a sudden magical current swept through the lake! Guess what it took with it?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Oh no..." ("angry", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
-                            lun @ cheeks blush "OH YES. It stole my bottom! So there I am, underwater, NAKED, covering myself with my hands while an entire crowd of mermaids and fishermen start *cheering*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "So... let me get this straight. You lost your bikini top to the squid, your bottom to the current, and now you’ve got an audience?" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun @ cheeks blush "And THEN, instead of helping me, the mermaids *crowned me their lake queen* and draped seaweed over me like it was some fancy royal attire!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Oh, that’s *amazing*." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun @ cheeks blush "And the fishermen? They thought it was some kind of grand finale. They started *clapping*, tossing me coins, and one of them handed me an amulet—‘for my bravery’!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
-                            gen "Well, at least you got paid *and* got a fancy souvenir!" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            lun "THERE. Take it. I’m going to go *burn* this memory from my brain." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                            gen "You know... next time, we should *charge admission*." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
-                            gen "See? Even *you* think it’s funny now!" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
-                            # *Luna shakes her head, still laughing as she exits the room, leaving a trail of water and algae behind.*
+                elif lun_end_day =="The Overeager Fishermen"                  
+                    # *The door creaks open, and Luna steps inside, her hair dripping wet, her arms crossed tightly over her chest, and her expression caught between irritation and disbelief.*
+                    gen "Ah, my favorite lake cleaner returns. Judging by your look, I assume everything went smoothly?" ("base", xpos="far_left", ypos="head")
+                    lun "Oh, absolutely. The Black Lake is pristine. Not because of me, mind you, but because an entire group of *pescadores bruxos* decided to take over the job." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Wait, what?" ("base", xpos="far_left", ypos="head")
+                    lun "The moment I waded in, these guys—fully equipped with enchanted nets, diving charms, and *way too much enthusiasm*—popped up out of nowhere!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And they just... started cleaning?" ("base", xpos="far_left", ypos="head")
+                    lun "Not exactly. First, they were *very* interested in why a student was out there in a *bikini the size of a handkerchief*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie smirks.*
+                    gen "I assume they were simply impressed by your dedication." ("base", xpos="far_left", ypos="head")
+                    lun "*Impressed* is one word for it. They practically turned it into a sporting event! One of them cast a bubble-head charm on himself just to follow me around underwater, making sure I was—quote—'safe from dangerous creatures'." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "That’s very responsible of them." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, sure! So responsible that another one started polishing rocks with his wand just because I *looked at them*! Meanwhile, two others were fighting over who got to clear the kelp near me!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie chuckles.*
+                    gen "Well, at least they were thorough." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, you haven’t heard the best part. I *tried* to actually do some cleaning, but as soon as I bent down to pick up some debris—SPLASH! They *dived in* like a pod of overexcited dolphins, cleaning *everything* before I even touched it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "So you’re saying they cleaned the whole lake *for* you?" ("base", xpos="far_left", ypos="head")
+                    lun "*Yes!* I was practically decorative!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And yet... you still look upset." ("base", xpos="far_left", ypos="head")
+                    lun "Because *right as they were finishing up*, one of them tried to show off by casting an overpowered *Aguamenti* spell." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *She exhales sharply.*
+                    lun "Do you know what happens when a high-pressure water jet *hits someone wearing a string bikini*?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie blinks.*
+                    gen "...Oh no." ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Oh yes. My *bottoms* went flying. Gone. Never to be seen again. Probably halfway to the Merrow Kingdom by now." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    # *The Genie struggles to hold back laughter.*
+                    gen "And what did your new fisherman friends do?" ("base", xpos="far_left", ypos="head")
+                    lun "Oh, they *helped*, of course! One of them immediately transfigured a fish into a towel. Another one *blindfolded himself* out of respect. And the third? He offered me *his robe*, but not before dramatically twirling it around like some kind of dueling champion!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie bursts out laughing.*
+                    gen "You have to admit, that’s some serious chivalry." ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "I don’t need *chivalry*, I need a lake that doesn’t conspire against me!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Well, at least you got paid?" ("base", xpos="far_left", ypos="head")
+                    # *Luna sighs, pulling a pouch from the oversized robe now draped around her.*
+                    # *She tries to toss it to the Genie, but since the robe sleeves are far too big, the pouch gets tangled, causing her to flail awkwardly before finally shaking it loose.*
+                    # *It soars across the room—straight into the Genie’s teacup.*
+                    lun "…That wasn’t my fault." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    # *The Genie plucks the dripping pouch from his tea and grins.*
+                    gen "Don’t worry. I'll deduct the laundry fee from your next job." ("base", xpos="far_left", ypos="head")
+                    # *Luna groans, turns on her heel, and stomps toward the door, muttering under her breath.*
+                    lun "Next time, I’m charging *extra* for emotional damage." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
+                elif lun_end_day =="Laughter and Shame at the Lake"
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
+                    lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
+                    lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
+                elif lun_end_day =="Luna's Aquatic Adventures: The Lake That Shows No Mercy"
+                    # *The door bursts open as Luna rushes in, out of breath, soaking wet, and clutching a large piece of kelp against her body.*
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "And it looks like it tried to clean you back." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "The Giant Squid... stole the *bottom* of my bikini." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "…Sorry, *what?*" ("angry", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
+                    lun "So, I was almost done cleaning, just a bit more magic to purify the water, when I suddenly felt a pull. At first, I thought it was just a strong current..." ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    lun @ cheeks blush "Then I looked down and saw a tentacle coming out of the water... *and taking my bikini bottom with it!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "I... have no words." ("base", xpos="far_left", ypos="head")
+                    lun @ cheeks blush "Neither do I! It all happened so fast! I tried to summon it back, but the Squid *dove* before I could retrieve it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Maybe it just wanted a souvenir?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun @ cheeks blush "Great! Now it has a full collection! Because this *isn't the first time!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Well, I guess this means you’re officially part of the lake’s ecosystem now." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun "Oh, fantastic. Can't wait to be in magical creature textbooks as ‘The Giant Squid’s Favorite Target’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "Anyway, I *had* to get out of there *fast*. But how? I couldn't just swim to shore like *this!*" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "And that’s when you used..." ("base", xpos="far_left", ypos="head")
+                    lun "The first thing I could grab. Don't even ask if this is safe to wear. It worked *at the time*, and that’s all that mattered." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Well, if any students saw you, they probably just assumed you *belonged* in the lake now." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Better than some of the other reactions I got. First, *Peeves* showed up and tried to ‘fix’ my outfit with *strategically placed wind*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Peeves, always improving airflow. Very helpful." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Then *Filch* saw me and started grumbling about ‘indecent students running around naked’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "*Technically*, he wasn’t wrong." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Anyway, here’s the payment. At least *this* I managed to keep safe." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "…Luna, do you need help?" ("base", xpos="far_left", ypos="head")
+                    lun "I *don’t want* to need help!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "Okay! Bad plan! I need a new plan!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Just out of curiosity… was there *any* point in your day where you *weren’t* in an embarrassing situation?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "*NO!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Alright, alright. How about this—I take the coins, you pretend none of this ever happened, and we move on with our lives?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Deal. But if anyone asks… I was *never* here today." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "What? I don’t even know who you are. Who is this soaking wet girl in my office?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "I hate the Black Lake." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Pretty sure it *loves* you." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Well… I guess I need a new bikini." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Maybe something *tentacle-proof* this time?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
+                elif lun_end_day =="The Cursed Bikini and the Friendly Squid"
+                    # *The door creaks open as Luna steps in, completely drenched, her hair tangled with bits of lakeweed, and her arms *very strategically* crossed over her chest.*
+                    lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "And judging by your posture… something tells me you lost more than just dirt in the process." ("base", xpos="far_left", ypos="head")
+                    lun "The lake... took my top." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "I... I'm sorry, *what*?"  ("base", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
+                    lun "A magical current. Out of nowhere. It *ripped* my top away. Just—whoosh—gone!" ("angry", "narrow", "angry", "mid") # Angry, expressing strong negative emotion.
+                    gen "Huh. Didn’t know the lake accepted clothing donations." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Oh, it *does*. I saw my top floating away in the distance… *right into the arms of a mermaid.*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And did she, you know, *give it back*?" ("base", xpos="far_left", ypos="head")
+                    lun "No. She *laughed* and *swam away* with it!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Oof. That’s rough. But hey, at least your job is done?" ("base", xpos="far_left", ypos="head")
+                    lun "Yeah. The lake is spotless. Crystal clear. I even purified the water completely before... the *incident*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "So, technically, you *won*." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Yeah, great. I won. Except I had to *swim* all the way back, *topless*, while dodging grindylows that suddenly found me *very* interesting." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Oh. Extra challenge mode." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Then, once I got out, I had to sneak past a group of first-years, and *that* is how I learned that kelp is a terrible substitute for clothing." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "For future reference." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "And *then*, Peeves showed up." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Oh no." ("base", xpos="far_left", ypos="head")
+                    lun "Oh *yes.* He threw *ink balloons*. Do you know how hard it is to stay hidden when you’re *covered in black splotches*?!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Yeah, that’s what we call ‘maximum exposure.’" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "I ran. I ran *so fast*. Right past a group of Ravenclaws, who will *absolutely* be writing about this in their journals tonight." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Sounds like you're going down in history." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "*I don’t want to be in history!*" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "Anyway. Here’s your payment. At least *this* didn’t get washed away." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    lun "I *hate* this." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Want me to—?" ("base", xpos="far_left", ypos="head")
+                    lun "*No!* I’ll figure it out!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "That counts as ‘delivered,’ right?" ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "I’ll allow it." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun "Alright. I need a shower. And a *robe*. And maybe therapy." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "And a new bikini." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "And a *new lake*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Next time, maybe bring an anchor?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun "Next time, I’m bringing *revenge*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
+                elif lun_end_day =="Luna and the Lake: A Tale of Losses and Gains"
+                    # $ luna.strip("bra")
+                    # $ luna.strip("panties")
+                    $ luna.set_pose("hand_on_pussy_and_breast")
+                    lun "I cleaned the Black Lake... again." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
+                    gen "Oh no... What happened *this* time?" ("base", xpos="far_left", ypos="head")
+                    lun "EVERYTHING went wrong. It started off simple—I was skimming algae, dodging grindylows... and then a group of wizard fishermen showed up!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Fishermen? In the Black Lake? That’s a new one." ("base", xpos="far_left", ypos="head")
+                    lun "Oh, they weren’t *just* fishing. They were enchanted. Mesmerized. Because SOMEONE—ME—was the only thing in sight wearing a *microbikini*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Wait... are you telling me they stopped fishing to watch you clean the lake?" ("grin", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
+                    lun "Oh, it gets WORSE. The mermaids noticed too. They swam over, started cheering me on, calling me ‘The Lake’s Siren’." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "Well, at least you had a fan club?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    lun @ cheeks blush "NO! Because while the mermaids were clapping, the GIANT SQUID decided to get ‘helpful’ again!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Oh, this should be good." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun @ cheeks blush "It *wasn’t*! The squid thought my bikini top was a *fish*! It grabbed it and just—RIPPED IT OFF!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "PFFT—" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun @ cheeks blush "And as I was trying to grab it back, a sudden magical current swept through the lake! Guess what it took with it?" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Oh no..." ("angry", xpos="far_left", ypos="head") # Shocked, expressing disbelief.
+                    lun @ cheeks blush "OH YES. It stole my bottom! So there I am, underwater, NAKED, covering myself with my hands while an entire crowd of mermaids and fishermen start *cheering*!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "So... let me get this straight. You lost your bikini top to the squid, your bottom to the current, and now you’ve got an audience?" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun @ cheeks blush "And THEN, instead of helping me, the mermaids *crowned me their lake queen* and draped seaweed over me like it was some fancy royal attire!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Oh, that’s *amazing*." ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun @ cheeks blush "And the fishermen? They thought it was some kind of grand finale. They started *clapping*, tossing me coins, and one of them handed me an amulet—‘for my bravery’!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion and embarrassment.
+                    gen "Well, at least you got paid *and* got a fancy souvenir!" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    lun "THERE. Take it. I’m going to go *burn* this memory from my brain." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
+                    gen "You know... next time, we should *charge admission*." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
+                    gen "See? Even *you* think it’s funny now!" ("grin", xpos="far_left", ypos="head") # Amused, expressing lightheartedness.
+                    # *Luna shakes her head, still laughing as she exits the room, leaving a trail of water and algae behind.*
             "-Dismiss her-":
                 gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
                 gen "Your contribution are updated.." ("base", xpos="far_left", ypos="head")

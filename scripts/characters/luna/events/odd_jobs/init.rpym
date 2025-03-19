@@ -1,6 +1,49 @@
 # Commenting out the initialization offset
 init offset = 5
 
+lun_expression = {
+    "Happy_Open": [("smile", "happyCl", "base", "mid")],
+    "Mischievous_Wink": [("grin", "wink", "raised", "mid")],
+    "Silly_Closed": [("silly", "closed", "base", "mid")],
+    "Sad_Worried": [("upset", "base", "worried", "down")],
+    "Melancholy_Narrow": [("soft", "narrow", "low", "down")],
+    "Disheartened_Closed_Left": [("normal", "closed", "low", "downL")],
+    "Disheartened_Closed_Right": [("normal", "closed", "low", "downR")],
+    "Angry_Open_Squint": [("angry", "wide", "angry", "squint")],
+    "Furious_Clenched_Stare": [("clench", "narrow", "annoyed", "stare")],
+    "Scream_Open": [("scream", "wide", "angry", "mid")],
+    "Shock_Up": [("shock", "wide", "raised", "up")],
+    "Surprise_Stare": [("open", "wide", "raised", "stare")],
+    "Surprise_Tongue": [("open_wide_tongue", "wide", "raised", "ahegao")],
+    "Disgust_Squint": [("disgust", "narrow", "annoyed", "squint")],
+    "Disdain_Crooked": [("crooked_smile", "narrow", "low", "down")],
+    "Annoyed_Base": [("annoyed", "base", "annoyed", "mid")],
+    "Playful_Wink": [("silly", "wink", "raised", "mid")],
+    "Joyful_Tongue": [("open_tongue", "happyCl", "base", "mid")],
+    "Fun_Closed": [("grin", "closed", "raised", "mid")],
+    "Neutral_Base": [("normal", "base", "base", "mid")],
+    "Calm_Base": [("base", "base", "base", "mid")],
+    "Serene_Base": [("soft", "base", "base", "mid")],
+    "Fear_Up": [("open", "wide", "worried", "up")],
+    "Terror_Stare": [("shock", "wide", "low", "stare")],
+    "Worry_Narrow": [("upset", "narrow", "worried", "down")],
+    "Exhausted_Right": [("base", "base", "low", "downR")],
+    "Confident_Narrow": [("smile", "narrow", "base", "mid")],
+    "Determined_Stare": [("grin", "base", "raised", "stare")],
+    "Focus_Clenched": [("clench", "narrow", "base", "squint")],
+    "Confused_Open": [("open", "base", "raised", "mid")],
+    "Perplexed_Up": [("normal", "wide", "worried", "up")],
+    "Seductive_Tongue": [("open_tongue", "wink", "raised", "mid")],
+    "Dead_Base": [("base", "base", "base", "dead")],
+    "Expressionless_Closed": [("normal", "closed", "low", "dead")],
+    "Apathy_Base": [("soft", "base", "base", "dead")],
+    "Reflective_Left": [("normal", "base", "low", "downL")],
+    "Impatient_Clenched": [("annoyed", "narrow", "angry", "squint")],
+    "Protest_Stare": [("clench", "base", "annoyed", "stare")],
+    "Indignant_Open": [("angry", "wide", "angry", "mid")],
+    "Curious": [("soft", "base", "raised", "mid")]
+}
+
 # Mod Event Flags
 default states.lun.ev.magizoologist.intro_complete = False
 
