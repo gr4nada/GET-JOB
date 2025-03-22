@@ -1,60 +1,114 @@
 # Dishwash Job  
 
+######################################################################################################################################
+# | Closest Expression         | Mouth   | Eyes   | Eyebrows | Pupils | Example Expression                                      |
+# |----------------------------|---------|--------|----------|--------|---------------------------------------------------------|
+# | Intense anger              | angry   | base   | angry    | ahegao | Intense anger, normal eyes, furrowed eyebrows, ahegao pupils |
+# | Irritation                 | annoyed | closed | base     | down   | Irritation, closed eyes, neutral eyebrows, pupils down   |
+# | Neutral worry              | base    | narrow | worried  | L      | Neutral, narrowed eyes, worried eyebrows, pupils left    |
+# | Anger with clenched teeth  | clench  | wink   | angry    | mid    | Clenched teeth, wink, furrowed eyebrows, pupils center  |
+# | Wide smile                 | grin    | base   | base     | R      | Wide smile, normal eyes, neutral eyebrows, pupils right  |
+# | Excitement                 | horny   | closed | worried  | up     | Excited, closed eyes, worried eyebrows, pupils up        |
+# | Surprise with anger        | open    | narrow | angry    | ahegao | Open mouth, narrowed eyes, furrowed eyebrows, ahegao pupils |
+# | Scream                     | scream  | wink   | base     | down   | Scream, wink, neutral eyebrows, pupils down             |
+# | Worried smile              | smile   | base   | worried  | L      | Smile, normal eyes, worried eyebrows, pupils left        |
+# | Sadness                    | upset   | closed | angry    | mid    | Sadness, closed eyes, furrowed eyebrows, pupils center  |
+# | Anger with narrowed eyes   | angry   | narrow | base     | R      | Anger, narrowed eyes, neutral eyebrows, pupils right    |
+# | Irritation with wink       | annoyed | wink   | worried  | up     | Irritation, wink, worried eyebrows, pupils up           |
+# | Neutral with anger         | base    | base   | angry    | ahegao | Neutral, normal eyes, furrowed eyebrows, ahegao pupils  |
+# | Clenched teeth             | clench  | closed | base     | down   | Clenched teeth, closed eyes, neutral eyebrows, pupils down |
+# | Worried smile with narrowed eyes | grin    | narrow | worried  | L      | Wide smile, narrowed eyes, worried eyebrows, pupils left |
+# | Excitement with wink       | horny   | wink   | angry    | mid    | Excited, wink, furrowed eyebrows, pupils center          |
+# | Open mouth                 | open    | base   | base     | R      | Open mouth, normal eyes, neutral eyebrows, pupils right |
+# | Scream with closed eyes    | scream  | closed | worried  | up     | Scream, closed eyes, worried eyebrows, pupils up         |
+# | Smile with anger           | smile   | narrow | angry    | ahegao | Smile, narrowed eyes, furrowed eyebrows, ahegao pupils  |
+# | Sadness with wink          | upset   | wink   | base     | down   | Sadness, wink, neutral eyebrows, pupils down             |
+# | Worried anger              | angry   | base   | worried  | L      | Anger, normal eyes, worried eyebrows, pupils left       |
+# | Irritation with closed eyes | annoyed | closed | angry    | mid    | Irritation, closed eyes, furrowed eyebrows, pupils center |
+# | Neutral with narrowed eyes | base    | narrow | base     | R      | Neutral, narrowed eyes, neutral eyebrows, pupils right   |
+# | Clenched teeth with wink   | clench  | wink   | worried  | up     | Clenched teeth, wink, worried eyebrows, pupils up       |
+# | Smile with anger           | grin    | base   | angry    | ahegao | Wide smile, normal eyes, furrowed eyebrows, ahegao pupils |
+# | Excitement with closed eyes | horny   | closed | base     | down   | Excited, closed eyes, neutral eyebrows, pupils down     |
+# | Open mouth with worry      | open    | narrow | worried  | L      | Open mouth, narrowed eyes, worried eyebrows, pupils left |
+# | Scream with wink           | scream  | wink   | angry    | mid    | Scream, wink, furrowed eyebrows, pupils center           |
+# | Neutral smile              | smile   | base   | base     | R      | Smile, normal eyes, neutral eyebrows, pupils right      |
+# | Sadness with closed eyes   | upset   | closed | worried  | up     | Sadness, closed eyes, worried eyebrows, pupils up        |
+# | Anger with narrowed eyes   | angry   | narrow | angry    | down   | Anger, narrowed eyes, furrowed eyebrows, pupils down     |
+# | Irritation with wink       | annoyed | wink   | base     | L      | Irritation, wink, neutral eyebrows, pupils left          |
+# | Neutral worry              | base    | base   | worried  | mid    | Neutral, normal eyes, worried eyebrows, pupils center    |
+# | Clenched teeth with closed eyes | clench  | closed | angry    | R      | Clenched teeth, closed eyes, furrowed eyebrows, pupils right |
+# | Smile with narrowed eyes   | grin    | narrow | base     | up     | Wide smile, narrowed eyes, neutral eyebrows, pupils up   |
+# | Excitement with wink       | horny   | wink   | worried  | ahegao | Excited, wink, worried eyebrows, ahegao pupils           |
+# | Open mouth with anger      | open    | base   | angry    | down   | Open mouth, normal eyes, furrowed eyebrows, pupils down  |
+# | Scream with closed eyes    | scream  | closed | base     | L      | Scream, closed eyes, neutral eyebrows, pupils left       |
+# | Worried smile              | smile   | narrow | worried  | mid    | Smile, narrowed eyes, worried eyebrows, pupils center   |
+# | Sadness with wink          | upset   | wink   | angry    | R      | Sadness, wink, furrowed eyebrows, pupils right          |
+# | Anger with normal eyes     | angry   | base   | base     | up     | Anger, normal eyes, neutral eyebrows, pupils up         |
+# | Irritation with closed eyes | annoyed | closed | worried  | ahegao | Irritation, closed eyes, worried eyebrows, ahegao pupils |
+# | Neutral with anger         | base    | narrow | angry    | down   | Neutral, narrowed eyes, furrowed eyebrows, pupils down   |
+# | Clenched teeth with wink   | clench  | wink   | base     | L      | Clenched teeth, wink, neutral eyebrows, pupils left      |
+# | Worried smile              | grin    | base   | worried  | mid    | Wide smile, normal eyes, worried eyebrows, pupils center |
+# | Excitement with closed eyes | horny   | closed | angry    | R      | Excited, closed eyes, furrowed eyebrows, pupils right   |
+# | Open mouth with narrowed eyes | open    | narrow | base     | up     | Open mouth, narrowed eyes, neutral eyebrows, pupils up   |
+# | Scream with wink           | scream  | wink   | worried  | ahegao | Scream, wink, worried eyebrows, ahegao pupils           |
+# | Smile with anger           | smile   | base   | angry    | down   | Smile, normal eyes, furrowed eyebrows, pupils down      |
+# | Sadness with closed eyes   | upset   | closed | base     | L      | Sadness, closed eyes, neutral eyebrows, pupils left      |
+# | Worried anger              | angry   | narrow | worried  | mid    | Anger, narrowed eyes, worried eyebrows, pupils center    |
+# | Irritation with wink       | annoyed | wink   | angry    | R      | Irritation, wink, furrowed eyebrows, pupils right       |
+# | Neutral                    | base    | base   | base     | up     | Neutral, normal eyes, neutral eyebrows, pupils up       |
+# | Clenched teeth with closed eyes | clench  | closed | worried  | ahegao | Clenched teeth, closed eyes, worried eyebrows, ahegao pupils |
+# | Smile with anger           | grin    | narrow | angry    | down   | Wide smile, narrowed eyes, furrowed eyebrows, pupils down |
+# | Excitement with wink       | horny   | wink   | base     | L      | Excited, wink, neutral eyebrows, pupils left            |
+######################################################################################################################################
+
 label ast_dishwasher_job:  
 
     if not states.ast.ev.dishwasher_job.intro_complete:  
         $ states.ast.ev.dishwasher_job.intro_complete = True  
 
-        ast "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)
-        gen "I have another job opportunity for you, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
-        ast "What kind of job this time?"("clench", "base", "base", "mid")
-        gen "Tom, the owner of the Leaky Cauldron, needs an extra hand washing dishes." ("base", xpos="far_left", ypos="head")
-        ast "You want me to scrub dishes in a hot, steamy kitchen?" ("angry", "base", "angry", "mid")
-        gen "That’s exactly it! A good, honest job. And of course, you'll be rewarded with sentence reduction." ("base", xpos="far_left", ypos="head")
+        ast "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade) # Neutral expression, waiting for information.
+        gen "I have another job opportunity for you, [name_astoria_genie]." ("base", xpos="far_left", ypos="head") # Neutral expression, presenting an offer.
+        ast "What kind of job this time?" ("clench", "narrow", "worried", "down") # Clenched teeth (anticipation/suspicion), narrowed eyes (skepticism), worried eyebrows (apprehension), pupils down (hesitation).
+        gen "Tom, the owner of the Leaky Cauldron, needs an extra hand washing dishes." ("base", xpos="far_left", ypos="head") # Neutral expression, delivering the information.
+        ast "You want me to scrub dishes in a hot, steamy kitchen?" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (disbelief), furrowed eyebrows (fury), pupils left (disgust).
+        gen "That’s exactly it! A good, honest job. And of course, you'll be rewarded with sentence reduction." ("base", xpos="far_left", ypos="head") # Neutral expression, attempting to be persuasive.
 
         if states.ast.level < 13:
-            ast "..." ("angry", "base", "base", "mid")
-            gen "Yes, I have something for you to wear..." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush "A dishwash’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
-            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
-            gen "You'll be compensated with sentence reduction, naturally." ("base", xpos="far_left", ypos="head")
-            ast "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "base", "mid")
-            gen "Good. However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
-            ast "Must I?" ("clench", "base", "base", "mid")
-            gen "Do you think I can just let students profit from these tasks?" ("base", xpos="far_left", ypos="head")
-            ast "*Ehm*..." ("angry", "base", "base", "mid")
-            gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head")
-            ast "Very well..." ("open", "base", "base", "mid")
-            gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
-            hide astoria_main
-            with d3
-
-            call tutorial("points")
-
-            $ _event.cancel()
-            jump astoria_favor_menu.odd_jobs
+            ast "..." ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (annoyance), furrowed eyebrows (fury), pupils down (disapproval).
+            gen "Yes, I have something for you to wear..." ("base", xpos="far_left", ypos="head") # Neutral expression, presenting something.
+            ast @ cheeks blush "A dishwash’s outfit?! This is completely inappropriate!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+            gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head") # Neutral expression, rhetorical question.
+            gen "You'll be compensated with sentence reduction, naturally." ("base", xpos="far_left", ypos="head") # Neutral expression, stating the benefit.
+            ast "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "worried", "R") # Anger, closed eyes (reluctant acceptance), worried eyebrows (hesitation), pupils right (reluctance).
+            gen "Good. However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head") # Neutral expression, stating a condition.
+            ast "Must I?" ("clench", "narrow", "worried", "up") # Clenched teeth (frustration), narrowed eyes (annoyance), worried eyebrows (displeasure), pupils up (questioning).
+            gen "Do you think I can just let students profit from these tasks?" ("base", xpos="far_left", ypos="head") # Neutral expression, rhetorical question with a hint of authority.
+            ast "*Ehm*..." ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils ahegao (desperation/exasperation).
+            gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head") # Neutral expression, asserting control.
+            ast "Very well..." ("open", "narrow", "base", "mid") # Open mouth (resignation), narrowed eyes (annoyance), neutral eyebrows (submission), pupils center (resignation).
+            gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head") # Neutral expression, giving instructions.
                 
         elif states.ast.level >= 13:
-            ast "I suppose it could be worse..." ("base", "closed", "base", "mid")
-            ast "Alright, I’ll do it!" ("base", "base", "base", "mid")
-            gen "Great! Here’s your uniform." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush"..." ("angry", "base", "base", "mid")
-            ast "You have got to be kidding me!" ("angry", "closed", "angry", "mid")
-            gen "What’s the problem?" ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush"This apron is so short it barely covers anything!" ("angry", "base", "angry", "mid")
-            ast @ cheeks blush"And why does this top have such a deep neckline?! This isn't necessary for washing dishes!" ("angry", "base", "angry", "mid")
-            gen "Standard uniform. Rules are rules, [name_genie_astoria]." ("base", xpos="far_left", ypos="head")
-            ast @ cheeks blush"And this fabric... It's white! If it gets wet, it'll be *completely* see-through!" ("angry", "narrow", "worried", "mid")
-            gen "I suppose you’ll just have to be extra careful, then." ("base", xpos="far_left", ypos="head")
-            ast "*Sigh*... Fine, let's get this over with." ("angry", "closed", "angry", "mid")
-            gen "However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
-            ast "..." ("angry", "base", "base", "mid")
-            gen "Good attitude! Now, get to work and come back when you're done." ("base", xpos="far_left", ypos="head")
-            
+            ast "I suppose it could be worse..." ("base", "narrow", "worried", "down") # Neutral expression, narrowed eyes (hesitation), worried eyebrows (reluctance), pupils down (resignation).
+            ast "Alright, I’ll do it!" ("base", "narrow", "base", "L") # Neutral expression, narrowed eyes (reluctant agreement), neutral eyebrows (acceptance), pupils left (hesitation).
+            gen "Great! Here’s your uniform." ("base", xpos="far_left", ypos="head") # Neutral expression, presenting the uniform.
+            ast @ cheeks blush "..." ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (disgust), furrowed eyebrows (fury), pupils right (disbelief).
+            ast "You have got to be kidding me!" ("angry", "closed", "angry", "up") # Anger, closed eyes (indignation), furrowed eyebrows (fury), pupils up (exasperation).
+            gen "What’s the problem?" ("base", xpos="far_left", ypos="head") # Neutral expression, questioning.
+            ast @ cheeks blush "This apron is so short it barely covers anything!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils ahegao (desperation).
+            ast @ cheeks blush "And why does this top have such a deep neckline?! This isn't necessary for washing dishes!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+            gen "Standard uniform. Rules are rules, [name_genie_astoria]." ("base", xpos="far_left", ypos="head") # Neutral expression, stating the rules.
+            ast @ cheeks blush "And this fabric... It's white! If it gets wet, it'll be *completely* see-through!" ("angry", "narrow", "worried", "mid") # Anger, narrowed eyes (worry), worried eyebrows (anxiety), pupils center (concern).
+            gen "I suppose you’ll just have to be extra careful, then." ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive.
+            ast "*Sigh*... Fine, let's get this over with." ("angry", "closed", "angry", "L") # Anger, closed eyes (resignation), furrowed eyebrows (fury), pupils left (reluctant acceptance).
+            gen "However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head") # Neutral expression, stating a condition.
+            ast "..." ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils right (disgust/frustration).
+            gen "Good attitude! Now, get to work and come back when you're done." ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive and slightly mocking.
+
         elif states.ast.level < 22:
-            ast "Of course, [name_genie_astoria]..." ("base", "squint", "base", "mid", xpos="right", ypos="base")
+                ast "Of course, [name_genie_astoria]..." ("base", "narrow", "worried", "down") # Neutral expression, narrowed eyes (skepticism), worried eyebrows (reluctance), pupils down (hesitation).
         else: # 22+
-            ast "As you wish, [name_genie_astoria]." ("base", "base", "base", "mid", xpos="right", ypos="base")
+                ast "As you wish, [name_genie_astoria]." ("base", "closed", "base", "mid") # Neutral expression, closed eyes (resignation), neutral eyebrows (submission), pupils center (resignation).
 
     show screen blkfade
     with d5
@@ -63,6 +117,8 @@ label ast_dishwasher_job:
     play sound "sounds/cloth_sound.ogg"
     $ ast_outfit_last.save()
     $ astoria.equip(ast_outfit_dishwash)
+    # $ astoria.equip(ast_bra_dishwash)
+    $ astoria.equip(ast_panties_dishwash)
     hide screen blkfade
     with d5
 
@@ -85,162 +141,339 @@ label ast_dishwasher_job_return:
         progress_factor = math.log(states.ast.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
 
-    # Configuration for wet transparency effect
-    $ ast_outfit_dishwash.group[2].color[0] ="#ffffff99" 
-    $ astoria.equip(ast_outfit_dishwash)
-    $ ast_outfit_dishwash.group[2].color[0] ="#ffffffee"
+    $ ast_end_day = ""
+    $ is_wet = False
+    $ missing_top = False
+    $ missing_bra = False
+    $ missing_bottom = False
+    $ missing_panties = False
+
+    # Select End Day - status and Missing Clouthes
+    if states.ast.level < 13:           
+        random:
+            block:
+                # "The See-Through Uniform Dilemma"
+                $ ast_end_day = "The See-Through Uniform Dilemma"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                # "Sweating Like a Lobster in the Kitchen Sauna"
+                $ ast_end_day = "Sweating Like a Lobster in the Kitchen Sauna"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                # "The Soggy Tissue Chronicles"
+                $ ast_end_day = "The Soggy Tissue Chronicles"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
+    elif states.ast.level < 22:
+        random:
+            block:
+                $ ast_end_day = "The Boiling Storm: A Kitchen Nightmare"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                $ ast_end_day = "Miss Drippy: The Kitchen Chronicles"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False 
+            block:
+                $ ast_end_day = "Miss Misty: The Teapot Incident"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False 
+    else:
+        random:
+            block:
+                $ ast_end_day = "The Cauldron Catastrophe: A Steamy Misadventure"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False                           
+            block:
+                $ ast_end_day = "The Floating Fiasco: A Kitchen Shame Spiral"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
+            block:
+                $ ast_end_day = "The Zipline Escape: A Sauce-Soaked Disaster"
+                $ is_wet = True
+                $ missing_top = True
+                $ missing_bra = False
+                $ missing_bottom = True
+                $ missing_panties = False
+
+
     
+    if is_wet:
+        $ ast_outfit_dishwash.group[2].color[0] ="#DDDDDDDD" 
+        $ ast_outfit_dishwash.group[0].color[0] ="#DDDDDDDD" 
 
+    $ astoria.equip(ast_outfit_dishwash)
+    $ ast_outfit_dishwash.group[2].color[0] ="#ffffffff" 
+    $ ast_outfit_dishwash.group[0].color[0] ="#ffffffee" 
+    if missing_top:
+        $ astoria.strip("top")
+    if missing_bra:
+        $ astoria.strip("bra")
+
+    if missing_bottom:
+        $ astoria.strip("bottom")
+    if missing_panties:
+        $ astoria.strip("panties")
+    else:
+        $ astoria.equip(ast_panties_dishwash)
     call ast_walk(action="enter", xpos="mid", ypos="base")
-
+    # (mouth="open", eyes="base", eyebrows="angry", pupils="mid")
     gen "[name_astoria_genie]... How was your day working in the Leaky Cauldron?" ("base", xpos="far_left", ypos="head")
     ast "*Well*, it was as uneventful as it gets..." ("clench", "base", "angry", "mid", xpos="base", ypos="base", trans=d3)
 
     menu:
         "\"What exactly did you do today?\"":
-            if states.ast.level < 13:
-                random:
-                    block:
-                        ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "base", "angry", "mid")
-                        gen "That’s to be expected. It’s a kitchen." ("base", xpos="far_left", ypos="head")
-                        ast "And this uniform is *awful*! The apron barely covers anything, and the top kept sliding down!" ("angry", "base", "angry", "mid")
-                        gen "You seem to have managed just fine." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "Oh, sure, because I spent half my time *holding up my shirt*!" ("angry", "base", "angry", "mid")
-                        ast "Can I have my sentence reduction now and *never* do this again?" ("angry", "closed", "angry", "mid")
-                        gen "Great! Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
-                    block:
-                        ast "The uniform is *completely* impractical!" ("clench", "narrow", "base", "mid")
-                        gen "What happened?" ("base", xpos="far_left", ypos="head")
-                        ast "Every time I washed a dish, water splashed all over me!" ("angry", "base", "angry", "mid")
-                        ast "And do you know what happens when a *white* uniform gets wet?" ("angry", "base", "angry", "mid")
-                        gen "Hmm... I imagine it becomes more breathable?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("clench", "base", "angry", "mid")
-                        gen "Oh dear." ("base", xpos="far_left", ypos="head")
-                        ast "I had to stand by the stove just to dry off as quickly as possible!" ("angry", "base", "angry", "mid")
-                        gen "Well, at least you stayed warm." ("base", xpos="far_left", ypos="head")
-                        ast "You're impossible! Just give me my sentence reduction!" ("angry", "base", "angry", "mid")
-                        gen "Alright, alright." ("base", xpos="far_left", ypos="head")
-                    block:
-                        ast "Do you know how *little* coverage these sleeves offer?!" ("clench", "narrow", "base", "mid")
-                        gen "I assume... not much?" ("base", xpos="far_left", ypos="head")
-                        ast "Exactly! Every time I reached for a high shelf, the sleeves rolled up and my arms got splattered with hot water!" ("angry", "base", "angry", "mid")
-                        ast "And then, I had to clean my arms, which meant *more* water, which meant getting *even wetter*!" ("base", "base", "angry", "mid")
-                        gen "Sounds like quite the cycle." ("base", xpos="far_left", ypos="head")
-                        ast "Oh, and let’s not forget that the heat made my hair stick to my face the entire time!" ("angry", "base", "angry", "mid")
-                        gen "A hard day's work builds character, [name_astoria_genie]." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush"I’d rather build character *without* this ridiculous uniform." ("angry", "base", "angry", "mid")
-                        gen "Unfortunately, rules are rules." ("base", xpos="far_left", ypos="head")
-                        ast "*Ugh!* Just give me my sentence reduction!" ("clench", "narrow", "base", "R")
-                        gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
-            elif states.ast.level < 22:
-                random:
-                    block:
-                        ast "This has to be some kind of *punishment!*" ("angry", "base", "angry", "mid")
-                        gen "It is, actually." ("base", xpos="far_left", ypos="head")
-                        ast "The kitchen is a furnace! The heat, the steam—it's unbearable!" ("base", "base", "angry", "mid")
-                        gen "Sounds like an authentic culinary experience." ("base", xpos="far_left", ypos="head")
-                        ast "I was drenched in sweat within minutes! My uniform stuck to me like a second skin!" ("angry", "base", "angry", "mid")
-                        ast "And as if that wasn’t enough, one of the house-elves handed me a bucket of water to clean the floor..." ("clench", "narrow", "base", "mid")
-                        gen "A thoughtful gesture." ("base", xpos="far_left", ypos="head")
-                        ast "Until I slipped on the wet tiles and dumped the entire bucket *on myself!*" ("base", "base", "angry", "mid")
-                        gen "Oh... that explains why you look like you just walked through a storm." ("base", xpos="far_left", ypos="head")
-                        ast "Not *just* a storm! A *boiling* storm! The water mixed with the heat and the steam—there was nowhere to escape!" ("angry", "base", "angry", "mid")
-                        gen "You should have taken the opportunity to cool off." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "Oh, yes, brilliant idea! Let me just enjoy standing in a *see-through* shirt in the middle of the kitchen!" ("base", "base", "angry", "mid")
-                        gen "I take it the elves were... surprised?" ("base", xpos="far_left", ypos="head")
-                        ast "They nearly dropped the entire dinner service!" ("angry", "base", "angry", "mid")
-                        ast "And now I'm standing here, in your office, *dripping* onto the floor while you waste my time! Sentence reduction! Now!" ("clench", "narrow", "base", "R")
-                        gen "Done. And might I suggest a towel?" ("base", xpos="far_left", ypos="head")
+            if ast_end_day== "The See-Through Uniform Dilemma":
+                ast "This uniform is *completely* impractical!" ("clench", "narrow", "angry", "down") # Clenched teeth (frustration), narrowed eyes (irritation), furrowed eyebrows (anger), pupils down (disapproval).
+                gen "What happened this time?" ("base", xpos="far_left", ypos="head") # Neutral expression, curiosity.
+                ast "Every time I washed a dish, water splashed all over me!" ("annoyed", "narrow", "base", "L") # Annoyance, narrowed eyes (discontent), neutral eyebrows (frustration), pupils left (disdain).
+                ast "And do you know what happens when a *white* uniform gets wet?" ("annoyed", "narrow", "worried", "mid") # Annoyance, narrowed eyes (worry), worried eyebrows (tension), pupils center (expectation).
+                gen "Hmm... I imagine it becomes more breathable?" ("grin", xpos="far_left", ypos="head") # Ironic grin, teasing.
+                ast @ cheeks blush "*See-through!* It becomes *see-through!*" ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils right (accusation).
+                gen "Oh dear. That sounds... revealing." ("base", xpos="far_left", ypos="head") # Neutral expression, slight surprise.
+                ast "I had to stand by the stove just to dry off as quickly as possible!" ("annoyed", "narrow", "worried", "up") # Annoyance, narrowed eyes (discomfort), worried eyebrows (anxiety), pupils up (frustration).
+                gen "Well, at least you stayed warm. Silver linings, right?" ("grin", xpos="far_left", ypos="head") # Ironic grin, attempt to soften the situation.
+                ast "You're impossible! Just give me my sentence reduction!" ("annoyed", "narrow", "angry", "ahegao") # Annoyance, narrowed eyes (frustration), furrowed eyebrows (anger), ahegao pupils (desperation).
+                gen "Alright, alright. I’ll consider it—but only if you promise not to flood the kitchen next time." ("base", xpos="far_left", ypos="head") # Neutral expression, conciliatory tone.
+                ast "Fine! But if I have to wear this uniform again, I’m bringing a raincoat!" ("annoyed", "narrow", "base", "down") # Annoyance, narrowed eyes (disapproval), neutral eyebrows (resignation), pupils down (disdain).
+                gen "Deal. Now go dry off before someone mistakes you for a ghost." ("grin", xpos="far_left", ypos="head") # Ironic grin, sarcastic humor.
+            elif ast_end_day== "Sweating Like a Lobster in the Kitchen Sauna":
+                ast "The kitchen is like a sauna! I was sweating the entire time!" ("clench", "narrow", "angry", "down") # Clenched teeth (frustration), narrowed eyes (discomfort), furrowed eyebrows (anger), pupils down (disgust).
+                gen "That’s to be expected. It’s a kitchen." ("base", xpos="far_left", ypos="head") # Neutral expression, factual statement.
+                ast "Expected?! Do you know what it’s like to feel like a lobster in a boiling pot?!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (accusation).
+                gen "Well, at least you’re already red. Saves time on the cooking process." ("grin", xpos="far_left", ypos="head") # Grin, sarcastic humor.
+                ast "Ugh! And this uniform is *awful*! The apron barely covers anything, and the top kept sliding down!" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (frustration), worried eyebrows (annoyance), pupils right (disgust).
+                gen "Sounds like a fashion statement. ‘Wet and Wild: Kitchen Edition.’" ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast @ cheeks blush "Oh, sure, because I spent half my time *holding up my shirt*!" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (embarrassment), furrowed eyebrows (fury), pupils up (exasperation).
+                ast "Do you know what happens when a *white* uniform gets wet? It becomes *see-through*! Like, *completely* transparent!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "Ah, the classic ‘wet T-shirt contest’ look. Very trendy." ("grin", xpos="far_left", ypos="head") # Grin, ironic humor.
+                ast @ cheeks blush "This isn’t funny! I looked like a soggy tissue clinging to a window!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (embarrassment), furrowed eyebrows (fury), pupils center (fury).
+                gen "A soggy tissue? That’s a new one. I’ll add it to the list of Astoria’s kitchen adventures." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "Can I have my sentence reduction now and *never* do this again?" ("angry", "closed", "worried", "down") # Anger, closed eyes (desperation), worried eyebrows (anxiety), pupils down (pleading).
+                gen "Great! Your sentence reduction is updated." ("grin", xpos="far_left", ypos="head") # Grin, cheerful tone.
+                ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat and a *parachute*!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (determination), furrowed eyebrows (fury), pupils left (resolve).
+                gen "A parachute? For the kitchen? Now that’s a fashion statement I’d pay to see." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+            elif ast_end_day== "The Soggy Tissue Chronicles":
+                ast "Do you know how *little* coverage these sleeves offer?!" ("clench", "narrow", "angry", "down") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (anger), pupils down (disgust).
+                gen "I assume... not much?" ("base", xpos="far_left", ypos="head") # Neutral expression, questioning tone.
+                ast "Exactly! Every time I reached for a high shelf, the sleeves rolled up and my arms got splattered with hot water!" ("angry", "narrow", "worried", "L") # Anger, narrowed eyes (frustration), worried eyebrows (annoyance), pupils left (disgust).
+                ast "And then, I had to clean my arms, which meant *more* water, which meant getting *even wetter*!" ("angry", "narrow", "worried", "mid") # Anger, narrowed eyes (frustration), worried eyebrows (annoyance), pupils center (emphasis).
+                gen "Sounds like quite the cycle." ("base", xpos="far_left", ypos="head") # Neutral expression, slightly amused.
+                ast "Oh, and let’s not forget that the heat made my hair stick to my face the entire time!" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (discomfort), worried eyebrows (annoyance), pupils right (disgust).
+                gen "A hard day's work builds character, [name_astoria_genie]." ("base", xpos="far_left", ypos="head") # Neutral expression, attempting to be motivational.
+                ast @ cheeks blush "I’d rather build character *without* this ridiculous uniform." ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (annoyance), worried eyebrows (frustration), pupils up (exasperation).
+                ast "But wait, it gets worse! When I was reaching for a pot, my skirt got caught on a hook!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "A hook? In the kitchen? How... industrial." ("grin", xpos="far_left", ypos="head") # Grin, sarcastic humor.
+                ast "Industrial?! The fabric of this skirt is so cheap, it tore like *paper*!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+                ast @ cheeks blush "And then, with all the steam, my... my *undergarments* started getting wet too!" ("grin","base","angry","ahegao") # Soft expression, narrowed eyes (embarrassment), neutral eyebrows (shame), pupils downR (shame).
+                gen "Ah, the classic ‘steamy kitchen surprise.’ Very... revealing." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "Revealing?! I looked like a walking *wet tissue*! A soggy, transparent mess!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (disgust).
+                gen "Well, at least you’re consistent. Wet on top, wet on bottom—truly a masterpiece of kitchen fashion." ("grin", xpos="far_left", ypos="head") # Grin, sarcastic humor.
+                ast "*Ugh!* Just give me my sentence reduction!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (anger), pupils right (demand).
+                gen "Your sentence reduction is updated." ("base", xpos="far_left", ypos="head") # Neutral expression, factual statement.
+                ast "Finally! But if I have to wear this uniform again, I’m bringing a raincoat, a parachute, and a *tent*!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (determination), furrowed eyebrows (fury), pupils center (resolve).
+                gen "A tent? Now that’s what I call ‘kitchen couture.’" ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+            elif ast_end_day== "The Boiling Storm: A Kitchen Nightmare":
+                ast "This has to be some kind of *punishment!*" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "It is, actually." ("base", xpos="far_left", ypos="head") # Neutral expression, factual statement.
+                ast "The kitchen is a furnace! The heat, the steam—it's unbearable!" ("angry", "narrow", "worried", "L") # Anger, narrowed eyes (discomfort), worried eyebrows (annoyance), pupils left (disgust).
+                gen "Sounds like an authentic culinary experience." ("base", xpos="far_left", ypos="head") # Neutral expression, slightly sarcastic.
+                ast "Authentic?! I was drenched in sweat within minutes! My uniform stuck to me like a second skin!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils center (emphasis).
+                ast "And as if that wasn’t enough, one of the house-elves handed me a bucket of water to clean the floor..." ("clench", "narrow", "base", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), neutral eyebrows (disgust), pupils right (disgust).
+                gen "A thoughtful gesture." ("base", xpos="far_left", ypos="head") # Neutral expression, straight-faced sarcasm.
+                ast "Thoughtful?! Until I slipped on the wet tiles and dumped the entire bucket *on myself!*" ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (shock), worried eyebrows (annoyance), pupils up (exasperation).
+                gen "Oh... that explains why you look like you just walked through a storm." ("base", xpos="far_left", ypos="head") # Neutral expression, realization.
+                ast "Not *just* a storm! A *boiling* storm! The water mixed with the heat and the steam—there was nowhere to escape!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (desperation), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "You should have taken the opportunity to cool off." ("base", xpos="far_left", ypos="head") # Neutral expression, dry humor.
+                ast @ cheeks blush "Oh, yes, brilliant idea! Let me just enjoy standing in a *see-through* shirt in the middle of the kitchen!" ("angry", "narrow", "worried", "down") # Anger, narrowed eyes (embarrassment), worried eyebrows (frustration), pupils down (sarcasm).
+                gen "I take it the elves were... surprised?" ("base", xpos="far_left", ypos="head") # Neutral expression, curious.
+                ast "Surprised?! They nearly dropped the entire dinner service!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils left (emphasis).
+                ast "And now I'm standing here, in your office, *dripping* onto the floor while you waste my time! Sentence reduction! Now!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (anger), pupils right (demand).
+                gen "Done. And might I suggest a towel?" ("base", xpos="far_left", ypos="head") # Neutral expression, slight amusement.
+            elif ast_end_day== "Miss Drippy: The Kitchen Chronicles":
+                ast "I swear, that kitchen is cursed!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "What happened this time?" ("base", xpos="far_left", ypos="head") # Neutral expression, questioning.
+                ast "I was scrubbing the counters when the house-elves decided to *help* by throwing a bucket of water onto the surface..." ("angry", "narrow", "worried", "L") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils left (disgust).
+                ast "Which, of course, *splashed all over me!*" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Well, at least the counters got cleaned." ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive.
+                ast "And so did my *entire uniform!*" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (fury), pupils right (disgust).
+                ast "I had to spend the rest of my shift *dripping* and trying to avoid my reflection on the metal pots!" ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (discomfort), worried eyebrows (annoyance), pupils up (exasperation).
+                gen "That bad, huh?" ("base", xpos="far_left", ypos="head") # Neutral expression, slightly sarcastic.
+                ast @ cheeks blush "Oh, worse! Because then the *steam* got to me, and suddenly I wasn’t just wet—I was *sticking* to everything!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (disgust), furrowed eyebrows (fury), pupils ahegao (desperation).
+                ast "And to make matters worse, the house-elves started calling me *‘Miss Drippy’*!" ("angry", "narrow", "worried", "down") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils down (disgust).
+                gen "Miss Drippy? That’s... creative." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Creative?! They were *laughing* every time I walked by! And don’t even get me started on the *‘wet tissue’* jokes!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                gen "Well, at least they’re having fun. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive.
+                ast "Help? They kept handing me towels and saying things like, *‘Miss Drippy needs a mop!’* or *‘Careful, Miss Drippy, don’t flood the kitchen!’*" ("angry", "narrow", "worried", "mid") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils center (emphasis).
+                ast @ cheeks blush "But... I have to admit, they did help me clean up after I slipped. And they even gave me a dry apron... though they made sure to *peek* while I changed!" ("grin","base","angry","ahegao") # Soft expression, narrowed eyes (embarrassment), neutral eyebrows (shame), pupils downR (shame).
+                gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Drippy* and sneaking glances every chance they get!" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils up (exasperation).
+                gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Drippy’* for weeks!" ("angry", "narrow", "worried", "ahegao") # Anger, narrowed eyes (sarcasm), worried eyebrows (annoyance), pupils ahegao (exasperation).
+                gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") # Grin, sarcastic humor.
+                ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (fury), pupils right (demand).
+                gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") # Neutral expression, teasing.
+            elif ast_end_day== "Miss Misty: The Teapot Incident":
+                ast @ cheeks blush "The humidity in there is *ridiculous!*" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "It’s a kitchen. Steam is part of the experience." ("base", xpos="far_left", ypos="head") # Neutral expression, factual statement.
+                ast "Part of the experience?! I felt like I was trapped inside a *teapot!* Every time someone opened a pot, it was like a wall of mist hit me in the face!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                ast "And this *useless* uniform absorbed every drop of sweat until it was practically painted onto my skin!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (disgust), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "A custom-fit look?" ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic question.
+                ast "A *humiliation!*" ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils right (emphasis).
+                ast "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "worried", "up") # Clenched teeth (frustration), narrowed eyes (annoyance), worried eyebrows (annoyance), pupils up (anticipation).
+                gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head") # Neutral expression, anticipating.
+                ast @ cheeks blush "A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "That must have been refreshing." ("base", xpos="far_left", ypos="head") # Neutral expression, dry sarcasm.
+                ast "Refreshing?! It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+                gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic remark.
+                ast "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                ast "And do you know what they did? They started calling me *‘Miss Misty’*! Like it was some kind of *compliment!*" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (annoyance), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Miss Misty? That’s... poetic." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Poetic?! They were *laughing* every time I walked by! And then they started making jokes like, *‘Careful, Miss Misty, don’t evaporate!’*" ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils right (emphasis).
+                gen "Well, at least they’re creative. And they *did* help you, right?" ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive.
+                ast "Help? They handed me a towel and said, *‘Here, Miss Misty, dry off before you turn into a cloud!’*" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (annoyance), furrowed eyebrows (fury), pupils up (emphasis).
+                ast @ cheeks blush "But... I have to admit, they did give me a dry apron after I slipped. Though they made sure to *peek* while I changed!" ("grin","base","angry","ahegao") # Soft expression, narrowed eyes (embarrassment), neutral eyebrows (shame), pupils downR (shame).
+                gen "Ah, so they’re helpful *and* cheeky. Sounds like a win-win." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "A win-win?! I’m standing here, soaked to the bone, with a bunch of elves calling me *Miss Misty* and sneaking glances every chance they get!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils ahegao (exasperation).
+                gen "Well, at least they recognize your effort. And, let’s be honest, you *do* make quite the impression." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "Oh, yes, I’m sure they’ll be talking about *‘Miss Misty’* for weeks!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (sarcasm), furrowed eyebrows (fury), pupils down (sarcasm).
+                gen "Probably. But look on the bright side—you’re now a legend in the kitchen." ("grin", xpos="far_left", ypos="head") # Grin, sarcastic humor.
+                ast "Ugh! Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (fury), pupils right (demand).
+                gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head") # Neutral expression, teasing.
+            elif ast_end_day== "The Cauldron Catastrophe: A Steamy Misadventure":
+                ast "This is getting ridiculous!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "Another *incident*?" ("base", xpos="far_left", ypos="head") # Neutral expression, questioning.
+                ast "I was carrying a tray of dishes when a house-elf tripped and sent a full *cauldron* of warm water flying at me!" ("angry", "narrow", "worried", "L") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils left (disgust).
+                gen "Ah, so that's why you have that... natural look." ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic observation.
+                ast "Yes! A *public* bath where *everyone* got a front-row seat!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (indignation), furrowed eyebrows (fury), pupils right (emphasis).
+                ast "The second it happened, all the steam in the room *clung* to me, and my shirt turned into a *see-through disaster!*" ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (disgust), worried eyebrows (annoyance), pupils up (exasperation).
+                ast "But that wasn’t even the worst part! When I tried to dry off by the stove, the heat made my shirt *shrink*!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "Shrink? How... unfortunate." ("base", xpos="far_left", ypos="head") # Neutral expression, feigned sympathy.
+                ast "Unfortunate?! It was *impossible* to wear! It was so tight, I could barely *breathe!*" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+                ast @ cheeks blush "I was so embarrassed, I almost *cried!* But then... something unexpected happened." ("angry", "narrow", "worried", "mid") # Anger, narrowed eyes (embarrassment), annoyed eyebrows (embarrassment), pupils center (embarrassment).
+                gen "Unexpected? Do tell." ("base", xpos="far_left", ypos="head") # Neutral expression, curious.
+                ast "The house-elves... they saw how upset I was, and one by one, they started taking off their *own* shirts!" ("grin", "narrow", "worried", "L") # Grin, narrowed eyes (surprise), worried eyebrows (surprise), pupils left (surprise).
+                gen "They... what?" ("base", xpos="far_left", ypos="head") # Neutral expression, disbelief.
+                ast "They said, *‘Miss Astoria, if you’re uncomfortable, we’ll be uncomfortable with you!’*" ("grin", "narrow", "worried", "R") # Grin, narrowed eyes (surprise), worried eyebrows (surprise), pupils right (surprise).
+                ast @ cheeks blush "It wasn’t the same, of course... but it was so *kind* of them. I almost forgot how humiliating the whole thing was!" ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (embarrassment), worried eyebrows (gratefulness), pupils up (gratefulness).
+                gen "Well, it seems the house-elves have a soft spot for you." ("base", xpos="far_left", ypos="head") # Neutral expression, observation.
+                ast "They do... but that doesn’t change the fact that I’m standing here, dripping onto your floor, reliving the whole thing!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "At least you're keeping my floor clean." ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic remark.
+                ast "Sentence reduction! Now!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (fury), pupils right (demand).
+                gen "Done. And might I recommend a waterproof uniform next time?" ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic suggestion.
+            elif ast_end_day== "The Floating Fiasco: A Kitchen Shame Spiral":
+                ast "If I ever step into that kitchen again, it’ll be too soon!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "Let me guess—something involving water?" ("base", xpos="far_left", ypos="head") # Neutral expression, anticipating.
+                ast "Steam! *Everywhere!* I could barely see, and then—*bam!* A full pot of water right over my head!" ("angry", "narrow", "worried", "L") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils left (disgust).
+                gen "An unfortunate accident." ("base", xpos="far_left", ypos="head") # Neutral expression, dismissive.
+                ast "Oh, sure! *Totally* an accident! Because it *just happened* to land on me and *only* me!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Are you suggesting sabotage?" ("base", xpos="far_left", ypos="head") # Neutral expression, questioning.
+                ast "I’m suggesting I looked like a *soaked towel* while the elves panicked around me!" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (disgust), worried eyebrows (annoyance), pupils right (disgust).
+                ast @ cheeks blush "And don’t even get me started on the heat! The moment the water hit me, the steam *exploded* around me like a fog spell!" ("angry", "narrow", "worried", "up") # Anger, narrowed eyes (embarrassment), worried eyebrows (annoyance), pupils up (exasperation).
+                ast "And then, as if that wasn’t enough, the *inspector* showed up!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "The inspector? What did he do?" ("base", xpos="far_left", ypos="head") # Neutral expression, curious.
+                ast "He couldn’t even *look me in the eye!* Every time he tried to talk to me, his eyes kept... *wandering!*" ("angry", "narrow", "worried", "down") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils down (disgust).
+                gen "Wandering? Where exactly were they wandering?" ("base", xpos="far_left", ypos="head") # Neutral expression, teasing.
+                ast "Oh, you know... *the mountains!*" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                gen "The... mountains?" ("base", xpos="far_left", ypos="head") # Neutral expression, feigned confusion.
+                ast "Yes, the *mountains!* He couldn’t keep his eyes off them! It was *mortifying!*" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (embarrassment), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Ah, so he was... *exploring the landscape.*" ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Oh, yes, *very funny!*" ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (sarcasm), furrowed eyebrows (fury), pupils right (emphasis).
+                gen "Ah, so he was... *distracted* by your... situation." ("base", xpos="far_left", ypos="head") # Neutral expression, teasing.
+                ast "Distracted?! He was practically *enjoying the show!* But that wasn’t even the worst part!" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils up (exasperation).
+                ast "And then, as if things couldn’t get worse, I *floated*!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "Floated? How... unusual." ("base", xpos="far_left", ypos="head") # Neutral expression, feigned surprise.
+                ast "Unusual?! I was *stuck in the air*, spinning like a top! And every time someone tried to grab me, they ended up pulling off a piece of my uniform!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+                ast "One of the elves jumped, grabbed my leg with one arm, and the other... *grabbed my skirt!*" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                ast "And then, as he was trying to pull me down, he *lost his grip* and was flung across the room—*with my skirt still in his hand!*" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils center (emphasis).
+                ast "Then, a *second elf* jumped in! He managed to grab my arms and tried to climb up to help me... but he ended up grabbing my *shirt* instead!" ("angry", "narrow", "angry", "R") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils right (emphasis).
+                ast "And guess what? The *centripetal force* sent him flying too—*with my shirt in his hands!*" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils up (exasperation).
+                gen "Ah, so they were... *helping you undress.* How thoughtful." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast @ cheeks blush "By the time I landed, I was practically *back in my birthday suit!*" ("grin","base","angry","ahegao") # Soft expression, narrowed eyes (embarrassment), neutral eyebrows (shame), pupils downR (shame).
+                ast "I stood up, completely silent, trying to maintain what little dignity I had left... and started walking out of the kitchen." ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (desperation), furrowed eyebrows (fury), pupils ahegao (desperation).
+                ast "But then, one of the house-elves—*of course*—remembered that scene from *Game of Thrones* where the queen walks naked to atone for her sins... and he *yelled*, *‘Shame!’*" ("grin", "narrow", "worried", "down") # Grin, narrowed eyes (surprise), worried eyebrows (surprise), pupils down (surprise).
+                ast "And then, *all the other elves* joined in, chanting *‘Shame! Shame! Shame!’* while I was standing there, practically naked!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                gen "Ah, so they were... *recreating a cultural moment.* How... creative." ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Oh, yes, *very creative!* I was so mortified, I just grabbed your money, walked out in silence, and came straight here... " ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (embarrassment), furrowed eyebrows (fury), pupils center (emphasis).
+                ast "Just give me my sentence reduction before I *drown* in my own misery!" ("clench", "narrow", "angry", "R") # Clenched teeth (frustration), narrowed eyes (annoyance), furrowed eyebrows (fury), pupils right (demand).
+                gen "Already done. Try not to float away on your way out." ("base", xpos="far_left", ypos="head") # Neutral expression, sarcastic remark.
+            elif ast_end_day== "The Zipline Escape: A Sauce-Soaked Disaster":
+                ast "This has been the *worst* shift yet!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (frustration), furrowed eyebrows (fury), pupils down (disgust).
+                gen "Go on, tell me all about it." ("base", xpos="far_left", ypos="head") # Neutral expression, inviting storytelling.
+                ast "First, I was assigned to wash the dishes. Simple, right?" ("angry", "closed", "worried", "L") # Anger, closed eyes (annoyance), worried eyebrows (annoyance), pupils left (sarcasm).
+                ast "But then, the steam turned the kitchen into a *hellish sauna*, and my shirt stuck to me like I’d just taken a dive into the lake!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (discomfort), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Sounds... *steamy.*" ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Oh, that was just the *beginning!* Because *then*, an entire tray of glasses toppled over!" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (shock), worried eyebrows (annoyance), pupils right (emphasis).
+                ast "I tried to catch them, slipped on the wet floor, and landed *right* into a tub of dishwater!" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (disgust), furrowed eyebrows (fury), pupils up (exasperation).
+                gen "A truly unfortunate series of events." ("base", xpos="far_left", ypos="head") # Neutral expression, feigned sympathy.
+                ast "It’s not over! While I was trying to get out of the tub, I realized someone had taken advantage of the chaos to steal the secret sauce recipe!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "Wait, someone actually stole something during all that chaos?" ("grin", xpos="far_left", ypos="head") # Grin, incredulous amusement.
+                ast "Yes! The Chef started yelling that the sauce was gone and *accused me!* He said I caused the chaos as a distraction!" ("angry", "narrow", "worried", "down") # Anger, narrowed eyes (indignation), worried eyebrows (annoyance), pupils down (disgust).
+                gen "Well… did you?" ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "[name_genie_astoria], for Merlin’s sake! I was literally soaked in a tub of dirty dishwater—how could I have stolen anything?!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                gen "Fair point. So what happened next?" ("base", xpos="far_left", ypos="head") # Neutral expression, prompting further story.
+                ast "It was a nightmare! The Chef yelled that I wasn’t leaving the kitchen until I proved my innocence! So I decided to *escape!*" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (determination), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "You… ran?" ("grin", xpos="far_left", ypos="head") # Grin, amused disbelief.
+                ast "Yes! I ran down the hallway, still dripping wet, but then—" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils right (anticipation).
+                ast @ cheeks blush "My uniform got caught on the door! I pulled, and… well… let’s just say I escaped with *less clothing* than I’d have liked." ("grin","base","angry","ahegao") # Soft expression, narrowed eyes (embarrassment), neutral eyebrows (shame), pupils downR (shame).
+                gen "Oh wow. That explains why you look like you fought a tornado." ("grin", xpos="far_left", ypos="head") # Grin, amused observation.
+                ast "But that’s not even the worst part! As I was running, I saw a steel cable connecting our building to the next one. I thought, *‘This is my chance to escape!’*" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (determination), furrowed eyebrows (fury), pupils up (determination).
+                gen "Wait… you didn’t…" ("grin", xpos="far_left", ypos="head") # Grin, anticipating.
+                ast "I did! I ripped off my shirt, wrapped it around the cable, and tried to zip-line to the other building!" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (desperation), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "You… used your *shirt* as a zip-line?!" ("grin", xpos="far_left", ypos="head") # Grin, incredulous amusement.
+                ast "Yes! But the cable was too loose, and I got stuck *right in the middle*—completely shirtless, arms raised, just… dangling there!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (despair), furrowed eyebrows (fury), pupils down (despair).
+                gen "Oh no…" ("grin", xpos="far_left", ypos="head") # Grin, feigned sympathy.
+                ast "Oh yes! I was swinging back and forth, calling for help, and *everyone* stopped to watch! Even the pigeons were staring!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                gen "I’m sure it was… *memorable.*" ("grin", xpos="far_left", ypos="head") # Grin, amused sarcasm.
+                ast "Memorable?! I was *humiliated!* And to make matters worse, the guards had to *rescue me* with a ladder!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Well, at least you gave everyone a good show." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                gen "That’s a sight I wish I’d seen." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "And then, just when I thought my reputation was officially dead…" ("angry", "narrow", "worried", "R") # Anger, narrowed eyes (annoyance), worried eyebrows (annoyance), pupils right (anticipation).
+                ast "We found the real thief!" ("angry", "narrow", "angry", "up") # Anger, narrowed eyes (determination), furrowed eyebrows (fury), pupils up (determination).
+                gen "Ah, now it gets interesting! Who was it?" ("grin", xpos="far_left", ypos="head") # Grin, curious.
+                ast "The Chef’s assistant! He hid the sauce in his *hat!*" ("angry", "narrow", "angry", "ahegao") # Anger, narrowed eyes (shock), furrowed eyebrows (fury), pupils ahegao (desperation).
+                gen "Wait… he stole it and just walked around with it on his head?" ("grin", xpos="far_left", ypos="head") # Grin, incredulous amusement.
+                ast "Yes! But guess who still had to clean up the entire mess because I was *supposedly* an accomplice?!" ("angry", "narrow", "angry", "down") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils down (disgust).
+                gen "You?" ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "ME!" ("angry", "narrow", "angry", "L") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils left (emphasis).
+                ast "And now I’m here, soaked, humiliated, and with half my reputation intact!" ("angry", "narrow", "angry", "mid") # Anger, narrowed eyes (indignation), furrowed eyebrows (fury), pupils center (emphasis).
+                gen "Well, I think we learned an important lesson here." ("grin", xpos="far_left", ypos="head") # Grin, teasing.
+                ast "Oh, really? And what would that be?" ("angry", "narrow", "angry", "R") # Anger
 
-                    block:
-                        ast "I swear, that kitchen is cursed!" ("base", "base", "angry", "mid")
-                        gen "What happened this time?" ("base", xpos="far_left", ypos="head")
-                        ast "I was scrubbing the counters when the house-elves decided to *help* by throwing a bucket of water onto the surface..." ("angry", "base", "angry", "mid")
-                        ast "Which, of course, *splashed all over me!*" ("base", "base", "angry", "mid")
-                        gen "Well, at least the counters got cleaned." ("base", xpos="far_left", ypos="head")
-                        ast "And so did my *entire uniform!*" ("clench", "narrow", "base", "mid")
-                        ast "I had to spend the rest of my shift *dripping* and trying to avoid my reflection on the metal pots!" ("angry", "base", "angry", "mid")
-                        gen "That bad, huh?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush"Oh, worse! Because then the *steam* got to me, and suddenly I wasn’t just wet—I was *sticking* to everything!" ("base", "base", "angry", "mid")
-                        gen "A unique experience, I'm sure." ("base", xpos="far_left", ypos="head")
-                        ast "And now I’m here, standing in a puddle in your office! So just give me my sentence reduction before I drown!" ("angry", "base", "angry", "mid")
-                        gen "Already updated. Though, you might want to borrow a mop before you leave." ("base", xpos="far_left", ypos="head")
-
-                    block:
-                        ast @ cheeks blush "The humidity in there is *ridiculous!*" ("base", "base", "angry", "mid")
-                        gen "It’s a kitchen. Steam is part of the experience." ("base", xpos="far_left", ypos="head")
-                        ast "I felt like I was trapped inside a *teapot!* Every time someone opened a pot, it was like a wall of mist!" ("angry", "base", "angry", "mid")
-                        ast "And this *useless* uniform absorbed every drop of sweat until it was practically painted onto my skin!" ("base", "base", "angry", "mid")
-                        gen "A custom-fit look?" ("base", xpos="far_left", ypos="head")
-                        ast "A *humiliation!*" ("angry", "base", "angry", "mid")
-                        ast "Then, to make things *worse*, I reached for a high shelf and—" ("clench", "narrow", "base", "mid")
-                        gen "Let me guess... something fell?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush"A *basin* of water! Right on top of me! So now I wasn’t just sweating—I was *soaked!*" ("base", "base", "angry", "mid")
-                        gen "That must have been refreshing." ("base", xpos="far_left", ypos="head")
-                        ast "It was *freezing!* And with the steam everywhere, my shirt turned into a *see-through rag!*" ("angry", "base", "angry", "mid")
-                        gen "At least you blended in with the mist." ("base", xpos="far_left", ypos="head")
-                        ast "Oh, yes, how *helpful!* Too bad the elves didn’t *vanish* with the mist, because they saw *everything!*" ("base", "base", "angry", "mid")
-                        gen "And now you’re standing here, still dripping, in my office." ("base", xpos="far_left", ypos="head")
-                        ast "Yes! *Freezing*, *furious*, and *completely fed up!* Just update my sentence reduction before I start hexing people!" ("angry", "base", "angry", "mid")
-                        gen "Consider it done. And maybe consider bringing an umbrella next time?" ("base", xpos="far_left", ypos="head")
-            else: #22+
-                random:
-                    block:
-                        ast "This is getting ridiculous!" ("angry", "base", "angry", "mid")
-                        gen "Another *incident*?" ("base", xpos="far_left", ypos="head")
-                        ast "I was carrying a tray of dishes when a house-elf tripped and sent a full *cauldron* of warm water flying at me!" ("base", "base", "angry", "mid")
-                        gen "Oh. That explains why you look like you just stepped out of a bath." ("base", xpos="far_left", ypos="head")
-                        ast "Yes! A *public* bath where *everyone* got a front-row seat!" ("clench", "narrow", "base", "mid")
-                        ast "The second it happened, all the steam in the room *clung* to me, and my shirt turned into a *see-through disaster!*" ("base", "base", "angry", "mid")
-                        gen "Well, the house-elves must have been very... impressed with your work ethic." ("base", xpos="far_left", ypos="head")
-                        ast "They were staring like I had grown a second head!" ("angry", "base", "angry", "mid")
-                        ast "And of course, I had *nowhere* to hide! Just standing there, drenched, while the whole kitchen gasped!" ("base", "base", "angry", "mid")
-                        gen "Quite the dramatic scene." ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush "Oh, it was *mortifying!* And now I’m standing in your office, dripping onto your floor, reliving the whole thing!" ("angry", "base", "angry", "mid")
-                        gen "At least you're keeping my floor clean." ("base", xpos="far_left", ypos="head")
-                        ast "Sentence reduction! Now!" ("clench", "narrow", "base", "R")
-                        gen "Done. And might I recommend a waterproof uniform next time?" ("base", xpos="far_left", ypos="head")
-
-                    block:
-                        ast "If I ever step into that kitchen again, it’ll be too soon!" ("base", "base", "angry", "mid")
-                        gen "Let me guess—something involving water?" ("base", xpos="far_left", ypos="head")
-                        ast "Steam! *Everywhere!* I could barely see, and then—*bam!* A full pot of water right over my head!" ("angry", "base", "angry", "mid")
-                        gen "An unfortunate accident." ("base", xpos="far_left", ypos="head")
-                        ast "Oh, sure! *Totally* an accident! Because it *just happened* to land on me and *only* me!" ("base", "base", "angry", "mid")
-                        gen "Are you suggesting sabotage?" ("base", xpos="far_left", ypos="head")
-                        ast "I’m suggesting I looked like a *soaked towel* while the elves panicked around me!" ("angry", "base", "angry", "mid")
-                        ast @ cheeks blush "And don’t even get me started on the heat! The moment the water hit me, the steam *exploded* around me like a fog spell!" ("base", "base", "angry", "mid")
-                        gen "A dramatic effect." ("base", xpos="far_left", ypos="head")
-                        ast "It left me standing there, *soaked*, *sticky*, and completely *exposed!*" ("angry", "narrow", "base", "mid")
-                        gen "That does sound rather unfortunate." ("base", xpos="far_left", ypos="head")
-                        ast "Oh, *don’t you dare* act casual about this! Just update my sentence reduction before I hex someone!" ("angry", "base", "angry", "mid")
-                        gen "Already done. Try not to drown on your way out." ("base", xpos="far_left", ypos="head")
-
-                    block:
-                        ast "This has been the *worst* shift yet!" ("base", "base", "angry", "mid")
-                        gen "Go on, tell me all about it." ("base", xpos="far_left", ypos="head")
-                        ast "First, I was assigned to wash the dishes. Simple, right?" ("angry", "closed", "angry", "mid")
-                        ast "But then, the steam from the sink made me sweat *buckets*—my shirt was practically glued to me!" ("base", "base", "angry", "mid")
-                        gen "Sounds unpleasant." ("base", xpos="far_left", ypos="head")
-                        ast "Oh, that was just the *beginning!* Because *then*, an entire tray of glasses toppled over!" ("angry", "base", "angry", "mid")
-                        ast "I tried to catch them, slipped on the wet floor, and landed *right* into a tub of dishwater!" ("base", "base", "angry", "mid")
-                        gen "A truly unfortunate series of events." ("base", xpos="far_left", ypos="head")
-                        ast "Unfortunate?! I had *dish soap* dripping down my arms! And the hot air from the stoves made my uniform cling to me like—like—!" ("angry", "base", "angry", "mid")
-                        gen "Like a second skin?" ("base", xpos="far_left", ypos="head")
-                        ast @ cheeks blush"*Exactly!* And, of course, the entire kitchen saw it happen!" ("base", "base", "angry", "mid")
-                        ast "I barely had time to grab a towel before running out! And now I’m here, still *soaked*, *miserable*, and *furious!*" ("angry", "base", "angry", "mid")
-                        gen "Well, you certainly make kitchen work sound exciting." ("base", xpos="far_left", ypos="head")
-                        ast "Just—just give me my sentence reduction so I can *forget* this ever happened!" ("angry", "base", "angry", "mid")
-                        gen "Already updated. Maybe next time, wear a poncho?" ("base", xpos="far_left", ypos="head")
         "-Dismiss her-":
-            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
-            gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head")
-    
-    gen "Good job, Astoria." ("base", xpos="far_left", ypos="head")
-    ast "Thank you, [name_genie_astoria]." ("base", "base", "base", "mid")
-    ast "Here's the payment." ("open", "base", "base", "mid")
-    nar "You receive {number=payment} gold coins."
+            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head") # Neutral expression, dismissing.
+            gen "Your sentence reduction are updated.." ("base", xpos="far_left", ypos="head") # Neutral expression, confirming.
 
+    gen "Good job, Astoria." ("base", xpos="far_left", ypos="head") # Neutral expression, giving praise.
+    ast "Thank you, [name_genie_astoria]." ("base", "narrow", "base", "down") # Neutral expression, narrowed eyes (slight hesitation), neutral eyebrows (polite acceptance), pupils down (polite acceptance).
+    ast "Here's the payment." ("grin", "base", "base", "mid") # Soft expression, neutral expression, neutral eyebrows, pupils center (presenting).
+    nar "You receive {number=payment} gold coins." # Narration, no facial expression.
     $ game.gold += payment
 
     call ast_walk(action="leave")

@@ -14,8 +14,8 @@ default states.cho.ev.quidditch_assistant_job.intro_complete = False
 default cho_ev_quidditch_assistant_job_return = Event(
     id="cho_ev_quidditch_assistant_job_return", 
     label="cho_quidditch_assistant_job_return", 
-    priority=5, 
-    req=(not game.daytime)  
+    priority=10, 
+    req="not game.daytime"  
 )
 
 default cho_eventqueue_jobs_quidditch_assistant = EventQueue("cho_eventqueue_jobs_quidditch_assistant")

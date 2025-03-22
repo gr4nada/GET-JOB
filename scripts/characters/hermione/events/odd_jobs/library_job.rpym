@@ -25,7 +25,19 @@ label her_library_job:
             gen "Come back here in the evening to tell me how it went." ("base", xpos="far_left", ypos="head")  
             if not is_in_lead(gryffindor):  
                 her "Alright..." ("open", "base", "base", "mid")  
-                her "Let me just put this on..." ("angry", "squint", "base", "mid")  
+                her "Let me just put this on..." ("angry", "squint", "base", "mid") 
+                her "Alright... Let's see..."
+                her "It's... Quite tight..."
+                play sound "sounds/creaking02.ogg"
+                pause 1
+                her "How am I even supposed to--"
+                play sound "sounds/creaking02.ogg"
+                pause 1
+                her "Alright, I think I got it..."
+                play sound "sounds/creaking01.ogg"
+                pause 2
+                play sound "sounds/slap_04.ogg"
+                her "Ouch!" 
             else: # Gryffindor is in the lead  
                 her "Now? But we’re winning!" ("open", "squint", "base", "mid")  
                 gen "So what? Organization is always important." ("base", xpos="far_left", ypos="head")  

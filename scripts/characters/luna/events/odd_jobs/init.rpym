@@ -1,26 +1,58 @@
 # Commenting out the initialization offset
 init offset = 5
 
+lun_expression = {
+    "Happy_Open": [("smile", "happyCl", "base", "mid")],
+    "Mischievous_Wink": [("grin", "wink", "raised", "mid")],
+    "Silly_Closed": [("silly", "closed", "base", "mid")],
+    "Sad_Worried": [("upset", "base", "worried", "down")],
+    "Melancholy_Narrow": [("soft", "narrow", "low", "down")],
+    "Disheartened_Closed_Left": [("normal", "closed", "low", "downL")],
+    "Disheartened_Closed_Right": [("normal", "closed", "low", "downR")],
+    "Angry_Open_Squint": [("angry", "wide", "angry", "squint")],
+    "Furious_Clenched_Stare": [("clench", "narrow", "annoyed", "stare")],
+    "Scream_Open": [("scream", "wide", "angry", "mid")],
+    "Shock_Up": [("shock", "wide", "raised", "up")],
+    "Surprise_Stare": [("open", "wide", "raised", "stare")],
+    "Surprise_Tongue": [("open_wide_tongue", "wide", "raised", "ahegao")],
+    "Disgust_Squint": [("disgust", "narrow", "annoyed", "squint")],
+    "Disdain_Crooked": [("crooked_smile", "narrow", "low", "down")],
+    "Annoyed_Base": [("annoyed", "base", "annoyed", "mid")],
+    "Playful_Wink": [("silly", "wink", "raised", "mid")],
+    "Joyful_Tongue": [("open_tongue", "happyCl", "base", "mid")],
+    "Fun_Closed": [("grin", "closed", "raised", "mid")],
+    "Neutral_Base": [("normal", "base", "base", "mid")],
+    "Calm_Base": [("base", "base", "base", "mid")],
+    "Serene_Base": [("soft", "base", "base", "mid")],
+    "Fear_Up": [("open", "wide", "worried", "up")],
+    "Terror_Stare": [("shock", "wide", "low", "stare")],
+    "Worry_Narrow": [("upset", "narrow", "worried", "down")],
+    "Exhausted_Right": [("base", "base", "low", "downR")],
+    "Confident_Narrow": [("smile", "narrow", "base", "mid")],
+    "Determined_Stare": [("grin", "base", "raised", "stare")],
+    "Focus_Clenched": [("clench", "narrow", "base", "squint")],
+    "Confused_Open": [("open", "base", "raised", "mid")],
+    "Perplexed_Up": [("normal", "wide", "worried", "up")],
+    "Seductive_Tongue": [("open_tongue", "wink", "raised", "mid")],
+    "Dead_Base": [("base", "base", "base", "dead")],
+    "Expressionless_Closed": [("normal", "closed", "low", "dead")],
+    "Apathy_Base": [("soft", "base", "base", "dead")],
+    "Reflective_Left": [("normal", "base", "low", "downL")],
+    "Impatient_Clenched": [("annoyed", "narrow", "angry", "squint")],
+    "Protest_Stare": [("clench", "base", "annoyed", "stare")],
+    "Indignant_Open": [("angry", "wide", "angry", "mid")],
+    "Curious": [("soft", "base", "raised", "mid")]
+}
+
 # Mod Event Flags
 default states.lun.ev.magizoologist.intro_complete = False
-
-##########################
-## magizoologist Outfit ##
-##########################
-
-default lun_top_nightie_job = DollCloth("luna", ("upper body", "shirts"), "top", "nightie_2", ["#ffacb8d7"], level=6)
-default lun_top_summer_job = DollCloth("luna", ("upper body", "shirts"), "top", "summer_top_1", ["#ff9acdff"])
-default lun_skirt_plaid_job = DollCloth("luna", ("lower body", "skirts"), "bottom", "skirt_plaid", ["#ffffffff", "#523E5Eff", "#767986ff", "#C3C9E5ff"], level=6)
-
-default lun_outfit_magizoologist = DollOutfit([lun_top_nightie_job,lun_top_summer_job,lun_skirt_plaid_job], price=80, name="Magizoologist Uniform", desc="A practical magizoologist uniform that turns irresistibly sheer when wet.")
-# default lun_outfit_dishwash_wet = DollOutfit([lun_top_dishash_wet,lun_bottom_dishash,lun_gloves_dishwash], price=80, name="Dishwash Wet Uniform", desc="A practical washing uniform that turns irresistibly sheer when wet.")
 
 # Mod Event
 default lun_ev_magizoologist_job_return = Event(
     id="lun_ev_magizoologist_job_return", 
     label="lun_magizoologist_job_return", 
-    priority=5, 
-    req=(not game.daytime)  
+    priority=10, 
+    req="not game.daytime" 
 )
 
 default lun_eventqueue_jobs_magizoologist = EventQueue("lun_eventqueue_jobs_magizoologist")
