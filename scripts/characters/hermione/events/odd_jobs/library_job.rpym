@@ -1,3 +1,47 @@
+# | Nome Expressão         | Tupla (Mounth, Eyes, Eyebrows, Pupils)                  |
+# |------------------------|---------------------------------------------------------|
+# | Angry                 | ("angry", "narrow", "angry", "stare")                   |
+# | Annoyed               | ("annoyed", "slit", "annoyed", "mid")                   |
+# | Base                  | ("base", "base", "base", "mid")                         |
+# | Clench                | ("clench", "closed", "low", "mid")                      |
+# | Crooked Smile         | ("crooked_smile", "happy", "base", "mid_soft")          |
+# | Disgust               | ("disgust", "squint", "angry", "squint")                |
+# | Full                  | ("full", "wide", "base", "mid")                         |
+# | Grin                  | ("grin", "happy", "base", "mid_soft")                   |
+# | Mad                   | ("mad", "narrow", "angry", "stare")                     |
+# | Normal                | ("normal", "base", "base", "mid")                       |
+# | Open                  | ("open", "wide", "base", "mid")                         |
+# | Open Tongue           | ("open_tongue", "wide", "base", "mid")                  |
+# | Open Wide Tongue      | ("open_wide_tongue", "wide", "base", "mid")             |
+# | Scream                | ("scream", "wide", "angry", "shocked")                  |
+# | Shock                 | ("shock", "wide", "worried", "shocked")                 |
+# | Silly                 | ("silly", "wink", "base", "mid_soft")                   |
+# | Smile                 | ("smile", "happy", "base", "mid_soft")                  |
+# | Soft                  | ("soft", "happyCl", "base", "mid_soft")                 |
+# | Upset                 | ("upset", "slit", "worried", "mid")                     |
+# | Ahegao                | ("open_wide_tongue", "wide", "base", "ahegao")          |
+# | Dead                  | ("normal", "closed", "base", "dead")                    |
+# | Down                  | ("normal", "base", "base", "down")                      |
+# | Down Soft             | ("soft", "base", "base", "down_soft")                   |
+# | L                     | ("normal", "base", "base", "L")                         |
+# | L Soft                | ("soft", "base", "base", "L_soft")                      |
+# | R                     | ("normal", "base", "base", "R")                         |
+# | R Soft                | ("soft", "base", "base", "R_soft")                      |
+# | Shocked               | ("shock", "wide", "worried", "shocked")                 |
+# | Squint                | ("normal", "squint", "base", "squint")                  |
+# | Squint Soft           | ("soft", "squint", "base", "squint_soft")               |
+# | Stare                 | ("normal", "wide", "base", "stare")                     |
+# | Stare Soft            | ("soft", "wide", "base", "stare_soft")                  |
+# | Up                    | ("normal", "base", "base", "up")                        |
+# | Up Soft               | ("soft", "base", "base", "up_soft")                     |
+# | Happy                 | ("smile", "happy", "base", "mid_soft")                  |
+# | Happy Closed          | ("soft", "happyCl", "base", "mid_soft")                 |
+# | Narrow                | ("angry", "narrow", "angry", "stare")                   |
+# | Slit                  | ("annoyed", "slit", "annoyed", "mid")                   |
+# | Wide                  | ("open", "wide", "base", "mid")                         |
+# | Wink                  | ("silly", "wink", "base", "mid_soft")                   |
+# | Worried               | ("upset", "slit", "worried", "mid")                     |
+
 # Library Job  
 label her_library_job:  
 
@@ -5,27 +49,27 @@ label her_library_job:
         $ states.her.ev.library_job.intro_complete = True  
         her "" ("base", "base", "base", "mid", xpos="right", ypos="base", trans=fade)  
         gen "This castle needs more organization, especially in the library." ("base", xpos="far_left", ypos="head")  
-        her "[name_genie_hermione]?" ("open", "squint", "base", "mid", xpos="right", ypos="base")  
+        her "[name_genie_hermione]?" ("open", "squint", "base", "mid", xpos="right", ypos="base")  # Expression of curiosity and attention
         gen "Someone needs to catalog and organize the books... Don't you think?" ("base", xpos="far_left", ypos="head")  
         if states.her.level < 4:  
-            her "Finally, someone recognizes the importance of the library!" ("base", "closed", "base", "mid")  
-            her "Of course, I'll help!" ("base", "base", "base", "mid")  
+            her "Finally, someone recognizes the importance of the library!" ("smile", "happy", "base", "mid_soft")  # Expression of happiness and satisfaction
+            her "Of course, I'll help!" ("grin", "happy", "base", "mid_soft")  # Expression of enthusiasm and willingness
             gen "Great! Then here's the librarian outfit for you." ("base", xpos="far_left", ypos="head")  
-            her "..." ("angry", "narrow", "base", "down")  
-            her @ cheeks blush "Why a librarian’s outfit?! And this is completely inappropriate!" ("angry", "narrow", "base", "down")
+            her "..." ("angry", "narrow", "base", "down")  # Expression of discomfort and suspicion
+            her @ cheeks blush "Why a librarian’s outfit?! And this is completely inappropriate!" ("angry", "wide", "angry", "stare")  # Expression of shock and indignation
             gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
-            her "[name_genie_hermione], this isn't what I expected..." ("disgust", "squint", "base", "mid")  
+            her "[name_genie_hermione], this isn't what I expected..." ("disgust", "squint", "worried", "mid")  # Expression of disappointment and concern
             gen "You'll be rewarded with points, of course..." ("base", xpos="far_left", ypos="head")  
-            her "*Hmm*..." ("upset", "narrow", "base", "R")  
+            her "*Hmm*..." ("upset", "narrow", "worried", "R")  # Expression of hesitation and uncertainty
             gen "And technically, you'll be working for me, so I'll hold onto your points until you can receive them." ("base", xpos="far_left", ypos="head")  
-            her "Right... I suppose that makes sense..." ("open", "squint", "base", "R")  
+            her "Right... I suppose that makes sense..." ("open", "squint", "base", "R")  # Expression of reluctance and thoughtfulness
             gen "So, do you accept?" ("base", xpos="far_left", ypos="head")  
-            her "I guess I could..." ("normal", "squint", "base", "R")  
+            her "I guess I could..." ("normal", "squint", "base", "R")  # Expression of reluctant acceptance
             gen "Perfect!" ("base", xpos="far_left", ypos="head")  
             gen "Come back here in the evening to tell me how it went." ("base", xpos="far_left", ypos="head")  
             if not is_in_lead(gryffindor):  
-                her "Alright..." ("open", "base", "base", "mid")  
-                her "Let me just put this on..." ("angry", "squint", "base", "mid") 
+                her "Alright..." ("open", "base", "base", "mid")  # Expression of resignation
+                her "Let me just put this on..." ("angry", "squint", "base", "mid")  # Expression of irritation and discomfort
                 her "Alright... Let's see..."
                 her "It's... Quite tight..."
                 play sound "sounds/creaking02.ogg"
@@ -37,11 +81,11 @@ label her_library_job:
                 play sound "sounds/creaking01.ogg"
                 pause 2
                 play sound "sounds/slap_04.ogg"
-                her "Ouch!" 
+                her "Ouch!" ("shock", "wide", "worried", "shocked")  # Expression of surprise and pain
             else: # Gryffindor is in the lead  
-                her "Now? But we’re winning!" ("open", "squint", "base", "mid")  
+                her "Now? But we’re winning!" ("open", "squint", "base", "mid")  # Expression of surprise and confusion
                 gen "So what? Organization is always important." ("base", xpos="far_left", ypos="head")  
-                her "But I don't need any more points at the moment..." ("grin", "base", "base", "mid")  
+                her "But I don't need any more points at the moment..." ("grin", "happy", "base", "mid_soft")  # Expression of confidence and satisfaction
                 gen "Right..." ("base", xpos="far_left", ypos="head")  
 
                 hide hermione_main  
@@ -53,29 +97,29 @@ label her_library_job:
                 jump hermione_favor_menu.odd_jobs  
                 
         elif states.her.level < 13:
-            her "You called for me, [name_genie_hermione]?" ("angry", "base", "base", "mid")
+            her "You called for me, [name_genie_hermione]?" ("angry", "base", "base", "mid")  # Expression of mild annoyance and curiosity
             gen "Yes, I have something for you to wear..." ("base", xpos="far_left", ypos="head")
-            her @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")
+            her @ cheeks blush "A librarian’s outfit?! This is completely inappropriate!" ("angry", "narrow", "base", "down")  # Expression of shock and disapproval
             gen "You need to be properly dressed for the job, don’t you think?" ("base", xpos="far_left", ypos="head")  
             gen "You'll be compensated with points, naturally." ("base", xpos="far_left", ypos="head")
-            her "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "base", "mid")
+            her "*Hmm*...{w=0.4} Well, if it contributes to knowledge and order, I suppose I can accept." ("angry", "closed", "base", "mid")  # Expression of reluctant acceptance
             gen "Good. However, any monetary compensation must be returned to me." ("base", xpos="far_left", ypos="head")
-            her "Must I?" ("clench", "base", "base", "mid")
+            her "Must I?" ("clench", "base", "base", "mid")  # Expression of frustration and resistance
             gen "Do you think I can just let students profit from these tasks?" ("base", xpos="far_left", ypos="head")
-            her "*Ehm*..." ("angry", "base", "base", "mid")
+            her "*Ehm*..." ("angry", "base", "base", "mid")  # Expression of hesitation and mild annoyance
             gen "No, I believe it’s best if I handle that for now." ("base", xpos="far_left", ypos="head")
-            her "Very well..." ("open", "base", "base", "mid")
+            her "Very well..." ("open", "base", "base", "mid")  # Expression of resignation
             gen "Return in the evening to report how it went and turn in any payments." ("base", xpos="far_left", ypos="head")
 
             if not is_in_lead(gryffindor):
-                her "Alright..." ("open", "squint", "base", "R")
-                her "Let me just get changed..." ("angry", "squint", "base", "mid")
+                her "Alright..." ("open", "squint", "base", "R")  # Expression of reluctant agreement
+                her "Let me just get changed..." ("angry", "squint", "base", "mid")  # Expression of irritation and discomfort
             else: # Gryffindor is in the lead
-                her "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")
+                her "Oh, you expect me to do this now?" ("open", "squint", "base", "mid")  # Expression of surprise and mild protest
                 gen "Of course, why else would I bring it up?" ("base", xpos="far_left", ypos="head")
-                her "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")
+                her "But... Gryffindor is leading at the moment." ("angry", "base", "base", "mid")  # Expression of defensiveness
                 gen "And?" ("base", xpos="far_left", ypos="head")
-                her "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")
+                her "So... There's no immediate need for me to earn more points." ("grin", "base", "base", "mid")  # Expression of confidence and slight smugness
                 gen "Right..." ("base", xpos="far_left", ypos="head")
                 hide hermione_main
                 with d3
@@ -152,7 +196,110 @@ label her_library_job_return:
     python:
         progress_factor = math.log(states.her.tier + states.cho.tier + states.ton.tier + states.lun.tier + game.day)
         payment = int(progress_factor * random_gold)
-    
+
+    $ her_end_day = ""
+    $ is_wet = False
+    $ missing_top = False
+    $ missing_bra = False
+    $ missing_bottom = False
+    $ missing_panties = False
+    $ change_pose = False
+
+    # her_end_day and appearance config
+    if states.lun.level < 4:
+        random:
+            block:
+                # "A Normal Day at the Library"
+                $ her_end_day = "A Normal Day at the Library"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False   
+            block:
+                # "The Potions Chaos"
+                $ her_end_day = "The Potions Chaos"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False
+            block:
+                # "Secrets in the Archives"
+                $ her_end_day = "Secrets in the Archives"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False   
+    elif states.lun.level < 13:
+        random:
+            block:
+                # Input data
+                $ her_end_day = "Routine and Glances"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False   
+            block:  
+                # Input data
+                $ her_end_day = "Madam Pince's Wrath"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False   
+            block:    
+                # Input data
+                $ her_end_day = "Whispers in the Restricted Section"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False                                          
+    else:
+        random:
+            block:
+                # Input data
+                $ her_end_day = "The Library Climb"
+                $ is_wet = True
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False 
+            block:
+                # Input data
+                $ her_end_day = "The Elves' Kindness"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False 
+            block:
+                # Input data
+                $ her_end_day = "Tonks' Secrets"
+                $ is_wet = False
+                $ missing_top = False
+                $ missing_bra = False
+                $ missing_bottom = False
+                $ missing_panties = False 
+
+    if is_wet:
+        $ lun_outfit_default.group[0].color[1] ="#777777DD" 
+        $ lun_outfit_default.group[1].color[1] ="#777777AA" 
+        $ lun_outfit_default.group[2].color[0] ="#77777777" 
+        $ lun_outfit_default.group[3].color[0] ="#777777EE" 
+    $ hermione.equip(lun_outfit_default)
+    if missing_top:
+        $ hermione.strip("top")
+    if missing_bra:
+        $ hermione.strip("bra")
+    if missing_bottom:
+        $ hermione.strip("bottom")
+    if missing_panties:
+        $ hermione.strip("panties")
+
     $ hermione.equip(her_outfit_library)
 
     call her_walk(action="enter", xpos="mid", ypos="base")
@@ -162,93 +309,217 @@ label her_library_job_return:
 
     menu:
         "\"What exactly did you do today?\"":
-            if states.her.level < 13:
-                random:
-                    block:
-                        her "It was as normal a day of organizing books and assisting students as it could be." ("open", "base", "base", "mid")
-                        her "Although, considering that I'm supposed to be in class during the day, I guess it's not that normal." ("soft", "base", "base", "R")
-                        gen "Don't worry, [name_hermione_genie], you'll get your points." ("base", xpos="far_left", ypos="head")
-                        gen "Just think of how happy your friends will be when they win the house cup this year." ("base", xpos="far_left", ypos="head")
-                        her "I suppose..." ("open", "base", "base", "R")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                    block:
-                        her "It was fine, I suppose..." ("soft", "base", "base", "R")
-                        gen "Nothing else to tell me? What were you tasked to do today?" ("base", xpos="far_left", ypos="head")
-                        her "*Ehm*..." ("open", "narrow", "base", "down")
-                        her "Well, I was asked to reorganize the Potions section..." ("angry", "closed", "base", "mid")
-                        gen "Right..." ("base", xpos="far_left", ypos="head")
-                        her "They really should've warned me beforehand... How was I supposed to know Snape left ingredients scattered all over the place?" ("clench", "narrow", "base", "down")
-                        gen "Ten points to Gryffindor!" ("base", xpos="far_left", ypos="head")
-                        her "..." ("angry", "base", "base", "mid")
-                    block:
-                        her "Professor McGonagall had me review and catalog old books all day..." ("open", "narrow", "base", "mid")
-                        gen "Doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
-                        her "She insisted I check every single one for illegal notes or tampered pages..." ("disgust", "narrow", "base", "mid")
-                        her "When I asked why, she simply said it was important to keep the archive in order..." ("angry", "narrow", "base", "mid")
-                        her "As if there was a real system there to begin with... I bet she just wanted to keep certain spells hidden." ("open", "closed", "annoyed", "mid")
-                        her "..." ("upset", "narrow", "base", "mid")
-                        her "Can I have my points now?" ("angry", "narrow", "base", "mid")
-                        gen "Of course... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-            elif states.her.level < 22:
-                random:
-                    block:
-                        her "It was pretty uneventful." ("open", "base", "base", "R")
-                        her "I suppose I should feel more annoyed by the other students staring at me, but it doesn’t bother me that much." ("open", "base", "base", "R")
-                        gen "Good to hear." ("base", xpos="far_left", ypos="head")
-                        her "I am helping the school, after all..." ("base", "closed", "base", "mid")
-                        gen "That you are... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                    block:
-                        her "I had to dust all the library shelves today." ("open", "closed", "base", "mid")
-                        gen "That doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
-                        her "Well, I got yelled at by Madam Pince for no reason." ("upset", "squint", "base", "mid")
-                        her "She kept saying that other students needed to study and that I was distracting them." ("clench", "narrow", "base", "mid")
-                        her "Yet she didn’t tell me to stop cleaning..." ("annoyed", "narrow", "base", "mid")
-                        gen "Sounds like a job well done to me... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                        her "..." ("angry", "squint", "base", "mid")
-                    block:
-                        her "Pretty uneventful." ("open", "base", "base", "R")
-                        her "I spent most of my time in the restricted section, so there weren’t many people around." ("soft", "base", "base", "mid")
-                        her @ cheeks blush "Although, one of the portraits kept whispering at me..." ("open", "squint", "base", "R")
-                        gen "Was it an interesting portrait?" ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "..." ("normal", "squint", "base", "mid")
-                        her @ cheeks blush "As interesting as a haunted portrait can be, I suppose..." ("normal", "squint", "base", "mid")
-                        gen "Nicely done... Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-            else: #22+
-                random:
-                    block:
-                        her @ cheeks blush "It was fine... I helped manage the library records today..." ("open", "closed", "base", "mid")
-                        her @ cheeks blush "Madam Pince seemed to find it amusing to have me constantly climbing the ladder to reach books." ("angry", "narrow", "base", "R")
-                        gen "Well, I suppose that comes with the job." ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "That's what she said..." ("angry", "narrow", "base", "down")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                    block:
-                        her "Good, although I didn’t really get much work done today." ("open", "narrow", "base", "R")
-                        gen "Oh...{w=0.4} Why's that?" ("base", xpos="far_left", ypos="head")
-                        her "Well...{w=0.4} I was asked to assist the house elves in restoring old books, but every time I started doing something, one of them would do it for me." ("angry", "squint", "base", "mid")
-                        her "Constantly apologizing for not having done it yet and bowing to me..." ("open", "narrow", "base", "mid")
-                        gen "(Uh-oh...)" ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "It was kind of cute, to be honest." ("base", "squint", "base", "R")
-                        gen "Well then, I assume you still got paid?" ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "Oh...{w=0.4} Yes, [name_genie_hermione]..." ("angry", "base", "base", "mid")
-                        gen "Great! Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
-                    block:
-                        gen "Tell me what you've been doing." ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "I've been organizing Professor Tonks' archives..." ("open", "base", "base", "mid")
-                        her @ cheeks blush "The things she keeps in there..." ("angry", "narrow", "base", "down")
-                        her @ cheeks blush "I really hope no students get detention with her." ("open", "closed", "base", "mid")
-                        gen "Found anything interesting?" ("base", xpos="far_left", ypos="head")
-                        her @ cheeks blush "*Hmm*... Not sure if she'd like it if I told you..." ("angry", "narrow", "base", "R")
-                        gen "(As if I couldn't already guess...)" ("base", xpos="far_left", ypos="head")
-                        gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+            if her_end_day == "A Normal Day at the Library":
+                her "It was as normal a day of organizing books and assisting students as it could be." ("normal", "base", "base", "mid") # Expression of calm and normalcy
+                her "The scent of old parchment and leather filled the air, a familiar comfort." ("soft", "base", "base", "mid") # Adding sensory details
+                her "Although, considering that I'm supposed to be in class during the day, I guess it's not that normal." ("soft", "base", "base", "R") # Expression of mild self-awareness and reflection
+                her "Professor McGonagall's lectures on Transfiguration are quite engaging, but the quiet solitude of the library... it has its own allure." ("soft", "base", "base", "L") # Adding details about the reason for being in the library.
+                gen "Don't worry, [name_hermione_genie], you'll get your points." ("base", xpos="far_left", ypos="head")
+                gen "Just think of how happy your friends will be when they win the house cup this year." ("base", xpos="far_left", ypos="head")
+                her "I suppose..." ("open", "base", "base", "R") # Expression of reluctant agreement
+                her "It's just... I feel a responsibility to ensure everything is in order. The Dewey Decimal System, you know? It's a delicate balance." ("upset", "slit", "worried", "mid") # Adding details about Hermione's concern.
+                gen "And you do it so well. Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her "Oh, well, thank you." ("smile", "happy", "base", "mid_soft") # Expression of gratitude.
+                her "I was just helping a third-year find a book on Ancient Runes. He was quite lost, poor thing." ("soft", "base", "base", "mid") # Adding a small detail about the day.
+                her "And then, there was the incident with the self-sorting scrolls... a bit of a mess, really. They seem to have developed a mischievous streak." ("annoyed", "slit", "annoyed", "mid") # Adding a comical incident.
+                gen "Ah, the joys of magical artifacts." ("grin", xpos="far_left", ypos="head")
+                her "Indeed. And I also had to re-shelve a rather large collection of books on potion ingredients. Someone had left them scattered across a table." ("normal", "base", "base", "mid") # Adding more details about the tasks.
+                her "It was rather... therapeutic, in a way." ("soft", "happyCl", "base", "mid_soft") # Adding a touch of emotion.
+                gen "Therapeutic?" ("base", xpos="far_left", ypos="head")
+                her "Yes. The order, the organization... it brings a sense of calm." ("smile", "happy", "base", "mid_soft") # Explanation of the therapy.
+                gen "I understand." ("base", xpos="far_left", ypos="head")
+                her "And then, I found this fascinating passage in a book on magical creatures..." ("open", "wide", "base", "mid") # Adding a change of subject.
+                her "It described a creature that could change its form based on the surrounding environment. Imagine the possibilities!" ("shock", "wide", "worried", "shocked") # Adding emotion and curiosity.
+                gen "That does sound interesting." ("base", xpos="far_left", ypos="head")
+                her "It is! I'm going to have to research this further." ("smile", "happy", "base", "mid_soft") # Adding a desire for research.
+
+            elif her_end_day == "The Potions Chaos":
+                her "It was fine, I suppose..." ("soft", "base", "base", "R") # Expression of mild dissatisfaction
+                her "Though 'fine' might be a generous description." ("upset", "slit", "worried", "mid") # Adding a nuance of stronger dissatisfaction.
+                gen "Nothing else to tell me? What were you tasked to do today?" ("base", xpos="far_left", ypos="head")
+                her "*Ehm*..." ("open", "narrow", "base", "down") # Expression of hesitation and discomfort
+                her "Well, I was asked to reorganize the Potions section..." ("angry", "closed", "base", "mid") # Expression of frustration and annoyance
+                her "You know, the shelves where all the ingredients and concoctions are kept." ("normal", "base", "base", "mid") # Adding context.
+                gen "Right..." ("base", xpos="far_left", ypos="head")
+                her "They really should've warned me beforehand... How was I supposed to know Snape left ingredients scattered all over the place?" ("clench", "narrow", "base", "down") # Expression of exasperation
+                her "And not just any ingredients! Rare, volatile substances that could react unpredictably if mixed." ("shock", "wide", "worried", "shocked") # Adding a sense of danger.
+                her "There were powdered dragon claws next to vials of boomslang skin, and crushed bezoar mixed in with fluxweed." ("disgust", "squint", "angry", "squint") # Adding specific examples of the chaos.
+                her "It was a disaster waiting to happen!" ("scream", "wide", "angry", "shocked") # Emphasizing the severity.
+                gen "Ten points to Gryffindor!" ("grin", xpos="far_left", ypos="head")
+                her "..." ("angry", "base", "base", "mid") # Expression of lingering frustration
+                her "Ten points? For what? For surviving a potential explosion?" ("mad", "narrow", "angry", "stare") # Adding a sarcastic question.
+                her "I spent hours carefully sorting and labeling everything, trying to prevent some catastrophic alchemical reaction." ("upset", "slit", "worried", "mid") # Emphasizing the effort.
+                her "And then, to top it all off, I found a half-finished potion bubbling ominously under a pile of mandrake roots." ("shock", "wide", "worried", "shocked") # Adding a final, dramatic detail.
+                her "I had to neutralize it before it caused any... unforeseen consequences." ("normal", "base", "base", "mid") # Adding a touch of understatement.
+                gen "Well, you certainly seem to have had an eventful day." ("base", xpos="far_left", ypos="head")
+                her "Eventful is an understatement. It was a chaotic, stressful, and frankly, quite dangerous day." ("angry", "narrow", "angry", "stare") # Reinforcing the negative aspects.
+
+            elif her_end_day == "Secrets in the Archives":
+                her "Professor McGonagall had me review and catalog old books all day..." ("open", "narrow", "base", "mid") # Expression of mild annoyance
+                her "Not just any old books, mind you. Ancient, dusty tomes that smelled of mildew and forgotten magic." ("disgust", "squint", "angry", "squint") # Adding sensory and descriptive details.
+                gen "Doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
+                her "Doesn't it? She insisted I check every single one for illegal notes or tampered pages..." ("disgust", "narrow", "base", "mid") # Expression of disgust and frustration
+                her "Imagine, hundreds of books, each page meticulously examined, for hours on end." ("upset", "slit", "worried", "mid") # Adding a sense of scale and tediousness.
+                her "My eyes are still stinging from the dust, and my fingers are stained with ink from those ancient quills." ("annoyed", "slit", "annoyed", "mid") # Adding physical discomfort.
+                her "When I asked why, she simply said it was important to keep the archive in order..." ("angry", "narrow", "base", "mid") # Expression of irritation
+                her "As if there was a real system there to begin with... I bet she just wanted to keep certain spells hidden." ("open", "closed", "annoyed", "mid") # Expression of suspicion and annoyance
+                her "You know, the kind of spells they don't want students getting their hands on. Forbidden knowledge, tucked away in the deepest corners of the castle." ("shock", "wide", "worried", "shocked") # Adding a layer of intrigue and conspiracy.
+                her "There were books with faded symbols I couldn't even identify, and pages filled with cryptic notes in languages I'd never seen before." ("normal", "base", "base", "mid") # Adding mystery and complexity.
+                her "Some of the books were so old, the pages crumbled at the slightest touch. I had to handle them with the utmost care, like fragile relics of a forgotten era." ("worried", "slit", "worried", "mid") # Adding a sense of delicate handling.
+                her "And the spiders! Don't even get me started on the spiders. They seemed to have claimed the archives as their personal kingdom." ("scream", "wide", "angry", "shocked") # Adding a comical and unsettling detail.
+                her "I even found a book with a lock on it, secured with some kind of ancient magical seal. I tried a few unlocking charms, but nothing worked." ("clench", "narrow", "base", "down") # Adding a detail about an unopenable object.
+                her "It only made me more curious, of course. What secrets could it possibly hold?" ("open", "wide", "base", "mid") # Adding a sense of curiosity.
+                her "..." ("upset", "narrow", "base", "mid") # Expression of lingering frustration
+                her "Can I have my points now?" ("angry", "narrow", "base", "mid") # Expression of impatience
+                gen "Of course... Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her "Finally. It's not like I spent my entire day sifting through dusty tomes for fun." ("mad", "narrow", "angry", "stare") # Adding a sarcastic remark.
+                her "I could have been practicing spells, or researching new potion ingredients, or even just relaxing in the common room with my friends." ("upset", "slit", "worried", "mid") # Adding details about what she could have been doing.
+                her "But no, I was stuck in the archives, playing detective with ancient books and dodging arachnid overlords." ("annoyed", "slit", "annoyed", "mid") # Adding a final, exaggerated detail.
+
+            elif her_end_day == "Routine and Glances":
+                her "It was pretty uneventful." ("open", "base", "base", "R") # Expression of calm and normalcy
+                her "Just the usual rounds of the library, helping students with their research, and re-shelving misplaced books." ("normal", "base", "base", "mid") # Adding specific routine details.
+                her "The quiet hum of whispered conversations and the rustling of pages... it's almost comforting, in a way." ("soft", "happyCl", "base", "mid_soft") # Adding sensory and emotional details.
+                her "I suppose I should feel more annoyed by the other students staring at me, but it doesn’t bother me that much." ("open", "base", "base", "R") # Expression of mild indifference
+                her "They always seem to be whispering and pointing, especially the younger ones. I've become quite the spectacle, it seems." ("annoyed", "slit", "annoyed", "mid") # Adding details about the staring.
+                her "But I've learned to tune it out. It's just... background noise, really." ("normal", "base", "base", "mid") # Adding a sense of learned tolerance.
+                gen "Good to hear." ("base", xpos="far_left", ypos="head")
+                her "I am helping the school, after all..." ("base", "closed", "base", "mid") # Expression of pride and satisfaction
+                her "And ensuring the smooth functioning of the library is a vital task. Without organized knowledge, where would we be?" ("smile", "happy", "base", "mid_soft") # Adding a justification for her work.
+                her "I've even managed to create a new cross-referencing system for the Charms section. It's quite efficient, if I do say so myself." ("grin", "happy", "base", "mid_soft") # Adding a detail about her accomplishments.
+                her "Though, I did have to deal with a rather stubborn ghost who insisted on re-arranging the history section according to his own... chronological interpretation. It was quite a debate." ("annoyed", "slit", "annoyed", "mid") # Adding a comical detail.
+                her "And then there was the incident with the exploding inkwell... Apparently, someone was attempting a self-inking quill charm without proper supervision. It made quite a mess." ("shock", "wide", "worried", "shocked") # Adding a chaotic detail.
+                her "I spent a good half-hour cleaning ink stains off several valuable texts. It was quite frustrating, but I managed to salvage them all." ("upset", "slit", "worried", "mid") # Adding a detail of her efforts.
+                her "Overall, a typical day. A bit of order, a bit of chaos, and a lot of staring." ("normal", "base", "base", "mid") # Summarizing the day.
+                gen "That you are... Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her "Thank you. It's nice to have my efforts recognized." ("smile", "happy", "base", "mid_soft") # Adding an expression of gratitude.
+                her "Though, perhaps next time, I'll ask for a bit more help with the re-shelving. Some of those tomes are quite heavy." ("soft", "base", "base", "mid") # Adding a final, practical detail.
+
+            elif her_end_day == "Madam Pince's Wrath":
+                her "I had to dust all the library shelves today." ("open", "closed", "base", "mid") # Expression of mild annoyance
+                her "Every single shelf, from the tallest to the lowest, spanning every section of the library. It was a monumental task." ("normal", "base", "base", "mid") # Adding scale and detail.
+                gen "That doesn't sound too bad..." ("base", xpos="far_left", ypos="head")
+                her "Doesn't it? Well, I got yelled at by Madam Pince for no reason." ("upset", "squint", "base", "mid") # Expression of frustration
+                her "And not just a polite reprimand, mind you. A full-blown tirade, complete with finger-pointing and dramatic sighs." ("angry", "narrow", "angry", "stare") # Adding details about the intensity.
+                her "She kept saying that other students needed to study and that I was distracting them." ("clench", "narrow", "base", "mid") # Expression of exasperation
+                her "Apparently, the gentle swishing of my feather duster was too disruptive for their delicate concentration." ("annoyed", "slit", "annoyed", "mid") # Adding a sarcastic detail.
+                her "She claimed my presence was 'agitating the scholarly atmosphere' and that I was 'creating a whirlwind of unnecessary activity.'" ("mad", "narrow", "angry", "stare") # Adding direct quotes to emphasize the absurdity.
+                her "Yet she didn’t tell me to stop cleaning..." ("annoyed", "narrow", "base", "mid") # Expression of irritation
+                her "She just stood there, glaring at me, muttering about 'unnecessary commotion' and 'lack of respect for the sanctity of books.'" ("disgust", "squint", "angry", "squint") # Adding more details of Madam Pince's behavior.
+                her "And the dust! It was everywhere. It got in my eyes, my hair, even my robes. I was sneezing for hours afterward." ("upset", "slit", "worried", "mid") # Adding details about the physical discomfort.
+                her "I swear, some of those books haven't been touched in decades. There were cobwebs thicker than my arm, and layers of dust that could have been mistaken for ancient parchment." ("shock", "wide", "worried", "shocked") # Adding a vivid description of the dust.
+                her "I even found a few forgotten artifacts hidden amongst the shelves: a chipped teacup, a faded photograph, and a rather peculiar-looking quill that seemed to be made of dragon bone." ("normal", "base", "base", "mid") # Adding details of discoveries.
+                her "But of course, I didn't have time to examine them properly. Madam Pince was watching me like a hawk, ready to pounce at the slightest sign of distraction." ("worried", "slit", "worried", "mid") # Adding a detail about Madam Pince's vigilance.
+                gen "Sounds like a job well done to me... Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her "..." ("angry", "squint", "base", "mid") # Expression of lingering frustration
+                her "Ten points? For enduring a lecture and sneezing my way through the library? I think I deserve more than that." ("mad", "narrow", "angry", "stare") # Adding a sarcastic remark.
+                her "I could have been studying, or practicing spells, or even just enjoying a moment of peace and quiet. But no, I was stuck cleaning and being scolded." ("upset", "slit", "worried", "mid") # Adding details about what she could have been doing.
+                her "It was a truly... enlightening experience." ("annoyed", "slit", "annoyed", "mid") # Adding a sarcastic conclusion.
+
+            elif her_end_day == "Whispers in the Restricted Section":
+                her "Pretty uneventful." ("open", "base", "base", "R") # Expression of calm and normalcy
+                her "Just the usual quiet solitude of the Restricted Section. The air was thick with the scent of aged parchment and hidden secrets." ("soft", "base", "base", "mid") # Expression of mild reflection, adding sensory details.
+                her "I spent most of my time cataloging some newly acquired texts, ancient treatises on obscure magical theories." ("normal", "base", "base", "mid") # Adding specific details about her activities.
+                her "It's always fascinating to delve into the depths of forgotten knowledge. Though, it can be quite taxing on the eyes after a while." ("soft", "happyCl", "base", "mid_soft") # Adding a touch of enthusiasm and a detail about physical exertion.
+                her @ cheeks blush "Although, one of the portraits kept whispering at me..." ("open", "squint", "base", "R") # Expression of mild discomfort, indicating a blush.
+                her "A rather flamboyant portrait of a wizard with an exceptionally large mustache. He seemed to have a penchant for gossip." ("annoyed", "slit", "annoyed", "mid") # Adding details about the portrait.
+                gen "Was it an interesting portrait?" ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "..." ("normal", "squint", "base", "mid") # Expression of hesitation, indicating a blush.
+                her @ cheeks blush "As interesting as a haunted portrait can be, I suppose..." ("normal", "squint", "base", "mid") # Expression of mild annoyance, indicating a blush.
+                her "He kept making... rather personal comments. About my hair, my robes, even my posture. It was quite distracting." ("upset", "slit", "worried", "mid") # Adding details about the portrait's behavior.
+                her "And then, there were the whispers. Not just from the portrait, but from the books themselves. Faint, ethereal whispers that seemed to emanate from the pages." ("shock", "wide", "worried", "shocked") # Adding a detail about unsettling whispers.
+                her "I'm certain it was just my imagination, or perhaps the lingering magic of the texts. But it was still rather unsettling." ("worried", "slit", "worried", "mid") # Adding a detail about her rationalization.
+                her "I also had to deal with a rather persistent dust mote that seemed determined to land directly on the most delicate pages. It was a constant battle." ("annoyed", "slit", "annoyed", "mid") # Adding a detail about a minor annoyance.
+                her "And then, I found a hidden compartment in one of the books, containing a small, intricately carved wooden box. I haven't had a chance to examine it yet, but it looked quite old." ("normal", "base", "base", "mid") # Adding a detail about a discovery.
+                her "Overall, a quiet day, but with a few... peculiar occurrences." ("soft", "base", "base", "mid") # Summarizing the day.
+                gen "Nicely done... Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her "Thank you. Though, I must admit, I'm rather curious about that wooden box. Perhaps I'll have time to investigate it tomorrow." ("smile", "happy", "base", "mid_soft") # Adding a detail about her curiosity.
+
+            elif her_end_day == "The Library Climb":
+                her @ cheeks blush "It was fine... I helped manage the library records today..." ("open", "closed", "base", "mid") # Expression of mild embarrassment, indicating a blush.
+                her @ cheeks blush "Specifically, updating the inventory of newly acquired texts and cross-referencing them with existing records." ("normal", "base", "base", "mid") # Adding specific details about her tasks.
+                her @ cheeks blush "It involved a lot of meticulous note-taking and careful handwriting, which, I must admit, is quite satisfying." ("soft", "happyCl", "base", "mid_soft") # Adding a touch of positive emotion and detail.
+                her @ cheeks blush "Madam Pince seemed to find it amusing to have me constantly climbing the ladder to reach books." ("angry", "narrow", "base", "R") # Expression of irritation, indicating a blush.
+                her @ cheeks blush "She kept assigning me books from the highest shelves, the ones that required the tallest ladder and the most precarious balancing act." ("annoyed", "slit", "annoyed", "mid") # Adding details about the ladder and the books.
+                her @ cheeks blush "I swear, some of those shelves were so high, I felt like I was scaling a mountain. And the ladders! They wobbled with every step, threatening to send me tumbling down." ("shock", "wide", "worried", "shocked") # Adding a detail about the precariousness of the situation.
+                her @ cheeks blush "And then, there were the whispers. 'Look at her go, climbing like a little monkey,' I heard one student say. It was quite rude." ("upset", "slit", "worried", "mid") # Adding a detail about students' reactions.
+                gen "Well, I suppose that comes with the job." ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "That's what she said..." ("angry", "narrow", "base", "down") # Expression of lingering frustration, indicating a blush.
+                her @ cheeks blush "She even made a comment about my 'agility' and 'determination,' which, while technically complimentary, felt rather... condescending." ("disgust", "squint", "angry", "squint") # Adding a detail about Madam Pince's comments.
+                her @ cheeks blush "And the dust! It was even worse up there. I felt like I was inhaling centuries of accumulated book particles. I'll probably be sneezing for days." ("annoyed", "slit", "annoyed", "mid") # Adding a detail about the dust.
+                her @ cheeks blush "I did find a rather interesting book on ancient constellation charts while I was up there. It had some fascinating diagrams and celestial maps." ("normal", "base", "base", "mid") # Adding a detail about a discovery.
+                her @ cheeks blush "But I didn't have time to examine it properly. Madam Pince kept reminding me that I had 'records to update' and 'shelves to reach.'" ("worried", "slit", "worried", "mid") # Adding a detail about being rushed.
+                her @ cheeks blush "Overall, a rather... elevated experience. Quite literally." ("soft", "base", "base", "mid") # Adding a concluding remark.
+                gen "Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+
+            elif her_end_day == "The Elves' Kindness":
+                her "Good, although I didn’t really get much work done today." ("open", "narrow", "base", "R") # Expression of mild frustration
+                her "I was supposed to be assisting with the restoration of some particularly delicate and aged tomes, you know, the ones with crumbling spines and faded ink." ("normal", "base", "base", "mid") # Adding specific details about the books.
+                gen "Oh...{w=0.4} Why's that?" ("base", xpos="far_left", ypos="head")
+                her "Well...{w=0.4} I was asked to assist the house elves in restoring old books, but every time I started doing something, one of them would do it for me." ("angry", "squint", "base", "mid") # Expression of exasperation
+                her "I'd pick up a delicate page to carefully clean it, and poof! It would be sparkling clean before I even had a chance to touch it." ("annoyed", "slit", "annoyed", "mid") # Adding a specific example of the elves' actions.
+                her "Or I'd try to mend a torn spine, and suddenly, the book would be perfectly rebound, with not a single tear in sight." ("shock", "wide", "worried", "shocked") # Adding another example.
+                her "Constantly apologizing for not having done it yet and bowing to me..." ("open", "narrow", "base", "mid") # Expression of mild discomfort
+                her "They were so eager to help, so incredibly polite. It was almost... overwhelming." ("upset", "slit", "worried", "mid") # Adding details about the elves' behavior.
+                gen "(Uh-oh...)" ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "It was kind of cute, to be honest." ("base", "squint", "base", "R") # Expression of mild amusement, indicating a blush.
+                her @ cheeks blush "Their little faces, so earnest and determined. And their tiny hands, so quick and efficient." ("soft", "happyCl", "base", "mid_soft") # Adding details about the elves' appearance.
+                her @ cheeks blush "They kept offering me tea and biscuits, and insisting I take a break. It was quite... charming." ("smile", "happy", "base", "mid_soft") # Adding details about their hospitality.
+                gen "Well then, I assume you still got paid?" ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "Oh...{w=0.4} Yes, [name_genie_hermione]..." ("angry", "base", "base", "mid") # Expression of mild embarrassment, indicating a blush.
+                her @ cheeks blush "I did try to explain that I wanted to learn the restoration techniques, but they just kept insisting that it was 'too much work for a clever witch like me.'" ("annoyed", "slit", "annoyed", "mid") # Adding a detail about her attempt to work.
+                her @ cheeks blush "I ended up spending most of the day observing them, trying to memorize their methods. Which, I suppose, is still productive in a way." ("normal", "base", "base", "mid") # Adding a detail about her observation.
+                her @ cheeks blush "And I did manage to learn a few new spells for preserving delicate materials. So it wasn't a completely wasted day." ("grin", "happy", "base", "mid_soft") # Adding a detail about her learning.
+                gen "Great! Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+
+            else:
+                # "Tonks' Secrets"
+                gen "Tell me what you've been doing." ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "I've been organizing Professor Tonks' archives..." ("open", "base", "base", "mid") # Expression of mild embarrassment, indicating a blush.
+                her @ cheeks blush "It was quite a task, let me tell you. Her organizational system is... unique." ("normal", "base", "base", "mid") # Adding details about the task.
+                her @ cheeks blush "There were stacks of documents piled high, ranging from ancient magical treaties to... well, let's just say 'unusual' artifacts." ("shock", "wide", "worried", "shocked") # Adding details about the contents.
+                her @ cheeks blush "The things she keeps in there..." ("angry", "narrow", "base", "down") # Expression of shock and discomfort, indicating a blush.
+                her @ cheeks blush "I found a collection of enchanted rubber ducks, a jar filled with shimmering beetle wings, and a rather alarming number of self-folding laundry baskets." ("disgust", "squint", "angry", "squint") # Adding specific, bizarre examples.
+                her @ cheeks blush "And then there were the files... detailed reports on various magical creatures, some of which I'd never even heard of. And diagrams of... experimental potion ingredients." ("worried", "slit", "worried", "mid") # Adding more examples, hinting at danger.
+                her @ cheeks blush "I really hope no students get detention with her." ("open", "closed", "base", "mid") # Expression of concern, indicating a blush.
+                her @ cheeks blush "The thought of someone having to sort through all that... it's quite daunting." ("upset", "slit", "worried", "mid") # Adding details about the potential consequences.
+                gen "Found anything interesting?" ("base", xpos="far_left", ypos="head")
+                her @ cheeks blush "*Hmm*... Not sure if she'd like it if I told you..." ("angry", "narrow", "base", "R") # Expression of hesitation and discomfort, indicating a blush.
+                her @ cheeks blush "There was a rather curious-looking device, a sort of mechanical contraption with spinning gears and flashing lights. I couldn't quite figure out what it did." ("normal", "base", "base", "mid") # Adding details about a mysterious object.
+                her @ cheeks blush "And a series of handwritten notes, filled with cryptic symbols and references to... well, let's just say 'sensitive' information." ("annoyed", "slit", "annoyed", "mid") # Adding more mystery.
+                her @ cheeks blush "It was all very... intriguing, but also slightly unsettling." ("soft", "base", "base", "mid") # Adding a touch of emotional complexity.
+                gen "(As if I couldn't already guess...)" ("base", xpos="far_left", ypos="head")
+                gen "Ten points to Gryffindor." ("grin", xpos="far_left", ypos="head")
+                her @ cheeks blush "Thank you. I'm just glad I managed to bring some semblance of order to the chaos. Though, I suspect it won't last long." ("smile", "happy", "base", "mid_soft") # Adding a concluding remark.
+                her @ cheeks blush "Professor Tonks seems to have a talent for creating... organized disarray." ("annoyed", "slit", "annoyed", "mid") # adding a final small detail.
 
         "-Dismiss her-":
-            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")
-            gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")
+            gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head")  # Expression of calm and finality
+            gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head")  # Expression of authority and reward
     
-    gen "Good job, Hermione. You earned your points." ("base", xpos="far_left", ypos="head")
-    her "Thank you, [name_genie_hermione]." ("open", "base", "base", "mid")
-    her "Here's the payment." ("open", "base", "base", "mid")
-    nar "You receive {number=payment} gold coins."
+    gen "Good job, Hermione. You earned your points." ("base", xpos="far_left", ypos="head")  # Expression of approval and satisfaction
+    her "Thank you, [name_genie_hermione]." ("open", "base", "base", "mid")  # Expression of gratitude and politeness
+    her "Here's the payment." ("upset", "base", "base", "mid")  # Expression of calm and professionalism
+    nar "You receive {number=payment} gold coins."  # Narrative text for clarity
+
+        # "-Dismiss her-":
+        #     gen "Great, then that will be all for now." ("base", xpos="far_left", ypos="head") # Expression of calm and finality
+        #     gen "Your report was thorough, and I appreciate your dedication to your tasks." ("smile", xpos="far_left", ypos="head") # Adding a compliment.
+        #     gen "Ten points to Gryffindor." ("base", xpos="far_left", ypos="head") # Expression of authority and reward
+        #     gen "You may return to your studies or any other duties you have." ("normal", xpos="far_left", ypos="head") # Adding a polite directive.'
+
+#     gen "Good job, Hermione. You earned your points." ("base", xpos="far_left", ypos="head") # Expression of approval and satisfaction
+#     gen "Your efforts in maintaining order and assisting with various tasks around Hogwarts are commendable." ("grin", xpos="far_left", ypos="head") # Adding a more detailed compliment.
+#     her "Thank you, [name_genie_hermione]." ("open", "base", "base", "mid") # Expression of gratitude and politeness
+#     her "I always strive to do my best." ("smile", "happy", "base", "mid_soft") # Adding a detail about her motivation.
+#     her "Here's the payment." ("upset", "base", "base", "mid") # Expression of calm and professionalism
+#     her "As agreed, for the completion of your assigned duties." ("normal", "base", "base", "mid") # Adding context.
+#     nar "You receive {number=payment} gold coins." # Narrative text for clarity
+#     nar "The coins shimmer in your hand, a tangible reward for Hermione's diligent work. They are cool to the touch and reflect the ambient light with a soft, golden glow." #Adding sensorial details.
+#     gen "Thank you, Hermione. Please let me know if you encounter any further... interesting occurrences during your tasks." ("base", xpos="far_left", ypos="head") # Adding a subtle hint of curiosity.
+#     her "Of course, [name_genie_hermione]. I will keep you informed." ("normal", "base", "base", "mid") # Adding a response.
+#     her "Have a pleasant day." ("smile", "happy", "base", "mid_soft") # Adding a polite farewell.
+#     nar "Hermione gives a small, polite nod, and then turns to leave, her robes swishing softly as she walks. The faint scent of old parchment and vanilla lingers in the air after she departs." # Adding a descriptive exit.
 
     $ gryffindor+= 10
     $ game.gold += payment

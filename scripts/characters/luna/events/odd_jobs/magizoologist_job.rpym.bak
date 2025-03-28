@@ -1150,17 +1150,16 @@ label lun_magizoologist_job_return:
                     # Input data
                     $ lun_end_day = "Luna and the Lake: A Tale of Losses and Gains"
                     $ is_wet = False
-                    $ missing_top = True
-                    $ missing_bra = True
-                    $ missing_bottom = True
-                    $ missing_panties = True 
+                    $ missing_top = False
+                    $ missing_bra = False
+                    $ missing_bottom = False
+                    $ missing_panties = False 
                     $ change_pose = True
         if is_wet:
             $ lun_outfit_default.group[0].color[1] ="#777777DD" 
             $ lun_outfit_default.group[1].color[1] ="#777777AA" 
             $ lun_outfit_default.group[2].color[0] ="#77777777" 
             $ lun_outfit_default.group[3].color[0] ="#777777EE" 
-
         $ luna.equip(lun_outfit_default)
         if missing_top:
             $ luna.strip("top")
@@ -1170,18 +1169,14 @@ label lun_magizoologist_job_return:
             $ luna.strip("bottom")
         if missing_panties:
             $ luna.strip("panties")
-        if change_pose:
-            $ luna.set_pose("hand_on_pussy_and_breast")
-            
+            call lun_walk(action="enter", xpos="mid", ypos="base")
         $ luna.equip(lun_outfit_bikini3)
-        
         call lun_walk(action="enter", xpos="mid", ypos="base")
-
         gen "[name_luna_genie]... How was your day working in the Black Lake?" ("base", xpos="far_left", ypos="head")
         lun "*Well*, it was as uneventful as it gets..." ("base", "base", "base", "mid", xpos="right", ypos="base")
         menu:
             "\"What exactly did you do today?\"":
-                if lun_end_day =="The Black Lake’s Wardrobe Malfunction":
+                if lun_end_day =="The Black Lake’s Wardrobe Malfunction"
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
                     gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
@@ -1213,7 +1208,7 @@ label lun_magizoologist_job_return:
                     lun "...I regret all of my choices today." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
                     gen "Here’s a suggestion: Next time, bring a robe." ("base", xpos="far_left", ypos="head")
                     lun "Noted." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                elif lun_end_day =="The Squid’s Bikini Heist":
+                elif lun_end_day =="The Squid’s Bikini Heist"
                     # *Luna enters the headmaster's office, drenched from head to toe, her tiny bikini barely holding on after a long, exhausting day.*
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     lun "And I have never felt so *violated* in my entire life." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
@@ -1256,7 +1251,7 @@ label lun_magizoologist_job_return:
                     # *A moment of silence. The Genie sips his tea.*
                     gen "I should start charging admission for this." ("base", xpos="far_left", ypos="head")
                     lun "..." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
-                elif lun_end_day =="Lakeweed and Laughter":
+                elif lun_end_day =="Lakeweed and Laughter"
                     # *Luna enters the headmaster’s office, completely soaked, her face red with embarrassment. She’s clutching a bundle of wet lakeweed against her chest like a makeshift top.*
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     lun "And in return, I was *assaulted* by an overgrown seafood platter!" ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
@@ -1299,7 +1294,7 @@ label lun_magizoologist_job_return:
                     # *The Genie slowly peels the pouch off his face, sighing.*
                     gen "I should start a betting pool on how much clothing she loses per job." ("base", xpos="far_left", ypos="head")
 
-                elif lun_end_day =="The Whirlpool Heist":
+                elif lun_end_day =="The Whirlpool Heist"
                     $ luna.strip("bra")
                     # *The door swings open, and Luna stumbles in, dripping wet and breathing heavily. She clutches a bundle of soaked fabric against her chest, her expression caught between exhaustion and disbelief.*
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
@@ -1345,7 +1340,7 @@ label lun_magizoologist_job_return:
                     # *With that, she storms out, leaving a trail of lake water behind.*
                     lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
 
-                elif lun_end_day =="The Overeager Fishermen":                  
+                elif lun_end_day =="The Overeager Fishermen"                  
                     # *The door creaks open, and Luna steps inside, her hair dripping wet, her arms crossed tightly over her chest, and her expression caught between irritation and disbelief.*
                     gen "Ah, my favorite lake cleaner returns. Judging by your look, I assume everything went smoothly?" ("base", xpos="far_left", ypos="head")
                     lun "Oh, absolutely. The Black Lake is pristine. Not because of me, mind you, but because an entire group of *pescadores bruxos* decided to take over the job." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
@@ -1386,14 +1381,14 @@ label lun_magizoologist_job_return:
                     # *Luna groans, turns on her heel, and stomps toward the door, muttering under her breath.*
                     lun "Next time, I’m charging *extra* for emotional damage." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
                     lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                elif lun_end_day =="Laughter and Shame at the Lake":
+                elif lun_end_day =="Laughter and Shame at the Lake"
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     lun "I’ve never felt more exposed. The mermaids won’t stop laughing." ("angry", "base", "angry", "mid") # Angry, expressing strong negative emotion.
                     gen "I told you, it's the right attire for the job." ("base", xpos="far_left", ypos="head")
                     lun "I don’t care if it’s appropriate! It’s embarrassing!" ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
                     gen "Alright, alright. Let’s just get the payment and you can go change." ("base", xpos="far_left", ypos="head")
                     lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                elif lun_end_day =="Luna's Aquatic Adventures: The Lake That Shows No Mercy":
+                elif lun_end_day =="Luna's Aquatic Adventures: The Lake That Shows No Mercy"
                     # *The door bursts open as Luna rushes in, out of breath, soaking wet, and clutching a large piece of kelp against her body.*
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     gen "And it looks like it tried to clean you back." ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
@@ -1429,7 +1424,7 @@ label lun_magizoologist_job_return:
                     lun "Well… I guess I need a new bikini." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     gen "Maybe something *tentacle-proof* this time?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
                     lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                elif lun_end_day =="The Cursed Bikini and the Friendly Squid":
+                elif lun_end_day =="The Cursed Bikini and the Friendly Squid"
                     # *The door creaks open as Luna steps in, completely drenched, her hair tangled with bits of lakeweed, and her arms *very strategically* crossed over her chest.*
                     lun "I cleaned the Black Lake..." ("base", "narrow", "base", "mid") # Thoughtful, expressing mild concern.
                     gen "And judging by your posture… something tells me you lost more than just dirt in the process." ("base", xpos="far_left", ypos="head")
@@ -1466,7 +1461,7 @@ label lun_magizoologist_job_return:
                     gen "Next time, maybe bring an anchor?" ("grin", xpos="far_left", ypos="head") # Playful, expressing lightheartedness.
                     lun "Next time, I’m bringing *revenge*." ("angry", "closed", "base", "mid") # Angry, expressing strong negative emotion.
                     lun "Here’s the payment. I’m glad that’s over." ("base", "base", "base", "mid") # Neutral, expressing relief.
-                elif lun_end_day =="Luna and the Lake: A Tale of Losses and Gains":
+                elif lun_end_day =="Luna and the Lake: A Tale of Losses and Gains"
                     # $ luna.strip("bra")
                     # $ luna.strip("panties")
                     $ luna.set_pose("hand_on_pussy_and_breast")
